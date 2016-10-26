@@ -1,0 +1,105 @@
+{
+   "routes":[
+      {
+         "type":"public_transport",
+         "provider":"vbb",
+         "segments":[
+            {
+               "name":null,
+               "num_stops":0,
+               "stops":[
+                  {
+                     "lat":52.530227,
+                     "lng":13.403356,
+                     "datetime":"2015-04-17T13:30:00+02:00",
+                     "name":null,
+                     "properties":null
+                  },
+                  {
+                     "lat":52.528187,
+                     "lng":13.410404,
+                     "datetime":"2015-04-17T13:38:00+02:00",
+                     "name":"U Rosa-Luxemburg-Platz",
+                     "properties":null
+                  }
+               ],
+               "travel_mode":"walking",
+               "description":null,
+               "color":"#b1becc",
+               "icon_url":"https://d3m2tfu2xpiope.cloudfront.net/vehicles/walking.svg",
+               "polyline":"uvr_I{yxpABuAFcAp@yHvAwNr@iGPwAh@a@jAg@"
+            },
+            {
+               "name":"U2",
+               "num_stops":8,
+               "stops":[
+                  {
+                     "lat":52.528187,
+                     "lng":13.410404,
+                     "datetime":"2015-04-17T13:38:00+02:00",
+                     "name":"U Rosa-Luxemburg-Platz",
+                     "properties":null
+                  },
+                  {
+                     "lat":52.511521,
+                     "lng":13.383796,
+                     "datetime":"2015-04-17T13:50:00+02:00",
+                     "name":"U Mohrenstr.",
+                     "properties":null
+                  },
+                  {
+                     "lat":52.509067,
+                     "lng":13.37798,
+                     "datetime":"2015-04-17T13:51:00+02:00",
+                     "name":"S+U Potsdamer Platz",
+                     "properties":null
+                  }
+               ],
+               "travel_mode":"subway",
+               "description":"S+U Potsdamer Platz",
+               "color":"#d64820",
+               "icon_url":"https://d3m2tfu2xpiope.cloudfront.net/vehicles/subway.svg",
+               "polyline":"elr_I_fzpAfe@_Sf]dFr_@~UjCbg@yKvj@lFfb@`C|c@hNjc@"
+            }
+         ],
+         "properties":null,
+         "price":{
+            "currency":"EUR",
+            "amount":270
+         }
+      },
+      {
+         "type":"private_bike",
+         "provider":"google",
+         "segments":[
+            {
+               "name":"Cycling",
+               "num_stops":0,
+               "stops":[
+                  {
+                     "lat":52.5302356,
+                     "lng":13.4033659,
+                     "datetime":"2015-04-17T12:29:00+01:00",
+                     "name":"Torstraße 103, 10119 Berlin, Deutschland",
+                     "properties":null
+                  },
+                  {
+                     "lat":52.509071,
+                     "lng":13.377977,
+                     "datetime":"2015-04-17T12:46:00+01:00",
+                     "name":"Leipziger Platz 7, 10117 Berlin, Deutschland",
+                     "properties":null
+                  }
+               ],
+               "travel_mode":"cycling",
+               "description":null,
+               "color":"#b1becc",
+               "icon_url":"https://d3m2tfu2xpiope.cloudfront.net/vehicles/cycling.svg",
+               "polyline":"uvr_I{yxpA?d@?X@V@z@FdD@`@@T@P@F@L@N??\\W~BgBRYtByATQRO^[r@a@j@e@VQPMNGLGDCt@WjB]LCNEJANAL?J@H@J@HDNDLFrAh@NDb@TNHlAn@\\PNNNNdAhA??BKJ[FMLa@??DHTZFDBBPTDH~AhDDJxAfDH^??LKLEJGFAB?DAN@T@H?FADAFAfAUHELGTMTQBC@C@E??^YlB_Bj@k@zC_DPS??Rt@DLt@pCn@hCrA|EHXFXJj@Dj@?@Dx@?DBr@D`A?HDt@VfI@FJ|EPxH@N?V?NANALAHBxAN~JPdI@n@?H@L?H@f@RvFRjHFnCBbADzA@r@j@hS??PrF??PzFHRBF@D@F@F?HLpE@`@??JAJCDAHEFG?ALQJUJg@HQJMJKHAFAJ?X?bCRH@R?R@`@DlAN~Cb@H@H?tABTAn@?`@HbGv@XDtAPH@H@??J@F@LAv@AL?^G??AOCWAM?IAUAe@AQCY??r@GBABCf@mA"
+            }
+         ],
+         "properties":null,
+         "price":null
+      }
+   ]
+}

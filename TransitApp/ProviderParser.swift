@@ -6,13 +6,16 @@ class ProviderParser {
         return providerStructs(json: json)
             .map(structToProvider)
     }
+}
 
-    private struct ProviderStruct {
+fileprivate extension ProviderParser {
+
+   struct ProviderStruct {
         let name: String
         let details: Details
     }
 
-    private struct Details {
+    struct Details {
         let iconURL: String
         let disclaimer: String
         let iOSiTunesURL: String?
@@ -21,7 +24,7 @@ class ProviderParser {
         let displayName: String?
     }
 
-    private func structToProvider(_ provider: ProviderStruct) -> Provider {
+    func structToProvider(_ provider: ProviderStruct) -> Provider {
         let details = provider.details
         return Provider(name: provider.name,
                         iconURL: details.iconURL,
@@ -32,18 +35,18 @@ class ProviderParser {
                         displayName: details.displayName)
     }
 
-    private func providerStructs(json: JSON) -> [ProviderStruct] {
+    func providerStructs(json: JSON) -> [ProviderStruct] {
         guard let providers = json["provider_attributes"].dictionary else { return [] }
         return providers.map(providerDictionarytoStruct)
             .filterNil()
     }
 
-    private func providerDictionarytoStruct(name: String, attributes: JSON) -> ProviderStruct? {
+    func providerDictionarytoStruct(name: String, attributes: JSON) -> ProviderStruct? {
         guard let details = details(json: attributes) else { return nil }
         return ProviderStruct(name: name, details: details)
     }
     
-    private func details(json: JSON) -> Details? {
+    func details(json: JSON) -> Details? {
         guard let details = json.dictionary else { return nil }
         return Details(iconURL: details["provider_icon_url"]!.string!,
                        disclaimer: details["disclaimer"]!.string!,
