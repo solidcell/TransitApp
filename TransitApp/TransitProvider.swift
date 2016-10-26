@@ -8,9 +8,11 @@ class TransitProvider: Object {
     dynamic var iOSappURL: String?
     dynamic var androidPackageName: String?
     dynamic var displayName: String?
+
+    override class func primaryKey() -> String? { return "name" }
 }
 
-// creation
+// MARK: Creation
 extension TransitProvider {
     convenience init(name: String,
                      iconURL: String,
@@ -28,4 +30,21 @@ extension TransitProvider {
         self.androidPackageName = androidPackageName
         self.displayName = displayName
     }
+}
+
+// MARK: Queries
+extension Realm {
+    
+    var transitProviders: Results<TransitProvider> {
+        return objects(TransitProvider.self)
+    }
+    
+}
+
+extension Results where Element: TransitProvider {
+
+    func with(name: String) -> Element? {
+        return filter("name = %@", name).first
+    }
+    
 }
