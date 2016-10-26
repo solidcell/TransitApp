@@ -1,6 +1,13 @@
 import SwiftyJSON
+import RealmSwift
 
 class RouteParser {
+
+    let realm: Realm
+
+    init(realm: Realm) {
+        self.realm = realm
+    }
     
     func parse(json: JSON) -> [Route] {
         return routeStructs(json: json)
@@ -12,6 +19,7 @@ class RouteParser {
 fileprivate extension RouteParser {
 
     struct RouteStruct {
+        let provider: Provider
         let type: String
     }
 
@@ -23,11 +31,15 @@ fileprivate extension RouteParser {
 
     func structForJSON(json: JSON) -> RouteStruct {
         let type = json["type"].string!
-        return RouteStruct(type: type)
+        let providerName = json["provider"].string!
+        let provider = realm.objects(Provider.self).filter("name = %@", providerName).first!
+        return RouteStruct(provider: provider,
+                           type: type)
     }
 
     func structToRoute(route: RouteStruct) -> Route {
-        return Route(type: route.type)
+        return Route(provider: route.provider,
+                     type: route.type)
     }
     
 }

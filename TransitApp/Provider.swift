@@ -15,10 +15,10 @@ extension Provider {
     convenience init(name: String,
                      iconURL: String,
                   disclaimer: String,
-                  iOSiTunesURL: String?,
-                  iOSappURL: String?,
-                  androidPackageName: String?,
-                  displayName: String?) {
+                  iOSiTunesURL: String? = nil,
+                  iOSappURL: String? = nil,
+                  androidPackageName: String? = nil,
+                  displayName: String? = nil) {
         self.init()
         self.name = name
         self.iconURL = iconURL
