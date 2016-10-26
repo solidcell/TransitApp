@@ -3,14 +3,17 @@ import RealmSwift
 class Route: Object {
     dynamic var provider: TransitProvider!
     dynamic var type = ""
+    let segments = List<Segment>()
 }
 
-// creation
+// MARK: Creation
 extension Route {
     convenience init(provider: TransitProvider,
-                     type: String) {
+                     type: String,
+                     segments: [Segment]) {
         self.init()
         self.provider = provider
         self.type = type
+        self.segments.append(objectsIn: segments)
     }
 }

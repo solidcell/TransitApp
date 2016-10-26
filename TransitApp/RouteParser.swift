@@ -3,7 +3,8 @@ import RealmSwift
 
 class RouteParser {
 
-    let realm: Realm
+    fileprivate let realm: Realm
+    fileprivate let segmentParser = SegmentParser()
 
     init(realm: Realm) {
         self.realm = realm
@@ -21,6 +22,7 @@ fileprivate extension RouteParser {
     struct RouteStruct {
         let provider: TransitProvider
         let type: String
+        let segments: [Segment]
     }
 
     func routeStructs(json: JSON) -> [RouteStruct] {
@@ -33,13 +35,22 @@ fileprivate extension RouteParser {
         let type = json["type"].string!
         let providerName = json["provider"].string!
         let provider = realm.transitProviders.with(name: providerName)!
+        let segments = parseSegments(json: json)
         return RouteStruct(provider: provider,
-                           type: type)
+                           type: type,
+                           segments: segments)
+    }
+
+    func parseSegments(json: JSON) -> [Segment] {
+        guard let segmentDictonaries = json["segments"].array else { return [] }
+        return segmentDictonaries
+            .map(segmentParser.parse)
     }
 
     func structToRoute(route: RouteStruct) -> Route {
         return Route(provider: route.provider,
-                     type: route.type)
+                     type: route.type,
+                     segments: route.segments)
     }
     
 }

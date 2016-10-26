@@ -25,6 +25,8 @@
 		8827E14C1DC0F17700E06654 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E14B1DC0F17700E06654 /* Route.swift */; };
 		8827E14D1DC0F23600E06654 /* TestRouteJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E1491DC0EEF300E06654 /* TestRouteJSON.json */; };
 		8827E14F1DC0FD1500E06654 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E14E1DC0FD1500E06654 /* main.swift */; };
+		8827E1511DC1030B00E06654 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1501DC1030B00E06654 /* Segment.swift */; };
+		8827E1531DC121B000E06654 /* SegmentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1521DC121B000E06654 /* SegmentParser.swift */; };
 		88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF69381DBF905F00FE11F0 /* AppDelegate.swift */; };
 		88DF693B1DBF905F00FE11F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF693A1DBF905F00FE11F0 /* ViewController.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
@@ -66,6 +68,8 @@
 		8827E1491DC0EEF300E06654 /* TestRouteJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestRouteJSON.json; sourceTree = "<group>"; };
 		8827E14B1DC0F17700E06654 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8827E14E1DC0FD1500E06654 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		8827E1501DC1030B00E06654 /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
+		8827E1521DC121B000E06654 /* SegmentParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentParser.swift; sourceTree = "<group>"; };
 		88DF69351DBF905F00FE11F0 /* TransitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF69381DBF905F00FE11F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88DF693A1DBF905F00FE11F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				8827E1351DC0BD4300E06654 /* JSONParser.swift */,
 				8827E13B1DC0CBFD00E06654 /* TransitProviderParser.swift */,
 				8827E1471DC0EEB900E06654 /* RouteParser.swift */,
+				8827E1521DC121B000E06654 /* SegmentParser.swift */,
 			);
 			name = JSONParsing;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			children = (
 				8827E13E1DC0CC3700E06654 /* TransitProvider.swift */,
 				8827E14B1DC0F17700E06654 /* Route.swift */,
+				8827E1501DC1030B00E06654 /* Segment.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -443,6 +449,8 @@
 				88DF693B1DBF905F00FE11F0 /* ViewController.swift in Sources */,
 				8827E1441DC0D65600E06654 /* FilterNil.swift in Sources */,
 				8827E13C1DC0CBFD00E06654 /* TransitProviderParser.swift in Sources */,
+				8827E1511DC1030B00E06654 /* Segment.swift in Sources */,
+				8827E1531DC121B000E06654 /* SegmentParser.swift in Sources */,
 				8827E12A1DC0B3E000E06654 /* ViewControllerCoordinator.swift in Sources */,
 				8827E14F1DC0FD1500E06654 /* main.swift in Sources */,
 				8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */,
