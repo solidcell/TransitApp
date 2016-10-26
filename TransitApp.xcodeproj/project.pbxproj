@@ -8,14 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		153DEEB7D137F8AA011C616C /* Pods_TransitAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 642B0DF2737E6BEB51A4AD79 /* Pods_TransitAppTests.framework */; };
-		808906DAD46D3D97B4DDBE28 /* Pods_TransitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31867505C8EB0A265C5556A7 /* Pods_TransitApp.framework */; };
 		8827E1201DBF914800E06654 /* ViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8827E11F1DBF914800E06654 /* ViewController.storyboard */; };
 		8827E12A1DC0B3E000E06654 /* ViewControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1291DC0B3E000E06654 /* ViewControllerCoordinator.swift */; };
 		8827E12D1DC0B7CE00E06654 /* Door2DoorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */; };
+		8827E1301DC0BB5E00E06654 /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12F1DC0BB5E00E06654 /* TestData.json */; };
+		8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */; };
+		8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1351DC0BD4300E06654 /* JSONParser.swift */; };
+		8827E1371DC0C33800E06654 /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12F1DC0BB5E00E06654 /* TestData.json */; };
 		88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF69381DBF905F00FE11F0 /* AppDelegate.swift */; };
 		88DF693B1DBF905F00FE11F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF693A1DBF905F00FE11F0 /* ViewController.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
 		88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DF69411DBF905F00FE11F0 /* LaunchScreen.storyboard */; };
+		9B32EE54F42C7D821A3758D2 /* Pods_Shows_TransitAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5577BCE77DAC1C9E95FEBF67 /* Pods_Shows_TransitAppTests.framework */; };
+		B1014C0579D36450907EE849 /* Pods_TransitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31867505C8EB0A265C5556A7 /* Pods_TransitApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,11 +35,17 @@
 
 /* Begin PBXFileReference section */
 		31867505C8EB0A265C5556A7 /* Pods_TransitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		41CA1D9D1436E66B2EEDD667 /* Pods-Shows-TransitAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shows-TransitAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shows-TransitAppTests/Pods-Shows-TransitAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		5577BCE77DAC1C9E95FEBF67 /* Pods_Shows_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shows_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		642B0DF2737E6BEB51A4AD79 /* Pods_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8827E11F1DBF914800E06654 /* ViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewController.storyboard; sourceTree = "<group>"; };
 		8827E1291DC0B3E000E06654 /* ViewControllerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCoordinator.swift; sourceTree = "<group>"; };
 		8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Door2DoorData.json; sourceTree = "<group>"; };
+		8827E12F1DC0BB5E00E06654 /* TestData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TestData.json; path = TransitAppTests/TestData.json; sourceTree = SOURCE_ROOT; };
+		8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransitAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParserSpec.swift; sourceTree = "<group>"; };
+		8827E1351DC0BD4300E06654 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		88DF69351DBF905F00FE11F0 /* TransitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF69381DBF905F00FE11F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88DF693A1DBF905F00FE11F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,9 +54,10 @@
 		88DF69441DBF905F00FE11F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88DF69491DBF905F00FE11F0 /* TransitAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransitAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF694F1DBF905F00FE11F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D820D6565922869BE003C87F /* Pods-TransitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransitApp/Pods-TransitApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8D3FC6667524E339371C7C02 /* Pods-TransitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitApp/Pods-TransitApp.release.xcconfig"; sourceTree = "<group>"; };
+		9AEB5ED9C6ABF2CA676D9BE4 /* Pods-TransitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransitApp/Pods-TransitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D906B18321400739B4B477B5 /* Pods-TransitAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F37909B1AD6C03559B910209 /* Pods-TransitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitApp/Pods-TransitApp.release.xcconfig"; sourceTree = "<group>"; };
+		E42FB6A03E2265990F065F70 /* Pods-Shows-TransitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shows-TransitAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shows-TransitAppTests/Pods-Shows-TransitAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				808906DAD46D3D97B4DDBE28 /* Pods_TransitApp.framework in Frameworks */,
+				B1014C0579D36450907EE849 /* Pods_TransitApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				153DEEB7D137F8AA011C616C /* Pods_TransitAppTests.framework in Frameworks */,
+				9B32EE54F42C7D821A3758D2 /* Pods_Shows_TransitAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +86,7 @@
 			children = (
 				642B0DF2737E6BEB51A4AD79 /* Pods_TransitAppTests.framework */,
 				31867505C8EB0A265C5556A7 /* Pods_TransitApp.framework */,
+				5577BCE77DAC1C9E95FEBF67 /* Pods_Shows_TransitAppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -93,6 +107,14 @@
 				8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */,
 			);
 			name = SeedData;
+			sourceTree = "<group>";
+		};
+		8827E12E1DC0BB1900E06654 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8827E12F1DC0BB5E00E06654 /* TestData.json */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		88DF692C1DBF905F00FE11F0 = {
@@ -124,6 +146,7 @@
 				88DF693F1DBF905F00FE11F0 /* Assets.xcassets */,
 				88DF69411DBF905F00FE11F0 /* LaunchScreen.storyboard */,
 				88DF69441DBF905F00FE11F0 /* Info.plist */,
+				8827E1351DC0BD4300E06654 /* JSONParser.swift */,
 			);
 			path = TransitApp;
 			sourceTree = "<group>";
@@ -131,7 +154,10 @@
 		88DF694C1DBF905F00FE11F0 /* TransitAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				8827E12E1DC0BB1900E06654 /* Assets */,
 				88DF694F1DBF905F00FE11F0 /* Info.plist */,
+				8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */,
+				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
 			);
 			path = TransitAppTests;
 			sourceTree = "<group>";
@@ -141,8 +167,10 @@
 			children = (
 				D906B18321400739B4B477B5 /* Pods-TransitAppTests.debug.xcconfig */,
 				48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */,
-				D820D6565922869BE003C87F /* Pods-TransitApp.debug.xcconfig */,
-				F37909B1AD6C03559B910209 /* Pods-TransitApp.release.xcconfig */,
+				41CA1D9D1436E66B2EEDD667 /* Pods-Shows-TransitAppTests.debug.xcconfig */,
+				E42FB6A03E2265990F065F70 /* Pods-Shows-TransitAppTests.release.xcconfig */,
+				9AEB5ED9C6ABF2CA676D9BE4 /* Pods-TransitApp.debug.xcconfig */,
+				8D3FC6667524E339371C7C02 /* Pods-TransitApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -154,12 +182,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88DF69521DBF905F00FE11F0 /* Build configuration list for PBXNativeTarget "TransitApp" */;
 			buildPhases = (
-				FC42C559C757B9E033B31F61 /* [CP] Check Pods Manifest.lock */,
+				3D500CE4C8DAABF6286DCB7B /* [CP] Check Pods Manifest.lock */,
 				88DF69311DBF905F00FE11F0 /* Sources */,
 				88DF69321DBF905F00FE11F0 /* Frameworks */,
 				88DF69331DBF905F00FE11F0 /* Resources */,
-				A848CF46E172003B574A2243 /* [CP] Embed Pods Frameworks */,
-				35E4A148F96EA2F9207B824A /* [CP] Copy Pods Resources */,
+				BA07D756A656A5ADA841EEC8 /* [CP] Embed Pods Frameworks */,
+				273913AA01CA221A9ACDEC74 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,6 +236,7 @@
 					};
 					88DF69481DBF905F00FE11F0 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 88DF69341DBF905F00FE11F0;
 					};
@@ -237,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8827E1371DC0C33800E06654 /* TestData.json in Resources */,
 				88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */,
 				88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */,
 				8827E12D1DC0B7CE00E06654 /* Door2DoorData.json in Resources */,
@@ -248,13 +278,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8827E1301DC0BB5E00E06654 /* TestData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		35E4A148F96EA2F9207B824A /* [CP] Copy Pods Resources */ = {
+		273913AA01CA221A9ACDEC74 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -267,6 +298,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TransitApp/Pods-TransitApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D500CE4C8DAABF6286DCB7B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		96577C516299A5CB5B354772 /* [CP] Copy Pods Resources */ = {
@@ -284,21 +330,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A848CF46E172003B574A2243 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TransitApp/Pods-TransitApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B98D189D29BF2E96A53EC6DF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,22 +345,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E1F7BA6813473B2DACE77821 /* [CP] Check Pods Manifest.lock */ = {
+		BA07D756A656A5ADA841EEC8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TransitApp/Pods-TransitApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FC42C559C757B9E033B31F61 /* [CP] Check Pods Manifest.lock */ = {
+		E1F7BA6813473B2DACE77821 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -353,6 +384,7 @@
 			files = (
 				88DF693B1DBF905F00FE11F0 /* ViewController.swift in Sources */,
 				8827E12A1DC0B3E000E06654 /* ViewControllerCoordinator.swift in Sources */,
+				8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */,
 				88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,7 +512,7 @@
 		};
 		88DF69531DBF905F00FE11F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D820D6565922869BE003C87F /* Pods-TransitApp.debug.xcconfig */;
+			baseConfigurationReference = 9AEB5ED9C6ABF2CA676D9BE4 /* Pods-TransitApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3V4RS4ALV7;
@@ -493,7 +526,7 @@
 		};
 		88DF69541DBF905F00FE11F0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F37909B1AD6C03559B910209 /* Pods-TransitApp.release.xcconfig */;
+			baseConfigurationReference = 8D3FC6667524E339371C7C02 /* Pods-TransitApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3V4RS4ALV7;
@@ -511,10 +544,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TransitAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.TransitAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TransitAppTests/TransitAppTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransitApp.app/TransitApp";
 			};
@@ -526,10 +562,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TransitAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.TransitAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TransitAppTests/TransitAppTests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TransitApp.app/TransitApp";
 			};
