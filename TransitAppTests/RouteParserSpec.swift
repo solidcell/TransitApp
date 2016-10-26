@@ -58,6 +58,16 @@ class RouteParserSpec: QuickSpec {
                 let stops = firstSegment.stops
 
                 expect(stops.count).to(equal(2))
+
+                let first = stops.first!
+                expect(first.name).to(beNil())
+                expect(first.latitude).to(beCloseTo(52.530227))
+                expect(first.longitude).to(beCloseTo(13.403356))
+
+                let second = stops[1]
+                expect(second.name).to(equal("U Rosa-Luxemburg-Platz"))
+                expect(second.latitude).to(beCloseTo(52.528187))
+                expect(second.longitude).to(beCloseTo(13.410404))
             }
 
         }
