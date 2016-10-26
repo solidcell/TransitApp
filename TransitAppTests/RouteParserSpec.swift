@@ -44,6 +44,12 @@ class RouteParserSpec: QuickSpec {
                 let segments = firstRoute.segments
 
                 expect(segments.count).to(equal(2))
+
+                let first = segments.first!
+                expect(first.name).to(beNil())
+
+                let second = segments[1]
+                expect(second.name).to(equal("U2"))
             }
 
         }

@@ -12,8 +12,7 @@ class RouteParser {
     
     func parse(json: JSON) -> [Route] {
         guard let routeArray = json["routes"].array else { return [] }
-        return routeArray
-            .map(jsonToRoute)
+        return routeArray.map(jsonToRoute)
     }
 
 }
@@ -32,8 +31,7 @@ fileprivate extension RouteParser {
 
     func parseSegments(json: JSON) -> [Segment] {
         guard let segmentDictonaries = json["segments"].array else { return [] }
-        return segmentDictonaries
-            .map(segmentParser.parse)
+        return segmentDictonaries.map(segmentParser.parse)
     }
     
 }
