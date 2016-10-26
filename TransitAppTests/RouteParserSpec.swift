@@ -52,6 +52,14 @@ class RouteParserSpec: QuickSpec {
                 expect(second.name).to(equal("U2"))
             }
 
+            it("parses Segments from JSON") {
+                let firstRoute = result.first!
+                let firstSegment = firstRoute.segments.first!
+                let stops = firstSegment.stops
+
+                expect(stops.count).to(equal(2))
+            }
+
         }
     }
 }
