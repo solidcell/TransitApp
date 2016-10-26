@@ -3,12 +3,12 @@ import Nimble
 import RealmSwift
 @testable import TransitApp
 
-class ProviderParserSpec: QuickSpec {
+class TransitProviderParserSpec: QuickSpec {
     override func spec() {
         describe("parse") {
-            it("parses Providers from JSON") {
-                let subject = ProviderParser()
-                let json = JSONParser().parse(filename: "TestProviderJSON")
+            it("parses TransitProviders from JSON") {
+                let subject = TransitProviderParser()
+                let json = JSONParser().parse(filename: "TestTransitProviderJSON")
                 let result = subject.parse(json: json)
                 
                 expect(result.count).to(equal(2))

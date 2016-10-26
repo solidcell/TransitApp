@@ -1,13 +1,13 @@
 import RealmSwift
 
 class Route: Object {
-    dynamic var provider: Provider!
+    dynamic var provider: TransitProvider!
     dynamic var type = ""
 }
 
 // creation
 extension Route {
-    convenience init(provider: Provider,
+    convenience init(provider: TransitProvider,
                      type: String) {
         self.init()
         self.provider = provider

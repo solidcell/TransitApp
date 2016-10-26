@@ -15,10 +15,10 @@
 		8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */; };
 		8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1351DC0BD4300E06654 /* JSONParser.swift */; };
 		8827E1371DC0C33800E06654 /* TestRandomJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */; };
-		8827E1391DC0CB6200E06654 /* ProviderParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1381DC0CB6200E06654 /* ProviderParserSpec.swift */; };
-		8827E13C1DC0CBFD00E06654 /* ProviderParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E13B1DC0CBFD00E06654 /* ProviderParser.swift */; };
-		8827E13F1DC0CC3700E06654 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E13E1DC0CC3700E06654 /* Provider.swift */; };
-		8827E1411DC0CCC900E06654 /* TestProviderJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E1401DC0CCC900E06654 /* TestProviderJSON.json */; };
+		8827E1391DC0CB6200E06654 /* TransitProviderParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1381DC0CB6200E06654 /* TransitProviderParserSpec.swift */; };
+		8827E13C1DC0CBFD00E06654 /* TransitProviderParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E13B1DC0CBFD00E06654 /* TransitProviderParser.swift */; };
+		8827E13F1DC0CC3700E06654 /* TransitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E13E1DC0CC3700E06654 /* TransitProvider.swift */; };
+		8827E1411DC0CCC900E06654 /* TestTransitProviderJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E1401DC0CCC900E06654 /* TestTransitProviderJSON.json */; };
 		8827E1441DC0D65600E06654 /* FilterNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1431DC0D65600E06654 /* FilterNil.swift */; };
 		8827E1461DC0EE9100E06654 /* RouteParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1451DC0EE9100E06654 /* RouteParserSpec.swift */; };
 		8827E1481DC0EEB900E06654 /* RouteParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1471DC0EEB900E06654 /* RouteParser.swift */; };
@@ -55,10 +55,10 @@
 		8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransitAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParserSpec.swift; sourceTree = "<group>"; };
 		8827E1351DC0BD4300E06654 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
-		8827E1381DC0CB6200E06654 /* ProviderParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderParserSpec.swift; sourceTree = "<group>"; };
-		8827E13B1DC0CBFD00E06654 /* ProviderParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderParser.swift; sourceTree = "<group>"; };
-		8827E13E1DC0CC3700E06654 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
-		8827E1401DC0CCC900E06654 /* TestProviderJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestProviderJSON.json; sourceTree = "<group>"; };
+		8827E1381DC0CB6200E06654 /* TransitProviderParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitProviderParserSpec.swift; sourceTree = "<group>"; };
+		8827E13B1DC0CBFD00E06654 /* TransitProviderParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitProviderParser.swift; sourceTree = "<group>"; };
+		8827E13E1DC0CC3700E06654 /* TransitProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitProvider.swift; sourceTree = "<group>"; };
+		8827E1401DC0CCC900E06654 /* TestTransitProviderJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestTransitProviderJSON.json; sourceTree = "<group>"; };
 		8827E1431DC0D65600E06654 /* FilterNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterNil.swift; sourceTree = "<group>"; };
 		8827E1451DC0EE9100E06654 /* RouteParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteParserSpec.swift; sourceTree = "<group>"; };
 		8827E1471DC0EEB900E06654 /* RouteParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteParser.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */,
-				8827E1401DC0CCC900E06654 /* TestProviderJSON.json */,
+				8827E1401DC0CCC900E06654 /* TestTransitProviderJSON.json */,
 				8827E1491DC0EEF300E06654 /* TestRouteJSON.json */,
 			);
 			name = Assets;
@@ -141,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				8827E1351DC0BD4300E06654 /* JSONParser.swift */,
-				8827E13B1DC0CBFD00E06654 /* ProviderParser.swift */,
+				8827E13B1DC0CBFD00E06654 /* TransitProviderParser.swift */,
 				8827E1471DC0EEB900E06654 /* RouteParser.swift */,
 			);
 			name = JSONParsing;
@@ -150,7 +150,7 @@
 		8827E13D1DC0CC1E00E06654 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8827E13E1DC0CC3700E06654 /* Provider.swift */,
+				8827E13E1DC0CC3700E06654 /* TransitProvider.swift */,
 				8827E14B1DC0F17700E06654 /* Route.swift */,
 			);
 			name = Models;
@@ -204,7 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */,
-				8827E1381DC0CB6200E06654 /* ProviderParserSpec.swift */,
+				8827E1381DC0CB6200E06654 /* TransitProviderParserSpec.swift */,
 				8827E1451DC0EE9100E06654 /* RouteParserSpec.swift */,
 				8827E12E1DC0BB1900E06654 /* Assets */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
@@ -318,7 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8827E1371DC0C33800E06654 /* TestRandomJSON.json in Resources */,
-				8827E1411DC0CCC900E06654 /* TestProviderJSON.json in Resources */,
+				8827E1411DC0CCC900E06654 /* TestTransitProviderJSON.json in Resources */,
 				8827E14D1DC0F23600E06654 /* TestRouteJSON.json in Resources */,
 				88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */,
 				88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */,
@@ -439,10 +439,10 @@
 				8827E1481DC0EEB900E06654 /* RouteParser.swift in Sources */,
 				88DF693B1DBF905F00FE11F0 /* ViewController.swift in Sources */,
 				8827E1441DC0D65600E06654 /* FilterNil.swift in Sources */,
-				8827E13C1DC0CBFD00E06654 /* ProviderParser.swift in Sources */,
+				8827E13C1DC0CBFD00E06654 /* TransitProviderParser.swift in Sources */,
 				8827E12A1DC0B3E000E06654 /* ViewControllerCoordinator.swift in Sources */,
 				8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */,
-				8827E13F1DC0CC3700E06654 /* Provider.swift in Sources */,
+				8827E13F1DC0CC3700E06654 /* TransitProvider.swift in Sources */,
 				88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,7 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8827E1391DC0CB6200E06654 /* ProviderParserSpec.swift in Sources */,
+				8827E1391DC0CB6200E06654 /* TransitProviderParserSpec.swift in Sources */,
 				8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */,
 				8827E1461DC0EE9100E06654 /* RouteParserSpec.swift in Sources */,
 			);

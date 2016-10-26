@@ -1,16 +1,16 @@
 import SwiftyJSON
 
-class ProviderParser {
+class TransitProviderParser {
     
-    func parse(json: JSON) -> [Provider] {
+    func parse(json: JSON) -> [TransitProvider] {
         return providerStructs(json: json)
-            .map(structToProvider)
+            .map(structToTransitProvider)
     }
 }
 
-fileprivate extension ProviderParser {
+fileprivate extension TransitProviderParser {
 
-   struct ProviderStruct {
+   struct TransitProviderStruct {
         let name: String
         let details: Details
     }
@@ -24,9 +24,9 @@ fileprivate extension ProviderParser {
         let displayName: String?
     }
 
-    func structToProvider(_ provider: ProviderStruct) -> Provider {
+    func structToTransitProvider(_ provider: TransitProviderStruct) -> TransitProvider {
         let details = provider.details
-        return Provider(name: provider.name,
+        return TransitProvider(name: provider.name,
                         iconURL: details.iconURL,
                         disclaimer: details.disclaimer,
                         iOSiTunesURL: details.iOSiTunesURL,
@@ -35,15 +35,15 @@ fileprivate extension ProviderParser {
                         displayName: details.displayName)
     }
 
-    func providerStructs(json: JSON) -> [ProviderStruct] {
+    func providerStructs(json: JSON) -> [TransitProviderStruct] {
         guard let providers = json["provider_attributes"].dictionary else { return [] }
         return providers.map(providerDictionarytoStruct)
             .filterNil()
     }
 
-    func providerDictionarytoStruct(name: String, attributes: JSON) -> ProviderStruct? {
+    func providerDictionarytoStruct(name: String, attributes: JSON) -> TransitProviderStruct? {
         guard let details = details(json: attributes) else { return nil }
-        return ProviderStruct(name: name, details: details)
+        return TransitProviderStruct(name: name, details: details)
     }
     
     func details(json: JSON) -> Details? {

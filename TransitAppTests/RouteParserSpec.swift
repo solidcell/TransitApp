@@ -8,17 +8,17 @@ class RouteParserSpec: QuickSpec {
         describe("parse") {
 
             var realm: Realm!
-            var vbbProvider: TransitApp.Provider! // TODO rename to `TransitProvider` and remove module prefix
-            var googleProvider: TransitApp.Provider!
+            var vbbTransitProvider: TransitProvider!
+            var googleTransitProvider: TransitProvider!
             
             beforeEach {
                 Realm.Configuration.defaultConfiguration.inMemoryIdentifier = self.name
                 realm = try! Realm()
                 
-                vbbProvider = Provider(name: "vbb", iconURL: "", disclaimer: "")
-                googleProvider = Provider(name: "google", iconURL: "", disclaimer: "")
+                vbbTransitProvider = TransitProvider(name: "vbb", iconURL: "", disclaimer: "")
+                googleTransitProvider = TransitProvider(name: "google", iconURL: "", disclaimer: "")
                 try! realm.write {
-                    realm.add([vbbProvider, googleProvider])
+                    realm.add([vbbTransitProvider, googleTransitProvider])
                 }
             }
 

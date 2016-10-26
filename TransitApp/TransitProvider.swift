@@ -1,6 +1,6 @@
 import RealmSwift
 
-class Provider: Object {
+class TransitProvider: Object {
     dynamic var name = ""
     dynamic var iconURL = ""
     dynamic var disclaimer = ""
@@ -11,7 +11,7 @@ class Provider: Object {
 }
 
 // creation
-extension Provider {
+extension TransitProvider {
     convenience init(name: String,
                      iconURL: String,
                   disclaimer: String,

@@ -19,7 +19,7 @@ class RouteParser {
 fileprivate extension RouteParser {
 
     struct RouteStruct {
-        let provider: Provider
+        let provider: TransitProvider
         let type: String
     }
 
@@ -32,7 +32,7 @@ fileprivate extension RouteParser {
     func structForJSON(json: JSON) -> RouteStruct {
         let type = json["type"].string!
         let providerName = json["provider"].string!
-        let provider = realm.objects(Provider.self).filter("name = %@", providerName).first!
+        let provider = realm.objects(TransitProvider.self).filter("name = %@", providerName).first!
         return RouteStruct(provider: provider,
                            type: type)
     }
