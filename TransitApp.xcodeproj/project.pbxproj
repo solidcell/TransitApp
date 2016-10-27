@@ -29,6 +29,7 @@
 		8827E1531DC121B000E06654 /* SegmentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1521DC121B000E06654 /* SegmentParser.swift */; };
 		8827E1551DC12F8100E06654 /* StopParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1541DC12F8100E06654 /* StopParser.swift */; };
 		8827E1571DC1302500E06654 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1561DC1302500E06654 /* Stop.swift */; };
+		8827E15A1DC24C7500E06654 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1591DC24C7500E06654 /* MapAnnotation.swift */; };
 		88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF69381DBF905F00FE11F0 /* AppDelegate.swift */; };
 		88DF693B1DBF905F00FE11F0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF693A1DBF905F00FE11F0 /* MapViewController.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		8827E1521DC121B000E06654 /* SegmentParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentParser.swift; sourceTree = "<group>"; };
 		8827E1541DC12F8100E06654 /* StopParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopParser.swift; sourceTree = "<group>"; };
 		8827E1561DC1302500E06654 /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		8827E1591DC24C7500E06654 /* MapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		88DF69351DBF905F00FE11F0 /* TransitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF69381DBF905F00FE11F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88DF693A1DBF905F00FE11F0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				8827E1291DC0B3E000E06654 /* MapViewControllerCoordinator.swift */,
 				88DF693A1DBF905F00FE11F0 /* MapViewController.swift */,
+				8827E1591DC24C7500E06654 /* MapAnnotation.swift */,
 				8827E11F1DBF914800E06654 /* MapViewController.storyboard */,
 			);
 			name = MapViewController;
@@ -460,6 +463,7 @@
 				8827E1571DC1302500E06654 /* Stop.swift in Sources */,
 				8827E12A1DC0B3E000E06654 /* MapViewControllerCoordinator.swift in Sources */,
 				8827E1551DC12F8100E06654 /* StopParser.swift in Sources */,
+				8827E15A1DC24C7500E06654 /* MapAnnotation.swift in Sources */,
 				8827E14F1DC0FD1500E06654 /* main.swift in Sources */,
 				8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */,
 				8827E13F1DC0CC3700E06654 /* TransitProvider.swift in Sources */,
