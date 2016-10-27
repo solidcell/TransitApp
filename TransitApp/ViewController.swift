@@ -1,9 +1,13 @@
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
+
+    @IBOutlet weak var mapView: MKMapView!
+    
 }
 
-// creation
+// MARK: Creation
 extension ViewController {
     
     class var storyboardName: String { return "ViewController" }
