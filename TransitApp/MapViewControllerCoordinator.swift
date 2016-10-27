@@ -1,9 +1,9 @@
 import UIKit
 
-class ViewControllerCoordinator {
+class MapViewControllerCoordinator {
 
     func start(window: UIWindow) {
-        let viewController = ViewController.createFromStoryboard()
+        let viewController = MapViewController.createFromStoryboard()
         window.rootViewController = viewController
     }
     

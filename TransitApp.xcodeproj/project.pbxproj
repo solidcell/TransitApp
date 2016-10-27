@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		153DEEB7D137F8AA011C616C /* Pods_TransitAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 642B0DF2737E6BEB51A4AD79 /* Pods_TransitAppTests.framework */; };
-		8827E1201DBF914800E06654 /* ViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8827E11F1DBF914800E06654 /* ViewController.storyboard */; };
-		8827E12A1DC0B3E000E06654 /* ViewControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1291DC0B3E000E06654 /* ViewControllerCoordinator.swift */; };
+		8827E1201DBF914800E06654 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8827E11F1DBF914800E06654 /* MapViewController.storyboard */; };
+		8827E12A1DC0B3E000E06654 /* MapViewControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1291DC0B3E000E06654 /* MapViewControllerCoordinator.swift */; };
 		8827E12D1DC0B7CE00E06654 /* Door2DoorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */; };
 		8827E1301DC0BB5E00E06654 /* TestRandomJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */; };
 		8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */; };
@@ -30,7 +30,7 @@
 		8827E1551DC12F8100E06654 /* StopParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1541DC12F8100E06654 /* StopParser.swift */; };
 		8827E1571DC1302500E06654 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1561DC1302500E06654 /* Stop.swift */; };
 		88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF69381DBF905F00FE11F0 /* AppDelegate.swift */; };
-		88DF693B1DBF905F00FE11F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF693A1DBF905F00FE11F0 /* ViewController.swift */; };
+		88DF693B1DBF905F00FE11F0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF693A1DBF905F00FE11F0 /* MapViewController.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
 		88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DF69411DBF905F00FE11F0 /* LaunchScreen.storyboard */; };
 		9B32EE54F42C7D821A3758D2 /* Pods_Shows_TransitAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5577BCE77DAC1C9E95FEBF67 /* Pods_Shows_TransitAppTests.framework */; };
@@ -53,8 +53,8 @@
 		48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		5577BCE77DAC1C9E95FEBF67 /* Pods_Shows_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shows_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		642B0DF2737E6BEB51A4AD79 /* Pods_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8827E11F1DBF914800E06654 /* ViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewController.storyboard; sourceTree = "<group>"; };
-		8827E1291DC0B3E000E06654 /* ViewControllerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCoordinator.swift; sourceTree = "<group>"; };
+		8827E11F1DBF914800E06654 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
+		8827E1291DC0B3E000E06654 /* MapViewControllerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerCoordinator.swift; sourceTree = "<group>"; };
 		8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Door2DoorData.json; sourceTree = "<group>"; };
 		8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TestRandomJSON.json; path = TransitAppTests/TestRandomJSON.json; sourceTree = SOURCE_ROOT; };
 		8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransitAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		8827E1561DC1302500E06654 /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		88DF69351DBF905F00FE11F0 /* TransitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF69381DBF905F00FE11F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88DF693A1DBF905F00FE11F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		88DF693A1DBF905F00FE11F0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		88DF693F1DBF905F00FE11F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88DF69421DBF905F00FE11F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88DF69441DBF905F00FE11F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,14 +119,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8827E1281DC0B3C900E06654 /* ViewController */ = {
+		8827E1281DC0B3C900E06654 /* MapViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8827E1291DC0B3E000E06654 /* ViewControllerCoordinator.swift */,
-				88DF693A1DBF905F00FE11F0 /* ViewController.swift */,
-				8827E11F1DBF914800E06654 /* ViewController.storyboard */,
+				8827E1291DC0B3E000E06654 /* MapViewControllerCoordinator.swift */,
+				88DF693A1DBF905F00FE11F0 /* MapViewController.swift */,
+				8827E11F1DBF914800E06654 /* MapViewController.storyboard */,
 			);
-			name = ViewController;
+			name = MapViewController;
 			sourceTree = "<group>";
 		};
 		8827E12B1DC0B77F00E06654 /* SeedData */ = {
@@ -204,7 +204,7 @@
 				88DF69381DBF905F00FE11F0 /* AppDelegate.swift */,
 				8827E14E1DC0FD1500E06654 /* main.swift */,
 				8827E13D1DC0CC1E00E06654 /* Models */,
-				8827E1281DC0B3C900E06654 /* ViewController */,
+				8827E1281DC0B3C900E06654 /* MapViewController */,
 				8827E13A1DC0CBDA00E06654 /* JSONParsing */,
 				8827E12B1DC0B77F00E06654 /* SeedData */,
 				8827E1421DC0D64400E06654 /* Extensions */,
@@ -338,7 +338,7 @@
 				88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */,
 				88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */,
 				8827E12D1DC0B7CE00E06654 /* Door2DoorData.json in Resources */,
-				8827E1201DBF914800E06654 /* ViewController.storyboard in Resources */,
+				8827E1201DBF914800E06654 /* MapViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,13 +452,13 @@
 			files = (
 				8827E14C1DC0F17700E06654 /* Route.swift in Sources */,
 				8827E1481DC0EEB900E06654 /* RouteParser.swift in Sources */,
-				88DF693B1DBF905F00FE11F0 /* ViewController.swift in Sources */,
+				88DF693B1DBF905F00FE11F0 /* MapViewController.swift in Sources */,
 				8827E1441DC0D65600E06654 /* FilterNil.swift in Sources */,
 				8827E13C1DC0CBFD00E06654 /* TransitProviderParser.swift in Sources */,
 				8827E1511DC1030B00E06654 /* Segment.swift in Sources */,
 				8827E1531DC121B000E06654 /* SegmentParser.swift in Sources */,
 				8827E1571DC1302500E06654 /* Stop.swift in Sources */,
-				8827E12A1DC0B3E000E06654 /* ViewControllerCoordinator.swift in Sources */,
+				8827E12A1DC0B3E000E06654 /* MapViewControllerCoordinator.swift in Sources */,
 				8827E1551DC12F8100E06654 /* StopParser.swift in Sources */,
 				8827E14F1DC0FD1500E06654 /* main.swift in Sources */,
 				8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */,
