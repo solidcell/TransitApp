@@ -17,11 +17,13 @@ class SeedDataParserSpec: TransitAppSpec {
             it("saves the seed data if the app currently has none") {
                 expect(self.realm.transitProviders.count).to(equal(0))
                 expect(self.realm.routes.count).to(equal(0))
+                expect(self.realm.scooters.count).to(equal(0))
 
                 subject.seedIfNeeded()
 
                 expect(self.realm.transitProviders.count).to(equal(6))
                 expect(self.realm.routes.count).to(equal(9))
+                expect(self.realm.scooters.count).to(equal(66))
             }
 
             it("does nothing if data already exists") {
@@ -29,11 +31,13 @@ class SeedDataParserSpec: TransitAppSpec {
 
                 expect(self.realm.transitProviders.count).to(equal(6))
                 expect(self.realm.routes.count).to(equal(9))
+                expect(self.realm.scooters.count).to(equal(66))
                 
                 subject.seedIfNeeded()
 
                 expect(self.realm.transitProviders.count).to(equal(6))
                 expect(self.realm.routes.count).to(equal(9))
+                expect(self.realm.scooters.count).to(equal(66))
             }
         }
     }

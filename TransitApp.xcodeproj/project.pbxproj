@@ -23,6 +23,7 @@
 		880EB0871DC398FC00C5830E /* ScooterParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0861DC398FC00C5830E /* ScooterParserSpec.swift */; };
 		880EB08C1DC3994E00C5830E /* ScooterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB08B1DC3994E00C5830E /* ScooterParser.swift */; };
 		880EB08D1DC399BC00C5830E /* TestScooterJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 880EB0821DC3986400C5830E /* TestScooterJSON.json */; };
+		880EB08F1DC39EA300C5830E /* Door2DoorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB08E1DC39EA300C5830E /* Door2DoorParser.swift */; };
 		8827E1201DBF914800E06654 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8827E11F1DBF914800E06654 /* MapViewController.storyboard */; };
 		8827E12A1DC0B3E000E06654 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1291DC0B3E000E06654 /* MapCoordinator.swift */; };
 		8827E12D1DC0B7CE00E06654 /* Door2DoorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */; };
@@ -86,6 +87,7 @@
 		880EB0821DC3986400C5830E /* TestScooterJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestScooterJSON.json; sourceTree = "<group>"; };
 		880EB0861DC398FC00C5830E /* ScooterParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterParserSpec.swift; sourceTree = "<group>"; };
 		880EB08B1DC3994E00C5830E /* ScooterParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterParser.swift; sourceTree = "<group>"; };
+		880EB08E1DC39EA300C5830E /* Door2DoorParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door2DoorParser.swift; sourceTree = "<group>"; };
 		8827E11F1DBF914800E06654 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		8827E1291DC0B3E000E06654 /* MapCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Door2DoorData.json; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				8827E1471DC0EEB900E06654 /* RouteParser.swift */,
 				8827E1521DC121B000E06654 /* SegmentParser.swift */,
 				8827E1541DC12F8100E06654 /* StopParser.swift */,
+				880EB08E1DC39EA300C5830E /* Door2DoorParser.swift */,
 			);
 			name = Door2Door;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				88DF693B1DBF905F00FE11F0 /* MapViewController.swift in Sources */,
 				8827E1441DC0D65600E06654 /* FilterNil.swift in Sources */,
 				8827E13C1DC0CBFD00E06654 /* TransitProviderParser.swift in Sources */,
+				880EB08F1DC39EA300C5830E /* Door2DoorParser.swift in Sources */,
 				880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */,
 				8827E1511DC1030B00E06654 /* Segment.swift in Sources */,
 				8827E1531DC121B000E06654 /* SegmentParser.swift in Sources */,
