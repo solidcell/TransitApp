@@ -20,6 +20,7 @@
 		880EB0771DC389C200C5830E /* SegmentedControlSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0761DC389C200C5830E /* SegmentedControlSource.swift */; };
 		880EB0791DC38A0300C5830E /* SegmentedControlSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0781DC38A0300C5830E /* SegmentedControlSourceSpec.swift */; };
 		880EB07D1DC3975400C5830E /* Scooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB07C1DC3975400C5830E /* Scooter.swift */; };
+		880EB0831DC3986400C5830E /* TestScooterJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 880EB0821DC3986400C5830E /* TestScooterJSON.json */; };
 		8827E1201DBF914800E06654 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8827E11F1DBF914800E06654 /* MapViewController.storyboard */; };
 		8827E12A1DC0B3E000E06654 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1291DC0B3E000E06654 /* MapCoordinator.swift */; };
 		8827E12D1DC0B7CE00E06654 /* Door2DoorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */; };
@@ -80,6 +81,7 @@
 		880EB0761DC389C200C5830E /* SegmentedControlSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlSource.swift; sourceTree = "<group>"; };
 		880EB0781DC38A0300C5830E /* SegmentedControlSourceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlSourceSpec.swift; sourceTree = "<group>"; };
 		880EB07C1DC3975400C5830E /* Scooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scooter.swift; sourceTree = "<group>"; };
+		880EB0821DC3986400C5830E /* TestScooterJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestScooterJSON.json; sourceTree = "<group>"; };
 		8827E11F1DBF914800E06654 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		8827E1291DC0B3E000E06654 /* MapCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Door2DoorData.json; sourceTree = "<group>"; };
@@ -198,6 +200,23 @@
 			name = Coup;
 			sourceTree = "<group>";
 		};
+		880EB0801DC3981B00C5830E /* Door2Door */ = {
+			isa = PBXGroup;
+			children = (
+				8827E1401DC0CCC900E06654 /* TestTransitProviderJSON.json */,
+				8827E1491DC0EEF300E06654 /* TestRouteJSON.json */,
+			);
+			name = Door2Door;
+			sourceTree = "<group>";
+		};
+		880EB0811DC3982900C5830E /* Coup */ = {
+			isa = PBXGroup;
+			children = (
+				880EB0821DC3986400C5830E /* TestScooterJSON.json */,
+			);
+			name = Coup;
+			sourceTree = "<group>";
+		};
 		8827E1281DC0B3C900E06654 /* MapViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,8 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */,
-				8827E1401DC0CCC900E06654 /* TestTransitProviderJSON.json */,
-				8827E1491DC0EEF300E06654 /* TestRouteJSON.json */,
+				880EB0811DC3982900C5830E /* Coup */,
+				880EB0801DC3981B00C5830E /* Door2Door */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -434,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8827E1301DC0BB5E00E06654 /* TestRandomJSON.json in Resources */,
+				880EB0831DC3986400C5830E /* TestScooterJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
