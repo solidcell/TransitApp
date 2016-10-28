@@ -3,8 +3,10 @@ import Nimble
 import SwiftyJSON
 @testable import TransitApp
 
-class JSONParserSpec: QuickSpec {
+class JSONParserSpec: TransitAppSpec {
     override func spec() {
+        super.spec()
+        
         describe("parse") {
             it("parses JSON from a JSON file") {
                 let subject = JSONParser()
@@ -13,5 +15,6 @@ class JSONParserSpec: QuickSpec {
                 expect(result["key2"]).to(equal(["key3": "item3"]))
             }
         }
+        
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		153DEEB7D137F8AA011C616C /* Pods_TransitAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 642B0DF2737E6BEB51A4AD79 /* Pods_TransitAppTests.framework */; };
+		880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0601DC334F500C5830E /* TransitAppSpec.swift */; };
 		8827E1201DBF914800E06654 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8827E11F1DBF914800E06654 /* MapViewController.storyboard */; };
 		8827E12A1DC0B3E000E06654 /* MapViewControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1291DC0B3E000E06654 /* MapViewControllerCoordinator.swift */; };
 		8827E12D1DC0B7CE00E06654 /* Door2DoorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */; };
@@ -56,6 +57,7 @@
 		48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		5577BCE77DAC1C9E95FEBF67 /* Pods_Shows_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shows_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		642B0DF2737E6BEB51A4AD79 /* Pods_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		880EB0601DC334F500C5830E /* TransitAppSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAppSpec.swift; sourceTree = "<group>"; };
 		8827E11F1DBF914800E06654 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		8827E1291DC0B3E000E06654 /* MapViewControllerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerCoordinator.swift; sourceTree = "<group>"; };
 		8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Door2DoorData.json; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */,
 				8827E1381DC0CB6200E06654 /* TransitProviderParserSpec.swift */,
 				8827E1451DC0EE9100E06654 /* RouteParserSpec.swift */,
+				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				8827E12E1DC0BB1900E06654 /* Assets */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
 				88DF694F1DBF905F00FE11F0 /* Info.plist */,
@@ -484,6 +487,7 @@
 			files = (
 				8827E1391DC0CB6200E06654 /* TransitProviderParserSpec.swift in Sources */,
 				8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */,
+				880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */,
 				8827E15E1DC2507100E06654 /* SeedDataParserSpec.swift in Sources */,
 				8827E1461DC0EE9100E06654 /* RouteParserSpec.swift in Sources */,
 			);

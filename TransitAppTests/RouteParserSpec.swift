@@ -3,26 +3,24 @@ import Nimble
 import RealmSwift
 @testable import TransitApp
 
-class RouteParserSpec: QuickSpec {
+class RouteParserSpec: TransitAppSpec {
     override func spec() {
+        super.spec()
+
         describe("parse") {
 
-            var realm: Realm!
             var vbbTransitProvider: TransitProvider!
             var googleTransitProvider: TransitProvider!
             var result: [Route]!
             
             beforeEach {
-                Realm.Configuration.defaultConfiguration.inMemoryIdentifier = NSUUID().uuidString
-                realm = try! Realm()
-                
                 vbbTransitProvider = TransitProvider(name: "vbb", iconURL: "", disclaimer: "")
                 googleTransitProvider = TransitProvider(name: "google", iconURL: "", disclaimer: "")
-                try! realm.write {
-                    realm.add([vbbTransitProvider, googleTransitProvider])
+                try! self.realm.write {
+                    self.realm.add([vbbTransitProvider, googleTransitProvider])
                 }
                 
-                let subject = RouteParser(realm: realm)
+                let subject = RouteParser(realm: self.realm)
                 let json = JSONParser().parse(filename: "TestRouteJSON")
                 result = subject.parse(json: json)
             }

@@ -3,8 +3,10 @@ import Nimble
 import RealmSwift
 @testable import TransitApp
 
-class TransitProviderParserSpec: QuickSpec {
+class TransitProviderParserSpec: TransitAppSpec {
     override func spec() {
+        super.spec()
+        
         describe("parse") {
             it("parses TransitProviders from JSON") {
                 let subject = TransitProviderParser()
@@ -32,5 +34,6 @@ class TransitProviderParserSpec: QuickSpec {
                 expect(second.displayName).to(equal("drivenow display name"))
             }
         }
+        
     }
 }
