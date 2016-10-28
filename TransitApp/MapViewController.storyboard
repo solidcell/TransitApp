@@ -18,16 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Utd-bc-nBC">
-                                <frame key="frameInset" width="1000" height="1000"/>
-                            </mapView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Utd-bc-nBC"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Utd-bc-nBC" secondAttribute="trailing" id="ZAc-Nu-7Ig"/>
-                            <constraint firstItem="Utd-bc-nBC" firstAttribute="leading" secondItem="DuX-mh-lSW" secondAttribute="leading" id="aRG-bm-1ze"/>
-                            <constraint firstItem="Utd-bc-nBC" firstAttribute="top" secondItem="DuX-mh-lSW" secondAttribute="top" id="fSg-E1-hJm"/>
-                            <constraint firstItem="A6e-8c-OEm" firstAttribute="top" secondItem="Utd-bc-nBC" secondAttribute="bottom" id="srJ-MB-v7L"/>
+                            <constraint firstItem="Utd-bc-nBC" firstAttribute="leading" secondItem="DuX-mh-lSW" secondAttribute="leading" id="08K-Fn-31d"/>
+                            <constraint firstItem="A6e-8c-OEm" firstAttribute="top" secondItem="Utd-bc-nBC" secondAttribute="bottom" id="58X-jN-CDo"/>
+                            <constraint firstItem="Utd-bc-nBC" firstAttribute="top" secondItem="DuX-mh-lSW" secondAttribute="top" id="n6C-h1-BD5"/>
+                            <constraint firstAttribute="trailing" secondItem="Utd-bc-nBC" secondAttribute="trailing" id="v6I-wq-ESN"/>
                         </constraints>
                     </view>
                     <connections>
@@ -36,7 +34,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rY1-Oi-mAy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="142"/>
+            <point key="canvasLocation" x="124" y="141.67916041979012"/>
         </scene>
     </scenes>
 </document>
