@@ -10,8 +10,10 @@ class MapCoordinator {
         let annotations = mapAnnotationCreator.annotations(stops: stops)
         let mapRegionManager = MapRegionManager()
         let region = mapRegionManager.region(annotations: annotations)
+        let mapViewDelegate = MapViewDelegate()
         let viewController = MapViewController.createFromStoryboard(annotations: annotations,
-                                                                    initialCoordinateRegion: region)
+                                                                    initialCoordinateRegion: region,
+                                                                    mapViewDelegate: mapViewDelegate)
         window.rootViewController = viewController
     }
 

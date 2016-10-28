@@ -14,6 +14,7 @@
 		880EB06A1DC3612F00C5830E /* MapAnnotationCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0691DC3612F00C5830E /* MapAnnotationCreator.swift */; };
 		880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */; };
 		880EB06F1DC36E1A00C5830E /* MapRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB06E1DC36E1A00C5830E /* MapRegionManager.swift */; };
+		880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0701DC3736F00C5830E /* MapViewDelegate.swift */; };
 		8827E1201DBF914800E06654 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8827E11F1DBF914800E06654 /* MapViewController.storyboard */; };
 		8827E12A1DC0B3E000E06654 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1291DC0B3E000E06654 /* MapCoordinator.swift */; };
 		8827E12D1DC0B7CE00E06654 /* Door2DoorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */; };
@@ -68,6 +69,7 @@
 		880EB0691DC3612F00C5830E /* MapAnnotationCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationCreator.swift; sourceTree = "<group>"; };
 		880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		880EB06E1DC36E1A00C5830E /* MapRegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRegionManager.swift; sourceTree = "<group>"; };
+		880EB0701DC3736F00C5830E /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		8827E11F1DBF914800E06654 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		8827E1291DC0B3E000E06654 /* MapCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Door2DoorData.json; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				8827E1291DC0B3E000E06654 /* MapCoordinator.swift */,
 				88DF693A1DBF905F00FE11F0 /* MapViewController.swift */,
+				880EB0701DC3736F00C5830E /* MapViewDelegate.swift */,
 				8827E11F1DBF914800E06654 /* MapViewController.storyboard */,
 			);
 			name = MapViewController;
@@ -269,12 +272,12 @@
 		88DF694C1DBF905F00FE11F0 /* TransitAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				880EB0661DC360C900C5830E /* MapAnnotationCreatorSpec.swift */,
 				880EB0651DC3607D00C5830E /* JSONParsing */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				8827E12E1DC0BB1900E06654 /* Assets */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
 				88DF694F1DBF905F00FE11F0 /* Info.plist */,
-				880EB0661DC360C900C5830E /* MapAnnotationCreatorSpec.swift */,
 			);
 			path = TransitAppTests;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				88DF693B1DBF905F00FE11F0 /* MapViewController.swift in Sources */,
 				8827E1441DC0D65600E06654 /* FilterNil.swift in Sources */,
 				8827E13C1DC0CBFD00E06654 /* TransitProviderParser.swift in Sources */,
+				880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */,
 				8827E1511DC1030B00E06654 /* Segment.swift in Sources */,
 				8827E1531DC121B000E06654 /* SegmentParser.swift in Sources */,
 				8827E15C1DC2505A00E06654 /* SeedDataParser.swift in Sources */,
