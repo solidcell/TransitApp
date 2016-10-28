@@ -11,7 +11,8 @@ class ScooterParser {
     private func scooter(json: JSON) -> Scooter {
         let location = json["location"].dictionary!
         return Scooter(latitude: location["lat"]!.double!,
-                       longitude: location["lng"]!.double!)
+                       longitude: location["lng"]!.double!,
+                       energyLevel: json["energy_level"].int!)
     }
     
 }

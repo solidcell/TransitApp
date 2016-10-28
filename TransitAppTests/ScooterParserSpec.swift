@@ -18,10 +18,12 @@ class ScooterParserSpec: TransitAppSpec {
                 let first = result.first!
                 expect(first.longitude).to(equal(13.415355))
                 expect(first.latitude).to(equal(52.517223))
+                expect(first.energyLevel).to(equal(70))
 
                 let second = result[1]
                 expect(second.longitude).to(equal(13.360313))
                 expect(second.latitude).to(equal(52.494534))
+                expect(second.energyLevel).to(equal(53))
             }
         }
         
