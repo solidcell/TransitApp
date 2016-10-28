@@ -1,6 +1,6 @@
 import UIKit
 
-class MapViewControllerCoordinator {
+class MapCoordinator {
 
     func start(window: UIWindow) {
         let viewController = MapViewController.createFromStoryboard()
