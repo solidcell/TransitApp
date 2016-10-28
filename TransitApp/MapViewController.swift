@@ -25,6 +25,10 @@ class MapViewController: UIViewController {
     }
 
     private func configureSegmentControl() {
+        // set the background color
+        segmentedControl.backgroundColor = UIColor.white
+        segmentedControl.layer.cornerRadius = 4.0
+        segmentedControl.clipsToBounds = true
         // insert the segments
         segmentedControl.removeAllSegments()
         segmentedControlSource.segments.forEach { segment in
