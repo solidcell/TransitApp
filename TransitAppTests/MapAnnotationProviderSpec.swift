@@ -4,22 +4,21 @@ import RealmSwift
 import MapKit
 @testable import TransitApp
 
-class MapAnnotationCreatorSpec: TransitAppSpec {
+class MapAnnotationProviderSpec: TransitAppSpec {
     override func spec() {
         super.spec()
 
-        let subject = MapAnnotationCreator()
-
-        describe("annotations(stops:)") {
+        describe("annotations()") {
             it("returns a MapAnnotation for each Stop") {
+                let subject = MapAnnotationProvider(realm: self.realm)
+                
                 let stop1 = Stop(name: "name 1", latitude: 1.0, longitude: 2.0)
                 let stop2 = Stop(name: "name 2", latitude: 100.0, longitude: 200.0)
                 try! self.realm.write {
                     self.realm.add([stop1, stop2])
                 }
-                let results = self.realm.stops
 
-                let annotations = subject.annotations(stops: results)
+                let annotations = subject.annotations()
 
                 expect(annotations.count).to(equal(2))
 
