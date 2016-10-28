@@ -23,7 +23,7 @@ class SeedDataParserSpec: TransitAppSpec {
 
                 expect(self.realm.transitProviders.count).to(equal(6))
                 expect(self.realm.routes.count).to(equal(9))
-                expect(self.realm.scooters.count).to(equal(66))
+                expect(self.realm.scooters.count).to(equal(158))
             }
 
             it("does nothing if data already exists") {
@@ -31,13 +31,13 @@ class SeedDataParserSpec: TransitAppSpec {
 
                 expect(self.realm.transitProviders.count).to(equal(6))
                 expect(self.realm.routes.count).to(equal(9))
-                expect(self.realm.scooters.count).to(equal(66))
+                expect(self.realm.scooters.count).to(equal(158))
                 
                 subject.seedIfNeeded()
 
                 expect(self.realm.transitProviders.count).to(equal(6))
                 expect(self.realm.routes.count).to(equal(9))
-                expect(self.realm.scooters.count).to(equal(66))
+                expect(self.realm.scooters.count).to(equal(158))
             }
         }
     }
