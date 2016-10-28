@@ -17,5 +17,10 @@ class SegmentedControlSource {
     lazy var selectedIndex: Int = {
         return 0
     }()
+
+    @objc
+    func selectIndex(_ index: Int) {
+        selectedIndex = index
+    }
     
 }

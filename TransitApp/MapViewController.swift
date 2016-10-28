@@ -25,13 +25,19 @@ class MapViewController: UIViewController {
     }
 
     private func configureSegmentControl() {
+        // insert the segments
         segmentedControl.removeAllSegments()
         segmentedControlSource.segments.forEach { segment in
             segmentedControl.insertSegment(withTitle: segment.title,
                                            at: segment.index,
                                            animated: false)
         }
+        // set the initial selection
         segmentedControl.selectedSegmentIndex = segmentedControlSource.selectedIndex
+        // update selection
+        segmentedControl.addTarget(segmentedControlSource,
+                                   action: #selector(SegmentedControlSource.selectIndex(_:)),
+                                   for: UIControlEvents.valueChanged)
     }
     
 }

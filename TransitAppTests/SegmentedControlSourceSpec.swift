@@ -25,10 +25,16 @@ class SegmentedControlSourceSpec: TransitAppSpec {
         }
 
         describe("selectedIndex") {
-            it("returns the currently selectedIndex") {
-                let selectedIndex = subject.selectedIndex
+            it("returns the currently selected index") {
+                expect(subject.selectedIndex).to(equal(0))
+            }
+        }
 
-                expect(selectedIndex).to(equal(0))
+        describe("selectIndex") {
+            it("updates the currently selected index") {
+                expect(subject.selectedIndex).to(equal(0))
+                subject.selectIndex(1)
+                expect(subject.selectedIndex).to(equal(1))
             }
         }
     }
