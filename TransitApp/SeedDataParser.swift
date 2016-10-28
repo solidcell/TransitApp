@@ -16,6 +16,8 @@ class SeedDataParser {
     }
     
     func seedIfNeeded() {
+        if realm.transitProviders.count > 0 { return }
+        
         let seedJSON = jsonParser.parse(filename: SeedDataParser.seedJSONfilename)
         seedTransitProviders(json: seedJSON)
         seedRoutes(json: seedJSON)
