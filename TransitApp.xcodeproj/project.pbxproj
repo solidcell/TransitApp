@@ -159,12 +159,12 @@
 		8827E13A1DC0CBDA00E06654 /* JSONParsing */ = {
 			isa = PBXGroup;
 			children = (
+				8827E15B1DC2505A00E06654 /* SeedDataParser.swift */,
 				8827E1351DC0BD4300E06654 /* JSONParser.swift */,
 				8827E13B1DC0CBFD00E06654 /* TransitProviderParser.swift */,
 				8827E1471DC0EEB900E06654 /* RouteParser.swift */,
 				8827E1521DC121B000E06654 /* SegmentParser.swift */,
 				8827E1541DC12F8100E06654 /* StopParser.swift */,
-				8827E15B1DC2505A00E06654 /* SeedDataParser.swift */,
 			);
 			name = JSONParsing;
 			sourceTree = "<group>";

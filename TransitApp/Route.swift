@@ -17,3 +17,12 @@ extension Route {
         self.segments.append(objectsIn: segments)
     }
 }
+
+// MARK: Queries
+extension Realm {
+    
+    var routes: Results<Route> {
+        return objects(Route.self)
+    }
+    
+}
