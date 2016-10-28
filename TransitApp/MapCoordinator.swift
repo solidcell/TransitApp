@@ -11,9 +11,11 @@ class MapCoordinator {
         let mapRegionManager = MapRegionManager()
         let region = mapRegionManager.region(annotations: annotations)
         let mapViewDelegate = MapViewDelegate()
+        let segmentedControlSource = SegmentedControlSource()
         let viewController = MapViewController.createFromStoryboard(annotations: annotations,
                                                                     initialCoordinateRegion: region,
-                                                                    mapViewDelegate: mapViewDelegate)
+                                                                    mapViewDelegate: mapViewDelegate,
+                                                                    segmentedControlSource: segmentedControlSource)
         window.rootViewController = viewController
     }
 
