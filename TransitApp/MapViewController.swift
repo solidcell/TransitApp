@@ -8,6 +8,7 @@ class MapViewController: UIViewController {
     var mapViewDelegate: MKMapViewDelegate!
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
