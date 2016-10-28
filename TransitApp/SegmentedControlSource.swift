@@ -13,5 +13,9 @@ class SegmentedControlSource {
     init() {
         segments = segmentTitles.enumerated().map(Segment.init)
     }
+
+    lazy var selectedIndex: Int = {
+        return 0
+    }()
     
 }

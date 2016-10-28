@@ -23,5 +23,13 @@ class SegmentedControlSourceSpec: TransitAppSpec {
                 expect(second.title).to(equal("Door2Door"))
             }
         }
+
+        describe("selectedIndex") {
+            it("returns the currently selectedIndex") {
+                let selectedIndex = subject.selectedIndex
+
+                expect(selectedIndex).to(equal(0))
+            }
+        }
     }
 }

@@ -31,6 +31,7 @@ class MapViewController: UIViewController {
                                            at: segment.index,
                                            animated: false)
         }
+        segmentedControl.selectedSegmentIndex = segmentedControlSource.selectedIndex
     }
     
 }
