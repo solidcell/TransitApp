@@ -13,7 +13,7 @@ class MainCoordinator {
 
     func start(window: UIWindow) {
         seedDataParser.seedIfNeeded()
-        mapCoordinator.start(window: window)
+        mapCoordinator.start(window: window, realm: realm)
     }
     
 }

@@ -3,21 +3,17 @@ import MapKit
 
 class MapViewController: UIViewController {
 
+    var annotations: [MapAnnotation]!
+
     @IBOutlet weak var mapView: MKMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        annotations.forEach(mapView.addAnnotation)
+        
         let initialLocation = CLLocation(latitude: 52.5302356, longitude: 13.4033659)
         centerMapOnLocation(location: initialLocation)
-
-        let mapAnnotation = MapAnnotation(title: "title - Berlin",
-                                    locationName: "location name - Berlin",
-                                    discipline: "discipline - Berlin",
-                                    coordinate: CLLocationCoordinate2D(latitude: 52.5302356,
-                                                                       longitude: 13.4033659))
-        
-        mapView.addAnnotation(mapAnnotation)
     }
 
     private let regionRadius: CLLocationDistance = 10000
@@ -36,9 +32,11 @@ extension MapViewController {
 
     // Using a Storyboard, rather than a NIB, allows us access
     // to top/bottom layout guides in Interface Builder
-    class func createFromStoryboard() -> MapViewController {
-        return UIStoryboard(name: storyboardName, bundle: nil)
+    class func createFromStoryboard(annotations: [MapAnnotation]) -> MapViewController {
+        let vc = UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateInitialViewController() as! MapViewController
+        vc.annotations = annotations
+        return vc
     }
     
 }
