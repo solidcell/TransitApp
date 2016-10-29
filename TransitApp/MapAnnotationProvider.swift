@@ -27,7 +27,8 @@ class MapAnnotationProvider {
     fileprivate func updateAnnotations(source: MapSourceManager.Source) {
         switch source {
         case .coup:
-            annotations = []
+            let scooters = realm.scooters
+            annotations = mapAnnotationCreator.annotations(scooters: scooters)
         case .door2door:
             let stops = realm.stops
             annotations = mapAnnotationCreator.annotations(stops: stops)

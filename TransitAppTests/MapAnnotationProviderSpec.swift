@@ -14,8 +14,11 @@ class MapAnnotationProviderSpec: TransitAppSpec {
         beforeEach {
             let stop1 = Stop(name: "name 1", latitude: 1.0, longitude: 2.0)
             let stop2 = Stop(name: "name 2", latitude: 100.0, longitude: 200.0)
+
+            let scooter1 = Scooter(latitude: 50.0, longitude: 60.0, energyLevel: 70)
+
             try! self.realm.write {
-                self.realm.add([stop1, stop2])
+                self.realm.add([stop1, stop2, scooter1])
             }
 
             mapSourceManager = MapSourceManager()
@@ -24,23 +27,49 @@ class MapAnnotationProviderSpec: TransitAppSpec {
         }
 
         describe("annotations()") {
-            it("returns a MapAnnotation for each Stop") {
-                let annotations = subject.annotations
 
-                expect(annotations.count).to(equal(2))
+            context("when the source is .door2door") {
+                beforeEach {
+                    mapSourceManager.source = .door2door
+                }
 
-                let first = annotations.first!
-                expect(first.title).to(equal("name 1"))
-                expect(first.locationName).to(equal("name 1"))
-                expect(first.discipline).to(equal("name 1"))
-                expect(first.coordinate).to(equal(CLLocationCoordinate2D(latitude: 1.0, longitude: 2.0)))
+                it("returns a MapAnnotation for each Stop") {
+                    let annotations = subject.annotations
 
-                let second = annotations[1]
-                expect(second.title).to(equal("name 2"))
-                expect(second.locationName).to(equal("name 2"))
-                expect(second.discipline).to(equal("name 2"))
-                expect(second.coordinate).to(equal(CLLocationCoordinate2D(latitude: 100.0, longitude: 200.0)))
+                    expect(annotations.count).to(equal(2))
+
+                    let first = annotations.first!
+                    expect(first.title).to(equal("name 1"))
+                    expect(first.locationName).to(equal("name 1"))
+                    expect(first.discipline).to(equal("name 1"))
+                    expect(first.coordinate).to(equal(CLLocationCoordinate2D(latitude: 1.0, longitude: 2.0)))
+
+                    let second = annotations[1]
+                    expect(second.title).to(equal("name 2"))
+                    expect(second.locationName).to(equal("name 2"))
+                    expect(second.discipline).to(equal("name 2"))
+                    expect(second.coordinate).to(equal(CLLocationCoordinate2D(latitude: 100.0, longitude: 200.0)))
+                }
             }
+
+            context("when the source is .coup") {
+                beforeEach {
+                    mapSourceManager.source = .coup
+                }
+
+                it("returns a MapAnnotation for each Scooter") {
+                    let annotations = subject.annotations
+
+                    expect(annotations.count).to(equal(1))
+
+                    let first = annotations.first!
+                    expect(first.title).to(equal("title"))
+                    expect(first.locationName).to(equal("locationName"))
+                    expect(first.discipline).to(equal("discipline"))
+                    expect(first.coordinate).to(equal(CLLocationCoordinate2D(latitude: 50.0, longitude: 60.0)))
+                }
+            }
+
         }
 
         describe("delegate") {
@@ -49,10 +78,10 @@ class MapAnnotationProviderSpec: TransitAppSpec {
                 expect(delegate.didUpdateCalledWith).to(beNil())
                 
                 subject.delegate = delegate
-                expect(delegate.didUpdateCalledWith).toNot(beEmpty())
+                expect(delegate.didUpdateCalledWith).to(haveCount(2))
 
                 mapSourceManager.source = .coup
-                expect(delegate.didUpdateCalledWith).to(beEmpty())
+                expect(delegate.didUpdateCalledWith).to(haveCount(1))
             }
         }
     }
