@@ -17,7 +17,7 @@ class MapViewDelegateSpec: TransitAppSpec {
         }
 
         describe("mapView(_:,viewFor:)") {
-            
+
             context("when the annotation is a Door2DoorMapAnnotation") {
                 var door2DoorMapAnnotation: Door2DoorMapAnnotation!
 
@@ -37,15 +37,20 @@ class MapViewDelegateSpec: TransitAppSpec {
             context("when the annotation is a CoupMapAnnotation") {
                 var coupMapAnnotation: CoupMapAnnotation!
 
-                beforeEach {
-                    coupMapAnnotation = CoupMapAnnotation(title: "",
-                                                          coordinate: coordinate,
-                                                          energyLevel: 55)
-                }
-                
-                it("returns nil") {
-                    let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
-                    expect(results).to(beNil())
+                context("with energy level 51-100") {
+                    let energyLevel = 51
+
+                    beforeEach {
+                        coupMapAnnotation = CoupMapAnnotation(title: "",
+                                                              coordinate: coordinate,
+                                                              energyLevel: energyLevel)
+                    }
+
+                    it("returns a MKPinAnnotationView with a green tint") {
+                        let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
+                        let pinAnnotationView = results as! MKPinAnnotationView
+                        expect(pinAnnotationView.pinTintColor).to(equal(UIColor.green))
+                    }
                 }
             }
             
