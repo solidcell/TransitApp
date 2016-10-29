@@ -21,13 +21,13 @@ class SegmentedControlSource {
     init(mapSourceManager: MapSourceManager) {
         self.mapSourceManager = mapSourceManager
         segments = mapSourceManager.sources.map(Segment.init)
-        selectedIndex = mapSourceManager.source == .coup ? 0 : 1
+        selectedIndex = segments.index(where: { $0.source == mapSourceManager.source})!
     }
 
     @objc
     func selectIndex(_ index: Int) {
         selectedIndex = index
-        let source: MapSourceManager.Source = selectedIndex == 0 ? .coup : .door2door
+        let source = segments[index].source
         delegate?.didUpdate(source: source)
     }
     
