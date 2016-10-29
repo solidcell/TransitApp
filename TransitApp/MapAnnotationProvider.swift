@@ -21,7 +21,7 @@ class MapAnnotationProvider {
     }
 
     // TODO move the Source source to a different class (and sync with segmented control source)
-    var source = Source.door2door {
+    var source = MapSourceManager.Source.door2door {
         didSet {
             switch source {
             case .coup:
@@ -31,12 +31,6 @@ class MapAnnotationProvider {
                 annotations = mapAnnotationCreator.annotations(stops: stops)
             }
         }
-    }
-
-    // TODO also move this
-    enum Source {
-        case coup
-        case door2door
     }
     
 }

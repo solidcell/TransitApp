@@ -26,6 +26,8 @@
 		880EB08F1DC39EA300C5830E /* Door2DoorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB08E1DC39EA300C5830E /* Door2DoorParser.swift */; };
 		880EB0911DC39FCB00C5830E /* CoupParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0901DC39FCB00C5830E /* CoupParser.swift */; };
 		880EB0931DC3A20200C5830E /* MapAnnotationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */; };
+		880EB0971DC4A06600C5830E /* MapSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0961DC4A06600C5830E /* MapSourceManager.swift */; };
+		880EB0991DC4A08B00C5830E /* MapSourceManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0981DC4A08B00C5830E /* MapSourceManagerSpec.swift */; };
 		8827E1201DBF914800E06654 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8827E11F1DBF914800E06654 /* MapViewController.storyboard */; };
 		8827E12A1DC0B3E000E06654 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1291DC0B3E000E06654 /* MapCoordinator.swift */; };
 		8827E12D1DC0B7CE00E06654 /* Door2DoorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */; };
@@ -92,6 +94,8 @@
 		880EB08E1DC39EA300C5830E /* Door2DoorParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door2DoorParser.swift; sourceTree = "<group>"; };
 		880EB0901DC39FCB00C5830E /* CoupParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupParser.swift; sourceTree = "<group>"; };
 		880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProvider.swift; sourceTree = "<group>"; };
+		880EB0961DC4A06600C5830E /* MapSourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSourceManager.swift; sourceTree = "<group>"; };
+		880EB0981DC4A08B00C5830E /* MapSourceManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSourceManagerSpec.swift; sourceTree = "<group>"; };
 		8827E11F1DBF914800E06654 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		8827E1291DC0B3E000E06654 /* MapCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Door2DoorData.json; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 			children = (
 				880EB0621DC338BC00C5830E /* Main */,
 				880EB06E1DC36E1A00C5830E /* MapRegionManager.swift */,
+				880EB0961DC4A06600C5830E /* MapSourceManager.swift */,
 				880EB0681DC3611E00C5830E /* MapAnnotations */,
 				8827E13D1DC0CC1E00E06654 /* Models */,
 				8827E1281DC0B3C900E06654 /* MapViewController */,
@@ -370,6 +375,7 @@
 			children = (
 				880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */,
 				880EB0781DC38A0300C5830E /* SegmentedControlSourceSpec.swift */,
+				880EB0981DC4A08B00C5830E /* MapSourceManagerSpec.swift */,
 				880EB0651DC3607D00C5830E /* JSONParsing */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				8827E12E1DC0BB1900E06654 /* Assets */,
@@ -631,6 +637,7 @@
 				880EB06A1DC3612F00C5830E /* MapAnnotationCreator.swift in Sources */,
 				880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */,
 				88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */,
+				880EB0971DC4A06600C5830E /* MapSourceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +648,7 @@
 				880EB0791DC38A0300C5830E /* SegmentedControlSourceSpec.swift in Sources */,
 				8827E1391DC0CB6200E06654 /* TransitProviderParserSpec.swift in Sources */,
 				880EB0871DC398FC00C5830E /* ScooterParserSpec.swift in Sources */,
+				880EB0991DC4A08B00C5830E /* MapSourceManagerSpec.swift in Sources */,
 				8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */,
 				880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */,
 				8827E15E1DC2507100E06654 /* SeedDataParserSpec.swift in Sources */,
