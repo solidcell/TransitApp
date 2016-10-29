@@ -38,13 +38,13 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
                     expect(annotations.count).to(equal(2))
 
-                    let first = annotations.first!
+                    let first = annotations.first as! MapAnnotation
                     expect(first.title).to(equal("name 1"))
                     expect(first.locationName).to(equal("name 1"))
                     expect(first.discipline).to(equal("name 1"))
                     expect(first.coordinate).to(equal(CLLocationCoordinate2D(latitude: 1.0, longitude: 2.0)))
 
-                    let second = annotations[1]
+                    let second = annotations[1] as! MapAnnotation
                     expect(second.title).to(equal("name 2"))
                     expect(second.locationName).to(equal("name 2"))
                     expect(second.discipline).to(equal("name 2"))
@@ -62,7 +62,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
                     expect(annotations.count).to(equal(1))
 
-                    let first = annotations.first!
+                    let first = annotations.first! as! MapAnnotation
                     expect(first.title).to(equal("title"))
                     expect(first.locationName).to(equal("locationName"))
                     expect(first.discipline).to(equal("discipline"))
@@ -89,9 +89,9 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
 private class DelegateImplementation: MapAnnotationProviderDelegate {
 
-    var didUpdateCalledWith: [MapAnnotation]?
+    var didUpdateCalledWith: [MKAnnotation]?
     
-    func didUpdate(annotations: [MapAnnotation]) {
+    func didUpdate(annotations: [MKAnnotation]) {
         didUpdateCalledWith = annotations
     }
 }

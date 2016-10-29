@@ -53,7 +53,7 @@ class MapViewController: UIViewController {
 
 extension MapViewController: MapAnnotationProviderDelegate {
 
-    func didUpdate(annotations: [MapAnnotation]) {
+    func didUpdate(annotations: [MKAnnotation]) {
         // remove current annotations
         let currentAnnotations = mapView.annotations
         mapView.removeAnnotations(currentAnnotations)

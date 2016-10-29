@@ -1,4 +1,5 @@
 import RealmSwift
+import MapKit
 
 class MapAnnotationProvider {
 
@@ -18,7 +19,7 @@ class MapAnnotationProvider {
         mapSourceManager.delegate = self
     }
 
-    private(set) var annotations = [MapAnnotation]() {
+    private(set) var annotations = [MKAnnotation]() {
         didSet {
             delegate?.didUpdate(annotations: annotations)
         }
@@ -46,5 +47,5 @@ extension MapAnnotationProvider: MapSourceManagerDelegate {
 }
 
 protocol MapAnnotationProviderDelegate: class {
-    func didUpdate(annotations: [MapAnnotation])
+    func didUpdate(annotations: [MKAnnotation])
 }
