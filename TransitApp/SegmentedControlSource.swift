@@ -5,17 +5,23 @@ class SegmentedControlSource {
     let segments: [Segment]
     var selectedIndex: Int
     weak var delegate: SegmentedControlSourceDelegate?
-    private let segmentTitles = ["COUP", "Door2Door"]
     private let mapSourceManager: MapSourceManager
 
     struct Segment {
         let index: Int
-        let title: String
+        let source: MapSourceManager.Source
+
+        var title: String {
+            switch source {
+            case .coup: return "COUP"
+            case .door2door: return "Door2Door"
+            }
+        }
     }
 
     init(mapSourceManager: MapSourceManager) {
         self.mapSourceManager = mapSourceManager
-        segments = segmentTitles.enumerated().map(Segment.init)
+        segments = mapSourceManager.sources.enumerated().map(Segment.init)
         selectedIndex = mapSourceManager.source == .coup ? 0 : 1
     }
 
