@@ -10,7 +10,7 @@ class MapAnnotationCreator {
         return door2DoorMapAnnotationCreator.annotations(stops: stops)
     }
 
-    func annotations(scooters: Results<Scooter>) -> [Door2DoorMapAnnotation] {
+    func annotations(scooters: Results<Scooter>) -> [CoupMapAnnotation] {
         return coupMapAnnotationCreator.annotations(scooters: scooters)
     }
     

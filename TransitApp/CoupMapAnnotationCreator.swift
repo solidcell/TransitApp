@@ -3,16 +3,16 @@ import MapKit
 
 class CoupMapAnnotationCreator {
     
-    func annotations(scooters: Results<Scooter>) -> [Door2DoorMapAnnotation] {
+    func annotations(scooters: Results<Scooter>) -> [CoupMapAnnotation] {
         return scooters.map(scooterToAnnotation)
     }
 
-    private func scooterToAnnotation(scooter: Scooter) -> Door2DoorMapAnnotation {
-        return Door2DoorMapAnnotation(title: "title",
-                                      locationName: "locationName",
-                                      discipline: "discipline",
-                                      coordinate: CLLocationCoordinate2D(latitude: scooter.latitude,
-                                                                         longitude: scooter.longitude))
+    private func scooterToAnnotation(scooter: Scooter) -> CoupMapAnnotation {
+        return CoupMapAnnotation(title: "title",
+                                 locationName: "locationName",
+                                 discipline: "discipline",
+                                 coordinate: CLLocationCoordinate2D(latitude: scooter.latitude,
+                                                                    longitude: scooter.longitude))
     }
-    
+
 }

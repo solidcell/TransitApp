@@ -33,7 +33,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
                     mapSourceManager.source = .door2door
                 }
 
-                it("returns a MapAnnotation for each Stop") {
+                it("returns a Door2DoorMapAnnotation for each Stop") {
                     let annotations = subject.annotations
 
                     expect(annotations.count).to(equal(2))
@@ -57,12 +57,12 @@ class MapAnnotationProviderSpec: TransitAppSpec {
                     mapSourceManager.source = .coup
                 }
 
-                it("returns a MapAnnotation for each Scooter") {
+                it("returns a CoupMapAnnotation for each Scooter") {
                     let annotations = subject.annotations
 
                     expect(annotations.count).to(equal(1))
 
-                    let first = annotations.first! as! Door2DoorMapAnnotation
+                    let first = annotations.first! as! CoupMapAnnotation
                     expect(first.title).to(equal("title"))
                     expect(first.locationName).to(equal("locationName"))
                     expect(first.discipline).to(equal("discipline"))
