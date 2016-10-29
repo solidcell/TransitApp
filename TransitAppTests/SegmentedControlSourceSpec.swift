@@ -6,7 +6,8 @@ class SegmentedControlSourceSpec: TransitAppSpec {
     override func spec() {
         super.spec()
 
-        let subject = SegmentedControlSource()
+        let mapSourceManager = MapSourceManager()
+        let subject = SegmentedControlSource(mapSourceManager: mapSourceManager)
 
         describe("segments") {
             it("returns all Segment structs") {
@@ -25,16 +26,16 @@ class SegmentedControlSourceSpec: TransitAppSpec {
         }
 
         describe("selectedIndex") {
-            it("returns the currently selected index") {
-                expect(subject.selectedIndex).to(equal(0))
+            it("corresponds initially to the source in the source manager") {
+                expect(subject.selectedIndex).to(equal(1))
             }
         }
 
         describe("selectIndex") {
             it("updates the currently selected index") {
-                expect(subject.selectedIndex).to(equal(0))
-                subject.selectIndex(1)
                 expect(subject.selectedIndex).to(equal(1))
+                subject.selectIndex(0)
+                expect(subject.selectedIndex).to(equal(0))
             }
         }
     }
