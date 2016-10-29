@@ -30,6 +30,7 @@
 		880EB0991DC4A08B00C5830E /* MapSourceManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0981DC4A08B00C5830E /* MapSourceManagerSpec.swift */; };
 		880EB09B1DC4CF1700C5830E /* Door2DoorMapAnnotationCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB09A1DC4CF1700C5830E /* Door2DoorMapAnnotationCreator.swift */; };
 		880EB09D1DC4D1D800C5830E /* CoupMapAnnotationCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB09C1DC4D1D800C5830E /* CoupMapAnnotationCreator.swift */; };
+		880EB09F1DC4DD8600C5830E /* IterateEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB09E1DC4DD8600C5830E /* IterateEnum.swift */; };
 		8827E1201DBF914800E06654 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8827E11F1DBF914800E06654 /* MapViewController.storyboard */; };
 		8827E12A1DC0B3E000E06654 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1291DC0B3E000E06654 /* MapCoordinator.swift */; };
 		8827E12D1DC0B7CE00E06654 /* Door2DoorData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */; };
@@ -100,6 +101,7 @@
 		880EB0981DC4A08B00C5830E /* MapSourceManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSourceManagerSpec.swift; sourceTree = "<group>"; };
 		880EB09A1DC4CF1700C5830E /* Door2DoorMapAnnotationCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door2DoorMapAnnotationCreator.swift; sourceTree = "<group>"; };
 		880EB09C1DC4D1D800C5830E /* CoupMapAnnotationCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotationCreator.swift; sourceTree = "<group>"; };
+		880EB09E1DC4DD8600C5830E /* IterateEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IterateEnum.swift; sourceTree = "<group>"; };
 		8827E11F1DBF914800E06654 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		8827E1291DC0B3E000E06654 /* MapCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		8827E12C1DC0B7CE00E06654 /* Door2DoorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Door2DoorData.json; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 			children = (
 				8827E1431DC0D65600E06654 /* FilterNil.swift */,
 				880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */,
+				880EB09E1DC4DD8600C5830E /* IterateEnum.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				8827E1531DC121B000E06654 /* SegmentParser.swift in Sources */,
 				8827E15C1DC2505A00E06654 /* SeedDataParser.swift in Sources */,
 				8827E1571DC1302500E06654 /* Stop.swift in Sources */,
+				880EB09F1DC4DD8600C5830E /* IterateEnum.swift in Sources */,
 				880EB09D1DC4D1D800C5830E /* CoupMapAnnotationCreator.swift in Sources */,
 				8827E12A1DC0B3E000E06654 /* MapCoordinator.swift in Sources */,
 				880EB0911DC39FCB00C5830E /* CoupParser.swift in Sources */,

@@ -14,5 +14,14 @@ class MapSourceManagerSpec: TransitAppSpec {
                 expect(subject.source).to(equal(MapSourceManager.Source.door2door))
             }
         }
+
+        describe("sources") {
+            it("returns an Iterator of all the Sources") {
+                let expectedSources: [MapSourceManager.Source] = [.coup, .door2door]
+                
+                expect(subject.sources).to(contain(expectedSources))
+                expect(Array(subject.sources)).to(haveCount(expectedSources.count))
+            }
+        }
     }
 }

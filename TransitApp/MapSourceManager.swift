@@ -18,6 +18,10 @@ class MapSourceManager {
             delegate?.didUpdate(source: source)
         }
     }
+
+    var sources: AnyIterator<Source> {
+        return iterateEnum(Source.self)
+    }
     
 }
 
