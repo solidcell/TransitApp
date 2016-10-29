@@ -9,6 +9,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
         super.spec()
 
         var subject: MapAnnotationProvider!
+        var mapSourceManager: MapSourceManager!
 
         beforeEach {
             let stop1 = Stop(name: "name 1", latitude: 1.0, longitude: 2.0)
@@ -17,7 +18,9 @@ class MapAnnotationProviderSpec: TransitAppSpec {
                 self.realm.add([stop1, stop2])
             }
 
-            subject = MapAnnotationProvider(realm: self.realm)
+            mapSourceManager = MapSourceManager()
+            subject = MapAnnotationProvider(realm: self.realm,
+                                            mapSourceManager: mapSourceManager)
         }
 
         describe("annotations()") {

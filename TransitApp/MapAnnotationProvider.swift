@@ -5,12 +5,14 @@ class MapAnnotationProvider {
     weak var delegate: MapAnnotationProviderDelegate?
     private let mapAnnotationCreator = MapAnnotationCreator()
     private let realm: Realm
+    private let mapSourceManager: MapSourceManager
 
-    init(realm: Realm) {
+    init(realm: Realm, mapSourceManager: MapSourceManager) {
         self.realm = realm
+        self.mapSourceManager = mapSourceManager
 
         defer {
-            source = .door2door
+            source = mapSourceManager.source
         }
     }
 
@@ -32,7 +34,7 @@ class MapAnnotationProvider {
             }
         }
     }
-    
+
 }
 
 protocol MapAnnotationProviderDelegate: class {

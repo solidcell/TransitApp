@@ -5,7 +5,9 @@ import MapKit
 class MapCoordinator {
 
     func start(window: UIWindow, realm: Realm) {
-        let mapAnnotationProvider = MapAnnotationProvider(realm: realm)
+        let mapSourceManager = MapSourceManager()
+        let mapAnnotationProvider = MapAnnotationProvider(realm: realm,
+                                                          mapSourceManager: mapSourceManager)
         let annotations = mapAnnotationProvider.annotations
         let mapRegionManager = MapRegionManager()
         let region = mapRegionManager.region(annotations: annotations)

@@ -11,7 +11,7 @@ class MapSourceManagerSpec: TransitAppSpec {
 
         describe("source") {
             it("returns the current Source") {
-                expect(subject.source).to(equal(MapSourceManager.Source.coup))
+                expect(subject.source).to(equal(MapSourceManager.Source.door2door))
             }
         }
     }

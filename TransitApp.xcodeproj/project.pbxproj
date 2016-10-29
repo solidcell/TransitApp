@@ -189,9 +189,9 @@
 		880EB0681DC3611E00C5830E /* MapAnnotations */ = {
 			isa = PBXGroup;
 			children = (
+				880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */,
 				880EB0691DC3612F00C5830E /* MapAnnotationCreator.swift */,
 				8827E1591DC24C7500E06654 /* MapAnnotation.swift */,
-				880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */,
 			);
 			name = MapAnnotations;
 			sourceTree = "<group>";
