@@ -373,9 +373,9 @@
 		88DF694C1DBF905F00FE11F0 /* TransitAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				880EB0981DC4A08B00C5830E /* MapSourceManagerSpec.swift */,
 				880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */,
 				880EB0781DC38A0300C5830E /* SegmentedControlSourceSpec.swift */,
-				880EB0981DC4A08B00C5830E /* MapSourceManagerSpec.swift */,
 				880EB0651DC3607D00C5830E /* JSONParsing */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				8827E12E1DC0BB1900E06654 /* Assets */,

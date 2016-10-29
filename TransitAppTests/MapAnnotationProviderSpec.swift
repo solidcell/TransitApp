@@ -44,15 +44,15 @@ class MapAnnotationProviderSpec: TransitAppSpec {
         }
 
         describe("delegate") {
-            it("is called with didUpdate(annotation:) when the source is updated") {
+            it("is called with didUpdate(annotation:) when set and when the source is updated") {
                 let delegate = DelegateImplementation()
-                subject.delegate = delegate
-                
                 expect(delegate.didUpdateCalledWith).to(beNil())
-
-                subject.source = .coup
                 
-                expect(delegate.didUpdateCalledWith).to(equal([]))
+                subject.delegate = delegate
+                expect(delegate.didUpdateCalledWith).toNot(beEmpty())
+
+                mapSourceManager.source = .coup
+                expect(delegate.didUpdateCalledWith).to(beEmpty())
             }
         }
     }
