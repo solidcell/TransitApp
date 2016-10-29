@@ -1,7 +1,7 @@
 import Foundation
 import MapKit
 
-class MapAnnotation: NSObject, MKAnnotation {
+class Door2DoorMapAnnotation: NSObject, MKAnnotation {
     let title: String?
     let locationName: String?
     let discipline: String?
