@@ -32,11 +32,30 @@ class SegmentedControlSourceSpec: TransitAppSpec {
         }
 
         describe("selectIndex") {
+            
             it("updates the currently selected index") {
                 expect(subject.selectedIndex).to(equal(1))
                 subject.selectIndex(0)
                 expect(subject.selectedIndex).to(equal(0))
             }
+
+            it("notifies the delegate") {
+                let delegate = SegmentedControlSourceDelegateImplementation()
+                subject.delegate = delegate
+
+                expect(delegate.didCallUpdateWith).to(beNil())
+                subject.selectIndex(0)
+                expect(delegate.didCallUpdateWith).to(equal(MapSourceManager.Source.coup))
+            }
+            
         }
+    }
+}
+
+private class SegmentedControlSourceDelegateImplementation: SegmentedControlSourceDelegate {
+    var didCallUpdateWith: MapSourceManager.Source?
+
+    func didUpdate(source: MapSourceManager.Source) {
+        didCallUpdateWith = source
     }
 }

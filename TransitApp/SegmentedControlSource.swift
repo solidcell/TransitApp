@@ -4,6 +4,7 @@ class SegmentedControlSource {
 
     let segments: [Segment]
     var selectedIndex: Int
+    weak var delegate: SegmentedControlSourceDelegate?
     private let segmentTitles = ["COUP", "Door2Door"]
     private let mapSourceManager: MapSourceManager
 
@@ -21,6 +22,12 @@ class SegmentedControlSource {
     @objc
     func selectIndex(_ index: Int) {
         selectedIndex = index
+        let source: MapSourceManager.Source = selectedIndex == 0 ? .coup : .door2door
+        delegate?.didUpdate(source: source)
     }
     
+}
+
+protocol SegmentedControlSourceDelegate: class {
+    func didUpdate(source: MapSourceManager.Source)
 }
