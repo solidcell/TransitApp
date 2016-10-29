@@ -15,7 +15,8 @@ class MapAnnotationProviderSpec: TransitAppSpec {
             let stop1 = Stop(name: "name 1", latitude: 1.0, longitude: 2.0)
             let stop2 = Stop(name: "name 2", latitude: 100.0, longitude: 200.0)
 
-            let scooter1 = Scooter(latitude: 50.0, longitude: 60.0, energyLevel: 70)
+            let scooter1 = Scooter(latitude: 50.0, longitude: 60.0,
+                                   energyLevel: 70, licensePlate: "123abc")
 
             try! self.realm.write {
                 self.realm.add([stop1, stop2, scooter1])
@@ -63,7 +64,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
                     expect(annotations.count).to(equal(1))
 
                     let first = annotations.first! as! CoupMapAnnotation
-                    expect(first.title).to(equal("title"))
+                    expect(first.title).to(equal("123abc"))
                     expect(first.coordinate).to(equal(CLLocationCoordinate2D(latitude: 50.0, longitude: 60.0)))
                     expect(first.subtitle).to(equal("70%"))
                 }

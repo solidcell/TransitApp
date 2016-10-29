@@ -12,7 +12,8 @@ class ScooterParser {
         let location = json["location"].dictionary!
         return Scooter(latitude: location["lat"]!.double!,
                        longitude: location["lng"]!.double!,
-                       energyLevel: json["energy_level"].int!)
+                       energyLevel: json["energy_level"].int!,
+                       licensePlate: json["license_plate"].string!)
     }
     
 }

@@ -8,7 +8,7 @@ class CoupMapAnnotationCreator {
     }
 
     private func scooterToAnnotation(scooter: Scooter) -> CoupMapAnnotation {
-        return CoupMapAnnotation(title: "title",
+        return CoupMapAnnotation(title: scooter.licensePlate,
                                  coordinate: CLLocationCoordinate2D(latitude: scooter.latitude,
                                                                     longitude: scooter.longitude),
                                  energyLevel: scooter.energyLevel)
