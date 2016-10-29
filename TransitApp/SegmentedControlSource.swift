@@ -8,7 +8,6 @@ class SegmentedControlSource {
     private let mapSourceManager: MapSourceManager
 
     struct Segment {
-        let index: Int
         let source: MapSourceManager.Source
 
         var title: String {
@@ -21,7 +20,7 @@ class SegmentedControlSource {
 
     init(mapSourceManager: MapSourceManager) {
         self.mapSourceManager = mapSourceManager
-        segments = mapSourceManager.sources.enumerated().map(Segment.init)
+        segments = mapSourceManager.sources.map(Segment.init)
         selectedIndex = mapSourceManager.source == .coup ? 0 : 1
     }
 

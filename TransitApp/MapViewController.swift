@@ -31,9 +31,9 @@ class MapViewController: UIViewController {
         segmentedControl.clipsToBounds = true
         // insert the segments
         segmentedControl.removeAllSegments()
-        segmentedControlSource.segments.forEach { segment in
+        segmentedControlSource.segments.enumerated().forEach { index, segment in
             segmentedControl.insertSegment(withTitle: segment.title,
-                                           at: segment.index,
+                                           at: index,
                                            animated: false)
         }
         // set the initial selection
