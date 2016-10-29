@@ -1,4 +1,3 @@
-
 import Quick
 import Nimble
 @testable import TransitApp
