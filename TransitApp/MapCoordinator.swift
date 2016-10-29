@@ -6,7 +6,7 @@ class MapCoordinator {
 
     func start(window: UIWindow, realm: Realm) {
         let mapAnnotationProvider = MapAnnotationProvider(realm: realm)
-        let annotations = mapAnnotationProvider.annotations()
+        let annotations = mapAnnotationProvider.annotations
         let mapRegionManager = MapRegionManager()
         let region = mapRegionManager.region(annotations: annotations)
         let mapViewDelegate = MapViewDelegate()
