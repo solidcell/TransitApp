@@ -2,21 +2,19 @@ import Foundation
 import MapKit
 
 class CoupMapAnnotation: NSObject, MKAnnotation {
+    
     let title: String?
-    let locationName: String?
-    let discipline: String?
     let coordinate: CLLocationCoordinate2D
+    private let energyLevel: Int
 
-    init(title: String?, locationName: String?, discipline: String?, coordinate: CLLocationCoordinate2D) {
+    init(title: String, coordinate: CLLocationCoordinate2D, energyLevel: Int) {
         self.title = title
-        self.locationName = locationName
-        self.discipline = discipline
         self.coordinate = coordinate
-
-        super.init()
+        self.energyLevel = energyLevel
     }
 
     var subtitle: String? {
-        return locationName
+        return "\(self.energyLevel)%"
     }
+    
 }

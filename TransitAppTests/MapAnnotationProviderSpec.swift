@@ -64,9 +64,8 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
                     let first = annotations.first! as! CoupMapAnnotation
                     expect(first.title).to(equal("title"))
-                    expect(first.locationName).to(equal("locationName"))
-                    expect(first.discipline).to(equal("discipline"))
                     expect(first.coordinate).to(equal(CLLocationCoordinate2D(latitude: 50.0, longitude: 60.0)))
+                    expect(first.subtitle).to(equal("70%"))
                 }
             }
 

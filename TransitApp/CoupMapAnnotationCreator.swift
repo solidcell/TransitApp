@@ -9,10 +9,9 @@ class CoupMapAnnotationCreator {
 
     private func scooterToAnnotation(scooter: Scooter) -> CoupMapAnnotation {
         return CoupMapAnnotation(title: "title",
-                                 locationName: "locationName",
-                                 discipline: "discipline",
                                  coordinate: CLLocationCoordinate2D(latitude: scooter.latitude,
-                                                                    longitude: scooter.longitude))
+                                                                    longitude: scooter.longitude),
+                                 energyLevel: scooter.energyLevel)
     }
 
 }
