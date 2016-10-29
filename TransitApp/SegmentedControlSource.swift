@@ -20,19 +20,19 @@ class SegmentedControlSource {
 
     init(mapSourceManager: MapSourceManager) {
         self.mapSourceManager = mapSourceManager
+        self.delegate = mapSourceManager
         segments = mapSourceManager.sources.map(Segment.init)
         selectedIndex = segments.index(where: { $0.source == mapSourceManager.source})!
     }
 
-    @objc
     func selectIndex(_ index: Int) {
         selectedIndex = index
         let source = segments[index].source
-        delegate?.didUpdate(source: source)
+        delegate?.didSelect(source: source)
     }
     
 }
 
 protocol SegmentedControlSourceDelegate: class {
-    func didUpdate(source: MapSourceManager.Source)
+    func didSelect(source: MapSourceManager.Source)
 }

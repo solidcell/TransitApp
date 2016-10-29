@@ -39,9 +39,14 @@ class MapViewController: UIViewController {
         // set the initial selection
         segmentedControl.selectedSegmentIndex = segmentedControlSource.selectedIndex
         // update selection
-        segmentedControl.addTarget(segmentedControlSource,
-                                   action: #selector(SegmentedControlSource.selectIndex(_:)),
+        segmentedControl.addTarget(self,
+                                   action: #selector(didChangeSegmentedControlValue(_:)),
                                    for: UIControlEvents.valueChanged)
+    }
+
+    func didChangeSegmentedControlValue(_ sender: UISegmentedControl) {
+        let index = sender.selectedSegmentIndex
+        segmentedControlSource.selectIndex(index)
     }
     
 }

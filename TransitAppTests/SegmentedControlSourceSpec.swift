@@ -41,9 +41,9 @@ class SegmentedControlSourceSpec: TransitAppSpec {
                 let delegate = SegmentedControlSourceDelegateImplementation()
                 subject.delegate = delegate
 
-                expect(delegate.didCallUpdateWith).to(beNil())
+                expect(delegate.didCallSelectWith).to(beNil())
                 subject.selectIndex(0)
-                expect(delegate.didCallUpdateWith).to(equal(MapSourceManager.Source.coup))
+                expect(delegate.didCallSelectWith).to(equal(MapSourceManager.Source.coup))
             }
             
         }
@@ -51,9 +51,9 @@ class SegmentedControlSourceSpec: TransitAppSpec {
 }
 
 private class SegmentedControlSourceDelegateImplementation: SegmentedControlSourceDelegate {
-    var didCallUpdateWith: MapSourceManager.Source?
+    var didCallSelectWith: MapSourceManager.Source?
 
-    func didUpdate(source: MapSourceManager.Source) {
-        didCallUpdateWith = source
+    func didSelect(source: MapSourceManager.Source) {
+        didCallSelectWith = source
     }
 }
