@@ -8,12 +8,11 @@ class MapCoordinator {
         let mapSourceManager = MapSourceManager()
         let mapAnnotationProvider = MapAnnotationProvider(realm: realm,
                                                           mapSourceManager: mapSourceManager)
-        let annotations = mapAnnotationProvider.annotations
         let mapRegionManager = MapRegionManager()
-        let region = mapRegionManager.region(annotations: annotations)
+        let region = mapRegionManager.region(annotations: mapAnnotationProvider.annotations)
         let mapViewDelegate = MapViewDelegate()
         let segmentedControlSource = SegmentedControlSource(mapSourceManager: mapSourceManager)
-        let viewController = MapViewController.createFromStoryboard(annotations: annotations,
+        let viewController = MapViewController.createFromStoryboard(mapAnnotationProvider: mapAnnotationProvider,
                                                                     initialCoordinateRegion: region,
                                                                     mapViewDelegate: mapViewDelegate,
                                                                     segmentedControlSource: segmentedControlSource)
