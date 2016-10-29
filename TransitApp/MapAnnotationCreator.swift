@@ -3,16 +3,10 @@ import MapKit
 
 class MapAnnotationCreator {
 
-    func annotations(stops: Results<Stop>) -> [MapAnnotation] {
-        return stops.map(stopToAnnotation)
-    }
+    let door2DoorMapAnnotationCreator = Door2DoorMapAnnotationCreator()
 
-    private func stopToAnnotation(stop: Stop) -> MapAnnotation {
-        return MapAnnotation(title: stop.name,
-                             locationName: stop.name,
-                             discipline: stop.name,
-                             coordinate: CLLocationCoordinate2D(latitude: stop.latitude,
-                                                                longitude: stop.longitude))
+    func annotations(stops: Results<Stop>) -> [MapAnnotation] {
+        return door2DoorMapAnnotationCreator.annotations(stops: stops)
     }
     
 }
