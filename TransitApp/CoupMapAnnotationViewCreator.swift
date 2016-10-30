@@ -2,11 +2,11 @@ import MapKit
 
 class CoupMapAnnotationViewCreator {
     
-    static let reuseIdentifier = "CoupAnnotationViewReuseIdentifier"
+    private static let reuseIdentifier = "CoupAnnotationViewReuseIdentifier"
     
     func view(mapView: MKMapView, annotation: CoupMapAnnotation) -> MKAnnotationView {
         let view = unconfiguredView(mapView: mapView, annotation: annotation)
-        view.pinTintColor = UIColor.green
+        view.configure(annotation: annotation)
         return view
     }
 
@@ -22,6 +22,25 @@ class CoupMapAnnotationViewCreator {
     class private func createNewView(annotation: MKAnnotation?) -> MKPinAnnotationView {
         return MKPinAnnotationView(annotation: annotation,
                                    reuseIdentifier: reuseIdentifier)
+    }
+    
+}
+
+private extension MKPinAnnotationView {
+
+    func configure(annotation: CoupMapAnnotation) {
+        let color: UIColor
+        switch annotation.energyLevel {
+        case 0...30:
+            color = UIColor.red
+        case 31...50:
+            color = UIColor.yellow
+        case 51...100:
+            color = UIColor.green
+        default:
+            fatalError()
+        }
+        pinTintColor = color
     }
     
 }

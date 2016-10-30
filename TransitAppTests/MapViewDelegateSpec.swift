@@ -46,14 +46,46 @@ class MapViewDelegateSpec: TransitAppSpec {
                                                               energyLevel: energyLevel)
                     }
 
-                    it("returns a MKPinAnnotationView with a green tint") {
+                    it("returns an MKPinAnnotationView with a green tint") {
                         let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
                         let pinAnnotationView = results as! MKPinAnnotationView
                         expect(pinAnnotationView.pinTintColor).to(equal(UIColor.green))
                     }
                 }
+
+                context("with energy level 31-50") {
+                    let energyLevel = 31
+
+                    beforeEach {
+                        coupMapAnnotation = CoupMapAnnotation(title: "",
+                                                              coordinate: coordinate,
+                                                              energyLevel: energyLevel)
+                    }
+
+                    it("returns an MKPinAnnotationView with a yellow tint") {
+                        let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
+                        let pinAnnotationView = results as! MKPinAnnotationView
+                        expect(pinAnnotationView.pinTintColor).to(equal(UIColor.yellow))
+                    }
+                }
+
+                context("with energy level 0-30") {
+                    let energyLevel = 30
+
+                    beforeEach {
+                        coupMapAnnotation = CoupMapAnnotation(title: "",
+                                                              coordinate: coordinate,
+                                                              energyLevel: energyLevel)
+                    }
+
+                    it("returns an MKPinAnnotationView with a red tint") {
+                        let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
+                        let pinAnnotationView = results as! MKPinAnnotationView
+                        expect(pinAnnotationView.pinTintColor).to(equal(UIColor.red))
+                    }
+                }
+
             }
-            
         }
     }
 }

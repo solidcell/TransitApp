@@ -5,7 +5,7 @@ class CoupMapAnnotation: NSObject, MKAnnotation {
     
     let title: String?
     let coordinate: CLLocationCoordinate2D
-    private let energyLevel: Int
+    let energyLevel: Int
 
     init(title: String, coordinate: CLLocationCoordinate2D, energyLevel: Int) {
         self.title = title
