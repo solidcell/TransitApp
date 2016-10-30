@@ -15,29 +15,33 @@ class SeedDataParserSpec: TransitAppSpec {
 
         describe("seedIfNeeded") {
             it("saves the seed data if the app currently has none") {
-                expect(self.realm.transitProviders.count).to(equal(0))
-                expect(self.realm.routes.count).to(equal(0))
-                expect(self.realm.scooters.count).to(equal(0))
+                expect(self.realm.transitProviders).to(beEmpty())
+                expect(self.realm.routes).to(beEmpty())
+                expect(self.realm.scooters).to(beEmpty())
+                expect(self.realm.businessAreas).to(beEmpty())
 
                 subject.seedIfNeeded()
 
-                expect(self.realm.transitProviders.count).to(equal(6))
-                expect(self.realm.routes.count).to(equal(9))
-                expect(self.realm.scooters.count).to(equal(158))
+                expect(self.realm.transitProviders).to(haveCount(6))
+                expect(self.realm.routes).to(haveCount(9))
+                expect(self.realm.scooters).to(haveCount(158))
+                expect(self.realm.businessAreas).to(haveCount(3))
             }
 
             it("does nothing if data already exists") {
                 subject.seedIfNeeded()
 
-                expect(self.realm.transitProviders.count).to(equal(6))
-                expect(self.realm.routes.count).to(equal(9))
-                expect(self.realm.scooters.count).to(equal(158))
+                expect(self.realm.transitProviders).to(haveCount(6))
+                expect(self.realm.routes).to(haveCount(9))
+                expect(self.realm.scooters).to(haveCount(158))
+                expect(self.realm.businessAreas).to(haveCount(3))
                 
                 subject.seedIfNeeded()
 
-                expect(self.realm.transitProviders.count).to(equal(6))
-                expect(self.realm.routes.count).to(equal(9))
-                expect(self.realm.scooters.count).to(equal(158))
+                expect(self.realm.transitProviders).to(haveCount(6))
+                expect(self.realm.routes).to(haveCount(9))
+                expect(self.realm.scooters).to(haveCount(158))
+                expect(self.realm.businessAreas).to(haveCount(3))
             }
         }
     }
