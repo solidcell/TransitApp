@@ -73,7 +73,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
         }
 
         describe("delegate") {
-            it("is called with didUpdate(annotation:) when set and when the source is updated") {
+            it("is called with didUpdate(annotations:) when set and when the source is updated") {
                 let delegate = DelegateImplementation()
                 expect(delegate.didUpdateCalledWith).to(beNil())
                 

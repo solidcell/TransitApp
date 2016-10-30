@@ -4,6 +4,7 @@ import MapKit
 class MapViewController: UIViewController {
 
     var mapAnnotationProvider: MapAnnotationProvider!
+    var mapOverlayProvider: MapOverlayProvider!
     var initialCoordinateRegion: MKCoordinateRegion!
     var mapViewDelegate: MKMapViewDelegate!
     var segmentedControlSource: SegmentedControlSource!
@@ -21,6 +22,15 @@ class MapViewController: UIViewController {
     private func configureMapView() {
         mapView.delegate = mapViewDelegate
         mapView.setRegion(initialCoordinateRegion, animated: true)
+        configureMapAnnotations()
+        configureMapOverlays()
+    }
+
+    private func configureMapOverlays() {
+        mapOverlayProvider.delegate = self
+    }
+
+    private func configureMapAnnotations() {
         mapAnnotationProvider.delegate = self
     }
 
@@ -51,6 +61,18 @@ class MapViewController: UIViewController {
     
 }
 
+extension MapViewController: MapOverlayProviderDelegate {
+
+    func didUpdate(overlays: [MKOverlay]) {
+        // remove current overlays
+        let currentOverlays = mapView.overlays
+        mapView.removeOverlays(currentOverlays)
+        // add new overlays
+        overlays.forEach(mapView.add)
+    }
+    
+}
+
 extension MapViewController: MapAnnotationProviderDelegate {
 
     func didUpdate(annotations: [MKAnnotation]) {
@@ -71,12 +93,14 @@ extension MapViewController {
     // Using a Storyboard, rather than a NIB, allows us access
     // to top/bottom layout guides in Interface Builder
     class func createFromStoryboard(mapAnnotationProvider: MapAnnotationProvider,
+                                    mapOverlayProvider: MapOverlayProvider,
                                     initialCoordinateRegion: MKCoordinateRegion,
                                     mapViewDelegate: MKMapViewDelegate,
                                     segmentedControlSource: SegmentedControlSource) -> MapViewController {
         let vc = UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateInitialViewController() as! MapViewController
         vc.mapAnnotationProvider = mapAnnotationProvider
+        vc.mapOverlayProvider = mapOverlayProvider
         vc.initialCoordinateRegion = initialCoordinateRegion
         vc.mapViewDelegate = mapViewDelegate
         vc.segmentedControlSource = segmentedControlSource

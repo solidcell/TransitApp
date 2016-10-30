@@ -57,5 +57,27 @@ class MapOverlayProviderSpec: TransitAppSpec {
             }
 
         }
+
+        describe("delegate") {
+            it("is called with didUpdate(overlays:) when set and when the source is updated") {
+                let delegate = DelegateImplementation()
+                expect(delegate.didUpdateCalledWith).to(beNil())
+                
+                subject.delegate = delegate
+                expect(delegate.didUpdateCalledWith).to(beEmpty())
+
+                mapSourceManager.source = .coup
+                expect(delegate.didUpdateCalledWith).to(haveCount(1))
+            }
+        }
+    }
+}
+
+private class DelegateImplementation: MapOverlayProviderDelegate {
+
+    var didUpdateCalledWith: [MKOverlay]?
+    
+    func didUpdate(overlays: [MKOverlay]) {
+        didUpdateCalledWith = overlays
     }
 }
