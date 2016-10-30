@@ -37,6 +37,16 @@ class MapViewDelegateSpec: TransitAppSpec {
             context("when the annotation is a CoupMapAnnotation") {
                 var coupMapAnnotation: CoupMapAnnotation!
 
+                it("has a callout enabled") {
+                    coupMapAnnotation = CoupMapAnnotation(title: "",
+                                                          coordinate: coordinate,
+                                                          energyLevel: 0)
+
+                    let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
+                    let pinAnnotationView = results as! MKPinAnnotationView
+                    expect(pinAnnotationView.canShowCallout).to(beTrue())
+                }
+
                 context("with energy level 51-100") {
                     let energyLevel = 51
 

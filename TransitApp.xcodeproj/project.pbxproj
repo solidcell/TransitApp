@@ -58,6 +58,7 @@
 		8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */; };
 		8884CE2A1DC53316004365B3 /* MapViewDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */; };
 		8884CE2E1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE2D1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift */; };
+		8884CE301DC5EF52004365B3 /* CoupMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE2F1DC5EF52004365B3 /* CoupMapAnnotationView.swift */; };
 		88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF69381DBF905F00FE11F0 /* AppDelegate.swift */; };
 		88DF693B1DBF905F00FE11F0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF693A1DBF905F00FE11F0 /* MapViewController.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
@@ -132,6 +133,7 @@
 		8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotation.swift; sourceTree = "<group>"; };
 		8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegateSpec.swift; sourceTree = "<group>"; };
 		8884CE2D1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotationViewCreator.swift; sourceTree = "<group>"; };
+		8884CE2F1DC5EF52004365B3 /* CoupMapAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotationView.swift; sourceTree = "<group>"; };
 		88DF69351DBF905F00FE11F0 /* TransitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF69381DBF905F00FE11F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88DF693A1DBF905F00FE11F0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				8884CE2D1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift */,
+				8884CE2F1DC5EF52004365B3 /* CoupMapAnnotationView.swift */,
 			);
 			name = Coup;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				8884CE2E1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift in Sources */,
 				8827E1441DC0D65600E06654 /* FilterNil.swift in Sources */,
 				8827E13C1DC0CBFD00E06654 /* TransitProviderParser.swift in Sources */,
+				8884CE301DC5EF52004365B3 /* CoupMapAnnotationView.swift in Sources */,
 				880EB08F1DC39EA300C5830E /* Door2DoorParser.swift in Sources */,
 				880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */,
 				8827E1511DC1030B00E06654 /* Segment.swift in Sources */,
