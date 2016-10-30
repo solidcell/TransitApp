@@ -13,3 +13,12 @@ extension BusinessArea {
     }
     
 }
+
+// MARK: Queries
+extension Realm {
+
+    var businessAreas: Results<BusinessArea> {
+        return objects(BusinessArea.self)
+    }
+    
+}

@@ -27,7 +27,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
                                             mapSourceManager: mapSourceManager)
         }
 
-        describe("annotations()") {
+        describe("annotations") {
 
             context("when the source is .door2door") {
                 beforeEach {

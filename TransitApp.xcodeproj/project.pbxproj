@@ -65,6 +65,9 @@
 		8884CE3A1DC60CC7004365B3 /* BusinessArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE391DC60CC7004365B3 /* BusinessArea.swift */; };
 		8884CE3C1DC60FCC004365B3 /* BusinessAreaCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE3B1DC60FCC004365B3 /* BusinessAreaCoordinate.swift */; };
 		8884CE3F1DC61038004365B3 /* BusinessAreaCoordinateParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE3E1DC61038004365B3 /* BusinessAreaCoordinateParser.swift */; };
+		8884CE421DC6160A004365B3 /* MapOverlayProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE411DC6160A004365B3 /* MapOverlayProviderSpec.swift */; };
+		8884CE441DC6167A004365B3 /* MapOverlayProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE431DC6167A004365B3 /* MapOverlayProvider.swift */; };
+		8884CE471DC619C5004365B3 /* MapOverlayCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE461DC619C5004365B3 /* MapOverlayCreator.swift */; };
 		88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF69381DBF905F00FE11F0 /* AppDelegate.swift */; };
 		88DF693B1DBF905F00FE11F0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF693A1DBF905F00FE11F0 /* MapViewController.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
@@ -146,6 +149,9 @@
 		8884CE391DC60CC7004365B3 /* BusinessArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessArea.swift; sourceTree = "<group>"; };
 		8884CE3B1DC60FCC004365B3 /* BusinessAreaCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessAreaCoordinate.swift; sourceTree = "<group>"; };
 		8884CE3E1DC61038004365B3 /* BusinessAreaCoordinateParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessAreaCoordinateParser.swift; sourceTree = "<group>"; };
+		8884CE411DC6160A004365B3 /* MapOverlayProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOverlayProviderSpec.swift; sourceTree = "<group>"; };
+		8884CE431DC6167A004365B3 /* MapOverlayProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOverlayProvider.swift; sourceTree = "<group>"; };
+		8884CE461DC619C5004365B3 /* MapOverlayCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOverlayCreator.swift; sourceTree = "<group>"; };
 		88DF69351DBF905F00FE11F0 /* TransitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF69381DBF905F00FE11F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88DF693A1DBF905F00FE11F0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -417,6 +423,15 @@
 			name = BusinessAreaParsing;
 			sourceTree = "<group>";
 		};
+		8884CE451DC619B6004365B3 /* MapOverlays */ = {
+			isa = PBXGroup;
+			children = (
+				8884CE431DC6167A004365B3 /* MapOverlayProvider.swift */,
+				8884CE461DC619C5004365B3 /* MapOverlayCreator.swift */,
+			);
+			name = MapOverlays;
+			sourceTree = "<group>";
+		};
 		88DF692C1DBF905F00FE11F0 = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +458,7 @@
 				880EB0621DC338BC00C5830E /* Main */,
 				880EB06E1DC36E1A00C5830E /* MapRegionManager.swift */,
 				880EB0961DC4A06600C5830E /* MapSourceManager.swift */,
+				8884CE451DC619B6004365B3 /* MapOverlays */,
 				880EB0681DC3611E00C5830E /* MapAnnotations */,
 				8884CE2B1DC53817004365B3 /* MapAnnotationViews */,
 				8827E13D1DC0CC1E00E06654 /* Models */,
@@ -462,6 +478,7 @@
 			children = (
 				880EB0981DC4A08B00C5830E /* MapSourceManagerSpec.swift */,
 				880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */,
+				8884CE411DC6160A004365B3 /* MapOverlayProviderSpec.swift */,
 				880EB0781DC38A0300C5830E /* SegmentedControlSourceSpec.swift */,
 				8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */,
 				880EB0651DC3607D00C5830E /* JSONParsing */,
@@ -701,6 +718,7 @@
 				880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */,
 				8827E14C1DC0F17700E06654 /* Route.swift in Sources */,
 				8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */,
+				8884CE441DC6167A004365B3 /* MapOverlayProvider.swift in Sources */,
 				880EB08C1DC3994E00C5830E /* ScooterParser.swift in Sources */,
 				880EB0931DC3A20200C5830E /* MapAnnotationProvider.swift in Sources */,
 				880EB0771DC389C200C5830E /* SegmentedControlSource.swift in Sources */,
@@ -715,6 +733,7 @@
 				880EB08F1DC39EA300C5830E /* Door2DoorParser.swift in Sources */,
 				8884CE3F1DC61038004365B3 /* BusinessAreaCoordinateParser.swift in Sources */,
 				880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */,
+				8884CE471DC619C5004365B3 /* MapOverlayCreator.swift in Sources */,
 				8827E1511DC1030B00E06654 /* Segment.swift in Sources */,
 				8827E1531DC121B000E06654 /* SegmentParser.swift in Sources */,
 				8827E15C1DC2505A00E06654 /* SeedDataParser.swift in Sources */,
@@ -744,6 +763,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				880EB0791DC38A0300C5830E /* SegmentedControlSourceSpec.swift in Sources */,
+				8884CE421DC6160A004365B3 /* MapOverlayProviderSpec.swift in Sources */,
 				8827E1391DC0CB6200E06654 /* TransitProviderParserSpec.swift in Sources */,
 				8884CE341DC60AD8004365B3 /* BusinessAreaParserSpec.swift in Sources */,
 				880EB0871DC398FC00C5830E /* ScooterParserSpec.swift in Sources */,
