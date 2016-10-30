@@ -55,6 +55,7 @@
 		8827E15A1DC24C7500E06654 /* Door2DoorMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1591DC24C7500E06654 /* Door2DoorMapAnnotation.swift */; };
 		8827E15C1DC2505A00E06654 /* SeedDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E15B1DC2505A00E06654 /* SeedDataParser.swift */; };
 		8827E15E1DC2507100E06654 /* SeedDataParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E15D1DC2507100E06654 /* SeedDataParserSpec.swift */; };
+		887DBED41DC62A8500D92E19 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBED31DC62A8500D92E19 /* UIColor.swift */; };
 		8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */; };
 		8884CE2A1DC53316004365B3 /* MapViewDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */; };
 		8884CE2E1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE2D1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift */; };
@@ -139,6 +140,7 @@
 		8827E1591DC24C7500E06654 /* Door2DoorMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door2DoorMapAnnotation.swift; sourceTree = "<group>"; };
 		8827E15B1DC2505A00E06654 /* SeedDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedDataParser.swift; sourceTree = "<group>"; };
 		8827E15D1DC2507100E06654 /* SeedDataParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedDataParserSpec.swift; sourceTree = "<group>"; };
+		887DBED31DC62A8500D92E19 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotation.swift; sourceTree = "<group>"; };
 		8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegateSpec.swift; sourceTree = "<group>"; };
 		8884CE2D1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotationViewCreator.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				8827E1431DC0D65600E06654 /* FilterNil.swift */,
 				880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */,
 				880EB09E1DC4DD8600C5830E /* IterateEnum.swift */,
+				887DBED31DC62A8500D92E19 /* UIColor.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				880EB0911DC39FCB00C5830E /* CoupParser.swift in Sources */,
 				8827E1551DC12F8100E06654 /* StopParser.swift in Sources */,
 				880EB07D1DC3975400C5830E /* Scooter.swift in Sources */,
+				887DBED41DC62A8500D92E19 /* UIColor.swift in Sources */,
 				8827E15A1DC24C7500E06654 /* Door2DoorMapAnnotation.swift in Sources */,
 				8827E14F1DC0FD1500E06654 /* main.swift in Sources */,
 				880EB06F1DC36E1A00C5830E /* MapRegionManager.swift in Sources */,

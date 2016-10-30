@@ -16,7 +16,7 @@ class MapViewDelegateSpec: TransitAppSpec {
             mapView = MKMapView()
         }
 
-        describe("mapView(_:,viewFor:)") {
+        describe("mapView(_:viewFor:)") {
 
             context("when the annotation is a Door2DoorMapAnnotation") {
                 var door2DoorMapAnnotation: Door2DoorMapAnnotation!
@@ -95,6 +95,14 @@ class MapViewDelegateSpec: TransitAppSpec {
                     }
                 }
 
+            }
+        }
+
+        describe("mapView(_:rendererFor:)") {
+            it("returns an MKPolygonRenderer") {
+                let overlay = MKPolygon(coordinates: [], count: 0)
+                let result = subject.mapView(mapView, rendererFor: overlay)
+                expect(result).to(beAnInstanceOf(MKPolygonRenderer.self))
             }
         }
     }
