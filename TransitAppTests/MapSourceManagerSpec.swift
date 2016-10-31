@@ -19,13 +19,13 @@ class MapSourceManagerSpec: TransitAppSpec {
 
             it("notifies the delegate when set") {
                 let delegate = DelegateImplementation()
-                expect(delegate.calledUpdateWith).to(beNil())
+                expect(delegate.calledDidUpdateCount).to(equal(0))
                 
                 subject.delegate = delegate
-                expect(delegate.calledUpdateWith).to(equal(MapSourceManager.Source.door2door))
+                expect(delegate.calledDidUpdateCount).to(equal(1))
 
                 subject.source = .coup
-                expect(delegate.calledUpdateWith).to(equal(MapSourceManager.Source.coup))
+                expect(delegate.calledDidUpdateCount).to(equal(2))
             }
         }
 
@@ -42,10 +42,10 @@ class MapSourceManagerSpec: TransitAppSpec {
 
 private class DelegateImplementation: MapSourceManagerDelegate {
     
-    var calledUpdateWith: MapSourceManager.Source?
+    var calledDidUpdateCount = 0
     
-    func didUpdate(source: MapSourceManager.Source) {
-        self.calledUpdateWith = source
+    func didUpdate() {
+        self.calledDidUpdateCount += 1
     }
     
 }

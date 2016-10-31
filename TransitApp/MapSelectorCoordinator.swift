@@ -50,7 +50,7 @@ extension MapSelectorCoordinator: MapSelectorViewControllerDelegate {
 
 extension MapSelectorCoordinator: MapSourceManagerDelegate {
 
-    func didUpdate(source: MapSourceManager.Source) {
+    func didUpdate() {
         setMapViewController()
     }
     

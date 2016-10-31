@@ -11,7 +11,7 @@ class MapSourceManager {
 
     weak var delegate: MapSourceManagerDelegate? {
         didSet {
-            delegate?.didUpdate(source: source)
+            delegate?.didUpdate()
         }
     }
 
@@ -29,7 +29,7 @@ class MapSourceManager {
             try! realm.write {
                 realm.add(mapSource)
             }
-            delegate?.didUpdate(source: newValue)
+            delegate?.didUpdate()
         }
     }
 
@@ -48,5 +48,5 @@ extension MapSourceManager: SegmentedControlSourceDelegate {
 }
 
 protocol MapSourceManagerDelegate: class {
-    func didUpdate(source: MapSourceManager.Source)
+    func didUpdate()
 }
