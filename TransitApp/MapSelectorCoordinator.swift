@@ -2,7 +2,7 @@ import UIKit
 import RealmSwift
 import MapKit
 
-class MapCoordinator {
+class MapSelectorCoordinator {
 
     func start(window: UIWindow, realm: Realm) {
         let mapSourceManager = MapSourceManager(realm: realm)
@@ -14,11 +14,11 @@ class MapCoordinator {
         let region = mapRegionManager.region(annotations: mapAnnotationProvider.annotations)
         let mapViewDelegate = MapViewDelegate()
         let segmentedControlSource = SegmentedControlSource(mapSourceManager: mapSourceManager)
-        let viewController = MapViewController.createFromStoryboard(mapAnnotationProvider: mapAnnotationProvider,
-                                                                    mapOverlayProvider: mapOverlayProvider,
-                                                                    initialCoordinateRegion: region,
-                                                                    mapViewDelegate: mapViewDelegate,
-                                                                    segmentedControlSource: segmentedControlSource)
+        let viewController = MapSelectorViewController.createFromStoryboard(mapAnnotationProvider: mapAnnotationProvider,
+                                                                            mapOverlayProvider: mapOverlayProvider,
+                                                                            initialCoordinateRegion: region,
+                                                                            mapViewDelegate: mapViewDelegate,
+                                                                            segmentedControlSource: segmentedControlSource)
         window.rootViewController = viewController
     }
 

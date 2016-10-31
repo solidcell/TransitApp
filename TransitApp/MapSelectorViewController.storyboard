@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Map View Controller-->
+        <!--Map Selector View Controller-->
         <scene sceneID="vKO-UX-crG">
             <objects>
-                <viewController id="i7w-Uk-LUZ" customClass="MapViewController" customModule="TransitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="i7w-Uk-LUZ" customClass="MapSelectorViewController" customModule="TransitApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LjE-tX-rOn"/>
                         <viewControllerLayoutGuide type="bottom" id="A6e-8c-OEm"/>
@@ -18,7 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Utd-bc-nBC"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Utd-bc-nBC">
+                                <frame key="frameInset" width="1000" height="1000"/>
+                            </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sr7-Mb-mKG">
                                 <segments>
                                     <segment title="First"/>

@@ -1,7 +1,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapSelectorViewController: UIViewController {
 
     var mapAnnotationProvider: MapAnnotationProvider!
     var mapOverlayProvider: MapOverlayProvider!
@@ -61,7 +61,7 @@ class MapViewController: UIViewController {
     
 }
 
-extension MapViewController: MapOverlayProviderDelegate {
+extension MapSelectorViewController: MapOverlayProviderDelegate {
 
     func didUpdate(overlays: [MKOverlay]) {
         // remove current overlays
@@ -73,7 +73,7 @@ extension MapViewController: MapOverlayProviderDelegate {
     
 }
 
-extension MapViewController: MapAnnotationProviderDelegate {
+extension MapSelectorViewController: MapAnnotationProviderDelegate {
 
     func didUpdate(annotations: [MKAnnotation]) {
         // remove current annotations
@@ -86,9 +86,9 @@ extension MapViewController: MapAnnotationProviderDelegate {
 }
 
 // MARK: Creation
-extension MapViewController {
+extension MapSelectorViewController {
     
-    private static var storyboardName = "MapViewController"
+    private static var storyboardName = "MapSelectorViewController"
 
     // Using a Storyboard, rather than a NIB, allows us access
     // to top/bottom layout guides in Interface Builder
@@ -96,9 +96,9 @@ extension MapViewController {
                                     mapOverlayProvider: MapOverlayProvider,
                                     initialCoordinateRegion: MKCoordinateRegion,
                                     mapViewDelegate: MKMapViewDelegate,
-                                    segmentedControlSource: SegmentedControlSource) -> MapViewController {
+                                    segmentedControlSource: SegmentedControlSource) -> MapSelectorViewController {
         let vc = UIStoryboard(name: storyboardName, bundle: nil)
-            .instantiateInitialViewController() as! MapViewController
+            .instantiateInitialViewController() as! MapSelectorViewController
         vc.mapAnnotationProvider = mapAnnotationProvider
         vc.mapOverlayProvider = mapOverlayProvider
         vc.initialCoordinateRegion = initialCoordinateRegion
