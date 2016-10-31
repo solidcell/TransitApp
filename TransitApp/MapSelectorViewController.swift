@@ -39,16 +39,11 @@ class MapSelectorViewController: UIViewController {
     }
 
     func add(mapViewController: UIViewController) {
-        addChildViewController(mapViewController)
-
-        // Add Child View as Subview
-        mapContainerView.addSubview(mapViewController.view)
-
-        // Configure Child View
-        mapViewController.view.frame = mapContainerView.bounds
-        mapViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
-        // Notify Child View Controller
+        // add child view controller, or nothing if already a child view controller
+        self.addChildViewController(mapViewController)
+        // add subview, or move to top if already a subview
+        self.mapContainerView.addSubview(mapViewController.view)
+        mapViewController.view.frame = self.mapContainerView.bounds
         mapViewController.didMove(toParentViewController: self)
     }
     

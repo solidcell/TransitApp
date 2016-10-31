@@ -60,6 +60,8 @@
 		887DBEDC1DC75AD300D92E19 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */; };
 		887DBEDE1DC75B3E00D92E19 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */; };
 		887DBEE01DC75CED00D92E19 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 887DBEDF1DC75CED00D92E19 /* MapViewController.storyboard */; };
+		887DBEE21DC7811900D92E19 /* MapViewControllerCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEE11DC7811900D92E19 /* MapViewControllerCache.swift */; };
+		887DBEE41DC7899500D92E19 /* MapViewControllerCacheSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEE31DC7899500D92E19 /* MapViewControllerCacheSpec.swift */; };
 		8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */; };
 		8884CE2A1DC53316004365B3 /* MapViewDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */; };
 		8884CE2E1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE2D1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift */; };
@@ -149,6 +151,8 @@
 		887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		887DBEDF1DC75CED00D92E19 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
+		887DBEE11DC7811900D92E19 /* MapViewControllerCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerCache.swift; sourceTree = "<group>"; };
+		887DBEE31DC7899500D92E19 /* MapViewControllerCacheSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerCacheSpec.swift; sourceTree = "<group>"; };
 		8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotation.swift; sourceTree = "<group>"; };
 		8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegateSpec.swift; sourceTree = "<group>"; };
 		8884CE2D1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotationViewCreator.swift; sourceTree = "<group>"; };
@@ -321,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				8827E1291DC0B3E000E06654 /* MapSelectorCoordinator.swift */,
+				887DBEE11DC7811900D92E19 /* MapViewControllerCache.swift */,
 				88DF693A1DBF905F00FE11F0 /* MapSelectorViewController.swift */,
 				880EB0761DC389C200C5830E /* SegmentedControlSource.swift */,
 				8827E11F1DBF914800E06654 /* MapSelectorViewController.storyboard */,
@@ -504,6 +509,7 @@
 				8884CE411DC6160A004365B3 /* MapOverlayProviderSpec.swift */,
 				880EB0781DC38A0300C5830E /* SegmentedControlSourceSpec.swift */,
 				8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */,
+				887DBEE31DC7899500D92E19 /* MapViewControllerCacheSpec.swift */,
 				880EB0651DC3607D00C5830E /* JSONParsing */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
@@ -744,6 +750,7 @@
 				8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */,
 				8884CE441DC6167A004365B3 /* MapOverlayProvider.swift in Sources */,
 				880EB08C1DC3994E00C5830E /* ScooterParser.swift in Sources */,
+				887DBEE21DC7811900D92E19 /* MapViewControllerCache.swift in Sources */,
 				880EB0931DC3A20200C5830E /* MapAnnotationProvider.swift in Sources */,
 				880EB0771DC389C200C5830E /* SegmentedControlSource.swift in Sources */,
 				8827E1481DC0EEB900E06654 /* RouteParser.swift in Sources */,
@@ -791,6 +798,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				880EB0791DC38A0300C5830E /* SegmentedControlSourceSpec.swift in Sources */,
+				887DBEE41DC7899500D92E19 /* MapViewControllerCacheSpec.swift in Sources */,
 				8884CE421DC6160A004365B3 /* MapOverlayProviderSpec.swift in Sources */,
 				8827E1391DC0CB6200E06654 /* TransitProviderParserSpec.swift in Sources */,
 				8884CE341DC60AD8004365B3 /* BusinessAreaParserSpec.swift in Sources */,

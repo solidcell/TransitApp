@@ -12,6 +12,17 @@ class MapSourceManagerSpec: TransitAppSpec {
             it("returns the current Source") {
                 expect(subject.source).to(equal(MapSourceManager.Source.door2door))
             }
+
+            it("notifies the delegate when set") {
+                let delegate = DelegateImplementation()
+                expect(delegate.calledUpdateWith).to(beNil())
+                
+                subject.delegate = delegate
+                expect(delegate.calledUpdateWith).to(equal(MapSourceManager.Source.door2door))
+
+                subject.source = .coup
+                expect(delegate.calledUpdateWith).to(equal(MapSourceManager.Source.coup))
+            }
         }
 
         describe("sources") {
@@ -23,4 +34,14 @@ class MapSourceManagerSpec: TransitAppSpec {
             }
         }
     }
+}
+
+private class DelegateImplementation: MapSourceManagerDelegate {
+    
+    var calledUpdateWith: MapSourceManager.Source?
+    
+    func didUpdate(source: MapSourceManager.Source) {
+        self.calledUpdateWith = source
+    }
+    
 }
