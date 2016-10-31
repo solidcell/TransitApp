@@ -6,7 +6,11 @@ class MapSourceManagerSpec: TransitAppSpec {
     override func spec() {
         super.spec()
 
-        let subject = MapSourceManager(realm: realm)
+        var subject: MapSourceManager!
+
+        beforeEach {
+            subject = MapSourceManager(realm: self.realm)
+        }
 
         describe("source") {
             it("returns the current Source") {

@@ -7,11 +7,12 @@ class MapViewDelegateSpec: TransitAppSpec {
     override func spec() {
         super.spec()
 
-        let subject = MapViewDelegate()
+        var subject: MapViewDelegate!
         var coordinate: CLLocationCoordinate2D!
         var mapView: MKMapView!
 
         beforeEach {
+            subject = MapViewDelegate()
             coordinate = CLLocationCoordinate2D(latitude: 1.0, longitude: 2.0)
             mapView = MKMapView()
         }
