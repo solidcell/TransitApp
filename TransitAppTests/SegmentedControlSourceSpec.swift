@@ -6,8 +6,13 @@ class SegmentedControlSourceSpec: TransitAppSpec {
     override func spec() {
         super.spec()
 
-        let mapSourceManager = MapSourceManager(realm: realm)
-        let subject = SegmentedControlSource(mapSourceManager: mapSourceManager)
+        var mapSourceManager: MapSourceManager!
+        var subject: SegmentedControlSource!
+
+        beforeEach {
+            mapSourceManager = MapSourceManager(realm: self.realm)
+            subject = SegmentedControlSource(mapSourceManager: mapSourceManager)
+        }
 
         describe("segments") {
             it("returns all Segment structs") {
@@ -37,23 +42,12 @@ class SegmentedControlSourceSpec: TransitAppSpec {
                 expect(subject.selectedIndex).to(equal(0))
             }
 
-            it("notifies the delegate") {
-                let delegate = SegmentedControlSourceDelegateImplementation()
-                subject.delegate = delegate
-
-                expect(delegate.didCallSelectWith).to(beNil())
+            it("notifies the source manager") {
+                expect(mapSourceManager.source.rawValue).to(equal(MapSourceManager.Source.door2door.rawValue))
                 subject.selectIndex(0)
-                expect(delegate.didCallSelectWith).to(equal(MapSourceManager.Source.coup))
+                expect(mapSourceManager.source.rawValue).to(equal(MapSourceManager.Source.coup.rawValue))
             }
             
         }
-    }
-}
-
-private class SegmentedControlSourceDelegateImplementation: SegmentedControlSourceDelegate {
-    var didCallSelectWith: MapSourceManager.Source?
-
-    func didSelect(source: MapSourceManager.Source) {
-        didCallSelectWith = source
     }
 }
