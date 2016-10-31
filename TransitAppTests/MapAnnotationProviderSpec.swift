@@ -71,27 +71,5 @@ class MapAnnotationProviderSpec: TransitAppSpec {
             }
 
         }
-
-        describe("delegate") {
-            it("is called with didUpdate(annotations:) when set and when the source is updated") {
-                let delegate = DelegateImplementation()
-                expect(delegate.didUpdateCalledWith).to(beNil())
-                
-                subject.delegate = delegate
-                expect(delegate.didUpdateCalledWith).to(haveCount(2))
-
-                mapSourceManager.source = .coup
-                expect(delegate.didUpdateCalledWith).to(haveCount(1))
-            }
-        }
-    }
-}
-
-private class DelegateImplementation: MapAnnotationProviderDelegate {
-
-    var didUpdateCalledWith: [MKAnnotation]?
-    
-    func didUpdate(annotations: [MKAnnotation]) {
-        didUpdateCalledWith = annotations
     }
 }
