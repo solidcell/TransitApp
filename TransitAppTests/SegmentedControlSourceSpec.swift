@@ -6,7 +6,7 @@ class SegmentedControlSourceSpec: TransitAppSpec {
     override func spec() {
         super.spec()
 
-        let mapSourceManager = MapSourceManager()
+        let mapSourceManager = MapSourceManager(realm: realm)
         let subject = SegmentedControlSource(mapSourceManager: mapSourceManager)
 
         describe("segments") {

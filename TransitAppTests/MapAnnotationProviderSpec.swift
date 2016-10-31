@@ -22,7 +22,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
                 self.realm.add([stop1, stop2, scooter1])
             }
 
-            mapSourceManager = MapSourceManager()
+            mapSourceManager = MapSourceManager(realm: self.realm)
             subject = MapAnnotationProvider(realm: self.realm,
                                             mapSourceManager: mapSourceManager)
         }

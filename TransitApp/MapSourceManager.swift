@@ -1,6 +1,13 @@
-import Foundation
+import RealmSwift
 
 class MapSourceManager {
+
+    private let realm: Realm
+    private let defaultSource = Source.door2door
+
+    init(realm: Realm) {
+        self.realm = realm
+    }
 
     weak var delegate: MapSourceManagerDelegate? {
         didSet {
@@ -8,14 +15,21 @@ class MapSourceManager {
         }
     }
 
-    enum Source {
+    @objc enum Source: Int {
         case coup
         case door2door
     }
 
-    var source = Source.door2door {
-        didSet {
-            delegate?.didUpdate(source: source)
+    var source: Source {
+        get {
+            return realm.currentMapSource?.enumValue ?? defaultSource
+        }
+        set {
+            let mapSource = MapSource(source: newValue)
+            try! realm.write {
+                realm.add(mapSource)
+            }
+            delegate?.didUpdate(source: newValue)
         }
     }
 

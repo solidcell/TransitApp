@@ -21,7 +21,7 @@ class MapOverlayProviderSpec: TransitAppSpec {
                 self.realm.add(businessArea)
             }
 
-            mapSourceManager = MapSourceManager()
+            mapSourceManager = MapSourceManager(realm: self.realm)
             subject = MapOverlayProvider(realm: self.realm,
                                          mapSourceManager: mapSourceManager)
         }
