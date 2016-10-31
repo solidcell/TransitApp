@@ -5,22 +5,22 @@ class MapAnnotationProvider {
 
     private let mapAnnotationCreator = MapAnnotationCreator()
     private let realm: Realm
-    private let mapSourceManager: MapSourceManager
+    private let source: MapSourceManager.Source
 
-    init(realm: Realm, mapSourceManager: MapSourceManager) {
+    init(realm: Realm, source: MapSourceManager.Source) {
         self.realm = realm
-        self.mapSourceManager = mapSourceManager
+        self.source = source
     }
 
-    var annotations: [MKAnnotation] {
-        switch mapSourceManager.source {
+    lazy var annotations: [MKAnnotation] = {
+        switch self.source {
         case .coup:
-            let scooters = realm.scooters
-            return mapAnnotationCreator.annotations(scooters: scooters)
+            let scooters = self.realm.scooters
+            return self.mapAnnotationCreator.annotations(scooters: scooters)
         case .door2door:
-            let stops = realm.stops
-            return mapAnnotationCreator.annotations(stops: stops)
+            let stops = self.realm.stops
+            return self.mapAnnotationCreator.annotations(stops: stops)
         }
-    }
+    }()
 
 }

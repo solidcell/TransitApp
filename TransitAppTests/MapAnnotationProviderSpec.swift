@@ -9,7 +9,6 @@ class MapAnnotationProviderSpec: TransitAppSpec {
         super.spec()
 
         var subject: MapAnnotationProvider!
-        var mapSourceManager: MapSourceManager!
 
         beforeEach {
             let stop1 = Stop(name: "name 1", latitude: 1.0, longitude: 2.0)
@@ -21,17 +20,14 @@ class MapAnnotationProviderSpec: TransitAppSpec {
             try! self.realm.write {
                 self.realm.add([stop1, stop2, scooter1])
             }
-
-            mapSourceManager = MapSourceManager(realm: self.realm)
-            subject = MapAnnotationProvider(realm: self.realm,
-                                            mapSourceManager: mapSourceManager)
         }
 
         describe("annotations") {
 
             context("when the source is .door2door") {
                 beforeEach {
-                    mapSourceManager.source = .door2door
+                    subject = MapAnnotationProvider(realm: self.realm,
+                                                    source: .door2door)
                 }
 
                 it("returns a Door2DoorMapAnnotation for each Stop") {
@@ -55,7 +51,8 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
             context("when the source is .coup") {
                 beforeEach {
-                    mapSourceManager.source = .coup
+                    subject = MapAnnotationProvider(realm: self.realm,
+                                                    source: .coup)
                 }
 
                 it("returns a CoupMapAnnotation for each Scooter") {
