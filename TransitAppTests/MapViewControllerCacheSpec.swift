@@ -12,16 +12,23 @@ class MapViewControllerCacheSpec: TransitAppSpec {
             subject = MapViewControllerCache()
         }
 
-        describe("after adding a view controller for a key") {
+        describe("when getting a view controller for a key") {
             let theKey = MapSourceManager.Source.coup
             let theViewController = UIViewController()
+            var returnedFromCreation: UIViewController?
 
             beforeEach {
-                subject.add(theViewController, for: theKey)
+                returnedFromCreation = subject.get(theKey) {
+                    return theViewController
+                }
             }
 
-            it("can get the view controller") {
-                let result = subject.get(for: theKey)
+            it("returns the view controller when created") {
+                expect(returnedFromCreation).to(equal(theViewController))
+            }
+
+            it("can get the cached view controller later") {
+                let result = subject.get(theKey) { UIViewController() }
                 expect(result).to(equal(theViewController))
             }
         }
@@ -31,12 +38,15 @@ class MapViewControllerCacheSpec: TransitAppSpec {
 
             beforeEach {
                 let theViewController = UIViewController()
-                subject.add(theViewController, for: theKey)
+                _ = subject.get(theKey) {
+                    return theViewController
+                }
             }
 
             it("will not retain the view controller") {
-                let result = subject.get(for: theKey)
-                expect(result).to(beNil())
+                let newViewController = UIViewController()
+                let result = subject.get(theKey) { newViewController }
+                expect(result).to(equal(newViewController))
             }
         }
     }

@@ -31,14 +31,11 @@ class MapSelectorCoordinator {
 
     fileprivate func mapViewController(for source: MapSourceManager.Source) -> UIViewController {
         // return cached map view controller if it exists
-        let cachedViewController = mapViewControllerCache.get(for: source)
-        if let cachedViewController = cachedViewController { return cachedViewController }
-
-        // otherwise return a new map view controller and cache it
-        let mapCoordinator = MapCoordinator()
-        let mapViewController = mapCoordinator.start(realm: realm)
-        mapViewControllerCache.add(mapViewController, for: source)
-        return mapViewController
+        return mapViewControllerCache.get(source) {
+            // otherwise return a new map view controller and cache it
+            let mapCoordinator = MapCoordinator()
+            return mapCoordinator.start(realm: realm)
+        }
     }
 
 }

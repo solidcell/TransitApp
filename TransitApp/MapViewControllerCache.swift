@@ -4,12 +4,17 @@ class MapViewControllerCache {
 
     private var cache = [Int : Weak<UIViewController>]()
 
-    func get(for source: MapSourceManager.Source) -> UIViewController? {
+    func get(_ source: MapSourceManager.Source, factory: () -> UIViewController) -> UIViewController {
+        return get(for: source) ?? add(factory(), for: source)
+    }
+
+    private func get(for source: MapSourceManager.Source) -> UIViewController? {
         return cache[source.rawValue]?.value
     }
 
-    func add(_ mapViewController: UIViewController, for source: MapSourceManager.Source) {
+    private func add(_ mapViewController: UIViewController, for source: MapSourceManager.Source) -> UIViewController {
         cache[source.rawValue] = Weak(mapViewController)
+        return mapViewController
     }
     
 }
