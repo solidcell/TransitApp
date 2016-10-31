@@ -5,10 +5,11 @@ class MapCoordinator {
 
     func start(realm: Realm) -> UIViewController {
         let mapSourceManager = MapSourceManager(realm: realm)
+        let source = mapSourceManager.source
         let mapAnnotationProvider = MapAnnotationProvider(realm: realm,
                                                           mapSourceManager: mapSourceManager)
         let mapOverlayProvider = MapOverlayProvider(realm: realm,
-                                                    mapSourceManager: mapSourceManager)
+                                                    source: source)
         let mapRegionManager = MapRegionManager()
         let region = mapRegionManager.region(annotations: mapAnnotationProvider.annotations)
         let mapViewDelegate = MapViewDelegate()

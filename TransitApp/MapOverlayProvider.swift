@@ -4,22 +4,22 @@ import MapKit
 class MapOverlayProvider {
     
     private let realm: Realm
-    private let mapSourceManager: MapSourceManager
+    private let source: MapSourceManager.Source
     private let mapOverlayCreator = MapOverlayCreator()
 
-    init(realm: Realm, mapSourceManager: MapSourceManager) {
+    init(realm: Realm, source: MapSourceManager.Source) {
         self.realm = realm
-        self.mapSourceManager = mapSourceManager
+        self.source = source
     }
 
-    var overlays: [MKOverlay] {
-        switch self.mapSourceManager.source {
+    lazy var overlays: [MKOverlay] = {
+        switch self.source {
         case .coup:
-            let businessAreas = realm.businessAreas
-            return mapOverlayCreator.overlays(businessAreas: businessAreas)
+            let businessAreas = self.realm.businessAreas
+            return self.mapOverlayCreator.overlays(businessAreas: businessAreas)
         case .door2door:
             return []
         }
-    }
+    }()
     
 }

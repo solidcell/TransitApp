@@ -9,7 +9,6 @@ class MapOverlayProviderSpec: TransitAppSpec {
         super.spec()
 
         var subject: MapOverlayProvider!
-        var mapSourceManager: MapSourceManager!
 
         beforeEach {
             let coordinates = [BusinessAreaCoordinate(latitude: 44.0, longitude: 62.0),
@@ -20,17 +19,14 @@ class MapOverlayProviderSpec: TransitAppSpec {
             try! self.realm.write {
                 self.realm.add(businessArea)
             }
-
-            mapSourceManager = MapSourceManager(realm: self.realm)
-            subject = MapOverlayProvider(realm: self.realm,
-                                         mapSourceManager: mapSourceManager)
         }
 
         describe("overlays") {
 
             context("when the source is .door2door") {
                 beforeEach {
-                    mapSourceManager.source = .door2door
+                    subject = MapOverlayProvider(realm: self.realm,
+                                                 source: .door2door)
                 }
 
                 it("returns an empty array") {
@@ -40,7 +36,8 @@ class MapOverlayProviderSpec: TransitAppSpec {
 
             context("when the source is .coup") {
                 beforeEach {
-                    mapSourceManager.source = .coup
+                    subject = MapOverlayProvider(realm: self.realm,
+                                                 source: .coup)
                 }
 
                 it("returns an overlay for each BusinessArea") {
