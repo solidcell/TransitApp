@@ -4,7 +4,7 @@ class SegmentedControlSource {
 
     let segments: [Segment]
     var selectedIndex: Int
-    weak var delegate: SegmentedControlSourceDelegate?
+    private(set) weak var delegate: SegmentedControlSourceDelegate?
     private let mapSourceManager: MapSourceManager
 
     struct Segment {
