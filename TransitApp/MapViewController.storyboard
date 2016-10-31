@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zDx-62-8KF">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="hZH-lF-RUx">
+            <objects>
+                <viewController id="zDx-62-8KF" customClass="MapViewController" customModule="TransitApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yVo-xI-2Uk"/>
+                        <viewControllerLayoutGuide type="bottom" id="CHg-h3-a7q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7bk-Pb-kYI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="omJ-vu-fC1"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="omJ-vu-fC1" secondAttribute="trailing" id="6V1-Sm-61F"/>
+                            <constraint firstItem="CHg-h3-a7q" firstAttribute="top" secondItem="omJ-vu-fC1" secondAttribute="bottom" id="Ybv-yr-huS"/>
+                            <constraint firstItem="omJ-vu-fC1" firstAttribute="leading" secondItem="7bk-Pb-kYI" secondAttribute="leading" id="YxY-ZP-kBm"/>
+                            <constraint firstItem="omJ-vu-fC1" firstAttribute="top" secondItem="7bk-Pb-kYI" secondAttribute="top" id="lmy-UC-sH4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="omJ-vu-fC1" id="GKP-5A-zwu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sTe-Bf-g3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1163" y="-236"/>
+        </scene>
+    </scenes>
+</document>

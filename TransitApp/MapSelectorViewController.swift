@@ -3,38 +3,17 @@ import MapKit
 
 class MapSelectorViewController: UIViewController {
 
-    var mapAnnotationProvider: MapAnnotationProvider!
-    var mapOverlayProvider: MapOverlayProvider!
-    var initialCoordinateRegion: MKCoordinateRegion!
-    var mapViewDelegate: MKMapViewDelegate!
     var segmentedControlSource: SegmentedControlSource!
+    weak var delegate: MapSelectorViewControllerDelegate?
 
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var mapContainerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureMapView()
-        configureSegmentControl()
-    }
+        delegate?.viewDidLoad()
 
-    private func configureMapView() {
-        mapView.delegate = mapViewDelegate
-        mapView.setRegion(initialCoordinateRegion, animated: true)
-        configureMapAnnotations()
-        configureMapOverlays()
-    }
-
-    private func configureMapOverlays() {
-        mapOverlayProvider.delegate = self
-    }
-
-    private func configureMapAnnotations() {
-        mapAnnotationProvider.delegate = self
-    }
-
-    private func configureSegmentControl() {
         // set the background color
         segmentedControl.backgroundColor = UIColor.white
         segmentedControl.layer.cornerRadius = 4.0
@@ -58,31 +37,21 @@ class MapSelectorViewController: UIViewController {
         let index = sender.selectedSegmentIndex
         segmentedControlSource.selectIndex(index)
     }
-    
-}
 
-extension MapSelectorViewController: MapOverlayProviderDelegate {
+    func add(mapViewController: UIViewController) {
+        addChildViewController(mapViewController)
 
-    func didUpdate(overlays: [MKOverlay]) {
-        // remove current overlays
-        let currentOverlays = mapView.overlays
-        mapView.removeOverlays(currentOverlays)
-        // add new overlays
-        overlays.forEach(mapView.add)
+        // Add Child View as Subview
+        mapContainerView.addSubview(mapViewController.view)
+
+        // Configure Child View
+        mapViewController.view.frame = mapContainerView.bounds
+        mapViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        // Notify Child View Controller
+        mapViewController.didMove(toParentViewController: self)
     }
     
-}
-
-extension MapSelectorViewController: MapAnnotationProviderDelegate {
-
-    func didUpdate(annotations: [MKAnnotation]) {
-        // remove current annotations
-        let currentAnnotations = mapView.annotations
-        mapView.removeAnnotations(currentAnnotations)
-        // add new annotations
-        annotations.forEach(mapView.addAnnotation)
-    }
-
 }
 
 // MARK: Creation
@@ -92,17 +61,11 @@ extension MapSelectorViewController {
 
     // Using a Storyboard, rather than a NIB, allows us access
     // to top/bottom layout guides in Interface Builder
-    class func createFromStoryboard(mapAnnotationProvider: MapAnnotationProvider,
-                                    mapOverlayProvider: MapOverlayProvider,
-                                    initialCoordinateRegion: MKCoordinateRegion,
-                                    mapViewDelegate: MKMapViewDelegate,
+    class func createFromStoryboard(delegate: MapSelectorViewControllerDelegate,
                                     segmentedControlSource: SegmentedControlSource) -> MapSelectorViewController {
         let vc = UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateInitialViewController() as! MapSelectorViewController
-        vc.mapAnnotationProvider = mapAnnotationProvider
-        vc.mapOverlayProvider = mapOverlayProvider
-        vc.initialCoordinateRegion = initialCoordinateRegion
-        vc.mapViewDelegate = mapViewDelegate
+        vc.delegate = delegate
         vc.segmentedControlSource = segmentedControlSource
         return vc
     }

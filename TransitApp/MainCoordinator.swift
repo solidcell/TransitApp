@@ -3,12 +3,13 @@ import RealmSwift
 
 class MainCoordinator {
 
-    private let mapSelectorCoordinator = MapSelectorCoordinator()
     private let realm = try! Realm()
     private let seedDataParser: SeedDataParser
+    private let mapSelectorCoordinator: MapSelectorCoordinator
 
     init() {
-        seedDataParser = SeedDataParser(realm: realm)
+        self.seedDataParser = SeedDataParser(realm: realm)
+        self.mapSelectorCoordinator = MapSelectorCoordinator(realm: realm)
     }
 
     func start(window: UIWindow) {

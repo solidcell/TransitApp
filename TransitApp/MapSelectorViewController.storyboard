@@ -18,10 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Utd-bc-nBC">
-                                <frame key="frameInset" width="1000" height="1000"/>
-                            </mapView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sr7-Mb-mKG">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXj-Yf-bNO" userLabel="Map Container View"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sr7-Mb-mKG" userLabel="Map Selector">
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
@@ -30,16 +28,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Utd-bc-nBC" firstAttribute="leading" secondItem="DuX-mh-lSW" secondAttribute="leading" id="08K-Fn-31d"/>
-                            <constraint firstItem="A6e-8c-OEm" firstAttribute="top" secondItem="Utd-bc-nBC" secondAttribute="bottom" id="58X-jN-CDo"/>
-                            <constraint firstItem="Sr7-Mb-mKG" firstAttribute="centerX" secondItem="Utd-bc-nBC" secondAttribute="centerX" id="NgC-5k-ijJ"/>
+                            <constraint firstItem="NXj-Yf-bNO" firstAttribute="leading" secondItem="DuX-mh-lSW" secondAttribute="leading" id="H3i-HA-90a"/>
                             <constraint firstItem="Sr7-Mb-mKG" firstAttribute="top" secondItem="LjE-tX-rOn" secondAttribute="bottom" id="P6r-2q-mUD"/>
-                            <constraint firstItem="Utd-bc-nBC" firstAttribute="top" secondItem="DuX-mh-lSW" secondAttribute="top" id="n6C-h1-BD5"/>
-                            <constraint firstAttribute="trailing" secondItem="Utd-bc-nBC" secondAttribute="trailing" id="v6I-wq-ESN"/>
+                            <constraint firstItem="A6e-8c-OEm" firstAttribute="top" secondItem="NXj-Yf-bNO" secondAttribute="bottom" id="auv-4k-O5l"/>
+                            <constraint firstAttribute="trailing" secondItem="NXj-Yf-bNO" secondAttribute="trailing" id="bdp-Jy-17Y"/>
+                            <constraint firstItem="Sr7-Mb-mKG" firstAttribute="centerX" secondItem="DuX-mh-lSW" secondAttribute="centerX" id="iYe-cX-BvV"/>
+                            <constraint firstItem="NXj-Yf-bNO" firstAttribute="top" secondItem="DuX-mh-lSW" secondAttribute="top" id="jrd-fM-uoz"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="Utd-bc-nBC" id="3Gc-OI-fbz"/>
+                        <outlet property="mapContainerView" destination="NXj-Yf-bNO" id="ewk-1e-G5m"/>
                         <outlet property="segmentedControl" destination="Sr7-Mb-mKG" id="To7-Sa-mL9"/>
                     </connections>
                 </viewController>
