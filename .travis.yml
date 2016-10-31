@@ -1,4 +1,4 @@
 language: objective-c
 osx_image: xcode8
 xcode_sdk: iphonesimulator10.0
-script: xcodebuild clean build -workspace TransitApp.xcworkspace -scheme TransitApp -destination "platform=iOS Simulator,name=iPhone 6S" | xcpretty
+script: xcodebuild clean build test -workspace TransitApp.xcworkspace -scheme TransitApp -destination "platform=iOS Simulator,name=iPhone 6S" | xcpretty
