@@ -33,6 +33,8 @@
 		887DBEDC1DC75AD300D92E19 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */; };
 		887DBEDE1DC75B3E00D92E19 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */; };
 		887DBEE01DC75CED00D92E19 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 887DBEDF1DC75CED00D92E19 /* MapViewController.storyboard */; };
+		887DBEE91DC8A24B00D92E19 /* MapAnnotationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEE81DC8A24B00D92E19 /* MapAnnotationDataSource.swift */; };
+		887DBEEB1DC8B11D00D92E19 /* MapAnnotationCreatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEEA1DC8B11D00D92E19 /* MapAnnotationCreatorSpec.swift */; };
 		8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */; };
 		8884CE2A1DC53316004365B3 /* MapViewDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */; };
 		8884CE2E1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE2D1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift */; };
@@ -91,6 +93,8 @@
 		887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		887DBEDF1DC75CED00D92E19 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
+		887DBEE81DC8A24B00D92E19 /* MapAnnotationDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationDataSource.swift; sourceTree = "<group>"; };
+		887DBEEA1DC8B11D00D92E19 /* MapAnnotationCreatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationCreatorSpec.swift; sourceTree = "<group>"; };
 		8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotation.swift; sourceTree = "<group>"; };
 		8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegateSpec.swift; sourceTree = "<group>"; };
 		8884CE2D1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotationViewCreator.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */,
+				887DBEE81DC8A24B00D92E19 /* MapAnnotationDataSource.swift */,
 				880EB09C1DC4D1D800C5830E /* MapAnnotationCreator.swift */,
 				8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */,
 			);
@@ -332,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */,
+				887DBEEA1DC8B11D00D92E19 /* MapAnnotationCreatorSpec.swift */,
 				8884CE411DC6160A004365B3 /* MapOverlayProviderSpec.swift */,
 				8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */,
 				880EB0651DC3607D00C5830E /* JSONParsing */,
@@ -575,6 +581,7 @@
 				8884CE3C1DC60FCC004365B3 /* BusinessAreaCoordinate.swift in Sources */,
 				8884CE3F1DC61038004365B3 /* BusinessAreaCoordinateParser.swift in Sources */,
 				880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */,
+				887DBEE91DC8A24B00D92E19 /* MapAnnotationDataSource.swift in Sources */,
 				8884CE471DC619C5004365B3 /* MapOverlayCreator.swift in Sources */,
 				880EB09D1DC4D1D800C5830E /* MapAnnotationCreator.swift in Sources */,
 				880EB0911DC39FCB00C5830E /* SeedDataParser.swift in Sources */,
@@ -596,6 +603,7 @@
 			files = (
 				8884CE421DC6160A004365B3 /* MapOverlayProviderSpec.swift in Sources */,
 				8884CE341DC60AD8004365B3 /* BusinessAreaParserSpec.swift in Sources */,
+				887DBEEB1DC8B11D00D92E19 /* MapAnnotationCreatorSpec.swift in Sources */,
 				880EB0871DC398FC00C5830E /* ScooterParserSpec.swift in Sources */,
 				8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */,
 				880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */,

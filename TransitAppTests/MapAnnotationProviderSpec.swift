@@ -9,6 +9,8 @@ class MapAnnotationProviderSpec: TransitAppSpec {
         super.spec()
 
         var subject: MapAnnotationProvider!
+        var dataSource: SpecDataSource!
+        var delegate: SpecDelegate!
 
         beforeEach {
             let scooter = Scooter(latitude: 50.0, longitude: 60.0,
@@ -17,25 +19,74 @@ class MapAnnotationProviderSpec: TransitAppSpec {
             try! self.realm.write {
                 self.realm.add(scooter)
             }
+
+            dataSource = SpecDataSource(results: self.realm.scooters)
+            subject = MapAnnotationProvider(dataSource: dataSource)
+            delegate = SpecDelegate()
         }
 
-        describe("annotations") {
+        describe("when setting the delegate") {
 
             beforeEach {
-                subject = MapAnnotationProvider(realm: self.realm)
+                expect(delegate.receivedAnnotations).to(beNil())
+
+                subject.delegate = delegate
             }
 
-            it("returns a CoupMapAnnotation for each Scooter") {
-                let annotations = subject.annotations
+            it("sends current annotations to the delegate") {
+                expect(delegate.receivedAnnotations).to(haveCount(1))
+            }
 
-                expect(annotations.count).to(equal(1))
+        }
 
-                let first = annotations.first! as! CoupMapAnnotation
-                expect(first.title).to(equal("123abc"))
-                expect(first.coordinate).to(equal(CLLocationCoordinate2D(latitude: 50.0, longitude: 60.0)))
-                expect(first.subtitle).to(equal("70%"))
+        context("when notified of data source changes") {
+
+            beforeEach {
+                subject.delegate = delegate
+
+                expect(delegate.receivedAnnotations).to(haveCount(1))
+
+                let newScooter = Scooter(latitude: 20.0, longitude: 10.0,
+                                         energyLevel: 60, licensePlate: "xyz321")
+
+                try! self.realm.write {
+                    self.realm.add(newScooter)
+                }
+
+                dataSource.simulateChangeNotificationFromRealm()
+            }
+
+            it("sends new annotations to the delegate") {
+                expect(delegate.receivedAnnotations).to(haveCount(2))
             }
         }
 
     }
+}
+
+// Realm notifications are async, so not safe for tests.
+// Take control by injecting this dependency which we control
+private class SpecDataSource: MapAnnotationDataSourcing {
+
+    weak var delegate: MapAnnotationProvider?
+    private(set) var results: Results<Scooter>
+
+    init(results: Results<Scooter>) {
+        self.results = results
+    }
+
+    func simulateChangeNotificationFromRealm() {
+        delegate?.dataUpdated()
+    }
+
+}
+
+private class SpecDelegate: MapAnnotationReceiving {
+
+    var receivedAnnotations: [MKAnnotation]?
+
+    func newAnnotations(_ annotations: [MKAnnotation]) {
+        receivedAnnotations = annotations
+    }
+    
 }

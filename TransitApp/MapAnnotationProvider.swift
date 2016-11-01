@@ -3,16 +3,36 @@ import MapKit
 
 class MapAnnotationProvider {
 
+    weak var delegate: MapAnnotationReceiving? {
+        didSet {
+            notifyDelegate()
+        }
+    }
     private let mapAnnotationCreator = MapAnnotationCreator()
-    private let realm: Realm
+    private let dataSource: MapAnnotationDataSourcing
 
-    init(realm: Realm) {
-        self.realm = realm
+    init(dataSource: MapAnnotationDataSourcing) {
+        self.dataSource = dataSource
+        self.dataSource.delegate = self
     }
 
-    lazy var annotations: [MKAnnotation] = {
-        let scooters = self.realm.scooters
-        return self.mapAnnotationCreator.annotations(scooters: scooters)
-    }()
+    func dataUpdated() {
+        notifyDelegate()
+    }
 
+    private func notifyDelegate() {
+        delegate?.newAnnotations(annotations)
+    }
+
+    var annotations: [MKAnnotation] {
+        let scooters = self.dataSource.results
+        return self.mapAnnotationCreator.annotations(scooters: scooters)
+    }
+
+}
+
+protocol MapAnnotationReceiving: class {
+
+    func newAnnotations(_ annotations: [MKAnnotation])
+    
 }

@@ -15,17 +15,21 @@ class MapViewController: UIViewController {
 
         mapView.delegate = mapViewDelegate
         mapView.setRegion(initialCoordinateRegion, animated: true)
-        configureMapAnnotations()
         configureMapOverlays()
+        mapAnnotationProvider.delegate = self
     }
 
     private func configureMapOverlays() {
         mapOverlayProvider.overlays.forEach(mapView.add)
     }
+}
 
-    private func configureMapAnnotations() {
-        mapAnnotationProvider.annotations.forEach(mapView.addAnnotation)
+extension MapViewController: MapAnnotationReceiving {
+
+    func newAnnotations(_ annotations: [MKAnnotation]) {
+        annotations.forEach(mapView.addAnnotation)
     }
+    
 }
 
 // MARK: Creation
