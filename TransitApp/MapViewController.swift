@@ -17,6 +17,11 @@ class MapViewController: UIViewController {
         mapView.setRegion(initialCoordinateRegion, animated: true)
         configureMapOverlays()
         mapAnnotationProvider.delegate = self
+
+        let fetchTimer = FetchTimer()
+        fetchTimer.start {
+            print("in here \(NSDate())")
+        }
     }
 
     private func configureMapOverlays() {
