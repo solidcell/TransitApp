@@ -34,7 +34,7 @@ class MapSelectorCoordinator {
         return mapViewControllerCache.get(source) {
             // otherwise return a new map view controller and cache it
             let mapCoordinator = MapCoordinator()
-            return mapCoordinator.start(realm: realm)
+            return mapCoordinator.start(realm: realm, source: source)
         }
     }
 
