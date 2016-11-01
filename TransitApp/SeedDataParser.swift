@@ -1,20 +1,50 @@
-import Foundation
 import SwiftyJSON
 import RealmSwift
 
 class SeedDataParser {
-
-    private let door2DoorParser: Door2DoorParser
-    private let coupParser: CoupParser
+    
+    private static let seedScooterJSONfilename = "CoupScooterData"
+    private static let seedBusinessAreaJSONfilename = "CoupBusinessAreasData"
+    private let realm: Realm
+    private let jsonParser = JSONParser()
+    private let scooterParser = ScooterParser()
+    private let businessAreaParser = BusinessAreaParser()
 
     init(realm: Realm) {
-        self.door2DoorParser = Door2DoorParser(realm: realm)
-        self.coupParser = CoupParser(realm: realm)
+        self.realm = realm
     }
     
     func seedIfNeeded() {
-        door2DoorParser.seedIfNeeded()
-        coupParser.seedIfNeeded()
+        seedScootersIfNeeded()
+        seedBusinessAreasIfNeeded()
+    }
+
+    private func seedScootersIfNeeded() {
+        if realm.scooters.count > 0 { return }
+        
+        let seedJSON = jsonParser.parse(filename: SeedDataParser.seedScooterJSONfilename)
+        seedScooters(json: seedJSON)
+    }
+
+    private func seedBusinessAreasIfNeeded() {
+        if realm.businessAreas.count > 0 { return }
+        
+        let seedJSON = jsonParser.parse(filename: SeedDataParser.seedBusinessAreaJSONfilename)
+        seedBusinessAreas(json: seedJSON)
+    }
+
+    private func seedScooters(json: JSON) {
+        let scooters = scooterParser.parse(json: json)
+        try! realm.write {
+            realm.add(scooters)
+        }
+    }
+
+    private func seedBusinessAreas(json: JSON) {
+        let businessAreas = businessAreaParser.parse(json: json)
+        try! realm.write {
+            realm.add(businessAreas)
+        }
     }
     
 }
