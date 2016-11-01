@@ -3,11 +3,9 @@ import RealmSwift
 
 class SeedDataParser {
     
-    private static let seedScooterJSONfilename = "CoupScooterData"
     private static let seedBusinessAreaJSONfilename = "CoupBusinessAreasData"
     private let realm: Realm
     private let jsonParser = JSONParser()
-    private let scooterParser = ScooterParser()
     private let businessAreaParser = BusinessAreaParser()
 
     init(realm: Realm) {
@@ -15,15 +13,7 @@ class SeedDataParser {
     }
     
     func seedIfNeeded() {
-        seedScootersIfNeeded()
         seedBusinessAreasIfNeeded()
-    }
-
-    private func seedScootersIfNeeded() {
-        if realm.scooters.count > 0 { return }
-        
-        let seedJSON = jsonParser.parse(filename: SeedDataParser.seedScooterJSONfilename)
-        seedScooters(json: seedJSON)
     }
 
     private func seedBusinessAreasIfNeeded() {
@@ -31,13 +21,6 @@ class SeedDataParser {
         
         let seedJSON = jsonParser.parse(filename: SeedDataParser.seedBusinessAreaJSONfilename)
         seedBusinessAreas(json: seedJSON)
-    }
-
-    private func seedScooters(json: JSON) {
-        let scooters = scooterParser.parse(json: json)
-        try! realm.write {
-            realm.add(scooters)
-        }
     }
 
     private func seedBusinessAreas(json: JSON) {
