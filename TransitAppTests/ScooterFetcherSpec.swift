@@ -1,7 +1,5 @@
 import Quick
 import Nimble
-import RealmSwift
-import MapKit
 @testable import TransitApp
 
 class ScooterFetcherSpec: TransitAppSpec {

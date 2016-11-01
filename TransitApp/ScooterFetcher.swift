@@ -1,6 +1,6 @@
 import SwiftyJSON
 
-class ScooterFetcher {
+class ScooterFetcher: ScooterFetching {
 
     weak var delegate: ScooterFetcherDelegate?
     private let jsonFetcher: JSONFetching
@@ -28,6 +28,13 @@ class ScooterFetcher {
             strongSelf.delegate?.fetchedScooters(scooters: scooters)
         }
     }
+    
+}
+
+protocol ScooterFetching {
+    
+    weak var delegate: ScooterFetcherDelegate? { get set }
+    func start()
     
 }
 
