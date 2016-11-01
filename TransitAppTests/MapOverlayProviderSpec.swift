@@ -23,36 +23,22 @@ class MapOverlayProviderSpec: TransitAppSpec {
 
         describe("overlays") {
 
-            context("when the source is .door2door") {
-                beforeEach {
-                    subject = MapOverlayProvider(realm: self.realm,
-                                                 source: .door2door)
-                }
-
-                it("returns an empty array") {
-                    expect(subject.overlays).to(beEmpty())
-                }
+            beforeEach {
+                subject = MapOverlayProvider(realm: self.realm)
             }
 
-            context("when the source is .coup") {
-                beforeEach {
-                    subject = MapOverlayProvider(realm: self.realm,
-                                                 source: .coup)
-                }
+            it("returns an overlay for each BusinessArea") {
+                expect(subject.overlays).to(haveCount(1))
 
-                it("returns an overlay for each BusinessArea") {
-                    expect(subject.overlays).to(haveCount(1))
+                let overlay = subject.overlays.first as! MKPolygon
+                expect(overlay.pointCount).to(equal(3))
 
-                    let overlay = subject.overlays.first as! MKPolygon
-                    expect(overlay.pointCount).to(equal(3))
-
-                    let firstMapPoint = overlay.points()[0]
-                    let firstCoordinate = MKCoordinateForMapPoint(firstMapPoint)
-                    expect(firstCoordinate.latitude).to(beCloseTo(44.0))
-                    expect(firstCoordinate.longitude).to(beCloseTo(62.0))
-                }
+                let firstMapPoint = overlay.points()[0]
+                let firstCoordinate = MKCoordinateForMapPoint(firstMapPoint)
+                expect(firstCoordinate.latitude).to(beCloseTo(44.0))
+                expect(firstCoordinate.longitude).to(beCloseTo(62.0))
             }
-
+            
         }
     }
 }

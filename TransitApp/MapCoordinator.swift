@@ -4,9 +4,8 @@ import RealmSwift
 class MapCoordinator {
 
     func start(window: UIWindow, realm: Realm) {
-        let source = MapSourceManager.Source.coup
         let mapAnnotationProvider = MapAnnotationProvider(realm: realm)
-        let mapOverlayProvider = MapOverlayProvider(realm: realm, source: source)
+        let mapOverlayProvider = MapOverlayProvider(realm: realm)
         let mapViewDelegate = MapViewDelegate()
         let mapRegionManager = MapRegionManager()
         let region = mapRegionManager.region(annotations: mapAnnotationProvider.annotations)
