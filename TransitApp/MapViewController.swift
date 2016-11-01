@@ -7,6 +7,7 @@ class MapViewController: UIViewController {
     var mapOverlayProvider: MapOverlayProvider!
     var initialCoordinateRegion: MKCoordinateRegion!
     var mapViewDelegate: MKMapViewDelegate!
+    var scooterUpdater: ScooterUpdater!
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -17,11 +18,6 @@ class MapViewController: UIViewController {
         mapView.setRegion(initialCoordinateRegion, animated: true)
         configureMapOverlays()
         mapAnnotationProvider.delegate = self
-
-        let fetchTimer = FetchTimer()
-        fetchTimer.start {
-            print("in here \(NSDate())")
-        }
     }
 
     private func configureMapOverlays() {
@@ -32,6 +28,9 @@ class MapViewController: UIViewController {
 extension MapViewController: MapAnnotationReceiving {
 
     func newAnnotations(_ annotations: [MKAnnotation]) {
+        // remove current annotations
+        mapView.removeAnnotations(mapView.annotations)
+        // add all (old/new) annotations
         annotations.forEach(mapView.addAnnotation)
     }
     
@@ -47,13 +46,15 @@ extension MapViewController {
     class func createFromStoryboard(mapAnnotationProvider: MapAnnotationProvider,
                                     mapOverlayProvider: MapOverlayProvider,
                                     initialCoordinateRegion: MKCoordinateRegion,
-                                    mapViewDelegate: MKMapViewDelegate) -> MapViewController {
+                                    mapViewDelegate: MKMapViewDelegate,
+                                    scooterUpdater: ScooterUpdater) -> MapViewController {
         let vc = UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateInitialViewController() as! MapViewController
         vc.mapAnnotationProvider = mapAnnotationProvider
         vc.mapOverlayProvider = mapOverlayProvider
         vc.initialCoordinateRegion = initialCoordinateRegion
         vc.mapViewDelegate = mapViewDelegate
+        vc.scooterUpdater = scooterUpdater
         return vc
     }
     

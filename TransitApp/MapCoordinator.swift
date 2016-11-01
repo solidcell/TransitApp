@@ -10,10 +10,16 @@ class MapCoordinator {
         let mapViewDelegate = MapViewDelegate()
         let mapRegionManager = MapRegionManager()
         let region = mapRegionManager.region(annotations: mapAnnotationProvider.annotations)
+        let jsonFetcher = JSONFetcher()
+        let fetchTimer = FetchTimer()
+        let scooterFetcher = ScooterFetcher(jsonFetcher: jsonFetcher, fetchTimer: fetchTimer)
+        let scooterUpdater = ScooterUpdater(realm: realm, scooterFetcher: scooterFetcher)
+        scooterUpdater.start()
         let vc = MapViewController.createFromStoryboard(mapAnnotationProvider: mapAnnotationProvider,
                                                         mapOverlayProvider: mapOverlayProvider,
                                                         initialCoordinateRegion: region,
-                                                        mapViewDelegate: mapViewDelegate)
+                                                        mapViewDelegate: mapViewDelegate,
+                                                        scooterUpdater: scooterUpdater)
         window.rootViewController = vc
     }
 
