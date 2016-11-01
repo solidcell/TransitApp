@@ -2,16 +2,16 @@ import RealmSwift
 import MapKit
 
 class MapAnnotationCreator {
-
-    let door2DoorMapAnnotationCreator = Door2DoorMapAnnotationCreator()
-    let coupMapAnnotationCreator = CoupMapAnnotationCreator()
-
-    func annotations(stops: Results<Stop>) -> [Door2DoorMapAnnotation] {
-        return door2DoorMapAnnotationCreator.annotations(stops: stops)
-    }
-
-    func annotations(scooters: Results<Scooter>) -> [CoupMapAnnotation] {
-        return coupMapAnnotationCreator.annotations(scooters: scooters)
-    }
     
+    func annotations(scooters: Results<Scooter>) -> [CoupMapAnnotation] {
+        return scooters.map(scooterToAnnotation)
+    }
+
+    private func scooterToAnnotation(scooter: Scooter) -> CoupMapAnnotation {
+        return CoupMapAnnotation(title: scooter.licensePlate,
+                                 coordinate: CLLocationCoordinate2D(latitude: scooter.latitude,
+                                                                    longitude: scooter.longitude),
+                                 energyLevel: scooter.energyLevel)
+    }
+
 }
