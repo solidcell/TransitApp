@@ -24,49 +24,21 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
         describe("annotations") {
 
-            context("when the source is .door2door") {
-                beforeEach {
-                    subject = MapAnnotationProvider(realm: self.realm,
-                                                    source: .door2door)
-                }
-
-                it("returns a Door2DoorMapAnnotation for each Stop") {
-                    let annotations = subject.annotations
-
-                    expect(annotations.count).to(equal(2))
-
-                    let first = annotations.first as! Door2DoorMapAnnotation
-                    expect(first.title).to(equal("name 1"))
-                    expect(first.locationName).to(equal("name 1"))
-                    expect(first.discipline).to(equal("name 1"))
-                    expect(first.coordinate).to(equal(CLLocationCoordinate2D(latitude: 1.0, longitude: 2.0)))
-
-                    let second = annotations[1] as! Door2DoorMapAnnotation
-                    expect(second.title).to(equal("name 2"))
-                    expect(second.locationName).to(equal("name 2"))
-                    expect(second.discipline).to(equal("name 2"))
-                    expect(second.coordinate).to(equal(CLLocationCoordinate2D(latitude: 100.0, longitude: 200.0)))
-                }
+            beforeEach {
+                subject = MapAnnotationProvider(realm: self.realm)
             }
 
-            context("when the source is .coup") {
-                beforeEach {
-                    subject = MapAnnotationProvider(realm: self.realm,
-                                                    source: .coup)
-                }
+            it("returns a CoupMapAnnotation for each Scooter") {
+                let annotations = subject.annotations
 
-                it("returns a CoupMapAnnotation for each Scooter") {
-                    let annotations = subject.annotations
+                expect(annotations.count).to(equal(1))
 
-                    expect(annotations.count).to(equal(1))
-
-                    let first = annotations.first! as! CoupMapAnnotation
-                    expect(first.title).to(equal("123abc"))
-                    expect(first.coordinate).to(equal(CLLocationCoordinate2D(latitude: 50.0, longitude: 60.0)))
-                    expect(first.subtitle).to(equal("70%"))
-                }
+                let first = annotations.first! as! CoupMapAnnotation
+                expect(first.title).to(equal("123abc"))
+                expect(first.coordinate).to(equal(CLLocationCoordinate2D(latitude: 50.0, longitude: 60.0)))
+                expect(first.subtitle).to(equal("70%"))
             }
-
         }
+
     }
 }
