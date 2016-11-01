@@ -7,7 +7,13 @@ import RealmSwift
 
 class MapAnnotationDataSource: MapAnnotationDataSourcing {
     
-    weak var delegate: MapAnnotationProvider?
+    weak var delegate: MapAnnotationProvider? {
+        willSet {
+            if delegate != nil {
+                fatalError("There is already a delegate set. Create a new instance instead, otherwise the current delegate would stop receiving notifications.")
+            }
+        }
+    }
     private(set) var results: Results<Scooter>
     private var token: NotificationToken?
 
