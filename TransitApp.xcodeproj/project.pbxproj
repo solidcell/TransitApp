@@ -28,11 +28,7 @@
 		8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */; };
 		8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1351DC0BD4300E06654 /* JSONParser.swift */; };
 		8827E1371DC0C33800E06654 /* TestRandomJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */; };
-		8827E13F1DC0CC3700E06654 /* TransitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E13E1DC0CC3700E06654 /* TransitProvider.swift */; };
-		8827E14C1DC0F17700E06654 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E14B1DC0F17700E06654 /* Route.swift */; };
 		8827E14F1DC0FD1500E06654 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E14E1DC0FD1500E06654 /* main.swift */; };
-		8827E1511DC1030B00E06654 /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1501DC1030B00E06654 /* Segment.swift */; };
-		8827E1571DC1302500E06654 /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1561DC1302500E06654 /* Stop.swift */; };
 		8827E15E1DC2507100E06654 /* SeedDataParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E15D1DC2507100E06654 /* SeedDataParserSpec.swift */; };
 		887DBED41DC62A8500D92E19 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBED31DC62A8500D92E19 /* UIColor.swift */; };
 		887DBEDC1DC75AD300D92E19 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */; };
@@ -91,11 +87,7 @@
 		8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransitAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParserSpec.swift; sourceTree = "<group>"; };
 		8827E1351DC0BD4300E06654 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
-		8827E13E1DC0CC3700E06654 /* TransitProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitProvider.swift; sourceTree = "<group>"; };
-		8827E14B1DC0F17700E06654 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		8827E14E1DC0FD1500E06654 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		8827E1501DC1030B00E06654 /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segment.swift; sourceTree = "<group>"; };
-		8827E1561DC1302500E06654 /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
 		8827E15D1DC2507100E06654 /* SeedDataParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedDataParserSpec.swift; sourceTree = "<group>"; };
 		887DBED31DC62A8500D92E19 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
@@ -186,27 +178,6 @@
 			name = MapAnnotations;
 			sourceTree = "<group>";
 		};
-		880EB07A1DC3972C00C5830E /* Door2Door */ = {
-			isa = PBXGroup;
-			children = (
-				8827E13E1DC0CC3700E06654 /* TransitProvider.swift */,
-				8827E14B1DC0F17700E06654 /* Route.swift */,
-				8827E1501DC1030B00E06654 /* Segment.swift */,
-				8827E1561DC1302500E06654 /* Stop.swift */,
-			);
-			name = Door2Door;
-			sourceTree = "<group>";
-		};
-		880EB07B1DC3974300C5830E /* Coup */ = {
-			isa = PBXGroup;
-			children = (
-				880EB07C1DC3975400C5830E /* Scooter.swift */,
-				8884CE391DC60CC7004365B3 /* BusinessArea.swift */,
-				8884CE3B1DC60FCC004365B3 /* BusinessAreaCoordinate.swift */,
-			);
-			name = Coup;
-			sourceTree = "<group>";
-		};
 		880EB0811DC3982900C5830E /* Coup */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,8 +236,9 @@
 		8827E13D1DC0CC1E00E06654 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				880EB07B1DC3974300C5830E /* Coup */,
-				880EB07A1DC3972C00C5830E /* Door2Door */,
+				880EB07C1DC3975400C5830E /* Scooter.swift */,
+				8884CE391DC60CC7004365B3 /* BusinessArea.swift */,
+				8884CE3B1DC60FCC004365B3 /* BusinessAreaCoordinate.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -595,7 +567,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */,
-				8827E14C1DC0F17700E06654 /* Route.swift in Sources */,
 				8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */,
 				8884CE441DC6167A004365B3 /* MapOverlayProvider.swift in Sources */,
 				880EB08C1DC3994E00C5830E /* ScooterParser.swift in Sources */,
@@ -608,8 +579,6 @@
 				8884CE3F1DC61038004365B3 /* BusinessAreaCoordinateParser.swift in Sources */,
 				880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */,
 				8884CE471DC619C5004365B3 /* MapOverlayCreator.swift in Sources */,
-				8827E1511DC1030B00E06654 /* Segment.swift in Sources */,
-				8827E1571DC1302500E06654 /* Stop.swift in Sources */,
 				880EB09F1DC4DD8600C5830E /* IterateEnum.swift in Sources */,
 				880EB09D1DC4D1D800C5830E /* MapAnnotationCreator.swift in Sources */,
 				880EB0911DC39FCB00C5830E /* SeedDataParser.swift in Sources */,
@@ -619,7 +588,6 @@
 				8827E14F1DC0FD1500E06654 /* main.swift in Sources */,
 				880EB06F1DC36E1A00C5830E /* MapRegionManager.swift in Sources */,
 				8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */,
-				8827E13F1DC0CC3700E06654 /* TransitProvider.swift in Sources */,
 				8884CE3A1DC60CC7004365B3 /* BusinessArea.swift in Sources */,
 				880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */,
 				88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */,
