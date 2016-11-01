@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '8.0'
+platform :ios, '9.3'
 
 use_frameworks!
 
@@ -11,6 +11,7 @@ end
 
 target 'TransitApp' do
   shared_pods
+  pod 'Alamofire', '~> 4.0.1'
 end
 
 target 'TransitAppTests' do
