@@ -5,16 +5,15 @@ class MainCoordinator {
 
     private let realm = try! Realm()
     private let seedDataParser: SeedDataParser
-    private let mapSelectorCoordinator: MapSelectorCoordinator
+    private let mapCoordinator = MapCoordinator()
 
     init() {
         self.seedDataParser = SeedDataParser(realm: realm)
-        self.mapSelectorCoordinator = MapSelectorCoordinator(realm: realm)
     }
 
     func start(window: UIWindow) {
         seedDataParser.seedIfNeeded()
-        mapSelectorCoordinator.start(window: window, realm: realm)
+        mapCoordinator.start(window: window, realm: realm)
     }
     
 }

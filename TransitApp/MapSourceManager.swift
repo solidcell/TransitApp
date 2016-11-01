@@ -39,14 +39,6 @@ class MapSourceManager {
     
 }
 
-extension MapSourceManager: SegmentedControlSourceDelegate {
-
-    func didSelect(source: MapSourceManager.Source) {
-        self.source = source
-    }
-    
-}
-
 protocol MapSourceManagerDelegate: class {
     func didUpdate()
 }
