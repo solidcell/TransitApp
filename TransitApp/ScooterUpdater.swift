@@ -22,7 +22,7 @@ extension ScooterUpdater: ScooterFetcherDelegate {
 
     func fetchedScooters(scooters: [Scooter]) {
         try! realm.write {
-            realm.add(scooters)
+            realm.add(scooters, update: true)
         }
         delegate?.updatedScooters()
     }

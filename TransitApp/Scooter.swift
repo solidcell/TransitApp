@@ -5,6 +5,10 @@ class Scooter: Object {
     dynamic var longitude: Double = 0.0
     dynamic var energyLevel: Int = 0
     dynamic var licensePlate: String = ""
+
+    override class func primaryKey() -> String? {
+        return "licensePlate"
+    }
 }
 
 // MARK: Creation
