@@ -95,7 +95,6 @@
 
 /* Begin PBXFileReference section */
 		31867505C8EB0A265C5556A7 /* Pods_TransitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		41CA1D9D1436E66B2EEDD667 /* Pods-Shows-TransitAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shows-TransitAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shows-TransitAppTests/Pods-Shows-TransitAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		5577BCE77DAC1C9E95FEBF67 /* Pods_Shows_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shows_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		642B0DF2737E6BEB51A4AD79 /* Pods_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,7 +176,6 @@
 		8D3FC6667524E339371C7C02 /* Pods-TransitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitApp/Pods-TransitApp.release.xcconfig"; sourceTree = "<group>"; };
 		9AEB5ED9C6ABF2CA676D9BE4 /* Pods-TransitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransitApp/Pods-TransitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		D906B18321400739B4B477B5 /* Pods-TransitAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E42FB6A03E2265990F065F70 /* Pods-Shows-TransitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shows-TransitAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shows-TransitAppTests/Pods-Shows-TransitAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,8 +521,6 @@
 			children = (
 				D906B18321400739B4B477B5 /* Pods-TransitAppTests.debug.xcconfig */,
 				48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */,
-				41CA1D9D1436E66B2EEDD667 /* Pods-Shows-TransitAppTests.debug.xcconfig */,
-				E42FB6A03E2265990F065F70 /* Pods-Shows-TransitAppTests.release.xcconfig */,
 				9AEB5ED9C6ABF2CA676D9BE4 /* Pods-TransitApp.debug.xcconfig */,
 				8D3FC6667524E339371C7C02 /* Pods-TransitApp.release.xcconfig */,
 			);
