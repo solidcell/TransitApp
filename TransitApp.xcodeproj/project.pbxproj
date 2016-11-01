@@ -79,7 +79,6 @@
 		88DF693B1DBF905F00FE11F0 /* MapSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF693A1DBF905F00FE11F0 /* MapSelectorViewController.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
 		88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DF69411DBF905F00FE11F0 /* LaunchScreen.storyboard */; };
-		9B32EE54F42C7D821A3758D2 /* Pods_Shows_TransitAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5577BCE77DAC1C9E95FEBF67 /* Pods_Shows_TransitAppTests.framework */; };
 		B1014C0579D36450907EE849 /* Pods_TransitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31867505C8EB0A265C5556A7 /* Pods_TransitApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,7 +95,6 @@
 /* Begin PBXFileReference section */
 		31867505C8EB0A265C5556A7 /* Pods_TransitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		5577BCE77DAC1C9E95FEBF67 /* Pods_Shows_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shows_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		642B0DF2737E6BEB51A4AD79 /* Pods_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		880EB0601DC334F500C5830E /* TransitAppSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAppSpec.swift; sourceTree = "<group>"; };
 		880EB0631DC338EF00C5830E /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				153DEEB7D137F8AA011C616C /* Pods_TransitAppTests.framework in Frameworks */,
-				9B32EE54F42C7D821A3758D2 /* Pods_Shows_TransitAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +201,6 @@
 			children = (
 				642B0DF2737E6BEB51A4AD79 /* Pods_TransitAppTests.framework */,
 				31867505C8EB0A265C5556A7 /* Pods_TransitApp.framework */,
-				5577BCE77DAC1C9E95FEBF67 /* Pods_Shows_TransitAppTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
