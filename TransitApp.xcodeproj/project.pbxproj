@@ -42,7 +42,6 @@
 		8827E13C1DC0CBFD00E06654 /* TransitProviderParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E13B1DC0CBFD00E06654 /* TransitProviderParser.swift */; };
 		8827E13F1DC0CC3700E06654 /* TransitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E13E1DC0CC3700E06654 /* TransitProvider.swift */; };
 		8827E1411DC0CCC900E06654 /* TestTransitProviderJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E1401DC0CCC900E06654 /* TestTransitProviderJSON.json */; };
-		8827E1441DC0D65600E06654 /* FilterNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1431DC0D65600E06654 /* FilterNil.swift */; };
 		8827E1461DC0EE9100E06654 /* RouteParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1451DC0EE9100E06654 /* RouteParserSpec.swift */; };
 		8827E1481DC0EEB900E06654 /* RouteParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1471DC0EEB900E06654 /* RouteParser.swift */; };
 		8827E14C1DC0F17700E06654 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E14B1DC0F17700E06654 /* Route.swift */; };
@@ -130,7 +129,6 @@
 		8827E13B1DC0CBFD00E06654 /* TransitProviderParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitProviderParser.swift; sourceTree = "<group>"; };
 		8827E13E1DC0CC3700E06654 /* TransitProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitProvider.swift; sourceTree = "<group>"; };
 		8827E1401DC0CCC900E06654 /* TestTransitProviderJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestTransitProviderJSON.json; sourceTree = "<group>"; };
-		8827E1431DC0D65600E06654 /* FilterNil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterNil.swift; sourceTree = "<group>"; };
 		8827E1451DC0EE9100E06654 /* RouteParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteParserSpec.swift; sourceTree = "<group>"; };
 		8827E1471DC0EEB900E06654 /* RouteParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteParser.swift; sourceTree = "<group>"; };
 		8827E1491DC0EEF300E06654 /* TestRouteJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestRouteJSON.json; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 		8827E1421DC0D64400E06654 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8827E1431DC0D65600E06654 /* FilterNil.swift */,
 				880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */,
 				880EB09E1DC4DD8600C5830E /* IterateEnum.swift */,
 				887DBED31DC62A8500D92E19 /* UIColor.swift */,
@@ -750,7 +747,6 @@
 				887DBED61DC73EFB00D92E19 /* MapSource.swift in Sources */,
 				8884CE2E1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift in Sources */,
 				887DBEDE1DC75B3E00D92E19 /* MapViewController.swift in Sources */,
-				8827E1441DC0D65600E06654 /* FilterNil.swift in Sources */,
 				8827E13C1DC0CBFD00E06654 /* TransitProviderParser.swift in Sources */,
 				8884CE301DC5EF52004365B3 /* CoupMapAnnotationView.swift in Sources */,
 				8884CE361DC60B2C004365B3 /* BusinessAreaParser.swift in Sources */,
