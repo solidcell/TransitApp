@@ -13,8 +13,6 @@ class FetchTimer: FetchTiming {
     func start(block: @escaping () -> Void) {
         // invalidate an existing timer if one exists
         self.timer?.invalidate()
-        // fire the first time immediately
-        block()
         // set a timer for subsequent firing
         self.timer = Timer.scheduledTimer(timeInterval: interval,
                                           target: WeakTarget(block: block),
