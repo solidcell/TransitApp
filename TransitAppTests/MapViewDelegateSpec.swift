@@ -8,12 +8,10 @@ class MapViewDelegateSpec: TransitAppSpec {
         super.spec()
 
         var subject: MapViewDelegate!
-        var coordinate: CLLocationCoordinate2D!
         var mapView: MKMapView!
 
         beforeEach {
             subject = MapViewDelegate()
-            coordinate = CLLocationCoordinate2D(latitude: 1.0, longitude: 2.0)
             mapView = MKMapView()
         }
 
@@ -22,9 +20,8 @@ class MapViewDelegateSpec: TransitAppSpec {
             var coupMapAnnotation: CoupMapAnnotation!
 
             it("has a callout enabled") {
-                coupMapAnnotation = CoupMapAnnotation(title: "",
-                                                      coordinate: coordinate,
-                                                      energyLevel: 0)
+                let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: 0, licensePlate: "")
+                coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
 
                 let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
                 let pinAnnotationView = results as! MKPinAnnotationView
@@ -35,9 +32,8 @@ class MapViewDelegateSpec: TransitAppSpec {
                 let energyLevel = 51
 
                 beforeEach {
-                    coupMapAnnotation = CoupMapAnnotation(title: "",
-                                                          coordinate: coordinate,
-                                                          energyLevel: energyLevel)
+                    let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
+                    coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
                 }
 
                 it("returns an MKPinAnnotationView with a green tint") {
@@ -51,9 +47,8 @@ class MapViewDelegateSpec: TransitAppSpec {
                 let energyLevel = 31
 
                 beforeEach {
-                    coupMapAnnotation = CoupMapAnnotation(title: "",
-                                                          coordinate: coordinate,
-                                                          energyLevel: energyLevel)
+                    let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
+                    coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
                 }
 
                 it("returns an MKPinAnnotationView with a yellow tint") {
@@ -67,9 +62,8 @@ class MapViewDelegateSpec: TransitAppSpec {
                 let energyLevel = 30
 
                 beforeEach {
-                    coupMapAnnotation = CoupMapAnnotation(title: "",
-                                                          coordinate: coordinate,
-                                                          energyLevel: energyLevel)
+                    let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
+                    coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
                 }
 
                 it("returns an MKPinAnnotationView with a red tint") {

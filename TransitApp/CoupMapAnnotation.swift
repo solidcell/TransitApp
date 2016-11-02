@@ -8,8 +8,10 @@ class CoupMapAnnotation: NSObject, MKAnnotation {
     // dynamic is necessary for animation when changing coordinate
     dynamic var coordinate = CLLocationCoordinate2D()
 
-    init(title: String) {
-        self.title = title
+    init(scooter: Scooter) {
+        self.title = scooter.licensePlate
+        super.init()
+        configure(for: scooter)
     }
 
     var subtitle: String? {

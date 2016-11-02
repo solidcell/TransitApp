@@ -14,7 +14,6 @@ class MapAnnotationProvider {
             delegate?.newAnnotations(annotations)
         }
     }
-    private let mapAnnotationCreator = MapAnnotationCreator()
     private let dataSource: MapAnnotationDataSourcing
 
     init(dataSource: MapAnnotationDataSourcing) {
@@ -53,14 +52,14 @@ class MapAnnotationProvider {
             guard let strongSelf = self else { return }
             scooters.forEach { scooter in
                 let annotation = strongSelf.annotationDict[strongSelf.keyForScooter(scooter)]!
-                strongSelf.mapAnnotationCreator.configureAnnotation(annotation: annotation, for: scooter)
+                annotation.configure(for: scooter)
             }
         }
     }
 
     private func addNewAnnotations(scooters: [Scooter]) {
         scooters.forEach { scooter in
-            annotationDict[keyForScooter(scooter)] = mapAnnotationCreator.scooterToAnnotation(scooter: scooter)
+            annotationDict[keyForScooter(scooter)] = CoupMapAnnotation(scooter: scooter)
         }
         delegate?.newAnnotations(annotations)
     }

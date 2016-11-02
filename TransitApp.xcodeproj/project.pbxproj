@@ -21,7 +21,6 @@
 		880EB08D1DC399BC00C5830E /* TestScooterJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 880EB0821DC3986400C5830E /* TestScooterJSON.json */; };
 		880EB0911DC39FCB00C5830E /* SeedDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0901DC39FCB00C5830E /* SeedDataParser.swift */; };
 		880EB0931DC3A20200C5830E /* MapAnnotationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */; };
-		880EB09D1DC4D1D800C5830E /* MapAnnotationCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB09C1DC4D1D800C5830E /* MapAnnotationCreator.swift */; };
 		8827E1301DC0BB5E00E06654 /* TestRandomJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */; };
 		8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */; };
 		8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1351DC0BD4300E06654 /* JSONParser.swift */; };
@@ -33,7 +32,7 @@
 		887DBEDE1DC75B3E00D92E19 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */; };
 		887DBEE01DC75CED00D92E19 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 887DBEDF1DC75CED00D92E19 /* MapViewController.storyboard */; };
 		887DBEE91DC8A24B00D92E19 /* MapAnnotationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEE81DC8A24B00D92E19 /* MapAnnotationDataSource.swift */; };
-		887DBEEB1DC8B11D00D92E19 /* MapAnnotationCreatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEEA1DC8B11D00D92E19 /* MapAnnotationCreatorSpec.swift */; };
+		887DBEEB1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEEA1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift */; };
 		887DBEED1DC8B82D00D92E19 /* JSONFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEEC1DC8B82D00D92E19 /* JSONFetcher.swift */; };
 		887DBEF21DC8C31A00D92E19 /* FetchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEF11DC8C31A00D92E19 /* FetchTimer.swift */; };
 		887DBEF51DC8CDC700D92E19 /* ScooterFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEF41DC8CDC700D92E19 /* ScooterFetcher.swift */; };
@@ -86,7 +85,6 @@
 		880EB08B1DC3994E00C5830E /* ScooterParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterParser.swift; sourceTree = "<group>"; };
 		880EB0901DC39FCB00C5830E /* SeedDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedDataParser.swift; sourceTree = "<group>"; };
 		880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProvider.swift; sourceTree = "<group>"; };
-		880EB09C1DC4D1D800C5830E /* MapAnnotationCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationCreator.swift; sourceTree = "<group>"; };
 		8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TestRandomJSON.json; path = TransitAppTests/TestRandomJSON.json; sourceTree = SOURCE_ROOT; };
 		8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransitAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParserSpec.swift; sourceTree = "<group>"; };
@@ -98,7 +96,7 @@
 		887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		887DBEDF1DC75CED00D92E19 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		887DBEE81DC8A24B00D92E19 /* MapAnnotationDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationDataSource.swift; sourceTree = "<group>"; };
-		887DBEEA1DC8B11D00D92E19 /* MapAnnotationCreatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationCreatorSpec.swift; sourceTree = "<group>"; };
+		887DBEEA1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotationSpec.swift; sourceTree = "<group>"; };
 		887DBEEC1DC8B82D00D92E19 /* JSONFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFetcher.swift; sourceTree = "<group>"; };
 		887DBEF11DC8C31A00D92E19 /* FetchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchTimer.swift; sourceTree = "<group>"; };
 		887DBEF41DC8CDC700D92E19 /* ScooterFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterFetcher.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 			children = (
 				880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */,
 				887DBEE81DC8A24B00D92E19 /* MapAnnotationDataSource.swift */,
-				880EB09C1DC4D1D800C5830E /* MapAnnotationCreator.swift */,
 				8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */,
 			);
 			name = MapAnnotations;
@@ -360,7 +357,7 @@
 				880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */,
 				887DBEF61DC8CDE200D92E19 /* ScooterFetcherSpec.swift */,
 				887DBEFA1DC8DF6700D92E19 /* ScooterUpdaterSpec.swift */,
-				887DBEEA1DC8B11D00D92E19 /* MapAnnotationCreatorSpec.swift */,
+				887DBEEA1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift */,
 				8884CE411DC6160A004365B3 /* MapOverlayProviderSpec.swift */,
 				8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */,
 				880EB0651DC3607D00C5830E /* JSONParsing */,
@@ -607,7 +604,6 @@
 				880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */,
 				887DBEE91DC8A24B00D92E19 /* MapAnnotationDataSource.swift in Sources */,
 				8884CE471DC619C5004365B3 /* MapOverlayCreator.swift in Sources */,
-				880EB09D1DC4D1D800C5830E /* MapAnnotationCreator.swift in Sources */,
 				880EB0911DC39FCB00C5830E /* SeedDataParser.swift in Sources */,
 				880EB07D1DC3975400C5830E /* Scooter.swift in Sources */,
 				887DBED41DC62A8500D92E19 /* UIColor.swift in Sources */,
@@ -630,7 +626,7 @@
 				8884CE421DC6160A004365B3 /* MapOverlayProviderSpec.swift in Sources */,
 				8884CE341DC60AD8004365B3 /* BusinessAreaParserSpec.swift in Sources */,
 				887DBEF71DC8CDE200D92E19 /* ScooterFetcherSpec.swift in Sources */,
-				887DBEEB1DC8B11D00D92E19 /* MapAnnotationCreatorSpec.swift in Sources */,
+				887DBEEB1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift in Sources */,
 				880EB0871DC398FC00C5830E /* ScooterParserSpec.swift in Sources */,
 				8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */,
 				880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */,
