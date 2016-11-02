@@ -4,17 +4,21 @@ import MapKit
 class CoupMapAnnotation: NSObject, MKAnnotation {
     
     let title: String?
-    let energyLevel: Int
-    var coordinate: CLLocationCoordinate2D
+    var energyLevel = 0
+    // dynamic is necessary for animation when changing coordinate
+    dynamic var coordinate = CLLocationCoordinate2D()
 
-    init(title: String, coordinate: CLLocationCoordinate2D, energyLevel: Int) {
+    init(title: String) {
         self.title = title
-        self.coordinate = coordinate
-        self.energyLevel = energyLevel
     }
 
     var subtitle: String? {
         return "\(self.energyLevel)%"
+    }
+
+    func configure(for scooter: Scooter) {
+        coordinate = scooter.coordinate
+        energyLevel = scooter.energyLevel
     }
     
 }

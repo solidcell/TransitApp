@@ -44,23 +44,23 @@ class MapAnnotationProvider {
     // TODO why does using Scooter as the key not work?
     // It's Hashable and `hashValue` is consistent..
     private var annotationDict = [String : CoupMapAnnotation]()
+    private func keyForScooter(_ scooter: Scooter) -> String {
+        return scooter.licensePlate
+    }
 
     private func updateAnnotations(scooters: [Scooter]) {
         delegate?.annotationsReadyForUpdate { [weak self] in
             guard let strongSelf = self else { return }
             scooters.forEach { scooter in
-                // TODO DRY this logic with the creation logic by making it a `configure`
-                // Also, add `coordinate` as an extension to Scooter
-                let annotation = strongSelf.annotationDict[scooter.licensePlate]
-                annotation!.coordinate = CLLocationCoordinate2D(latitude: scooter.latitude, longitude: scooter.longitude)
-//                annotation!.energyLevel = scooter.energyLevel
+                let annotation = strongSelf.annotationDict[strongSelf.keyForScooter(scooter)]!
+                strongSelf.mapAnnotationCreator.configureAnnotation(annotation: annotation, for: scooter)
             }
         }
     }
 
     private func addNewAnnotations(scooters: [Scooter]) {
         scooters.forEach { scooter in
-            annotationDict[scooter.licensePlate] = mapAnnotationCreator.scooterToAnnotation(scooter: scooter)
+            annotationDict[keyForScooter(scooter)] = mapAnnotationCreator.scooterToAnnotation(scooter: scooter)
         }
         delegate?.newAnnotations(annotations)
     }

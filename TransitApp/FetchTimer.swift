@@ -7,7 +7,7 @@ import Foundation
 
 class FetchTimer: FetchTiming {
 
-    private let interval = 2.0
+    private let interval = 15.0
     private var timer: Timer?
 
     func start(block: @escaping () -> Void) {

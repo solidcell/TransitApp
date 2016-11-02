@@ -2,6 +2,8 @@ import SwiftyJSON
 
 class ScooterFetcher: ScooterFetching {
 
+    static let scooterURL = "https://app.joincoup.com/api/v1/scooters.json"
+    
     weak var delegate: ScooterFetcherDelegate?
     private let jsonFetcher: JSONFetching
     private let fetchTimer: FetchTiming
@@ -22,7 +24,7 @@ class ScooterFetcher: ScooterFetching {
     }
 
     private func fetchJSON() {
-        jsonFetcher.fetch(url: "awefsdfffeafe") { [weak self] json in
+        jsonFetcher.fetch(url: ScooterFetcher.scooterURL) { [weak self] json in
             guard let strongSelf = self else { return }
             let scooters = strongSelf.scooterParser.parse(json: JSON(json))
             strongSelf.delegate?.fetchedScooters(scooters: scooters)

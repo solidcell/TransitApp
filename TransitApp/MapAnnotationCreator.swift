@@ -8,10 +8,13 @@ class MapAnnotationCreator {
     }
 
     func scooterToAnnotation(scooter: Scooter) -> CoupMapAnnotation {
-        return CoupMapAnnotation(title: scooter.licensePlate,
-                                 coordinate: CLLocationCoordinate2D(latitude: scooter.latitude,
-                                                                    longitude: scooter.longitude),
-                                 energyLevel: scooter.energyLevel)
+        let annotation = CoupMapAnnotation(title: scooter.licensePlate)
+        configureAnnotation(annotation: annotation, for: scooter)
+        return annotation
+    }
+
+    func configureAnnotation(annotation: CoupMapAnnotation, for scooter: Scooter) {
+        annotation.configure(for: scooter)
     }
 
 }

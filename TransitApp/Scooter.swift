@@ -1,4 +1,5 @@
 import RealmSwift
+import MapKit
 
 class Scooter: Object {
     dynamic var latitude: Double = 0.0
@@ -8,6 +9,12 @@ class Scooter: Object {
 
     override class func primaryKey() -> String? {
         return "licensePlate"
+    }
+}
+
+extension Scooter {
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
 

@@ -53,7 +53,8 @@ class MapAnnotationDataSource: MapAnnotationDataSourcing {
                               insertions: [Int],
                               modifications: [Int]) {
         let inserted = insertions.map(scooterForIndexIn(results))
-        self.delegate?.dataUpdated(deletions: [], insertions: inserted, modifications: [])
+        let modified = modifications.map(scooterForIndexIn(results))
+        self.delegate?.dataUpdated(deletions: [], insertions: inserted, modifications: modified)
     }
 
     private func scooterForIndexIn(_ results: Results<Scooter>) -> ((Int) -> Scooter) {

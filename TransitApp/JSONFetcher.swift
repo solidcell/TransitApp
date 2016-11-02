@@ -7,10 +7,8 @@ import Alamofire
 
 class JSONFetcher: JSONFetching {
 
-    static let scooterURL = "https://app.joincoup.com/api/v1/scooters.json"
-
     func fetch(url: String, completion: @escaping (Any) -> Void) {
-        Alamofire.request(JSONFetcher.scooterURL).responseJSON { response in
+        Alamofire.request(url).responseJSON { response in
             guard let json = response.result.value else { return }
             completion(json)
         }

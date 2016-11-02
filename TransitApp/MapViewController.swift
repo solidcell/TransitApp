@@ -32,7 +32,9 @@ extension MapViewController: MapAnnotationReceiving {
     }
 
     func annotationsReadyForUpdate(update: @escaping () -> Void) {
-        fatalError()
+        UIView.animate(withDuration: 1.0) {
+            update()
+        }
     }
     
 }
