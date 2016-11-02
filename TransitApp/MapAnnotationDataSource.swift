@@ -11,9 +11,10 @@ class MapAnnotationDataSource: MapAnnotationDataSourcing {
         willSet {
             if delegate != nil {
                 fatalError("There is already a delegate set. Create a new instance instead, otherwise the current delegate would stop receiving notifications.")
-            } else {
-                start()
             }
+        }
+        didSet {
+            start()
         }
     }
     private var token: NotificationToken?

@@ -26,6 +26,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
             beforeEach {
                 expect(delegate.newAnnotations).to(beNil())
+                expect(subject.annotations).to(beEmpty())
                 subject.delegate = delegate
             }
 
@@ -44,6 +45,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
             it("sends new annotations to the delegate") {
                 expect(delegate.newAnnotations).to(haveCount(1))
+                expect(subject.annotations).to(haveCount(1))
             }
         }
 
@@ -52,11 +54,39 @@ class MapAnnotationProviderSpec: TransitAppSpec {
             beforeEach {
                 subject.delegate = delegate
                 expect(delegate.newAnnotations).to(beEmpty())
+                expect(subject.annotations).to(beEmpty())
                 dataSource.simulateRealmChange(insertions: [scooter])
             }
 
             it("sends new annotations to the delegate") {
                 expect(delegate.newAnnotations).to(haveCount(1))
+                expect(subject.annotations).to(haveCount(1))
+            }
+        }
+
+        context("when notified of datasource updates") {
+
+            beforeEach {
+                dataSource.simulateRealmChange(initial: [scooter])
+                subject.delegate = delegate
+                expect(subject.annotations).to(haveCount(1))
+                let coordinateBefore = subject.annotations.first!.coordinate
+                expect(coordinateBefore).to(equal(CLLocationCoordinate2D(latitude: 50.0,
+                                                                         longitude: 60.0)))
+                let updatedScooter = Scooter(latitude: 51.0, longitude: 61.0,
+                                             energyLevel: 68, licensePlate: "123abc")
+                expect(delegate.updateCallback).to(beNil())
+                dataSource.simulateRealmChange(updates: [updatedScooter])
+                let updateCallback = delegate.updateCallback
+                expect(updateCallback).toNot(beNil())
+                updateCallback!()
+            }
+
+            it("notifies the delegate with a callback") {
+                expect(subject.annotations).to(haveCount(1))
+                let coordinateAfter = subject.annotations.first!.coordinate
+                expect(coordinateAfter).to(equal(CLLocationCoordinate2D(latitude: 51.0,
+                                                                        longitude: 61.0)))
             }
         }
 
@@ -70,11 +100,15 @@ private class SpecDataSource: MapAnnotationDataSourcing {
     weak var delegate: MapAnnotationProvider?
 
     func simulateRealmChange(initial: [Scooter]) {
-        delegate?.initialData(scooters: initial)
+        delegate!.initialData(scooters: initial)
     }
 
     func simulateRealmChange(insertions: [Scooter]) {
-        delegate?.dataUpdated(deletions: [], insertions: insertions, modifications: [])
+        delegate!.dataUpdated(deletions: [], insertions: insertions, modifications: [])
+    }
+
+    func simulateRealmChange(updates: [Scooter]) {
+        delegate!.dataUpdated(deletions: [], insertions: [], modifications: updates)
     }
 
 }
@@ -95,5 +129,20 @@ private class SpecDelegate: MapAnnotationReceiving {
     func newAnnotations(_ annotations: [MKAnnotation]) {
         newAnnotations = annotations
     }
-    
+
+    var updateCallback: (() -> Void)? {
+        get {
+            defer { _updateCallback = nil }
+            return _updateCallback
+        }
+        set {
+            _updateCallback = newValue
+        }
+    }
+    private var _updateCallback: (() -> Void)?
+
+    func annotationsReadyForUpdate(update: @escaping () -> Void) {
+        updateCallback = update
+    }
+
 }

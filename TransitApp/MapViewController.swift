@@ -30,6 +30,10 @@ extension MapViewController: MapAnnotationReceiving {
     func newAnnotations(_ annotations: [MKAnnotation]) {
         annotations.forEach(mapView.addAnnotation)
     }
+
+    func annotationsReadyForUpdate(update: @escaping () -> Void) {
+        fatalError()
+    }
     
 }
 
