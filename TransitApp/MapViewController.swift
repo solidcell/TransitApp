@@ -28,9 +28,6 @@ class MapViewController: UIViewController {
 extension MapViewController: MapAnnotationReceiving {
 
     func newAnnotations(_ annotations: [MKAnnotation]) {
-        // remove current annotations
-        mapView.removeAnnotations(mapView.annotations)
-        // add all (old/new) annotations
         annotations.forEach(mapView.addAnnotation)
     }
     
