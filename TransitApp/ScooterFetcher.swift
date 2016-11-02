@@ -1,5 +1,11 @@
 import SwiftyJSON
 
+// When iOS backgrounds the app, it will not fire the timer.
+// When the app foregrounds, the timer will continue to fire
+// (immediately if it "should have" while backgrounded).
+// Consider stopping and restarting the timer instead of relying
+// on this iOS behavior.
+
 class ScooterFetcher: ScooterFetching {
 
     static let scooterURL = "https://app.joincoup.com/api/v1/scooters.json"
