@@ -24,7 +24,8 @@ class MapAnnotationCreatorSpec: TransitAppSpec {
         describe("annotations") {
 
             it("creates an annotation per scooter") {
-                let annotations = subject.annotations(scooters: self.realm.scooters)
+                let scooters = Array(self.realm.scooters)
+                let annotations = subject.annotations(scooters: scooters)
 
                 expect(annotations.count).to(equal(1))
 

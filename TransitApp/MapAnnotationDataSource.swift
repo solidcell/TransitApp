@@ -14,13 +14,36 @@ class MapAnnotationDataSource: MapAnnotationDataSourcing {
             }
         }
     }
-    private(set) var results: Results<Scooter>
     private var token: NotificationToken?
 
     init(results: Results<Scooter>) {
-        self.results = results
-        self.token = results.addNotificationBlock { [weak self] results in
-            self?.delegate?.dataUpdated()
+        self.token = results.addNotificationBlock { [weak self] changes in
+            switch changes {
+            case .update(let results,
+                         deletions: let deletions,
+                         insertions: let insertions,
+                         modifications: let modifications):
+                self?.handleUpdate(results: results,
+                                   deletions: deletions,
+                                   insertions: insertions,
+                                   modifications: modifications)
+            default:
+                fatalError("The other cases aren't supported yet")
+            }
+        }
+    }
+
+    private func handleUpdate(results: Results<Scooter>,
+                              deletions: [Int],
+                              insertions: [Int],
+                              modifications: [Int]) {
+        let inserted = insertions.map(scooterForIndexIn(results))
+        self.delegate?.dataUpdated(deletions: [], insertions: inserted, modifications: [])
+    }
+
+    private func scooterForIndexIn(_ results: Results<Scooter>) -> ((Int) -> Scooter) {
+        return { (index: Int) -> Scooter in
+            return results[index]
         }
     }
 
@@ -33,6 +56,5 @@ class MapAnnotationDataSource: MapAnnotationDataSourcing {
 protocol MapAnnotationDataSourcing {
 
     weak var delegate: MapAnnotationProvider? { get set }
-    var results: Results<Scooter> { get }
 
 }

@@ -3,7 +3,7 @@ import MapKit
 
 class MapAnnotationCreator {
     
-    func annotations(scooters: Results<Scooter>) -> [CoupMapAnnotation] {
+    func annotations(scooters: [Scooter]) -> [CoupMapAnnotation] {
         return scooters.map(scooterToAnnotation)
     }
 

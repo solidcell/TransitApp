@@ -16,11 +16,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
             let scooter = Scooter(latitude: 50.0, longitude: 60.0,
                                   energyLevel: 70, licensePlate: "123abc")
 
-            try! self.realm.write {
-                self.realm.add(scooter)
-            }
-
-            dataSource = SpecDataSource(results: self.realm.scooters)
+            dataSource = SpecDataSource()
             subject = MapAnnotationProvider(dataSource: dataSource)
             delegate = SpecDelegate()
         }
@@ -28,36 +24,30 @@ class MapAnnotationProviderSpec: TransitAppSpec {
         describe("when setting the delegate") {
 
             beforeEach {
-                expect(delegate.receivedAnnotations).to(beNil())
-
+                expect(delegate.newAnnotations).to(beNil())
                 subject.delegate = delegate
             }
 
             it("sends current annotations to the delegate") {
-                expect(delegate.receivedAnnotations).to(haveCount(1))
+                expect(delegate.newAnnotations).to(beEmpty())
             }
 
         }
 
-        context("when notified of data source changes") {
+        context("when notified of datasource insertions") {
 
             beforeEach {
                 subject.delegate = delegate
-
-                expect(delegate.receivedAnnotations).to(haveCount(1))
+                expect(delegate.newAnnotations).to(beEmpty())
 
                 let newScooter = Scooter(latitude: 20.0, longitude: 10.0,
                                          energyLevel: 60, licensePlate: "xyz321")
 
-                try! self.realm.write {
-                    self.realm.add(newScooter)
-                }
-
-                dataSource.simulateChangeNotificationFromRealm()
+                dataSource.simulateRealmChange(insertions: [newScooter])
             }
 
             it("sends new annotations to the delegate") {
-                expect(delegate.receivedAnnotations).to(haveCount(2))
+                expect(delegate.newAnnotations).to(haveCount(1))
             }
         }
 
@@ -69,24 +59,28 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 private class SpecDataSource: MapAnnotationDataSourcing {
 
     weak var delegate: MapAnnotationProvider?
-    private(set) var results: Results<Scooter>
 
-    init(results: Results<Scooter>) {
-        self.results = results
-    }
-
-    func simulateChangeNotificationFromRealm() {
-        delegate?.dataUpdated()
+    func simulateRealmChange(insertions: [Scooter]) {
+        delegate?.dataUpdated(deletions: [], insertions: insertions, modifications: [])
     }
 
 }
 
 private class SpecDelegate: MapAnnotationReceiving {
 
-    var receivedAnnotations: [MKAnnotation]?
+    var newAnnotations: [MKAnnotation]? {
+        get {
+            defer { _newAnnotations = nil }
+            return _newAnnotations
+        }
+        set {
+            _newAnnotations = newValue
+        }
+    }
+    private var _newAnnotations: [MKAnnotation]?
 
     func newAnnotations(_ annotations: [MKAnnotation]) {
-        receivedAnnotations = annotations
+        newAnnotations = annotations
     }
     
 }

@@ -5,7 +5,7 @@ class MapAnnotationProvider {
 
     weak var delegate: MapAnnotationReceiving? {
         didSet {
-            notifyDelegate()
+            delegate?.newAnnotations(annotations)
         }
     }
     private let mapAnnotationCreator = MapAnnotationCreator()
@@ -16,17 +16,20 @@ class MapAnnotationProvider {
         self.dataSource.delegate = self
     }
 
-    func dataUpdated() {
-        notifyDelegate()
+    func dataUpdated(deletions: [Scooter],
+                     insertions: [Scooter],
+                     modifications: [Scooter]) {
+        if !insertions.isEmpty {
+            addNewAnnotations(scooters: insertions)
+        }
     }
 
-    private func notifyDelegate() {
+    var annotations = [CoupMapAnnotation]()
+
+    private func addNewAnnotations(scooters: [Scooter]) {
+        let newAnnotations = self.mapAnnotationCreator.annotations(scooters: scooters)
+        self.annotations += newAnnotations
         delegate?.newAnnotations(annotations)
-    }
-
-    var annotations: [MKAnnotation] {
-        let scooters = self.dataSource.results
-        return self.mapAnnotationCreator.annotations(scooters: scooters)
     }
 
 }
