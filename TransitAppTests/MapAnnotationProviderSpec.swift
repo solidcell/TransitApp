@@ -11,10 +11,11 @@ class MapAnnotationProviderSpec: TransitAppSpec {
         var subject: MapAnnotationProvider!
         var dataSource: SpecDataSource!
         var delegate: SpecDelegate!
+        var scooter: Scooter!
 
         beforeEach {
-            let scooter = Scooter(latitude: 50.0, longitude: 60.0,
-                                  energyLevel: 70, licensePlate: "123abc")
+            scooter = Scooter(latitude: 50.0, longitude: 60.0,
+                              energyLevel: 70, licensePlate: "123abc")
 
             dataSource = SpecDataSource()
             subject = MapAnnotationProvider(dataSource: dataSource)
@@ -34,16 +35,24 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
         }
 
+        context("when notified of datasource initial data") {
+
+            beforeEach {
+                dataSource.simulateRealmChange(initial: [scooter])
+                subject.delegate = delegate
+            }
+
+            it("sends new annotations to the delegate") {
+                expect(delegate.newAnnotations).to(haveCount(1))
+            }
+        }
+
         context("when notified of datasource insertions") {
 
             beforeEach {
                 subject.delegate = delegate
                 expect(delegate.newAnnotations).to(beEmpty())
-
-                let newScooter = Scooter(latitude: 20.0, longitude: 10.0,
-                                         energyLevel: 60, licensePlate: "xyz321")
-
-                dataSource.simulateRealmChange(insertions: [newScooter])
+                dataSource.simulateRealmChange(insertions: [scooter])
             }
 
             it("sends new annotations to the delegate") {
@@ -59,6 +68,10 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 private class SpecDataSource: MapAnnotationDataSourcing {
 
     weak var delegate: MapAnnotationProvider?
+
+    func simulateRealmChange(initial: [Scooter]) {
+        delegate?.initialData(scooters: initial)
+    }
 
     func simulateRealmChange(insertions: [Scooter]) {
         delegate?.dataUpdated(deletions: [], insertions: insertions, modifications: [])

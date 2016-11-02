@@ -16,6 +16,10 @@ class MapAnnotationProvider {
         self.dataSource.delegate = self
     }
 
+    func initialData(scooters: [Scooter]) {
+        addNewAnnotations(scooters: scooters)
+    }
+
     func dataUpdated(deletions: [Scooter],
                      insertions: [Scooter],
                      modifications: [Scooter]) {

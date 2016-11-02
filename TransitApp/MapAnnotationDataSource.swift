@@ -11,14 +11,23 @@ class MapAnnotationDataSource: MapAnnotationDataSourcing {
         willSet {
             if delegate != nil {
                 fatalError("There is already a delegate set. Create a new instance instead, otherwise the current delegate would stop receiving notifications.")
+            } else {
+                start()
             }
         }
     }
     private var token: NotificationToken?
+    private let results: Results<Scooter>
 
     init(results: Results<Scooter>) {
-        self.token = results.addNotificationBlock { [weak self] changes in
+        self.results = results
+    }
+
+    private func start() {
+        self.token = self.results.addNotificationBlock { [weak self] changes in
             switch changes {
+            case .initial(let results):
+                self?.handleInitial(results: results)
             case .update(let results,
                          deletions: let deletions,
                          insertions: let insertions,
@@ -27,10 +36,15 @@ class MapAnnotationDataSource: MapAnnotationDataSourcing {
                                    deletions: deletions,
                                    insertions: insertions,
                                    modifications: modifications)
-            default:
-                fatalError("The other cases aren't supported yet")
+            case .error:
+                fatalError("Realm Notification error isn't expected/supported")
             }
         }
+    }
+
+    private func handleInitial(results: Results<Scooter>) {
+        let scooters = Array(results)
+        self.delegate?.initialData(scooters: scooters)
     }
 
     private func handleUpdate(results: Results<Scooter>,
