@@ -8,8 +8,8 @@ class MapCoordinator {
         let mapAnnotationProvider = MapAnnotationProvider(dataSource: mapAnnotationDataSource)
         let mapOverlayProvider = MapOverlayProvider(realm: realm)
         let mapViewDelegate = MapViewDelegate()
-        let mapRegionManager = MapRegionManager()
-        let region = mapRegionManager.region(annotations: mapAnnotationProvider.annotations)
+        let mapRegionProvider = MapRegionProvider()
+        let region = mapRegionProvider.region
         let jsonFetcher = JSONFetcher()
         let fetchTimer = FetchTimer()
         let scooterFetcher = ScooterFetcher(jsonFetcher: jsonFetcher, fetchTimer: fetchTimer)

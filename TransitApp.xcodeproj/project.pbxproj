@@ -12,7 +12,7 @@
 		880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0631DC338EF00C5830E /* MainCoordinator.swift */; };
 		880EB0671DC360C900C5830E /* MapAnnotationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */; };
 		880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */; };
-		880EB06F1DC36E1A00C5830E /* MapRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB06E1DC36E1A00C5830E /* MapRegionManager.swift */; };
+		880EB06F1DC36E1A00C5830E /* MapRegionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB06E1DC36E1A00C5830E /* MapRegionProvider.swift */; };
 		880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0701DC3736F00C5830E /* MapViewDelegate.swift */; };
 		880EB0751DC37E6A00C5830E /* CoupBusinessAreasData.json in Resources */ = {isa = PBXBuildFile; fileRef = 880EB0741DC37E6A00C5830E /* CoupBusinessAreasData.json */; };
 		880EB07D1DC3975400C5830E /* Scooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB07C1DC3975400C5830E /* Scooter.swift */; };
@@ -39,6 +39,7 @@
 		887DBEF71DC8CDE200D92E19 /* ScooterFetcherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEF61DC8CDE200D92E19 /* ScooterFetcherSpec.swift */; };
 		887DBEF91DC8D9BA00D92E19 /* ScooterUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEF81DC8D9BA00D92E19 /* ScooterUpdater.swift */; };
 		887DBEFB1DC8DF6700D92E19 /* ScooterUpdaterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEFA1DC8DF6700D92E19 /* ScooterUpdaterSpec.swift */; };
+		887DBEFD1DCA174400D92E19 /* MapRegionProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEFC1DCA174400D92E19 /* MapRegionProviderSpec.swift */; };
 		8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */; };
 		8884CE2A1DC53316004365B3 /* MapViewDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */; };
 		8884CE2E1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8884CE2D1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift */; };
@@ -76,7 +77,7 @@
 		880EB0631DC338EF00C5830E /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProviderSpec.swift; sourceTree = "<group>"; };
 		880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
-		880EB06E1DC36E1A00C5830E /* MapRegionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRegionManager.swift; sourceTree = "<group>"; };
+		880EB06E1DC36E1A00C5830E /* MapRegionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRegionProvider.swift; sourceTree = "<group>"; };
 		880EB0701DC3736F00C5830E /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		880EB0741DC37E6A00C5830E /* CoupBusinessAreasData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CoupBusinessAreasData.json; sourceTree = "<group>"; };
 		880EB07C1DC3975400C5830E /* Scooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scooter.swift; sourceTree = "<group>"; };
@@ -103,6 +104,7 @@
 		887DBEF61DC8CDE200D92E19 /* ScooterFetcherSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterFetcherSpec.swift; sourceTree = "<group>"; };
 		887DBEF81DC8D9BA00D92E19 /* ScooterUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterUpdater.swift; sourceTree = "<group>"; };
 		887DBEFA1DC8DF6700D92E19 /* ScooterUpdaterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterUpdaterSpec.swift; sourceTree = "<group>"; };
+		887DBEFC1DCA174400D92E19 /* MapRegionProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRegionProviderSpec.swift; sourceTree = "<group>"; };
 		8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotation.swift; sourceTree = "<group>"; };
 		8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegateSpec.swift; sourceTree = "<group>"; };
 		8884CE2D1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoupMapAnnotationViewCreator.swift; sourceTree = "<group>"; };
@@ -333,7 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				880EB0621DC338BC00C5830E /* Main */,
-				880EB06E1DC36E1A00C5830E /* MapRegionManager.swift */,
+				880EB06E1DC36E1A00C5830E /* MapRegionProvider.swift */,
 				887DBEF81DC8D9BA00D92E19 /* ScooterUpdater.swift */,
 				8884CE451DC619B6004365B3 /* MapOverlays */,
 				880EB0681DC3611E00C5830E /* MapAnnotations */,
@@ -360,6 +362,7 @@
 				887DBEEA1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift */,
 				8884CE411DC6160A004365B3 /* MapOverlayProviderSpec.swift */,
 				8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */,
+				887DBEFC1DCA174400D92E19 /* MapRegionProviderSpec.swift */,
 				880EB0651DC3607D00C5830E /* JSONParsing */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
@@ -610,7 +613,7 @@
 				887DBEDC1DC75AD300D92E19 /* MapCoordinator.swift in Sources */,
 				8827E14F1DC0FD1500E06654 /* main.swift in Sources */,
 				887DBEED1DC8B82D00D92E19 /* JSONFetcher.swift in Sources */,
-				880EB06F1DC36E1A00C5830E /* MapRegionManager.swift in Sources */,
+				880EB06F1DC36E1A00C5830E /* MapRegionProvider.swift in Sources */,
 				8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */,
 				8884CE3A1DC60CC7004365B3 /* BusinessArea.swift in Sources */,
 				880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */,
@@ -629,6 +632,7 @@
 				887DBEEB1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift in Sources */,
 				880EB0871DC398FC00C5830E /* ScooterParserSpec.swift in Sources */,
 				8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */,
+				887DBEFD1DCA174400D92E19 /* MapRegionProviderSpec.swift in Sources */,
 				880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */,
 				8827E15E1DC2507100E06654 /* SeedDataParserSpec.swift in Sources */,
 				8884CE2A1DC53316004365B3 /* MapViewDelegateSpec.swift in Sources */,
