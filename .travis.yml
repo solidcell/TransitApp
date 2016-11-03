@@ -1,3 +1,5 @@
 language: objective-c
 osx_image: xcode8
 script: xcodebuild clean build test -workspace TransitApp.xcworkspace -scheme TransitApp -destination "platform=iOS Simulator,name=iPhone 6S"
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
