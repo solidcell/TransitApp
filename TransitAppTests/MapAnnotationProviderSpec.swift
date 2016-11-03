@@ -25,13 +25,13 @@ class MapAnnotationProviderSpec: TransitAppSpec {
         describe("when setting the delegate") {
 
             beforeEach {
-                expect(delegate.newAnnotations).to(beNil())
-                expect(subject.annotations).to(beEmpty())
+                expect(delegate.annotations).to(beEmpty())
+                dataSource.simulateRealmChange(initial: [scooter])
                 subject.delegate = delegate
             }
 
             it("sends current annotations to the delegate") {
-                expect(delegate.newAnnotations).to(beEmpty())
+                expect(delegate.annotations).to(haveCount(1))
             }
 
         }
@@ -39,13 +39,13 @@ class MapAnnotationProviderSpec: TransitAppSpec {
         context("when notified of datasource initial data") {
 
             beforeEach {
-                dataSource.simulateRealmChange(initial: [scooter])
+                expect(delegate.annotations).to(beEmpty())
                 subject.delegate = delegate
+                dataSource.simulateRealmChange(initial: [scooter])
             }
 
             it("sends new annotations to the delegate") {
-                expect(delegate.newAnnotations).to(haveCount(1))
-                expect(subject.annotations).to(haveCount(1))
+                expect(delegate.annotations).to(haveCount(1))
             }
         }
 
@@ -53,38 +53,32 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
             beforeEach {
                 subject.delegate = delegate
-                expect(delegate.newAnnotations).to(beEmpty())
-                expect(subject.annotations).to(beEmpty())
+                expect(delegate.annotations).to(beEmpty())
                 dataSource.simulateRealmChange(insertions: [scooter])
             }
 
             it("sends new annotations to the delegate") {
-                expect(delegate.newAnnotations).to(haveCount(1))
-                expect(subject.annotations).to(haveCount(1))
+                expect(delegate.annotations).to(haveCount(1))
             }
         }
 
         context("when notified of datasource updates") {
 
             beforeEach {
-                dataSource.simulateRealmChange(initial: [scooter])
                 subject.delegate = delegate
-                expect(subject.annotations).to(haveCount(1))
-                let coordinateBefore = subject.annotations.first!.coordinate
+                dataSource.simulateRealmChange(initial: [scooter])
+                expect(delegate.annotations).to(haveCount(1))
+                let coordinateBefore = delegate.annotations.first!.coordinate
                 expect(coordinateBefore).to(equal(CLLocationCoordinate2D(latitude: 50.0,
                                                                          longitude: 60.0)))
                 let updatedScooter = Scooter(latitude: 51.0, longitude: 61.0,
                                              energyLevel: 68, licensePlate: "123abc")
-                expect(delegate.updateCallback).to(beNil())
                 dataSource.simulateRealmChange(updates: [updatedScooter])
-                let updateCallback = delegate.updateCallback
-                expect(updateCallback).toNot(beNil())
-                updateCallback!()
             }
 
             it("notifies the delegate with a callback") {
-                expect(subject.annotations).to(haveCount(1))
-                let coordinateAfter = subject.annotations.first!.coordinate
+                expect(delegate.annotations).to(haveCount(1))
+                let coordinateAfter = delegate.annotations.first!.coordinate
                 expect(coordinateAfter).to(equal(CLLocationCoordinate2D(latitude: 51.0,
                                                                         longitude: 61.0)))
             }
@@ -115,34 +109,14 @@ private class SpecDataSource: MapAnnotationDataSourcing {
 
 private class SpecDelegate: MapAnnotationReceiving {
 
-    var newAnnotations: [MKAnnotation]? {
-        get {
-            defer { _newAnnotations = nil }
-            return _newAnnotations
-        }
-        set {
-            _newAnnotations = newValue
-        }
-    }
-    private var _newAnnotations: [MKAnnotation]?
+    var annotations = [MKAnnotation]()
 
     func newAnnotations(_ annotations: [MKAnnotation]) {
-        newAnnotations = annotations
+        self.annotations += annotations
     }
-
-    var updateCallback: (() -> Void)? {
-        get {
-            defer { _updateCallback = nil }
-            return _updateCallback
-        }
-        set {
-            _updateCallback = newValue
-        }
-    }
-    private var _updateCallback: (() -> Void)?
 
     func annotationsReadyForUpdate(update: @escaping () -> Void) {
-        updateCallback = update
+        update()
     }
 
 }

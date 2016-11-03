@@ -36,7 +36,7 @@ class MapAnnotationProvider {
         }
     }
 
-    var annotations: [CoupMapAnnotation] {
+    private var annotations: [CoupMapAnnotation] {
         return Array(self.annotationDict.values)
     }
 
