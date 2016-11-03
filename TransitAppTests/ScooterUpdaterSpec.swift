@@ -31,7 +31,7 @@ class ScooterUpdaterSpec: TransitAppSpec {
                     beforeEach {
                         let scooter = Scooter(latitude: 50.0, longitude: 60.0,
                                               energyLevel: 70, licensePlate: "123abc")
-                        scooterFetcher.delegate!.fetchedScooters(scooters: [scooter])
+                        scooterFetcher.simulateFetchedScooters([scooter])
                     }
 
                     it("adds Scooters and notifies the delegate") {
@@ -55,7 +55,7 @@ class ScooterUpdaterSpec: TransitAppSpec {
                     beforeEach {
                         let scooter = Scooter(latitude: 50.1, longitude: 60.5,
                                               energyLevel: 59, licensePlate: "123abc")
-                        scooterFetcher.delegate!.fetchedScooters(scooters: [scooter])
+                        scooterFetcher.simulateFetchedScooters([scooter])
                     }
 
                     it("updates Scooters") {
@@ -71,6 +71,11 @@ class ScooterUpdaterSpec: TransitAppSpec {
 private class SpecScooterFetcher: ScooterFetching {
 
     weak var delegate: ScooterFetcherDelegate?
+    
     func start() { }
+
+    func simulateFetchedScooters(_ scooters: [Scooter]) {
+        delegate?.fetchedScooters(scooters: scooters)
+    }
     
 }
