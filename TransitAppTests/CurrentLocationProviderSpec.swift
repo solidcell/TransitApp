@@ -8,10 +8,12 @@ class CurrentLocationProviderSpec: TransitAppSpec {
         super.spec()
 
         var subject: CurrentLocationProvider!
+        var locationManager: SpecLocationManager!
         var delegate: SpecDelegate!
 
         beforeEach {
-            subject = CurrentLocationProvider()
+            locationManager = SpecLocationManager()
+            subject = CurrentLocationProvider(locationManager: locationManager)
             delegate = SpecDelegate()
             subject.delegate = delegate
         }
@@ -42,4 +44,20 @@ extension SpecDelegate: CurrentLocationProviderDelegate {
         receivedCurrentLocation = location
     }
     
+}
+
+private class SpecLocationManager {
+    
+    weak var delegate: CLLocationManagerDelegate?
+    fileprivate let bsFirstArg = CLLocationManager()
+    
+}
+
+extension SpecLocationManager: LocationManaging {
+
+    func requestLocation() {
+        let fakeCurrentLocation = CLLocation(latitude: 1.0, longitude: 2.0)
+        delegate!.locationManager?(bsFirstArg, didUpdateLocations: [fakeCurrentLocation])
+    }
+
 }

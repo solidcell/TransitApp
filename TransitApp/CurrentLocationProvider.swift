@@ -1,14 +1,30 @@
 import CoreLocation
 
-class CurrentLocationProvider {
+// This class wraps CLLocationManager interaction
+
+class CurrentLocationProvider: NSObject {
 
     weak var delegate: CurrentLocationProviderDelegate?
-    private let fakeCurrentLocation = CLLocation(latitude: 1.0, longitude: 2.0)
+    private let locationManager: LocationManaging
+    
+    init(locationManager: LocationManaging) {
+        self.locationManager = locationManager
+        super.init()
+        self.locationManager.delegate = self
+    }
 
     func getCurrentLocation() {
-        delegate?.currentLocation(fakeCurrentLocation)
+        locationManager.requestLocation()
     }
     
+}
+
+extension CurrentLocationProvider: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        delegate?.currentLocation(locations.first!)
+    }
+
 }
 
 protocol CurrentLocationProviderDelegate: class {
