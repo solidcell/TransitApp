@@ -15,6 +15,7 @@ class SpecLocationManager {
     // this probably belongs in a Spec UIApplication
     enum Dialog {
         case requestAccessWhileInUse
+        case requestAccessAlways
     }
 
     weak var delegate: CLLocationManagerDelegate?
@@ -23,7 +24,12 @@ class SpecLocationManager {
     fileprivate let bsFirstArg = CLLocationManager()
 
     func allowAccess() {
-        respondToAccessDialog(.authorizedWhenInUse)
+        let accessLevel: CLAuthorizationStatus
+        switch dialog! {
+        case .requestAccessWhileInUse: accessLevel = .authorizedWhenInUse
+        case .requestAccessAlways: accessLevel = .authorizedAlways
+        }
+        respondToAccessDialog(accessLevel)
         sendCurrentLocation()
     }
     
@@ -32,7 +38,12 @@ class SpecLocationManager {
     }
 
     private func respondToAccessDialog(_ level: CLAuthorizationStatus) {
-        if dialog != .requestAccessWhileInUse { fatalError("The requestPermission dialog was not prompted") }
+        if !dialog!.isOneOf(.requestAccessWhileInUse, .requestAccessAlways) {
+            fatalError("The requestPermission dialog was not prompted.")
+        }
+        if !level.isOneOf(.denied, .authorizedWhenInUse, .authorizedAlways) {
+            fatalError("This is not a valid user response from the dialog.")
+        }
         _authorizationStatus = level
         dialog = nil
     }
