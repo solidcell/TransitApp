@@ -56,6 +56,7 @@
 		889705AF1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */; };
 		889705B11DCC9F7300D8D8DF /* CurrentLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705B01DCC9F7300D8D8DF /* CurrentLocationProvider.swift */; };
 		889705B41DCCA3CB00D8D8DF /* LocationManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705B31DCCA3CB00D8D8DF /* LocationManaging.swift */; };
+		889705B71DCCB8A200D8D8DF /* SpecLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705B61DCCB8A200D8D8DF /* SpecLocationManager.swift */; };
 		88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF69381DBF905F00FE11F0 /* AppDelegate.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
 		88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DF69411DBF905F00FE11F0 /* LaunchScreen.storyboard */; };
@@ -124,6 +125,7 @@
 		889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationProviderSpec.swift; sourceTree = "<group>"; };
 		889705B01DCC9F7300D8D8DF /* CurrentLocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationProvider.swift; sourceTree = "<group>"; };
 		889705B31DCCA3CB00D8D8DF /* LocationManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManaging.swift; sourceTree = "<group>"; };
+		889705B61DCCB8A200D8D8DF /* SpecLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecLocationManager.swift; sourceTree = "<group>"; };
 		88DF69351DBF905F00FE11F0 /* TransitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF69381DBF905F00FE11F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88DF693F1DBF905F00FE11F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -326,6 +328,15 @@
 			name = CurrentLocationProviding;
 			sourceTree = "<group>";
 		};
+		889705B51DCCB89100D8D8DF /* CurrentLocation */ = {
+			isa = PBXGroup;
+			children = (
+				889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */,
+				889705B61DCCB8A200D8D8DF /* SpecLocationManager.swift */,
+			);
+			name = CurrentLocation;
+			sourceTree = "<group>";
+		};
 		88DF692C1DBF905F00FE11F0 = {
 			isa = PBXGroup;
 			children = (
@@ -379,7 +390,7 @@
 				8884CE411DC6160A004365B3 /* MapOverlayProviderSpec.swift */,
 				8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */,
 				887DBEFC1DCA174400D92E19 /* MapRegionProviderSpec.swift */,
-				889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */,
+				889705B51DCCB89100D8D8DF /* CurrentLocation */,
 				880EB0651DC3607D00C5830E /* JSONParsing */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
@@ -646,6 +657,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8884CE421DC6160A004365B3 /* MapOverlayProviderSpec.swift in Sources */,
+				889705B71DCCB8A200D8D8DF /* SpecLocationManager.swift in Sources */,
 				8884CE341DC60AD8004365B3 /* BusinessAreaParserSpec.swift in Sources */,
 				887DBEF71DC8CDE200D92E19 /* ScooterFetcherSpec.swift in Sources */,
 				887DBEEB1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift in Sources */,

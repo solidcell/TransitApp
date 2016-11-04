@@ -18,16 +18,36 @@ class CurrentLocationProviderSpec: TransitAppSpec {
             subject.delegate = delegate
         }
 
-        describe("getCurrentLocation") {
+        context("when user has never been asked for location authorization before") {
 
             beforeEach {
-                subject.getCurrentLocation()
+                expect(locationManager.authorizationStatus()).to(equal(CLAuthorizationStatus.notDetermined))
             }
 
-            it("receives the current location") {
-                expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
-            }
+            describe("getCurrentLocation") {
 
+                beforeEach {
+                    subject.getCurrentLocation()
+                }
+
+                it("will prompt the user for access") {
+                    expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestAccessWhileInUse))
+                }
+
+                context("when the user allows access") {
+                    beforeEach {
+                        locationManager.allowAccess()
+                    }
+
+                    it("will update the delegate with the current location") {
+                        expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
+                    }
+
+                    it("will set the authorization status to authorizedWhenInUse") {
+                        expect(locationManager.authorizationStatus()).to(equal(CLAuthorizationStatus.authorizedWhenInUse))
+                    }
+                }
+            }
         }
     }
 }
@@ -44,20 +64,4 @@ extension SpecDelegate: CurrentLocationProviderDelegate {
         receivedCurrentLocation = location
     }
     
-}
-
-private class SpecLocationManager {
-    
-    weak var delegate: CLLocationManagerDelegate?
-    fileprivate let bsFirstArg = CLLocationManager()
-    
-}
-
-extension SpecLocationManager: LocationManaging {
-
-    func requestLocation() {
-        let fakeCurrentLocation = CLLocation(latitude: 1.0, longitude: 2.0)
-        delegate!.locationManager?(bsFirstArg, didUpdateLocations: [fakeCurrentLocation])
-    }
-
 }
