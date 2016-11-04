@@ -2,14 +2,22 @@ import CoreLocation
 
 extension CLLocationManager: LocationManaging {
 
-    // Expose it only via instances, since it needs to be testable.
-    // If it were a class variable, Swift doesn't support class 
-    // variables, so it would have to be static, but static won't
-    // reset itself between tests, so it would pollute other tests
+    /*
+     Expose these methods via instances, since they need to be testable.
+     If they were class functions, in SpecLocationManager their backing
+     variables would need to be class variables, be Swift doesn't support
+     class variables, so they would have to be static, but static won't
+     reset itself between tests, so the values would pollute other tests.
+     */
+    
     func authorizationStatus() -> CLAuthorizationStatus {
         return CLLocationManager.authorizationStatus()
     }
     
+    func isLocationServicesEnabled() -> Bool {
+        return CLLocationManager.locationServicesEnabled()
+    }
+
 }
 
 protocol LocationManaging: class {
@@ -19,5 +27,6 @@ protocol LocationManaging: class {
     func requestLocation()
     func authorizationStatus() -> CLAuthorizationStatus
     func requestWhenInUseAuthorization()
+    func isLocationServicesEnabled() -> Bool
     
 }

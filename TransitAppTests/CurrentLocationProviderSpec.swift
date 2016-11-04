@@ -49,7 +49,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                     }
                 }
 
-                context("when the user does not access") {
+                context("when the user does not allow access") {
                     
                     beforeEach {
                         locationManager.doNotAllowAccess()
@@ -106,6 +106,24 @@ class CurrentLocationProviderSpec: TransitAppSpec {
 
                 it("will update the delegate with the current location") {
                     expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
+                }
+            }
+        }
+
+        context("when Location Services is disabled") {
+
+            beforeEach {
+                locationManager.setLocationServicesEnabled(false)
+            }
+
+            describe("getCurrentLocation") {
+
+                beforeEach {
+                    subject.getCurrentLocation()
+                }
+
+                it("will prompt the user to turn on Location Services") {
+                    expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestJumpToLocationServicesSettings))
                 }
             }
         }

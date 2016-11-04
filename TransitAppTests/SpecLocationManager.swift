@@ -16,47 +16,18 @@ class SpecLocationManager {
     enum Dialog {
         case requestAccessWhileInUse
         case requestAccessAlways
+        case requestJumpToLocationServicesSettings
     }
 
     weak var delegate: CLLocationManagerDelegate? {
-        didSet {
-            delegate?.locationManager?(bsFirstArg, didChangeAuthorization: authorizationStatus())
-        }
+        didSet { sendCurrentStatus() }
     }
     fileprivate(set) var dialog: Dialog?
     fileprivate var _authorizationStatus = CLAuthorizationStatus.notDetermined
+    fileprivate var _locationServicesEnabled = true {
+        didSet { sendCurrentStatus() }
+    }
     fileprivate let bsFirstArg = CLLocationManager()
-
-    func setAuthorizationStatus(_ status: CLAuthorizationStatus) {
-        _authorizationStatus = status
-    }
-
-    func allowAccess() {
-        let accessLevel: CLAuthorizationStatus
-        switch dialog! {
-        case .requestAccessWhileInUse: accessLevel = .authorizedWhenInUse
-        case .requestAccessAlways: accessLevel = .authorizedAlways
-        }
-        respondToAccessDialog(accessLevel)
-    }
-    
-    func doNotAllowAccess() {
-        respondToAccessDialog(.denied)
-    }
-
-    private func respondToAccessDialog(_ level: CLAuthorizationStatus) {
-        // the dialog must currently be one asking for authorization
-        if !dialog!.isOneOf(.requestAccessWhileInUse, .requestAccessAlways) {
-            fatalError("The requestPermission dialog was not prompted.")
-        }
-        // the authorization must be one that can come from a user tap on the dialog
-        if !level.isOneOf(.denied, .authorizedWhenInUse, .authorizedAlways) {
-            fatalError("This is not a valid user response from the dialog.")
-        }
-        _authorizationStatus = level
-        dialog = nil
-        delegate!.locationManager?(bsFirstArg, didChangeAuthorization: authorizationStatus())
-    }
 
     fileprivate func sendCurrentLocation() {
         if !authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways) {
@@ -66,26 +37,91 @@ class SpecLocationManager {
         delegate!.locationManager?(bsFirstArg, didUpdateLocations: [fakeCurrentLocation])
     }
 
+    fileprivate func sendCurrentStatus() {
+        delegate?.locationManager?(bsFirstArg, didChangeAuthorization: authorizationStatus())
+    }
+
     fileprivate func locationRequestedWhenNotDetermined() {
         let error = NSError(domain: kCLErrorDomain, code: 0, userInfo: nil)
         delegate!.locationManager!(bsFirstArg, didFailWithError: error)
     }
 
-    fileprivate func authorizationRequestForWhenInUse() {
+    fileprivate func authorizationRequestForWhenInUseWhenLocationEnabled() {
+        fatalErrorIfCurrentlyADialog()
+        dialog = .requestAccessWhileInUse
+    }
+
+    fileprivate func authorizationRequestForWhenInUseWhenLocationDisabled() {
+        fatalErrorIfCurrentlyADialog()
+        dialog = .requestJumpToLocationServicesSettings
+    }
+
+    private func fatalErrorIfCurrentlyADialog() {
         if dialog != nil {
             fatalError("There is already a dialog displayed. If showing another one would create a stack of dialogs, then update `dialog` to handle a stack.")
         }
-        dialog = .requestAccessWhileInUse
     }
 
 }
 
+// MARK: User taps for authorization dialog prompts
+extension SpecLocationManager {
+
+    func allowAccess() {
+        let accessLevel: CLAuthorizationStatus
+        switch dialog! {
+        case .requestAccessWhileInUse: accessLevel = .authorizedWhenInUse
+        case .requestAccessAlways: accessLevel = .authorizedAlways
+        case .requestJumpToLocationServicesSettings: fatalErrorWrongDialog(); accessLevel = .authorizedAlways
+        }
+        respondToAccessDialog(accessLevel)
+    }
+    
+    func doNotAllowAccess() {
+        respondToAccessDialog(.denied)
+    }
+
+    private func fatalErrorWrongDialog() {
+        fatalError("The requestPermission dialog was not prompted.")
+    }
+
+    private func respondToAccessDialog(_ level: CLAuthorizationStatus) {
+        // the dialog must currently be one asking for authorization
+        if !dialog!.isOneOf(.requestAccessWhileInUse, .requestAccessAlways) {
+            fatalErrorWrongDialog()
+        }
+        // the authorization must be one that can come from a user tap on the dialog
+        if !level.isOneOf(.denied, .authorizedWhenInUse, .authorizedAlways) {
+            fatalError("This is not a valid user response from the dialog.")
+        }
+        _authorizationStatus = level
+        dialog = nil
+        sendCurrentStatus()
+    }
+    
+}
+
+// MARK: User's settings in the Settings app
+extension SpecLocationManager {
+
+    func setAuthorizationStatus(_ status: CLAuthorizationStatus) {
+        _authorizationStatus = status
+    }
+
+    func setLocationServicesEnabled(_ enabled: Bool) {
+        _locationServicesEnabled = enabled
+    }
+
+}
+
+// MARK: LocationManaging
 extension SpecLocationManager: LocationManaging {
     
     func requestWhenInUseAuthorization() {
         switch authorizationStatus() {
-        case .notDetermined: authorizationRequestForWhenInUse()
-        case .denied: break;
+        case .notDetermined: authorizationRequestForWhenInUseWhenLocationEnabled()
+        case .denied:
+            if !isLocationServicesEnabled() { authorizationRequestForWhenInUseWhenLocationDisabled() }
         case .authorizedWhenInUse: break;
         default: fatalError("Other authorization statuses are not supported yet.")
         }
@@ -100,7 +136,12 @@ extension SpecLocationManager: LocationManaging {
     }
     
     func authorizationStatus() -> CLAuthorizationStatus {
+        if !isLocationServicesEnabled() { return .denied }
         return _authorizationStatus
+    }
+
+    func isLocationServicesEnabled() -> Bool {
+        return _locationServicesEnabled
     }
 
 }
