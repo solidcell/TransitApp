@@ -6,7 +6,7 @@ import CoreLocation
  It conforms to a subset of the same interface via LocationManaging.
  This allows us to test code which relies on behavior which is not
  normally under our control in CLLocationManager. It also allows us
- to document assumptions about how CLLocationManager works (based on 
+ to document assumptions about how CLLocationManager works (based on
  documentation and experimenting with it).
 */
 
@@ -38,6 +38,9 @@ class SpecLocationManager {
     }
 
     private func sendCurrentLocation() {
+        if !authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways) {
+            fatalError("CLLocationManager would not be sending the location, since user has not authorized access.")
+        }
         let fakeCurrentLocation = CLLocation(latitude: 1.0, longitude: 2.0)
         delegate!.locationManager?(bsFirstArg, didUpdateLocations: [fakeCurrentLocation])
     }
@@ -47,6 +50,9 @@ class SpecLocationManager {
 extension SpecLocationManager: LocationManaging {
 
     func requestLocation() {
+        if dialog != nil {
+            fatalError("There is already a dialog displayed. If showing another one would create a stack of dialogs, then update `dialog` to handle a stack.")
+        }
         dialog = .requestAccessWhileInUse
     }
     
