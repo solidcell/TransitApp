@@ -5,8 +5,10 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
     let coupMapAnnotationViewCreator = CoupMapAnnotationViewCreator()
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let coupAnnotation = annotation as! CoupMapAnnotation
-        return coupMapAnnotationViewCreator.view(mapView: mapView, annotation: coupAnnotation)
+        if let coupAnnotation = annotation as? CoupMapAnnotation {
+            return coupMapAnnotationViewCreator.view(mapView: mapView, annotation: coupAnnotation)
+        }
+        return nil
     }
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
