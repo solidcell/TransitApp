@@ -86,6 +86,7 @@ extension SpecLocationManager: LocationManaging {
         switch authorizationStatus() {
         case .notDetermined: authorizationRequestForWhenInUse()
         case .denied: break;
+        case .authorizedWhenInUse: break;
         default: fatalError("Other authorization statuses are not supported yet.")
         }
     }

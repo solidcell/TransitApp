@@ -14,7 +14,11 @@ class CurrentLocationProvider: NSObject {
     }
 
     func getCurrentLocation() {
-        locationManager.requestWhenInUseAuthorization()
+        if !authorized {
+            locationManager.requestWhenInUseAuthorization()
+        } else {
+            locationManager.requestLocation()
+        }
     }
 
     fileprivate var authorized: Bool {

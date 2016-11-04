@@ -87,6 +87,28 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 }
             }
         }
+
+        context("when the user has already permitted access") {
+
+            beforeEach {
+                locationManager.setAuthorizationStatus(.authorizedWhenInUse)
+            }
+
+            describe("getCurrentLocation") {
+
+                beforeEach {
+                    subject.getCurrentLocation()
+                }
+
+                it("will not prompt the user for access") {
+                    expect(locationManager.dialog).to(beNil())
+                }
+
+                it("will update the delegate with the current location") {
+                    expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
+                }
+            }
+        }
     }
 }
 
