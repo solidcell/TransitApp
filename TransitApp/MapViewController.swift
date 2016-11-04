@@ -19,7 +19,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         mapView.setRegion(initialCoordinateRegion, animated: true)
         configureMapOverlays()
         mapAnnotationProvider.delegate = self
-        locationManager.delegate = self
 
         // If this method (or `requestAlwaysAuthorization`) is not called, 
         // then calling other CLLocationManager methods will have no effect.
@@ -57,14 +56,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // using it wisely, etc.).
         // If the user allows access and then later revokes access in Settings, calling
         // this will still have no effect.
+        print("-------")
+        locationManager.delegate = self
+        print(CLLocationManager.authorizationStatus().rawValue)
         locationManager.requestWhenInUseAuthorization()
-
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            locationManager.requestLocation()
-            locationManager.startUpdatingLocation()
-            mapView.showsUserLocation = true
-        }
+        print("-------")
+//        locationManager.requestWhenInUseAuthorization()
+//
+//        if CLLocationManager.locationServicesEnabled() {
+//            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+//            locationManager.requestLocation()
+//            locationManager.startUpdatingLocation()
+//            mapView.showsUserLocation = true
+//        }
     }
 
     private func configureMapOverlays() {
@@ -82,6 +86,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         print("*****************")
         print(error)
         print("*****************")
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("++++++++++++++++++++++++++++++++")
+        print(status.rawValue)
+        print("++++++++++++++++++++++++++++++++")
     }
 }
 

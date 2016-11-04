@@ -18,5 +18,6 @@ protocol LocationManaging: class {
     weak var delegate: CLLocationManagerDelegate? { get set }
     func requestLocation()
     func authorizationStatus() -> CLAuthorizationStatus
+    func requestWhenInUseAuthorization()
     
 }

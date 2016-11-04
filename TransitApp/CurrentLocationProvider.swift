@@ -5,7 +5,7 @@ import CoreLocation
 class CurrentLocationProvider: NSObject {
 
     weak var delegate: CurrentLocationProviderDelegate?
-    private let locationManager: LocationManaging
+    fileprivate let locationManager: LocationManaging
     
     init(locationManager: LocationManaging) {
         self.locationManager = locationManager
@@ -14,7 +14,11 @@ class CurrentLocationProvider: NSObject {
     }
 
     func getCurrentLocation() {
-        locationManager.requestLocation()
+        locationManager.requestWhenInUseAuthorization()
+    }
+
+    fileprivate var authorized: Bool {
+        return locationManager.authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways)
     }
     
 }
@@ -23,6 +27,16 @@ extension CurrentLocationProvider: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         delegate?.currentLocation(locations.first!)
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        fatalError("We should try to have this never called. Investigate it.")
+    }
+
+    func locationManager(_: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if authorized {
+            locationManager.requestLocation()
+        }
     }
 
 }
