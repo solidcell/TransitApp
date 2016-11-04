@@ -23,10 +23,18 @@ class SpecLocationManager {
     fileprivate let bsFirstArg = CLLocationManager()
 
     func allowAccess() {
-        if dialog != .requestAccessWhileInUse { fatalError("The requestPermission dialog was not prompted") }
-        _authorizationStatus = .authorizedWhenInUse
-        dialog = nil
+        respondToAccessDialog(.authorizedWhenInUse)
         sendCurrentLocation()
+    }
+    
+    func doNotAllowAccess() {
+        respondToAccessDialog(.denied)
+    }
+
+    private func respondToAccessDialog(_ level: CLAuthorizationStatus) {
+        if dialog != .requestAccessWhileInUse { fatalError("The requestPermission dialog was not prompted") }
+        _authorizationStatus = level
+        dialog = nil
     }
 
     private func sendCurrentLocation() {

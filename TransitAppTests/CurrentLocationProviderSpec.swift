@@ -35,6 +35,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 }
 
                 context("when the user allows access") {
+                    
                     beforeEach {
                         locationManager.allowAccess()
                     }
@@ -45,6 +46,21 @@ class CurrentLocationProviderSpec: TransitAppSpec {
 
                     it("will set the authorization status to authorizedWhenInUse") {
                         expect(locationManager.authorizationStatus()).to(equal(CLAuthorizationStatus.authorizedWhenInUse))
+                    }
+                }
+
+                context("when the user does not access") {
+                    
+                    beforeEach {
+                        locationManager.doNotAllowAccess()
+                    }
+
+                    it("will not update the delegate with the current location") {
+                        expect(delegate.receivedCurrentLocation).to(beNil())
+                    }
+
+                    it("will set the authorization status to authorizedWhenInUse") {
+                        expect(locationManager.authorizationStatus()).to(equal(CLAuthorizationStatus.denied))
                     }
                 }
             }
