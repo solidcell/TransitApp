@@ -65,6 +65,28 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 }
             }
         }
+
+        context("when the user has already denied access") {
+
+            beforeEach {
+                locationManager.setAuthorizationStatus(.denied)
+            }
+
+            describe("getCurrentLocation") {
+
+                beforeEach {
+                    subject.getCurrentLocation()
+                }
+
+                it("will not prompt the user for access") {
+                    expect(locationManager.dialog).to(beNil())
+                }
+
+                it("will not update the delegate with the current location") {
+                    expect(delegate.receivedCurrentLocation).to(beNil())
+                }
+            }
+        }
     }
 }
 

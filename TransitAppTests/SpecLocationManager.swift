@@ -27,6 +27,10 @@ class SpecLocationManager {
     fileprivate var _authorizationStatus = CLAuthorizationStatus.notDetermined
     fileprivate let bsFirstArg = CLLocationManager()
 
+    func setAuthorizationStatus(_ status: CLAuthorizationStatus) {
+        _authorizationStatus = status
+    }
+
     func allowAccess() {
         let accessLevel: CLAuthorizationStatus
         switch dialog! {
@@ -81,6 +85,7 @@ extension SpecLocationManager: LocationManaging {
     func requestWhenInUseAuthorization() {
         switch authorizationStatus() {
         case .notDetermined: authorizationRequestForWhenInUse()
+        case .denied: break;
         default: fatalError("Other authorization statuses are not supported yet.")
         }
     }
