@@ -19,12 +19,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="omJ-vu-fC1"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpP-Or-9Ia">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="gHe-Iw-EDt"/>
+                                    <constraint firstAttribute="height" constant="30" id="oNO-Qc-hpp"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="currentLocationArrow"/>
+                                <connections>
+                                    <action selector="currentLocationTap:" destination="zDx-62-8KF" eventType="touchUpInside" id="chF-4S-J3B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="omJ-vu-fC1" secondAttribute="trailing" id="6V1-Sm-61F"/>
+                            <constraint firstItem="hpP-Or-9Ia" firstAttribute="bottom" secondItem="omJ-vu-fC1" secondAttribute="bottom" constant="-40" id="WAf-rt-8rD"/>
                             <constraint firstItem="CHg-h3-a7q" firstAttribute="top" secondItem="omJ-vu-fC1" secondAttribute="bottom" id="Ybv-yr-huS"/>
                             <constraint firstItem="omJ-vu-fC1" firstAttribute="leading" secondItem="7bk-Pb-kYI" secondAttribute="leading" id="YxY-ZP-kBm"/>
+                            <constraint firstItem="hpP-Or-9Ia" firstAttribute="trailing" secondItem="omJ-vu-fC1" secondAttribute="trailing" constant="-40" id="ZdA-Q6-THJ"/>
                             <constraint firstItem="omJ-vu-fC1" firstAttribute="top" secondItem="7bk-Pb-kYI" secondAttribute="top" id="lmy-UC-sH4"/>
                         </constraints>
                     </view>
@@ -34,7 +46,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTe-Bf-g3a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1163" y="-236"/>
+            <point key="canvasLocation" x="-1164" y="-236.13193403298354"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="currentLocationArrow" width="202" height="205"/>
+    </resources>
 </document>

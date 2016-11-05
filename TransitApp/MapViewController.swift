@@ -12,6 +12,10 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
 
+    @IBAction func currentLocationTap(_ sender: AnyObject) {
+        currentLocationProvider.getCurrentLocation()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,7 +33,6 @@ class MapViewController: UIViewController {
     private func configureCurrentLocation() {
         currentLocationProvider.delegate = self
         mapView.showsUserLocation = true
-        currentLocationProvider.getCurrentLocation()
     }
 }
 
