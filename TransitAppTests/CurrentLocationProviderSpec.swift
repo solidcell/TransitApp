@@ -40,6 +40,10 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                         locationManager.allowAccess()
                     }
 
+                    it("will dismiss the dialog") {
+                        expect(locationManager.dialog).to(beNil())
+                    }
+
                     it("will update the delegate with the current location") {
                         expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
                     }
@@ -53,6 +57,10 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                     
                     beforeEach {
                         locationManager.doNotAllowAccess()
+                    }
+
+                    it("will dismiss the dialog") {
+                        expect(locationManager.dialog).to(beNil())
                     }
 
                     it("will not update the delegate with the current location") {
@@ -124,6 +132,17 @@ class CurrentLocationProviderSpec: TransitAppSpec {
 
                 it("will prompt the user to turn on Location Services") {
                     expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestJumpToLocationServicesSettings))
+                }
+
+                context("when the user taps any response") {
+                    
+                    beforeEach {
+                        locationManager.tapAnyLocationServicesResponse()
+                    }
+
+                    it("will dismiss the dialog") {
+                        expect(locationManager.dialog).to(beNil())
+                    }
                 }
             }
         }

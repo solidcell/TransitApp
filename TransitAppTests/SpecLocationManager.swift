@@ -64,6 +64,23 @@ class SpecLocationManager {
 
 }
 
+// MARK: User taps for Location Services
+extension SpecLocationManager {
+
+    /* Both "Settings" and "Cancel" buttons have the same
+     effect on the app and state in the ways we care.
+     "Settings" will additionally background the app, but
+     we don't care about that, at least yet.
+     */
+    func tapAnyLocationServicesResponse() {
+        if dialog != .requestJumpToLocationServicesSettings {
+            fatalError("The dialog to jump to Location Services was not prompted.")
+        }
+        dialog = nil
+    }
+    
+}
+
 // MARK: User taps for authorization dialog prompts
 extension SpecLocationManager {
 
