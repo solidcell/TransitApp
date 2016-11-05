@@ -147,6 +147,54 @@ class CurrentLocationProviderSpec: TransitAppSpec {
             }
         }
 
+        context("when the user was prompted to enable Location Services and obliged") {
+            
+            beforeEach {
+                locationManager.setLocationServicesEnabled(false)
+                subject.getCurrentLocation()
+                locationManager.tapAnyLocationServicesResponse()
+                locationManager.setLocationServicesEnabled(true)
+            }
+
+            describe("getCurrentLocation") {
+
+                beforeEach {
+                    subject.getCurrentLocation()
+                }
+
+                it("will prompt the user for access") {
+                    expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestAccessWhileInUse))
+                }
+            }
+        }
+        
+        context("when already authorized, but Location Services are now disabled") {
+
+            beforeEach {
+                locationManager.setAuthorizationStatus(.authorizedWhenInUse)
+                locationManager.setLocationServicesEnabled(false)
+            }
+
+            describe("getCurrentLocation") {
+
+                beforeEach {
+                    subject.getCurrentLocation()
+                }
+
+                context("when the user dismisses the dialog and thurns it on") {
+                    
+                    beforeEach {
+                        locationManager.tapAnyLocationServicesResponse()
+                        locationManager.setLocationServicesEnabled(true)
+                    }
+
+                    it("will update the delegate with the current location") {
+                        expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
+                    }
+                }
+            }
+        }
+
         context("when the user has already responded to the Location Services dialog twice") {
 
             beforeEach {
