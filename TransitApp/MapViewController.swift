@@ -1,85 +1,44 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController {
 
     var mapAnnotationProvider: MapAnnotationProvider!
     var mapOverlayProvider: MapOverlayProvider!
     var initialCoordinateRegion: MKCoordinateRegion!
     var mapViewDelegate: MKMapViewDelegate!
     var scooterUpdater: ScooterUpdater!
+    var currentLocationProvider: CurrentLocationProvider!
 
     @IBOutlet weak var mapView: MKMapView!
 
-    let locationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         mapView.delegate = mapViewDelegate
         mapView.setRegion(initialCoordinateRegion, animated: true)
-        configureMapOverlays()
         mapAnnotationProvider.delegate = self
-
-        // If this method (or `requestAlwaysAuthorization`) is not called, 
-        // then calling other CLLocationManager methods will have no effect.
-        //
-        // it will pop up a dialog:
-        //
-        // This dialog will only ever show up twice, so use it wisely.
-        // It only counts if the user responds. So, for instance, you could dismiss
-        // the dialog without it counting by doing one of the following:
-        //
-        // If not enabled, it's probably best to use a manual dialog at first
-        // to confirm with the user what's going on and to be sure we should use an attempt.
-        // I've not investigated how to know when the dialog is being shown,
-        // if there are remaining attempts left, how many, etc.
-        //
-        //
-        // If Location Services are enabled,
-        // It will pop up a dialog (message is specific to `WhenInUse`, not `Always`):
-        //
-        // This dialog will only ever show up once. The same notes about the dialog
-        // for Location Services being turned off also apply here (dismiss without counting,
-        // using it wisely, etc.).
-        // If the user allows access and then later revokes access in Settings, calling
-        // this will still have no effect.
-        print("-------")
-        locationManager.delegate = self
-        print(CLLocationManager.authorizationStatus().rawValue)
-        locationManager.requestWhenInUseAuthorization()
-        print("-------")
-//        locationManager.requestWhenInUseAuthorization()
-//
-//        if CLLocationManager.locationServicesEnabled() {
-//            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-//            locationManager.requestLocation()
-//            locationManager.startUpdatingLocation()
-//            mapView.showsUserLocation = true
-//        }
+        configureMapOverlays()
+        configureCurrentLocation()
     }
 
     private func configureMapOverlays() {
         mapOverlayProvider.overlays.forEach(mapView.add)
     }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("*****************")
-        print(locations)
-        mapView.setCenter(locations.first!.coordinate, animated: true)
-        print("*****************")
+    private func configureCurrentLocation() {
+        currentLocationProvider.delegate = self
+        mapView.showsUserLocation = true
+        currentLocationProvider.getCurrentLocation()
     }
+}
 
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("*****************")
-        print(error)
-        print("*****************")
-    }
+extension MapViewController: CurrentLocationProviderDelegate {
 
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print("++++++++++++++++++++++++++++++++")
-        print(status.rawValue)
-        print("++++++++++++++++++++++++++++++++")
+    func currentLocation(_ location: CLLocation) {
+        mapView.setCenter(location.coordinate, animated: true)
     }
+    
 }
 
 extension MapViewController: MapAnnotationReceiving {
@@ -107,7 +66,8 @@ extension MapViewController {
                                     mapOverlayProvider: MapOverlayProvider,
                                     initialCoordinateRegion: MKCoordinateRegion,
                                     mapViewDelegate: MKMapViewDelegate,
-                                    scooterUpdater: ScooterUpdater) -> MapViewController {
+                                    scooterUpdater: ScooterUpdater,
+                                    currentLocationProvider: CurrentLocationProvider) -> MapViewController {
         let vc = UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateInitialViewController() as! MapViewController
         vc.mapAnnotationProvider = mapAnnotationProvider
@@ -115,6 +75,7 @@ extension MapViewController {
         vc.initialCoordinateRegion = initialCoordinateRegion
         vc.mapViewDelegate = mapViewDelegate
         vc.scooterUpdater = scooterUpdater
+        vc.currentLocationProvider = currentLocationProvider
         return vc
     }
     

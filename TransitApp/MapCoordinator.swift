@@ -1,5 +1,6 @@
 import UIKit
 import RealmSwift
+import CoreLocation
 
 class MapCoordinator {
 
@@ -15,11 +16,14 @@ class MapCoordinator {
         let scooterFetcher = ScooterFetcher(jsonFetcher: jsonFetcher, fetchTimer: fetchTimer)
         let scooterUpdater = ScooterUpdater(realm: realm, scooterFetcher: scooterFetcher)
         scooterUpdater.start()
+        let locationManager = CLLocationManager()
+        let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
         let vc = MapViewController.createFromStoryboard(mapAnnotationProvider: mapAnnotationProvider,
                                                         mapOverlayProvider: mapOverlayProvider,
                                                         initialCoordinateRegion: region,
                                                         mapViewDelegate: mapViewDelegate,
-                                                        scooterUpdater: scooterUpdater)
+                                                        scooterUpdater: scooterUpdater,
+                                                        currentLocationProvider: currentLocationProvider)
         window.rootViewController = vc
     }
 
