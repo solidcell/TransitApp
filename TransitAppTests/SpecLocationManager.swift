@@ -27,6 +27,7 @@ class SpecLocationManager {
     fileprivate var _locationServicesEnabled = true {
         didSet { sendCurrentStatus() }
     }
+    fileprivate var locationServicesDialogResponseCount = 0
     fileprivate let bsFirstArg = CLLocationManager()
 
     fileprivate func sendCurrentLocation() {
@@ -52,8 +53,14 @@ class SpecLocationManager {
     }
 
     fileprivate func authorizationRequestForWhenInUseWhenLocationDisabled() {
+        if !iOSwillPermitALocationServicesDialogToBeShown { return }
         fatalErrorIfCurrentlyADialog()
         dialog = .requestJumpToLocationServicesSettings
+    }
+
+    private var iOSwillPermitALocationServicesDialogToBeShown: Bool {
+        // iOS will only ever show the user this dialog twice for this app
+        return locationServicesDialogResponseCount < 2
     }
 
     private func fatalErrorIfCurrentlyADialog() {
@@ -77,6 +84,7 @@ extension SpecLocationManager {
             fatalError("The dialog to jump to Location Services was not prompted.")
         }
         dialog = nil
+        locationServicesDialogResponseCount += 1
     }
     
 }

@@ -118,7 +118,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
             }
         }
 
-        context("when Location Services is disabled") {
+        context("when Location Services are disabled") {
 
             beforeEach {
                 locationManager.setLocationServicesEnabled(false)
@@ -143,6 +143,32 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                     it("will dismiss the dialog") {
                         expect(locationManager.dialog).to(beNil())
                     }
+                }
+            }
+        }
+
+        context("when the user has already responded to the Location Services dialog twice") {
+
+            beforeEach {
+                locationManager.setLocationServicesEnabled(false)
+                // first time
+                subject.getCurrentLocation()
+                expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestJumpToLocationServicesSettings))
+                locationManager.tapAnyLocationServicesResponse()
+                // second time
+                subject.getCurrentLocation()
+                expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestJumpToLocationServicesSettings))
+                locationManager.tapAnyLocationServicesResponse()
+            }
+
+            describe("getCurrentLocation") {
+
+                beforeEach {
+                    subject.getCurrentLocation()
+                }
+
+                it("will not prompt the user anymore to turn on Location Services") {
+                    expect(locationManager.dialog).to(beNil())
                 }
             }
         }
