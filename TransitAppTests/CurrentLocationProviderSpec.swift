@@ -214,10 +214,15 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 beforeEach {
                     subject.getCurrentLocation()
                 }
-
+                
                 it("will not prompt the user anymore to turn on Location Services") {
                     expect(locationManager.dialog).to(beNil())
                 }
+
+                // If all attempts have been exhausted, it's still possible to ask the user with a
+                // manual dialog and to direct them to the "Settings" page, but not specifically
+                // The "Location Services" page, which is of course not great.
+                // UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
             }
         }
     }

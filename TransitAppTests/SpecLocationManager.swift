@@ -14,8 +14,14 @@ class SpecLocationManager {
 
     // this probably belongs in a Spec UIApplication
     enum Dialog {
+        // "Allow "TransitApp" to access your location while you use the app?"
+        // "<message you have set in Info.plist for NSLocationWhenInUseUsageDescription>"
+        // [Don't Allow] [Allow]
         case requestAccessWhileInUse
+        // Similar to the one above, but with different messaging.
         case requestAccessAlways
+        // "Turn On Location Services to Allow "TransitApp" to Determine Your Location"
+        // [Settings] [Cancel]
         case requestJumpToLocationServicesSettings
     }
 
@@ -59,7 +65,11 @@ class SpecLocationManager {
     }
 
     private var iOSwillPermitALocationServicesDialogToBeShown: Bool {
-        // iOS will only ever show the user this dialog twice for this app
+        // iOS will only ever show the user this dialog twice for this app.
+        // It only counts as being shown if the user responds. For example,
+        // the following things can dismiss the dialog without it counting:
+        // * Locking the device.
+        // * Receiving a call, accepting, and then clicking Home.
         return locationServicesDialogResponseCount < 2
     }
 
