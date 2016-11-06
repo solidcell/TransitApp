@@ -29,13 +29,24 @@ class SpecLocationManager {
         didSet { sendCurrentStatus() }
     }
     fileprivate(set) var dialog: Dialog?
-    fileprivate var _authorizationStatus = CLAuthorizationStatus.notDetermined
+    fileprivate var _authorizationStatus = CLAuthorizationStatus.notDetermined {
+        didSet { sendCurrentStatus() }
+    }
     fileprivate var _locationServicesEnabled = true {
         didSet { sendCurrentStatus() }
     }
     fileprivate var locationServicesDialogResponseCount = 0
     fileprivate let bsFirstArg = CLLocationManager()
-    private var locationRequestInProgress = false
+    fileprivate var locationRequestInProgress = false
+
+    private func sendCurrentStatus() {
+        delegate?.locationManager?(bsFirstArg, didChangeAuthorization: authorizationStatus())
+    }
+
+}
+
+// MARK: Async callbacks
+extension SpecLocationManager {
 
     func locationRequestSuccess() {
         if !authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways) {
@@ -47,45 +58,6 @@ class SpecLocationManager {
         locationRequestInProgress = false
         let fakeCurrentLocation = CLLocation(latitude: 1.0, longitude: 2.0)
         delegate!.locationManager?(bsFirstArg, didUpdateLocations: [fakeCurrentLocation])
-    }
-
-    fileprivate func sendCurrentStatus() {
-        delegate?.locationManager?(bsFirstArg, didChangeAuthorization: authorizationStatus())
-    }
-
-    fileprivate func locationRequestedWhenNotDetermined() {
-        let error = NSError(domain: kCLErrorDomain, code: 0, userInfo: nil)
-        delegate!.locationManager!(bsFirstArg, didFailWithError: error)
-    }
-
-    fileprivate func locationRequestedWhenAuthorizedWhenInUse() {
-        locationRequestInProgress = true
-    }
-
-    fileprivate func authorizationRequestForWhenInUseWhenLocationEnabled() {
-        fatalErrorIfCurrentlyADialog()
-        dialog = .requestAccessWhileInUse
-    }
-
-    fileprivate func authorizationRequestForWhenInUseWhenLocationDisabled() {
-        if !iOSwillPermitALocationServicesDialogToBeShown { return }
-        fatalErrorIfCurrentlyADialog()
-        dialog = .requestJumpToLocationServicesSettings
-    }
-
-    private var iOSwillPermitALocationServicesDialogToBeShown: Bool {
-        // iOS will only ever show the user this dialog twice for this app.
-        // It only counts as being shown if the user responds. For example,
-        // the following things can dismiss the dialog without it counting:
-        // * Locking the device.
-        // * Receiving a call, accepting, and then clicking Home.
-        return locationServicesDialogResponseCount < 2
-    }
-
-    private func fatalErrorIfCurrentlyADialog() {
-        if dialog != nil {
-            fatalError("There is already a dialog displayed. If showing another one would create a stack of dialogs, then update `dialog` to handle a stack.")
-        }
     }
 
 }
@@ -138,9 +110,8 @@ extension SpecLocationManager {
         if !level.isOneOf(.denied, .authorizedWhenInUse, .authorizedAlways) {
             fatalError("This is not a valid user response from the dialog.")
         }
-        _authorizationStatus = level
         dialog = nil
-        sendCurrentStatus()
+        _authorizationStatus = level
     }
     
 }
@@ -154,6 +125,51 @@ extension SpecLocationManager {
 
     func setLocationServicesEnabled(_ enabled: Bool) {
         _locationServicesEnabled = enabled
+    }
+
+}
+
+// MARK: requestWhenInUseAuthorization outcomes
+extension SpecLocationManager {
+    
+    fileprivate func authorizationRequestForWhenInUseWhenLocationEnabled() {
+        fatalErrorIfCurrentlyADialog()
+        dialog = .requestAccessWhileInUse
+    }
+
+    fileprivate func authorizationRequestForWhenInUseWhenLocationDisabled() {
+        if !iOSwillPermitALocationServicesDialogToBeShown { return }
+        fatalErrorIfCurrentlyADialog()
+        dialog = .requestJumpToLocationServicesSettings
+    }
+
+    private var iOSwillPermitALocationServicesDialogToBeShown: Bool {
+        // iOS will only ever show the user this dialog twice for this app.
+        // It only counts as being shown if the user responds. For example,
+        // the following things can dismiss the dialog without it counting:
+        // * Locking the device.
+        // * Receiving a call, accepting, and then clicking Home.
+        return locationServicesDialogResponseCount < 2
+    }
+
+    private func fatalErrorIfCurrentlyADialog() {
+        if dialog != nil {
+            fatalError("There is already a dialog displayed. If showing another one would create a stack of dialogs, then update `dialog` to handle a stack.")
+        }
+    }
+
+}
+
+// MARK: requestLocation outcomes
+extension SpecLocationManager {
+
+    fileprivate func locationRequestedWhenNotDetermined() {
+        let error = NSError(domain: kCLErrorDomain, code: 0, userInfo: nil)
+        delegate!.locationManager!(bsFirstArg, didFailWithError: error)
+    }
+
+    fileprivate func locationRequestedWhenAuthorizedWhenInUse() {
+        locationRequestInProgress = true
     }
 
 }
