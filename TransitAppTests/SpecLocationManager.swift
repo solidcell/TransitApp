@@ -28,6 +28,7 @@ class SpecLocationManager {
     weak var delegate: CLLocationManagerDelegate? {
         didSet { sendCurrentStatus() }
     }
+    var mostRecentLocation: CLLocation?
     fileprivate(set) var dialog: Dialog?
     fileprivate var _authorizationStatus = CLAuthorizationStatus.notDetermined {
         didSet { sendCurrentStatus() }
@@ -178,6 +179,10 @@ extension SpecLocationManager {
 
 // MARK: LocationManaging
 extension SpecLocationManager: LocationManaging {
+
+    var location: CLLocation? {
+        return mostRecentLocation
+    }
 
     func requestWhenInUseAuthorization() {
         switch authorizationStatus() {

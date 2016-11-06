@@ -112,10 +112,38 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 it("will not prompt the user for access") {
                     expect(locationManager.dialog).to(beNil())
                 }
+            }
 
-                it("will update the delegate with the current location") {
-                    locationManager.locationRequestSuccess()
-                    expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
+            context("if there is no location already available") {
+
+                describe("getCurrentLocation") {
+
+                    beforeEach {
+                        subject.getCurrentLocation()
+                    }
+
+                    it("will update the delegate with the current location") {
+                        locationManager.locationRequestSuccess()
+                        expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
+                    }
+                }
+            }
+
+            context("if there is already a location available") {
+
+                beforeEach {
+                    locationManager.mostRecentLocation = CLLocation(latitude: 1.0, longitude: 3.0)
+                }
+
+                describe("getCurrentLocation") {
+
+                    beforeEach {
+                        subject.getCurrentLocation()
+                    }
+                    
+                    it("will update the delegate with the current location") {
+                        expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
+                    }
                 }
             }
         }

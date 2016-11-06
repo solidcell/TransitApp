@@ -17,6 +17,16 @@ class CurrentLocationProvider: NSObject {
         if !authorized {
             locationManager.requestWhenInUseAuthorization()
         } else {
+            getCurrentLocationIfAuthorized()
+        }
+    }
+
+    fileprivate func getCurrentLocationIfAuthorized() {
+        if !authorized { return }
+
+        if let location = locationManager.location {
+            updateDelegateWithLocation(location)
+        } else {
             locationManager.requestLocation()
         }
     }
@@ -24,23 +34,27 @@ class CurrentLocationProvider: NSObject {
     fileprivate var authorized: Bool {
         return locationManager.authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways)
     }
+
+    fileprivate func updateDelegateWithLocation(_ location: CLLocation) {
+        delegate?.currentLocation(location)
+    }
     
 }
 
 extension CurrentLocationProvider: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        delegate?.currentLocation(locations.last!)
+        updateDelegateWithLocation(locations.last!)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        fatalError("We should try to have this never called. Investigate it.")
+        // This can happen when location was requested, but could not be determined, for instance.
+        // We should probably implement some kind of notification for the user, like a banner notice.
+        fatalError("Implement some behavior for this when the time comes")
     }
 
     func locationManager(_: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if authorized {
-            locationManager.requestLocation()
-        }
+        getCurrentLocationIfAuthorized()
     }
 
 }
