@@ -10,7 +10,7 @@ import CoreLocation
  documentation and experimenting with it).
 */
 
-class SpecLocationManager {
+class FakeLocationManager {
 
     // this probably belongs in a Spec UIApplication
     enum Dialog {
@@ -47,7 +47,7 @@ class SpecLocationManager {
 }
 
 // MARK: Async callbacks
-extension SpecLocationManager {
+extension FakeLocationManager {
 
     func locationRequestSuccess() {
         if !authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways) {
@@ -64,7 +64,7 @@ extension SpecLocationManager {
 }
 
 // MARK: User taps for Location Services
-extension SpecLocationManager {
+extension FakeLocationManager {
 
     /* Both "Settings" and "Cancel" buttons have the same
      effect on the app and state in the ways we care.
@@ -82,7 +82,7 @@ extension SpecLocationManager {
 }
 
 // MARK: User taps for authorization dialog prompts
-extension SpecLocationManager {
+extension FakeLocationManager {
 
     func tapAllowInDialog() {
         let accessLevel: CLAuthorizationStatus
@@ -118,7 +118,7 @@ extension SpecLocationManager {
 }
 
 // MARK: User's settings in the Settings app
-extension SpecLocationManager {
+extension FakeLocationManager {
 
     func setAuthorizationStatusInSettingsApp(_ status: CLAuthorizationStatus) {
         // should there be some check here to make sure that the user would even
@@ -133,7 +133,7 @@ extension SpecLocationManager {
 }
 
 // MARK: requestWhenInUseAuthorization outcomes
-extension SpecLocationManager {
+extension FakeLocationManager {
     
     fileprivate func requestWhenInUseWhileNotDetermined() {
         fatalErrorIfCurrentlyADialog()
@@ -164,7 +164,7 @@ extension SpecLocationManager {
 }
 
 // MARK: requestLocation outcomes
-extension SpecLocationManager {
+extension FakeLocationManager {
 
     fileprivate func requestLocationWhileNotDetermined() {
         let error = NSError(domain: kCLErrorDomain, code: 0, userInfo: nil)
@@ -178,7 +178,7 @@ extension SpecLocationManager {
 }
 
 // MARK: LocationManaging
-extension SpecLocationManager: LocationManaging {
+extension FakeLocationManager: LocationManaging {
 
     var location: CLLocation? {
         return mostRecentLocation

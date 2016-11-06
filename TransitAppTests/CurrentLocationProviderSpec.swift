@@ -8,11 +8,11 @@ class CurrentLocationProviderSpec: TransitAppSpec {
         super.spec()
 
         var subject: CurrentLocationProvider!
-        var locationManager: SpecLocationManager!
+        var locationManager: FakeLocationManager!
         var delegate: SpecDelegate!
 
         beforeEach {
-            locationManager = SpecLocationManager()
+            locationManager = FakeLocationManager()
             subject = CurrentLocationProvider(locationManager: locationManager)
             delegate = SpecDelegate()
             subject.delegate = delegate
@@ -31,7 +31,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 }
 
                 it("will prompt the user for access") {
-                    expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestAccessWhileInUse))
+                    expect(locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestAccessWhileInUse))
                 }
 
                 context("when the user allows access") {
@@ -161,7 +161,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 }
 
                 it("will prompt the user to turn on Location Services") {
-                    expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestJumpToLocationServicesSettings))
+                    expect(locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestJumpToLocationServicesSettings))
                 }
 
                 context("when the user taps any response") {
@@ -193,7 +193,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 }
 
                 it("will prompt the user for access") {
-                    expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestAccessWhileInUse))
+                    expect(locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestAccessWhileInUse))
                 }
             }
         }
@@ -251,11 +251,11 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 locationManager.setLocationServicesEnabledInSettingsApp(false)
                 // first time
                 subject.getCurrentLocation()
-                expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestJumpToLocationServicesSettings))
+                expect(locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestJumpToLocationServicesSettings))
                 locationManager.tapSettingsOrCancelInDialog()
                 // second time
                 subject.getCurrentLocation()
-                expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestJumpToLocationServicesSettings))
+                expect(locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestJumpToLocationServicesSettings))
                 locationManager.tapSettingsOrCancelInDialog()
             }
 
