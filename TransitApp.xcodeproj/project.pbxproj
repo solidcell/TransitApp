@@ -27,6 +27,7 @@
 		8827E1371DC0C33800E06654 /* TestRandomJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */; };
 		8827E14F1DC0FD1500E06654 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E14E1DC0FD1500E06654 /* main.swift */; };
 		8827E15E1DC2507100E06654 /* SeedDataParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E15D1DC2507100E06654 /* SeedDataParserSpec.swift */; };
+		883D8FC91DCE07C5006B6B92 /* RealmNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D8FC81DCE07C5006B6B92 /* RealmNotifier.swift */; };
 		887DBED41DC62A8500D92E19 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBED31DC62A8500D92E19 /* UIColor.swift */; };
 		887DBEDC1DC75AD300D92E19 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */; };
 		887DBEDE1DC75B3E00D92E19 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */; };
@@ -96,6 +97,7 @@
 		8827E1351DC0BD4300E06654 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		8827E14E1DC0FD1500E06654 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8827E15D1DC2507100E06654 /* SeedDataParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedDataParserSpec.swift; sourceTree = "<group>"; };
+		883D8FC81DCE07C5006B6B92 /* RealmNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmNotifier.swift; sourceTree = "<group>"; };
 		887DBED31DC62A8500D92E19 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */,
 				887DBEE81DC8A24B00D92E19 /* MapAnnotationDataSource.swift */,
+				883D8FC81DCE07C5006B6B92 /* RealmNotifier.swift */,
 				8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */,
 			);
 			name = MapAnnotations;
@@ -634,6 +637,7 @@
 				880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */,
 				88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */,
 				887DBEF51DC8CDC700D92E19 /* ScooterFetcher.swift in Sources */,
+				883D8FC91DCE07C5006B6B92 /* RealmNotifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

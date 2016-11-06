@@ -9,10 +9,12 @@ class ScooterUpdaterSpec: TransitAppSpec {
 
         var subject: ScooterUpdater!
         var scooterFetcher: SpecScooterFetcher!
+        var scooterWriter: ScooterWriter!
 
         beforeEach {
             scooterFetcher = SpecScooterFetcher()
-            subject = ScooterUpdater(realm: self.realm,
+            scooterWriter = ScooterWriter(realm: self.realm)
+            subject = ScooterUpdater(scooterWriter: scooterWriter,
                                      scooterFetcher: scooterFetcher)
         }
 

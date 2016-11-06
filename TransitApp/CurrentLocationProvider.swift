@@ -51,7 +51,6 @@ extension CurrentLocationProvider: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         // This can happen when location was requested, but could not be determined, for instance.
         // We should probably implement some kind of notification for the user, like a banner notice.
-        fatalError("Implement some behavior for this when the time comes")
     }
 
     func locationManager(_: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

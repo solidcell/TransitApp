@@ -5,8 +5,8 @@ import RealmSwift
 // It's a slim wrapper around async Realm code.
 // Be sure to manually test any changes you make.
 
-class MapAnnotationDataSource: MapAnnotationDataSourcing {
-    
+class MapAnnotationDataSource: MapAnnotationDataSourcing, RealmNotifierDelegate {
+
     weak var delegate: MapAnnotationProvider? {
         willSet {
             if delegate != nil {
@@ -17,29 +17,31 @@ class MapAnnotationDataSource: MapAnnotationDataSourcing {
             start()
         }
     }
-    private var token: NotificationToken?
-    private let results: Results<Scooter>
+    private let scooterWriter: ScooterWriter
 
-    init(results: Results<Scooter>) {
-        self.results = results
+    init(scooterWriter: ScooterWriter) {
+        self.scooterWriter = scooterWriter
+        self.scooterWriter.delegate = self
     }
 
     private func start() {
-        self.token = self.results.addNotificationBlock { [weak self] changes in
-            switch changes {
-            case .initial(let results):
-                self?.handleInitial(results: results)
-            case .update(let results,
-                         deletions: let deletions,
-                         insertions: let insertions,
-                         modifications: let modifications):
-                self?.handleUpdate(results: results,
-                                   deletions: deletions,
-                                   insertions: insertions,
-                                   modifications: modifications)
-            case .error:
-                fatalError("Realm Notification error isn't expected/supported")
-            }
+        scooterWriter.start()
+    }
+
+    func didReceiveRealmNotification(changes: RealmCollectionChange<Results<Scooter>>) {
+        switch changes {
+        case .initial(let results):
+            handleInitial(results: results)
+        case .update(let results,
+                     deletions: let deletions,
+                     insertions: let insertions,
+                     modifications: let modifications):
+            handleUpdate(results: results,
+                               deletions: deletions,
+                               insertions: insertions,
+                               modifications: modifications)
+        case .error:
+            fatalError("Realm Notification error isn't expected/supported")
         }
     }
 
@@ -61,10 +63,6 @@ class MapAnnotationDataSource: MapAnnotationDataSourcing {
         return { (index: Int) -> Scooter in
             return results[index]
         }
-    }
-
-    deinit {
-        self.token?.stop()
     }
 
 }

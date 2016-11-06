@@ -5,7 +5,8 @@ import CoreLocation
 class MapCoordinator {
 
     func start(window: UIWindow, realm: Realm) {
-        let mapAnnotationDataSource = MapAnnotationDataSource(results: realm.scooters)
+        let scooterWriter = ScooterWriter(realm: realm)
+        let mapAnnotationDataSource = MapAnnotationDataSource(scooterWriter: scooterWriter)
         let mapAnnotationProvider = MapAnnotationProvider(dataSource: mapAnnotationDataSource)
         let mapOverlayProvider = MapOverlayProvider(realm: realm)
         let mapViewDelegate = MapViewDelegate()
@@ -14,7 +15,7 @@ class MapCoordinator {
         let jsonFetcher = JSONFetcher()
         let fetchTimer = FetchTimer()
         let scooterFetcher = ScooterFetcher(jsonFetcher: jsonFetcher, fetchTimer: fetchTimer)
-        let scooterUpdater = ScooterUpdater(realm: realm, scooterFetcher: scooterFetcher)
+        let scooterUpdater = ScooterUpdater(scooterWriter: scooterWriter, scooterFetcher: scooterFetcher)
         scooterUpdater.start()
         let locationManager = CLLocationManager()
         let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)

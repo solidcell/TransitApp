@@ -58,10 +58,13 @@ class MapAnnotationProvider {
     }
 
     private func addNewAnnotations(scooters: [Scooter]) {
+        var newAnnotations = [CoupMapAnnotation]()
         scooters.forEach { scooter in
-            annotationDict[keyForScooter(scooter)] = CoupMapAnnotation(scooter: scooter)
+            let newAnnotation = CoupMapAnnotation(scooter: scooter)
+            annotationDict[keyForScooter(scooter)] = newAnnotation
+            newAnnotations.append(newAnnotation)
         }
-        delegate?.newAnnotations(annotations)
+        delegate?.newAnnotations(newAnnotations)
     }
 
 }
