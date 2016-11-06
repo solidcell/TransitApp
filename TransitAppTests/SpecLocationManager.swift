@@ -176,13 +176,20 @@ extension SpecLocationManager {
 
 // MARK: LocationManaging
 extension SpecLocationManager: LocationManaging {
-    
+
     func requestWhenInUseAuthorization() {
         switch authorizationStatus() {
         case .notDetermined: authorizationRequestForWhenInUseWhenLocationEnabled()
         case .denied:
-            if !isLocationServicesEnabled() { authorizationRequestForWhenInUseWhenLocationDisabled() }
-        case .authorizedWhenInUse: break;
+            // if .denied due to base status (the user having tapped "Don't Allow" before)
+            if _authorizationStatus == .denied { break }
+            if !isLocationServicesEnabled() {
+                // or, if .denied due to Location Services being off, but user has not before denied auth.
+                authorizationRequestForWhenInUseWhenLocationDisabled()
+            } else {
+                fatalError("How is auth status .denied if not due to base status being .denied or Location Services being off?")
+            }
+        case .authorizedWhenInUse: break
         default: fatalError("Other authorization statuses are not supported yet.")
         }
     }
