@@ -45,6 +45,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                     }
 
                     it("will update the delegate with the current location") {
+                        locationManager.locationRequestSuccess()
                         expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
                     }
 
@@ -113,6 +114,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 }
 
                 it("will update the delegate with the current location") {
+                    locationManager.locationRequestSuccess()
                     expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
                 }
             }
@@ -189,6 +191,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                     }
 
                     it("will update the delegate with the current location") {
+                        locationManager.locationRequestSuccess()
                         expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
                     }
                 }

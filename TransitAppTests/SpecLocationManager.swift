@@ -35,11 +35,16 @@ class SpecLocationManager {
     }
     fileprivate var locationServicesDialogResponseCount = 0
     fileprivate let bsFirstArg = CLLocationManager()
+    private var locationRequestInProgress = false
 
-    fileprivate func sendCurrentLocation() {
+    func locationRequestSuccess() {
         if !authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways) {
             fatalError("CLLocationManager would not be sending the location, since user has not authorized access.")
         }
+        if !locationRequestInProgress {
+            fatalError("CLLocationManager would not be sending the location, since there was no location request in progress.")
+        }
+        locationRequestInProgress = false
         let fakeCurrentLocation = CLLocation(latitude: 1.0, longitude: 2.0)
         delegate!.locationManager?(bsFirstArg, didUpdateLocations: [fakeCurrentLocation])
     }
@@ -51,6 +56,10 @@ class SpecLocationManager {
     fileprivate func locationRequestedWhenNotDetermined() {
         let error = NSError(domain: kCLErrorDomain, code: 0, userInfo: nil)
         delegate!.locationManager!(bsFirstArg, didFailWithError: error)
+    }
+
+    fileprivate func locationRequestedWhenAuthorizedWhenInUse() {
+        locationRequestInProgress = true
     }
 
     fileprivate func authorizationRequestForWhenInUseWhenLocationEnabled() {
@@ -165,7 +174,7 @@ extension SpecLocationManager: LocationManaging {
     func requestLocation() {
         switch authorizationStatus() {
         case .notDetermined: locationRequestedWhenNotDetermined()
-        case .authorizedWhenInUse: sendCurrentLocation()
+        case .authorizedWhenInUse: locationRequestedWhenAuthorizedWhenInUse()
         default: fatalError("Other authorization statuses are not supported yet.")
         }
     }

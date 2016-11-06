@@ -30,7 +30,7 @@ class CurrentLocationProvider: NSObject {
 extension CurrentLocationProvider: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        delegate?.currentLocation(locations.first!)
+        delegate?.currentLocation(locations.last!)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
