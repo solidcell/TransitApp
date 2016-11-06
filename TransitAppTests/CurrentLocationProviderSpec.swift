@@ -37,7 +37,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 context("when the user allows access") {
                     
                     beforeEach {
-                        locationManager.allowAccess()
+                        locationManager.tapAllowInDialog()
                     }
 
                     it("will dismiss the dialog") {
@@ -57,7 +57,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 context("when the user does not allow access") {
                     
                     beforeEach {
-                        locationManager.doNotAllowAccess()
+                        locationManager.tapDoNotAllowAccessInDialog()
                     }
 
                     it("will dismiss the dialog") {
@@ -78,7 +78,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
         context("when the user has already denied access") {
 
             beforeEach {
-                locationManager.setAuthorizationStatus(.denied)
+                locationManager.setAuthorizationStatusInSettingsApp(.denied)
             }
 
             describe("getCurrentLocation") {
@@ -100,7 +100,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
         context("when the user has already permitted access") {
 
             beforeEach {
-                locationManager.setAuthorizationStatus(.authorizedWhenInUse)
+                locationManager.setAuthorizationStatusInSettingsApp(.authorizedWhenInUse)
             }
 
             describe("getCurrentLocation") {
@@ -123,7 +123,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
         context("when Location Services are disabled") {
 
             beforeEach {
-                locationManager.setLocationServicesEnabled(false)
+                locationManager.setLocationServicesEnabledInSettingsApp(false)
             }
 
             describe("getCurrentLocation") {
@@ -139,7 +139,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 context("when the user taps any response") {
                     
                     beforeEach {
-                        locationManager.tapAnyLocationServicesResponse()
+                        locationManager.tapSettingsOrCancelInDialog()
                     }
 
                     it("will dismiss the dialog") {
@@ -152,10 +152,10 @@ class CurrentLocationProviderSpec: TransitAppSpec {
         context("when the user was prompted to enable Location Services and obliged") {
             
             beforeEach {
-                locationManager.setLocationServicesEnabled(false)
+                locationManager.setLocationServicesEnabledInSettingsApp(false)
                 subject.getCurrentLocation()
-                locationManager.tapAnyLocationServicesResponse()
-                locationManager.setLocationServicesEnabled(true)
+                locationManager.tapSettingsOrCancelInDialog()
+                locationManager.setLocationServicesEnabledInSettingsApp(true)
             }
 
             describe("getCurrentLocation") {
@@ -173,8 +173,8 @@ class CurrentLocationProviderSpec: TransitAppSpec {
         context("when already authorized, but Location Services are now disabled") {
 
             beforeEach {
-                locationManager.setAuthorizationStatus(.authorizedWhenInUse)
-                locationManager.setLocationServicesEnabled(false)
+                locationManager.setAuthorizationStatusInSettingsApp(.authorizedWhenInUse)
+                locationManager.setLocationServicesEnabledInSettingsApp(false)
             }
 
             describe("getCurrentLocation") {
@@ -186,8 +186,8 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 context("when the user dismisses the dialog and thurns it on") {
                     
                     beforeEach {
-                        locationManager.tapAnyLocationServicesResponse()
-                        locationManager.setLocationServicesEnabled(true)
+                        locationManager.tapSettingsOrCancelInDialog()
+                        locationManager.setLocationServicesEnabledInSettingsApp(true)
                     }
 
                     it("will update the delegate with the current location") {
@@ -201,15 +201,15 @@ class CurrentLocationProviderSpec: TransitAppSpec {
         context("when the user has already responded to the Location Services dialog twice") {
 
             beforeEach {
-                locationManager.setLocationServicesEnabled(false)
+                locationManager.setLocationServicesEnabledInSettingsApp(false)
                 // first time
                 subject.getCurrentLocation()
                 expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestJumpToLocationServicesSettings))
-                locationManager.tapAnyLocationServicesResponse()
+                locationManager.tapSettingsOrCancelInDialog()
                 // second time
                 subject.getCurrentLocation()
                 expect(locationManager.dialog).to(equal(SpecLocationManager.Dialog.requestJumpToLocationServicesSettings))
-                locationManager.tapAnyLocationServicesResponse()
+                locationManager.tapSettingsOrCancelInDialog()
             }
 
             describe("getCurrentLocation") {

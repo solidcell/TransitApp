@@ -70,7 +70,7 @@ extension SpecLocationManager {
      "Settings" will additionally background the app, but
      we don't care about that, at least yet.
      */
-    func tapAnyLocationServicesResponse() {
+    func tapSettingsOrCancelInDialog() {
         if dialog != .requestJumpToLocationServicesSettings {
             fatalError("The dialog to jump to Location Services was not prompted.")
         }
@@ -83,7 +83,7 @@ extension SpecLocationManager {
 // MARK: User taps for authorization dialog prompts
 extension SpecLocationManager {
 
-    func allowAccess() {
+    func tapAllowInDialog() {
         let accessLevel: CLAuthorizationStatus
         switch dialog! {
         case .requestAccessWhileInUse: accessLevel = .authorizedWhenInUse
@@ -93,7 +93,7 @@ extension SpecLocationManager {
         respondToAccessDialog(accessLevel)
     }
     
-    func doNotAllowAccess() {
+    func tapDoNotAllowAccessInDialog() {
         respondToAccessDialog(.denied)
     }
 
@@ -119,11 +119,13 @@ extension SpecLocationManager {
 // MARK: User's settings in the Settings app
 extension SpecLocationManager {
 
-    func setAuthorizationStatus(_ status: CLAuthorizationStatus) {
+    func setAuthorizationStatusInSettingsApp(_ status: CLAuthorizationStatus) {
+        // should there be some check here to make sure that the user would even
+        // have the option to be setting a (certain) status in the Settings app?
         _authorizationStatus = status
     }
 
-    func setLocationServicesEnabled(_ enabled: Bool) {
+    func setLocationServicesEnabledInSettingsApp(_ enabled: Bool) {
         _locationServicesEnabled = enabled
     }
 
@@ -132,12 +134,12 @@ extension SpecLocationManager {
 // MARK: requestWhenInUseAuthorization outcomes
 extension SpecLocationManager {
     
-    fileprivate func authorizationRequestForWhenInUseWhenLocationEnabled() {
+    fileprivate func requestWhenInUseWhileNotDetermined() {
         fatalErrorIfCurrentlyADialog()
         dialog = .requestAccessWhileInUse
     }
 
-    fileprivate func authorizationRequestForWhenInUseWhenLocationDisabled() {
+    fileprivate func requestWhenInUseWhileDeniedDueToLocationServices() {
         if !iOSwillPermitALocationServicesDialogToBeShown { return }
         fatalErrorIfCurrentlyADialog()
         dialog = .requestJumpToLocationServicesSettings
@@ -163,12 +165,12 @@ extension SpecLocationManager {
 // MARK: requestLocation outcomes
 extension SpecLocationManager {
 
-    fileprivate func locationRequestedWhenNotDetermined() {
+    fileprivate func requestLocationWhileNotDetermined() {
         let error = NSError(domain: kCLErrorDomain, code: 0, userInfo: nil)
         delegate!.locationManager!(bsFirstArg, didFailWithError: error)
     }
 
-    fileprivate func locationRequestedWhenAuthorizedWhenInUse() {
+    fileprivate func requestLocationWhileWhenInUse() {
         locationRequestInProgress = true
     }
 
@@ -179,13 +181,13 @@ extension SpecLocationManager: LocationManaging {
 
     func requestWhenInUseAuthorization() {
         switch authorizationStatus() {
-        case .notDetermined: authorizationRequestForWhenInUseWhenLocationEnabled()
+        case .notDetermined: requestWhenInUseWhileNotDetermined()
         case .denied:
             // if .denied due to base status (the user having tapped "Don't Allow" before)
             if _authorizationStatus == .denied { break }
             if !isLocationServicesEnabled() {
                 // or, if .denied due to Location Services being off, but user has not before denied auth.
-                authorizationRequestForWhenInUseWhenLocationDisabled()
+                requestWhenInUseWhileDeniedDueToLocationServices()
             } else {
                 fatalError("How is auth status .denied if not due to base status being .denied or Location Services being off?")
             }
@@ -196,8 +198,8 @@ extension SpecLocationManager: LocationManaging {
 
     func requestLocation() {
         switch authorizationStatus() {
-        case .notDetermined: locationRequestedWhenNotDetermined()
-        case .authorizedWhenInUse: locationRequestedWhenAuthorizedWhenInUse()
+        case .notDetermined: requestLocationWhileNotDetermined()
+        case .authorizedWhenInUse: requestLocationWhileWhenInUse()
         default: fatalError("Other authorization statuses are not supported yet.")
         }
     }
