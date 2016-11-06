@@ -183,7 +183,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                     subject.getCurrentLocation()
                 }
 
-                context("when the user dismisses the dialog and thurns it on") {
+                context("when the user dismisses the dialog and turns it on") {
                     
                     beforeEach {
                         locationManager.tapSettingsOrCancelInDialog()
@@ -194,6 +194,25 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                         locationManager.locationRequestSuccess()
                         expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
                     }
+                }
+            }
+        }
+        
+        context("when already denied authorization, but Location Services are now disabled") {
+
+            beforeEach {
+                locationManager.setAuthorizationStatusInSettingsApp(.denied)
+                locationManager.setLocationServicesEnabledInSettingsApp(false)
+            }
+
+            describe("getCurrentLocation") {
+
+                beforeEach {
+                    subject.getCurrentLocation()
+                }
+
+                it("will not prompt the user to turn on Location Services") {
+                    expect(locationManager.dialog).to(beNil())
                 }
             }
         }
