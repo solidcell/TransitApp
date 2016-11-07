@@ -1,4 +1,5 @@
 import CoreLocation
+import FakeLocationManager
 
 // This class wraps CLLocationManager interaction
 

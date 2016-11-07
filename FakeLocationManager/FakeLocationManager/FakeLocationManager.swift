@@ -29,7 +29,7 @@ public class FakeLocationManager {
     public weak var delegate: CLLocationManagerDelegate? {
         didSet { sendCurrentStatus() }
     }
-    var mostRecentLocation: CLLocation?
+    public var mostRecentLocation: CLLocation?
     public fileprivate(set) var dialog: Dialog?
     fileprivate var _authorizationStatus = CLAuthorizationStatus.notDetermined {
         didSet { sendCurrentStatus() }
@@ -50,7 +50,7 @@ public class FakeLocationManager {
 // MARK: Async callbacks
 extension FakeLocationManager {
 
-    func locationRequestSuccess() {
+    public func locationRequestSuccess() {
         if !authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways) {
             fatalError("CLLocationManager would not be sending the location, since user has not authorized access.")
         }

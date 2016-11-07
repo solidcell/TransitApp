@@ -56,6 +56,8 @@
 		889705AF1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */; };
 		889705B11DCC9F7300D8D8DF /* CurrentLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705B01DCC9F7300D8D8DF /* CurrentLocationProvider.swift */; };
 		889705B41DCCA3CB00D8D8DF /* LocationManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705B31DCCA3CB00D8D8DF /* LocationManaging.swift */; };
+		88A303011DD081CB0054A1CE /* FakeLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A303001DD081CB0054A1CE /* FakeLocationManager.framework */; };
+		88A303031DD082310054A1CE /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A303021DD082310054A1CE /* Equatable.swift */; };
 		88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF69381DBF905F00FE11F0 /* AppDelegate.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
 		88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DF69411DBF905F00FE11F0 /* LaunchScreen.storyboard */; };
@@ -124,6 +126,8 @@
 		889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationProviderSpec.swift; sourceTree = "<group>"; };
 		889705B01DCC9F7300D8D8DF /* CurrentLocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationProvider.swift; sourceTree = "<group>"; };
 		889705B31DCCA3CB00D8D8DF /* LocationManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManaging.swift; sourceTree = "<group>"; };
+		88A303001DD081CB0054A1CE /* FakeLocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FakeLocationManager.framework; path = "../../Library/Developer/Xcode/DerivedData/TransitApp-ccsrwxaicdsujnfrsbzpyykenncl/Build/Products/Debug-iphonesimulator/FakeLocationManager.framework"; sourceTree = "<group>"; };
+		88A303021DD082310054A1CE /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		88DF69351DBF905F00FE11F0 /* TransitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF69381DBF905F00FE11F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88DF693F1DBF905F00FE11F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88A303011DD081CB0054A1CE /* FakeLocationManager.framework in Frameworks */,
 				B1014C0579D36450907EE849 /* Pods_TransitApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +164,7 @@
 		1087998E3743407116176E77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88A303001DD081CB0054A1CE /* FakeLocationManager.framework */,
 				642B0DF2737E6BEB51A4AD79 /* Pods_TransitAppTests.framework */,
 				31867505C8EB0A265C5556A7 /* Pods_TransitApp.framework */,
 			);
@@ -265,6 +271,7 @@
 			children = (
 				880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */,
 				887DBED31DC62A8500D92E19 /* UIColor.swift */,
+				88A303021DD082310054A1CE /* Equatable.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -617,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */,
+				88A303031DD082310054A1CE /* Equatable.swift in Sources */,
 				8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */,
 				889705B41DCCA3CB00D8D8DF /* LocationManaging.swift in Sources */,
 				8884CE441DC6167A004365B3 /* MapOverlayProvider.swift in Sources */,

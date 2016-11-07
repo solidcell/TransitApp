@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 import CoreLocation
+import FakeLocationManager
 @testable import TransitApp
 
 class CurrentLocationProviderSpec: TransitAppSpec {

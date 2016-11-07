@@ -6,7 +6,7 @@ import CoreLocation
 // into a project too.  Also, probably a good idea
 // to override unimplemented methods and then fatalError.
 
-protocol LocationManaging: class {
+public protocol LocationManaging: class {
 
     // Supported subset interface from CLLocationManager
     weak var delegate: CLLocationManagerDelegate? { get set }

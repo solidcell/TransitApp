@@ -1,4 +1,5 @@
 import CoreLocation
+import FakeLocationManager
 
 extension CLLocationManager: LocationManaging {
 
@@ -10,11 +11,11 @@ extension CLLocationManager: LocationManaging {
      reset itself between tests, so the values would pollute other tests.
      */
     
-    func authorizationStatus() -> CLAuthorizationStatus {
+    public func authorizationStatus() -> CLAuthorizationStatus {
         return CLLocationManager.authorizationStatus()
     }
     
-    func isLocationServicesEnabled() -> Bool {
+    public func isLocationServicesEnabled() -> Bool {
         return CLLocationManager.locationServicesEnabled()
     }
 
