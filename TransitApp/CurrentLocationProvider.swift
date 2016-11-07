@@ -1,7 +1,6 @@
 import CoreLocation
-import FakeLocationManager
 
-// This class wraps CLLocationManager interaction
+// This class wraps CLLocationManager(LocationManaging) interaction
 
 class CurrentLocationProvider: NSObject {
 

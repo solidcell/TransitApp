@@ -13,6 +13,7 @@
 		88A302FB1DD07D3D0054A1CE /* FakeLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A302FA1DD07D3D0054A1CE /* FakeLocationManager.swift */; };
 		88A302FD1DD080AD0054A1CE /* LocationManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A302FC1DD080AD0054A1CE /* LocationManaging.swift */; };
 		88A302FF1DD081500054A1CE /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A302FE1DD081500054A1CE /* Equatable.swift */; };
+		88A303051DD086EC0054A1CE /* CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A303041DD086EC0054A1CE /* CLLocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		88A302FA1DD07D3D0054A1CE /* FakeLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeLocationManager.swift; sourceTree = "<group>"; };
 		88A302FC1DD080AD0054A1CE /* LocationManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManaging.swift; sourceTree = "<group>"; };
 		88A302FE1DD081500054A1CE /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Equatable.swift; path = ../../TransitApp/Equatable.swift; sourceTree = "<group>"; };
+		88A303041DD086EC0054A1CE /* CLLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				88A302FC1DD080AD0054A1CE /* LocationManaging.swift */,
 				88A302FA1DD07D3D0054A1CE /* FakeLocationManager.swift */,
+				88A303041DD086EC0054A1CE /* CLLocationManager.swift */,
 				88A302FE1DD081500054A1CE /* Equatable.swift */,
 				88A302E11DD07CB90054A1CE /* Info.plist */,
 				88A302E01DD07CB90054A1CE /* FakeLocationManager.h */,
@@ -210,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88A302FF1DD081500054A1CE /* Equatable.swift in Sources */,
+				88A303051DD086EC0054A1CE /* CLLocationManager.swift in Sources */,
 				88A302FD1DD080AD0054A1CE /* LocationManaging.swift in Sources */,
 				88A302FB1DD07D3D0054A1CE /* FakeLocationManager.swift in Sources */,
 			);
@@ -424,6 +428,7 @@
 				88A302F31DD07CB90054A1CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88A302F41DD07CB90054A1CE /* Build configuration list for PBXNativeTarget "FakeLocationManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +437,7 @@
 				88A302F61DD07CB90054A1CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

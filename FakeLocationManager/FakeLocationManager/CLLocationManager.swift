@@ -1,5 +1,4 @@
 import CoreLocation
-import FakeLocationManager
 
 extension CLLocationManager: LocationManaging {
 
