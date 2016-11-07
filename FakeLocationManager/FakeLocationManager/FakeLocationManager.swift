@@ -1,5 +1,4 @@
 import CoreLocation
-@testable import TransitApp
 
 /*
  This class is used in place of CLLocationManager while in specs.
@@ -10,10 +9,12 @@ import CoreLocation
  documentation and experimenting with it).
 */
 
-class FakeLocationManager {
+public class FakeLocationManager {
+
+    public init() {}
 
     // this probably belongs in a Spec UIApplication
-    enum Dialog {
+    public enum Dialog {
         // "Allow "TransitApp" to access your location while you use the app?"
         // "<message you have set in Info.plist for NSLocationWhenInUseUsageDescription>"
         // [Don't Allow] [Allow]
@@ -25,11 +26,11 @@ class FakeLocationManager {
         case requestJumpToLocationServicesSettings
     }
 
-    weak var delegate: CLLocationManagerDelegate? {
+    public weak var delegate: CLLocationManagerDelegate? {
         didSet { sendCurrentStatus() }
     }
     var mostRecentLocation: CLLocation?
-    fileprivate(set) var dialog: Dialog?
+    public fileprivate(set) var dialog: Dialog?
     fileprivate var _authorizationStatus = CLAuthorizationStatus.notDetermined {
         didSet { sendCurrentStatus() }
     }
@@ -71,7 +72,7 @@ extension FakeLocationManager {
      "Settings" will additionally background the app, but
      we don't care about that, at least yet.
      */
-    func tapSettingsOrCancelInDialog() {
+    public func tapSettingsOrCancelInDialog() {
         if dialog != .requestJumpToLocationServicesSettings {
             fatalError("The dialog to jump to Location Services was not prompted.")
         }
@@ -84,7 +85,7 @@ extension FakeLocationManager {
 // MARK: User taps for authorization dialog prompts
 extension FakeLocationManager {
 
-    func tapAllowInDialog() {
+    public func tapAllowInDialog() {
         let accessLevel: CLAuthorizationStatus
         switch dialog! {
         case .requestAccessWhileInUse: accessLevel = .authorizedWhenInUse
@@ -94,7 +95,7 @@ extension FakeLocationManager {
         respondToAccessDialog(accessLevel)
     }
     
-    func tapDoNotAllowAccessInDialog() {
+    public func tapDoNotAllowAccessInDialog() {
         respondToAccessDialog(.denied)
     }
 
@@ -120,13 +121,13 @@ extension FakeLocationManager {
 // MARK: User's settings in the Settings app
 extension FakeLocationManager {
 
-    func setAuthorizationStatusInSettingsApp(_ status: CLAuthorizationStatus) {
+    public func setAuthorizationStatusInSettingsApp(_ status: CLAuthorizationStatus) {
         // should there be some check here to make sure that the user would even
         // have the option to be setting a (certain) status in the Settings app?
         _authorizationStatus = status
     }
 
-    func setLocationServicesEnabledInSettingsApp(_ enabled: Bool) {
+    public func setLocationServicesEnabledInSettingsApp(_ enabled: Bool) {
         _locationServicesEnabled = enabled
     }
 
@@ -180,11 +181,11 @@ extension FakeLocationManager {
 // MARK: LocationManaging
 extension FakeLocationManager: LocationManaging {
 
-    var location: CLLocation? {
+    public var location: CLLocation? {
         return mostRecentLocation
     }
 
-    func requestWhenInUseAuthorization() {
+    public func requestWhenInUseAuthorization() {
         switch authorizationStatus() {
         case .notDetermined: requestWhenInUseWhileNotDetermined()
         case .denied:
@@ -201,7 +202,7 @@ extension FakeLocationManager: LocationManaging {
         }
     }
 
-    func requestLocation() {
+    public func requestLocation() {
         switch authorizationStatus() {
         case .notDetermined: requestLocationWhileNotDetermined()
         case .authorizedWhenInUse: requestLocationWhileWhenInUse()
@@ -209,12 +210,12 @@ extension FakeLocationManager: LocationManaging {
         }
     }
     
-    func authorizationStatus() -> CLAuthorizationStatus {
+    public func authorizationStatus() -> CLAuthorizationStatus {
         if !isLocationServicesEnabled() { return .denied }
         return _authorizationStatus
     }
 
-    func isLocationServicesEnabled() -> Bool {
+    public func isLocationServicesEnabled() -> Bool {
         return _locationServicesEnabled
     }
 

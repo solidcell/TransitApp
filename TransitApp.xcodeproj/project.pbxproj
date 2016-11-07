@@ -27,7 +27,6 @@
 		8827E1371DC0C33800E06654 /* TestRandomJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */; };
 		8827E14F1DC0FD1500E06654 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E14E1DC0FD1500E06654 /* main.swift */; };
 		8827E15E1DC2507100E06654 /* SeedDataParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E15D1DC2507100E06654 /* SeedDataParserSpec.swift */; };
-		8867B47E1DCFA6C600E56BF5 /* FakeLocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867B47D1DCFA6C600E56BF5 /* FakeLocationManagerTests.swift */; };
 		887DBED41DC62A8500D92E19 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBED31DC62A8500D92E19 /* UIColor.swift */; };
 		887DBEDC1DC75AD300D92E19 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */; };
 		887DBEDE1DC75B3E00D92E19 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */; };
@@ -57,8 +56,6 @@
 		889705AF1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */; };
 		889705B11DCC9F7300D8D8DF /* CurrentLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705B01DCC9F7300D8D8DF /* CurrentLocationProvider.swift */; };
 		889705B41DCCA3CB00D8D8DF /* LocationManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705B31DCCA3CB00D8D8DF /* LocationManaging.swift */; };
-		889705B71DCCB8A200D8D8DF /* FakeLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705B61DCCB8A200D8D8DF /* FakeLocationManager.swift */; };
-		889705B91DCCC66100D8D8DF /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705B81DCCC66100D8D8DF /* Equatable.swift */; };
 		88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF69381DBF905F00FE11F0 /* AppDelegate.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
 		88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DF69411DBF905F00FE11F0 /* LaunchScreen.storyboard */; };
@@ -98,7 +95,6 @@
 		8827E1351DC0BD4300E06654 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		8827E14E1DC0FD1500E06654 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8827E15D1DC2507100E06654 /* SeedDataParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedDataParserSpec.swift; sourceTree = "<group>"; };
-		8867B47D1DCFA6C600E56BF5 /* FakeLocationManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeLocationManagerTests.swift; sourceTree = "<group>"; };
 		887DBED31DC62A8500D92E19 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -128,8 +124,6 @@
 		889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationProviderSpec.swift; sourceTree = "<group>"; };
 		889705B01DCC9F7300D8D8DF /* CurrentLocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationProvider.swift; sourceTree = "<group>"; };
 		889705B31DCCA3CB00D8D8DF /* LocationManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManaging.swift; sourceTree = "<group>"; };
-		889705B61DCCB8A200D8D8DF /* FakeLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeLocationManager.swift; sourceTree = "<group>"; };
-		889705B81DCCC66100D8D8DF /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		88DF69351DBF905F00FE11F0 /* TransitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF69381DBF905F00FE11F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88DF693F1DBF905F00FE11F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -271,18 +265,8 @@
 			children = (
 				880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */,
 				887DBED31DC62A8500D92E19 /* UIColor.swift */,
-				889705B81DCCC66100D8D8DF /* Equatable.swift */,
 			);
 			name = Extensions;
-			sourceTree = "<group>";
-		};
-		8867B47A1DCFA5E200E56BF5 /* FakeLocationManager */ = {
-			isa = PBXGroup;
-			children = (
-				889705B61DCCB8A200D8D8DF /* FakeLocationManager.swift */,
-				8867B47D1DCFA6C600E56BF5 /* FakeLocationManagerTests.swift */,
-			);
-			name = FakeLocationManager;
 			sourceTree = "<group>";
 		};
 		887DBEDA1DC75AA500D92E19 /* MapViewController */ = {
@@ -404,7 +388,6 @@
 				8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */,
 				887DBEFC1DCA174400D92E19 /* MapRegionProviderSpec.swift */,
 				889705B51DCCB89100D8D8DF /* CurrentLocation */,
-				8867B47A1DCFA5E200E56BF5 /* FakeLocationManager */,
 				880EB0651DC3607D00C5830E /* JSONParsing */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
@@ -634,7 +617,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */,
-				889705B91DCCC66100D8D8DF /* Equatable.swift in Sources */,
 				8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */,
 				889705B41DCCA3CB00D8D8DF /* LocationManaging.swift in Sources */,
 				8884CE441DC6167A004365B3 /* MapOverlayProvider.swift in Sources */,
@@ -672,7 +654,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8884CE421DC6160A004365B3 /* MapOverlayProviderSpec.swift in Sources */,
-				889705B71DCCB8A200D8D8DF /* FakeLocationManager.swift in Sources */,
 				8884CE341DC60AD8004365B3 /* BusinessAreaParserSpec.swift in Sources */,
 				887DBEF71DC8CDE200D92E19 /* ScooterFetcherSpec.swift in Sources */,
 				887DBEEB1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift in Sources */,
@@ -684,7 +665,6 @@
 				8827E15E1DC2507100E06654 /* SeedDataParserSpec.swift in Sources */,
 				8884CE2A1DC53316004365B3 /* MapViewDelegateSpec.swift in Sources */,
 				887DBEFB1DC8DF6700D92E19 /* ScooterUpdaterSpec.swift in Sources */,
-				8867B47E1DCFA6C600E56BF5 /* FakeLocationManagerTests.swift in Sources */,
 				880EB0671DC360C900C5830E /* MapAnnotationProviderSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

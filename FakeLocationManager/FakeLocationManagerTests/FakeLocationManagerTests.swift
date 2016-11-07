@@ -1,5 +1,6 @@
 import XCTest
 import CoreLocation
+import FakeLocationManager
 
 class FakeLocationManagerTests: XCTestCase {
 
