@@ -322,22 +322,6 @@
 			name = MapOverlays;
 			sourceTree = "<group>";
 		};
-		889705B21DCCA2C400D8D8DF /* CurrentLocationProviding */ = {
-			isa = PBXGroup;
-			children = (
-				889705B01DCC9F7300D8D8DF /* CurrentLocationProvider.swift */,
-			);
-			name = CurrentLocationProviding;
-			sourceTree = "<group>";
-		};
-		889705B51DCCB89100D8D8DF /* CurrentLocation */ = {
-			isa = PBXGroup;
-			children = (
-				889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */,
-			);
-			name = CurrentLocation;
-			sourceTree = "<group>";
-		};
 		88DF692C1DBF905F00FE11F0 = {
 			isa = PBXGroup;
 			children = (
@@ -364,7 +348,7 @@
 				880EB0621DC338BC00C5830E /* Main */,
 				880EB06E1DC36E1A00C5830E /* MapRegionProvider.swift */,
 				887DBEF81DC8D9BA00D92E19 /* ScooterUpdater.swift */,
-				889705B21DCCA2C400D8D8DF /* CurrentLocationProviding */,
+				889705B01DCC9F7300D8D8DF /* CurrentLocationProvider.swift */,
 				8884CE451DC619B6004365B3 /* MapOverlays */,
 				880EB0681DC3611E00C5830E /* MapAnnotations */,
 				8884CE2B1DC53817004365B3 /* MapAnnotationViews */,
@@ -391,7 +375,7 @@
 				8884CE411DC6160A004365B3 /* MapOverlayProviderSpec.swift */,
 				8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */,
 				887DBEFC1DCA174400D92E19 /* MapRegionProviderSpec.swift */,
-				889705B51DCCB89100D8D8DF /* CurrentLocation */,
+				889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */,
 				880EB0651DC3607D00C5830E /* JSONParsing */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,

@@ -3,9 +3,11 @@ import CoreLocation
 /*
  This class is used in place of CLLocationManager while in specs.
  It conforms to a subset of the same interface via LocationManaging.
- This allows us to test code which relies on behavior which is not
- normally under our control in CLLocationManager. It also allows us
- to document assumptions about how CLLocationManager works (based on
+ This allows us to test code which relies on state and behavior 
+ which is not under our control in CLLocationManager. Things like 
+ setting authorization status, setting current location, and responding
+ to dialog prompts. It also allows us to document and test against 
+ our assumptions about how CLLocationManager works (based on 
  documentation and experimenting with it).
 */
 
