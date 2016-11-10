@@ -57,7 +57,6 @@ class MapAnnotationProviderSpec: TransitAppSpec {
             beforeEach {
                 subject.delegate = delegate
                 expect(scooterWriter.callbackExecuted).toEventually(beTrue())
-                scooterWriter.callbackExecuted = false
                 expect(delegate.annotations).to(haveCount(1))
 
                 let newScooter = Scooter(latitude: -10.0, longitude: 55.0,
@@ -76,7 +75,6 @@ class MapAnnotationProviderSpec: TransitAppSpec {
             beforeEach {
                 subject.delegate = delegate
                 expect(scooterWriter.callbackExecuted).toEventually(beTrue())
-                scooterWriter.callbackExecuted = false
                 expect(delegate.annotations).to(haveCount(1))
                 let coordinateBefore = delegate.annotations.first!.coordinate
                 expect(coordinateBefore).to(equal(CLLocationCoordinate2D(latitude: 50.0,
@@ -113,10 +111,14 @@ private class SpecDelegate: MapAnnotationReceiving {
 
 private class SpecScooterWriter: ScooterWriter {
 
-    var callbackExecuted = false
+    var callbackExecuted: Bool {
+        defer { _callbackExecuted = false }
+        return _callbackExecuted
+    }
+    private var _callbackExecuted = false
 
     override func notificationCallback(changes: RealmCollectionChange<Results<Scooter>>) -> Void {
         super.notificationCallback(changes: changes)
-        callbackExecuted = true
+        _callbackExecuted = true
     }
 }
