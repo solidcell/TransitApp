@@ -1,6 +1,6 @@
 import RealmSwift
 
-class ScooterWriter {
+class ScooterRealmNotifier {
 
     weak var delegate: RealmNotifierDelegate?
     private var token: NotificationToken?
@@ -20,12 +20,6 @@ class ScooterWriter {
         if token != nil { fatalError("notification has already been subscribed to.") }
         token = results.addNotificationBlock { [weak self] changes in
             self?.notificationCallback(changes: changes)
-        }
-    }
-
-    func addOrUpdate(scooters: [Scooter]) {
-        try! realm.write {
-            realm.add(scooters, update: true)
         }
     }
 

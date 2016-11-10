@@ -34,6 +34,17 @@ extension Scooter {
     
 }
 
+// MARK: Saving
+extension Realm {
+
+    func addOrUpdate(scooters: [Scooter]) {
+        try! write {
+            add(scooters, update: true)
+        }
+    }
+    
+}
+
 // MARK: Queries
 extension Realm {
     

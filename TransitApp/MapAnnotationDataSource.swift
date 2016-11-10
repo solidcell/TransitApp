@@ -17,15 +17,15 @@ class MapAnnotationDataSource: MapAnnotationDataSourcing, RealmNotifierDelegate 
             start()
         }
     }
-    private let scooterWriter: ScooterWriter
+    private let scooterRealmNotifier: ScooterRealmNotifier
 
-    init(scooterWriter: ScooterWriter) {
-        self.scooterWriter = scooterWriter
-        self.scooterWriter.delegate = self
+    init(scooterRealmNotifier: ScooterRealmNotifier) {
+        self.scooterRealmNotifier = scooterRealmNotifier
+        self.scooterRealmNotifier.delegate = self
     }
 
     private func start() {
-        scooterWriter.start()
+        scooterRealmNotifier.start()
     }
 
     func didReceiveRealmNotification(changes: RealmCollectionChange<Results<Scooter>>) {
