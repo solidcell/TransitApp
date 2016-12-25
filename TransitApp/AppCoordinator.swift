@@ -1,5 +1,6 @@
 import UIKit
 import RealmSwift
+import CoreLocation
 
 /*
  NOTE: This class isn't tested.
@@ -17,11 +18,13 @@ class AppCoordinator {
         let scooterRealmNotifier = ScooterRealmNotifier(realm: realm)
         let jsonFetcher = JSONFetcher()
         let fetchTimer = FetchTimer()
+        let locationManager = CLLocationManager()
         coordinator.start(window: window,
                           realm: realm,
                           scooterRealmNotifier: scooterRealmNotifier,
                           jsonFetcher: jsonFetcher,
-                          fetchTimer: fetchTimer)
+                          fetchTimer: fetchTimer,
+                          locationManager: locationManager)
     }
 
 }

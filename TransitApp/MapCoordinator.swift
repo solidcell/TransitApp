@@ -1,6 +1,7 @@
 import UIKit
 import RealmSwift
 import CoreLocation
+import FakeLocationManager
 
 class MapCoordinator {
 
@@ -8,7 +9,8 @@ class MapCoordinator {
                realm: Realm,
                scooterRealmNotifier: ScooterRealmNotifier,
                jsonFetcher: JSONFetching,
-               fetchTimer: FetchTiming) {
+               fetchTimer: FetchTiming,
+               locationManager: LocationManaging) {
         let mapAnnotationDataSource = MapAnnotationDataSource(scooterRealmNotifier: scooterRealmNotifier)
         let mapAnnotationProvider = MapAnnotationProvider(dataSource: mapAnnotationDataSource)
         let mapOverlayProvider = MapOverlayProvider(realm: realm)
@@ -18,7 +20,6 @@ class MapCoordinator {
         let scooterFetcher = ScooterFetcher(jsonFetcher: jsonFetcher, fetchTimer: fetchTimer)
         let scooterUpdater = ScooterUpdater(realm: realm, scooterFetcher: scooterFetcher)
         scooterUpdater.start()
-        let locationManager = CLLocationManager()
         let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
         let vc = MapViewController.createFromStoryboard(mapAnnotationProvider: mapAnnotationProvider,
                                                         mapOverlayProvider: mapOverlayProvider,

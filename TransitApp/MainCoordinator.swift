@@ -1,5 +1,6 @@
 import UIKit
 import RealmSwift
+import FakeLocationManager
 
 class MainCoordinator {
 
@@ -9,14 +10,16 @@ class MainCoordinator {
                realm: Realm,
                scooterRealmNotifier: ScooterRealmNotifier,
                jsonFetcher: JSONFetching,
-               fetchTimer: FetchTiming) {
+               fetchTimer: FetchTiming,
+               locationManager: LocationManaging) {
         let seedDataParser = SeedDataParser(realm: realm)
         seedDataParser.seedIfNeeded()
         mapCoordinator.start(window: window,
                              realm: realm,
                              scooterRealmNotifier: scooterRealmNotifier,
                              jsonFetcher: jsonFetcher,
-                             fetchTimer: fetchTimer)
+                             fetchTimer: fetchTimer,
+                             locationManager: locationManager)
     }
     
 }
