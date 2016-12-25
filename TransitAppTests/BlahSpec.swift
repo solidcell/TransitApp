@@ -34,6 +34,14 @@ class BlahSpec: TransitAppSpec {
             mapView = mapViewFactory.mapView
         }
 
+        describe("the map region") {
+
+            it("starts at an initial value") {
+                expect(mapView.mapRegion).toNot(beNil())
+            }
+            
+        }
+
         describe("tapping on the Current Location Arrow") {
 
             beforeEach {

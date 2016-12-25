@@ -5,7 +5,6 @@ class MapViewController: UIViewController {
 
     var mapAnnotationProvider: MapAnnotationProvider!
     var mapOverlayProvider: MapOverlayProvider!
-    var initialCoordinateRegion: MKCoordinateRegion!
     var mapViewDelegate: MKMapViewDelegate!
     var scooterUpdater: ScooterUpdater!
     var viewModel: MapViewModel!
@@ -19,8 +18,9 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel.delegate = self
+        viewModel.viewDidLoad()
         mapView.delegate = mapViewDelegate
-        mapView.setRegion(initialCoordinateRegion, animated: true)
         mapAnnotationProvider.delegate = self
         configureMapOverlays()
         configureCurrentLocation()
@@ -39,6 +39,10 @@ extension MapViewController: MapViewModelDelegate {
 
     func centerMap(on coordinate: CLLocationCoordinate2D) {
         mapView.setCenter(coordinate, animated: true)
+    }
+    
+    func setRegion(_ region: MKCoordinateRegion) {
+        mapView.setRegion(region, animated: true)
     }
     
 }
@@ -66,7 +70,6 @@ extension MapViewController {
     // to top/bottom layout guides in Interface Builder
     class func createFromStoryboard(mapAnnotationProvider: MapAnnotationProvider,
                                     mapOverlayProvider: MapOverlayProvider,
-                                    initialCoordinateRegion: MKCoordinateRegion,
                                     mapViewDelegate: MKMapViewDelegate,
                                     scooterUpdater: ScooterUpdater,
                                     currentLocationProvider: CurrentLocationProvider,
@@ -75,11 +78,9 @@ extension MapViewController {
             .instantiateInitialViewController() as! MapViewController
         vc.mapAnnotationProvider = mapAnnotationProvider
         vc.mapOverlayProvider = mapOverlayProvider
-        vc.initialCoordinateRegion = initialCoordinateRegion
         vc.mapViewDelegate = mapViewDelegate
         vc.scooterUpdater = scooterUpdater
         vc.viewModel = viewModel
-        viewModel.delegate = vc
         return vc
     }
     

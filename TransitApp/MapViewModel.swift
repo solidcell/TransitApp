@@ -1,13 +1,21 @@
 import CoreLocation
+import MapKit
 
 class MapViewModel {
     
     private let currentLocationProvider: CurrentLocationProvider
+    private let initialCoordinateRegion: MKCoordinateRegion
     var delegate: MapViewModelDelegate!
 
-    init(currentLocationProvider: CurrentLocationProvider) {
+    init(currentLocationProvider: CurrentLocationProvider,
+         initialCoordinateRegion: MKCoordinateRegion) {
         self.currentLocationProvider = currentLocationProvider
+        self.initialCoordinateRegion = initialCoordinateRegion
         currentLocationProvider.delegate = self
+    }
+
+    func viewDidLoad() {
+        delegate.setRegion(initialCoordinateRegion)
     }
 
     func tapCurrentLocationButton() {
@@ -27,5 +35,6 @@ extension MapViewModel : CurrentLocationProviderDelegate {
 protocol MapViewModelDelegate {
 
     func centerMap(on: CLLocationCoordinate2D)
+    func setRegion(_ region: MKCoordinateRegion)
     
 }
