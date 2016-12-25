@@ -173,6 +173,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		880A05751E0FF1D000CFAFF4 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */,
+				887DBEF61DC8CDE200D92E19 /* ScooterFetcherSpec.swift */,
+				887DBEFA1DC8DF6700D92E19 /* ScooterUpdaterSpec.swift */,
+				887DBEEA1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift */,
+				8884CE411DC6160A004365B3 /* MapOverlayProviderSpec.swift */,
+				8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */,
+				887DBEFC1DCA174400D92E19 /* MapRegionProviderSpec.swift */,
+				889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */,
+				880EB0651DC3607D00C5830E /* JSONParsing */,
+			);
+			name = Unit;
+			sourceTree = "<group>";
+		};
+		880A05761E0FF1DA00CFAFF4 /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Integration;
+			sourceTree = "<group>";
+		};
 		880EB0621DC338BC00C5830E /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,15 +398,8 @@
 		88DF694C1DBF905F00FE11F0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */,
-				887DBEF61DC8CDE200D92E19 /* ScooterFetcherSpec.swift */,
-				887DBEFA1DC8DF6700D92E19 /* ScooterUpdaterSpec.swift */,
-				887DBEEA1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift */,
-				8884CE411DC6160A004365B3 /* MapOverlayProviderSpec.swift */,
-				8884CE291DC53316004365B3 /* MapViewDelegateSpec.swift */,
-				887DBEFC1DCA174400D92E19 /* MapRegionProviderSpec.swift */,
-				889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */,
-				880EB0651DC3607D00C5830E /* JSONParsing */,
+				880A05761E0FF1DA00CFAFF4 /* Integration */,
+				880A05751E0FF1D000CFAFF4 /* Unit */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
 				88DF694F1DBF905F00FE11F0 /* Info.plist */,
