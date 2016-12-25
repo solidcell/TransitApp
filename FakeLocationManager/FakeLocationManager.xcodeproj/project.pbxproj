@@ -62,8 +62,8 @@
 		88A302D31DD07CB90054A1CE = {
 			isa = PBXGroup;
 			children = (
-				88A302DF1DD07CB90054A1CE /* FakeLocationManager */,
-				88A302EA1DD07CB90054A1CE /* FakeLocationManagerTests */,
+				88A302DF1DD07CB90054A1CE /* Source */,
+				88A302EA1DD07CB90054A1CE /* Tests */,
 				88A302DE1DD07CB90054A1CE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,7 +77,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		88A302DF1DD07CB90054A1CE /* FakeLocationManager */ = {
+		88A302DF1DD07CB90054A1CE /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				88A302FC1DD080AD0054A1CE /* LocationManaging.swift */,
@@ -87,16 +87,18 @@
 				88A302E11DD07CB90054A1CE /* Info.plist */,
 				88A302E01DD07CB90054A1CE /* FakeLocationManager.h */,
 			);
+			name = Source;
 			path = FakeLocationManager;
 			sourceTree = "<group>";
 		};
-		88A302EA1DD07CB90054A1CE /* FakeLocationManagerTests */ = {
+		88A302EA1DD07CB90054A1CE /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				88A302F81DD07D2A0054A1CE /* FakeLocationManagerTests.swift */,
 				88A302ED1DD07CB90054A1CE /* Info.plist */,
 				88A302F71DD07D2A0054A1CE /* FakeLocationManagerTests-Bridging-Header.h */,
 			);
+			name = Tests;
 			path = FakeLocationManagerTests;
 			sourceTree = "<group>";
 		};

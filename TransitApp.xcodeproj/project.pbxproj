@@ -328,8 +328,8 @@
 		88DF692C1DBF905F00FE11F0 = {
 			isa = PBXGroup;
 			children = (
-				88DF69371DBF905F00FE11F0 /* TransitApp */,
-				88DF694C1DBF905F00FE11F0 /* TransitAppTests */,
+				88DF69371DBF905F00FE11F0 /* Source */,
+				88DF694C1DBF905F00FE11F0 /* Tests */,
 				88DF69361DBF905F00FE11F0 /* Products */,
 				D4C936C2E72A8F166808E7C1 /* Pods */,
 				33CCF6FA65642664F1753EC1 /* Frameworks */,
@@ -345,7 +345,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		88DF69371DBF905F00FE11F0 /* TransitApp */ = {
+		88DF69371DBF905F00FE11F0 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				880EB0621DC338BC00C5830E /* Main */,
@@ -365,10 +365,11 @@
 				88DF69411DBF905F00FE11F0 /* LaunchScreen.storyboard */,
 				88DF69441DBF905F00FE11F0 /* Info.plist */,
 			);
+			name = Source;
 			path = TransitApp;
 			sourceTree = "<group>";
 		};
-		88DF694C1DBF905F00FE11F0 /* TransitAppTests */ = {
+		88DF694C1DBF905F00FE11F0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */,
@@ -384,6 +385,7 @@
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
 				88DF694F1DBF905F00FE11F0 /* Info.plist */,
 			);
+			name = Tests;
 			path = TransitAppTests;
 			sourceTree = "<group>";
 		};
