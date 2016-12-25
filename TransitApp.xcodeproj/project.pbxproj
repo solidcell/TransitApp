@@ -13,6 +13,8 @@
 		880A057B1E100EB600CFAFF4 /* SpecJSONFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A057A1E100EB600CFAFF4 /* SpecJSONFetcher.swift */; };
 		880A057D1E100F1100CFAFF4 /* SpecFetchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A057C1E100F1100CFAFF4 /* SpecFetchTimer.swift */; };
 		880A057F1E100FB300CFAFF4 /* SpecScooterRealmNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A057E1E100FB300CFAFF4 /* SpecScooterRealmNotifier.swift */; };
+		880A05811E10330A00CFAFF4 /* SpecMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05801E10330A00CFAFF4 /* SpecMapView.swift */; };
+		880A05831E10353700CFAFF4 /* MapViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05821E10353700CFAFF4 /* MapViewControllerFactory.swift */; };
 		880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0601DC334F500C5830E /* TransitAppSpec.swift */; };
 		880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0631DC338EF00C5830E /* MainCoordinator.swift */; };
 		880EB0671DC360C900C5830E /* MapAnnotationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */; };
@@ -87,6 +89,8 @@
 		880A057A1E100EB600CFAFF4 /* SpecJSONFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecJSONFetcher.swift; sourceTree = "<group>"; };
 		880A057C1E100F1100CFAFF4 /* SpecFetchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecFetchTimer.swift; sourceTree = "<group>"; };
 		880A057E1E100FB300CFAFF4 /* SpecScooterRealmNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecScooterRealmNotifier.swift; sourceTree = "<group>"; };
+		880A05801E10330A00CFAFF4 /* SpecMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecMapView.swift; sourceTree = "<group>"; };
+		880A05821E10353700CFAFF4 /* MapViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerFactory.swift; sourceTree = "<group>"; };
 		880EB0601DC334F500C5830E /* TransitAppSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAppSpec.swift; sourceTree = "<group>"; };
 		880EB0631DC338EF00C5830E /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProviderSpec.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				880A057A1E100EB600CFAFF4 /* SpecJSONFetcher.swift */,
 				880A057C1E100F1100CFAFF4 /* SpecFetchTimer.swift */,
 				880A057E1E100FB300CFAFF4 /* SpecScooterRealmNotifier.swift */,
+				880A05801E10330A00CFAFF4 /* SpecMapView.swift */,
 			);
 			name = Fakes;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */,
+				880A05821E10353700CFAFF4 /* MapViewControllerFactory.swift */,
 				887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */,
 				880EB0701DC3736F00C5830E /* MapViewDelegate.swift */,
 				887DBEDF1DC75CED00D92E19 /* MapViewController.storyboard */,
@@ -679,6 +685,7 @@
 				880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */,
 				88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */,
 				887DBEF51DC8CDC700D92E19 /* ScooterFetcher.swift in Sources */,
+				880A05831E10353700CFAFF4 /* MapViewControllerFactory.swift in Sources */,
 				883D8FC91DCE07C5006B6B92 /* ScooterRealmNotifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,6 +694,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				880A05811E10330A00CFAFF4 /* SpecMapView.swift in Sources */,
 				8884CE421DC6160A004365B3 /* MapOverlayProviderSpec.swift in Sources */,
 				8884CE341DC60AD8004365B3 /* BusinessAreaParserSpec.swift in Sources */,
 				887DBEF71DC8CDE200D92E19 /* ScooterFetcherSpec.swift in Sources */,

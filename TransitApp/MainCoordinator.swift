@@ -7,6 +7,7 @@ class MainCoordinator {
     private let mapCoordinator = MapCoordinator()
 
     func start(window: UIWindow,
+               mapViewFactory: MapViewFactory,
                realm: Realm,
                scooterRealmNotifier: ScooterRealmNotifier,
                jsonFetcher: JSONFetching,
@@ -15,6 +16,7 @@ class MainCoordinator {
         let seedDataParser = SeedDataParser(realm: realm)
         seedDataParser.seedIfNeeded()
         mapCoordinator.start(window: window,
+                             viewFactory: mapViewFactory,
                              realm: realm,
                              scooterRealmNotifier: scooterRealmNotifier,
                              jsonFetcher: jsonFetcher,

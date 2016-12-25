@@ -6,6 +6,7 @@ import FakeLocationManager
 class MapCoordinator {
 
     func start(window: UIWindow,
+               viewFactory: MapViewFactory,
                realm: Realm,
                scooterRealmNotifier: ScooterRealmNotifier,
                jsonFetcher: JSONFetching,
@@ -21,13 +22,13 @@ class MapCoordinator {
         let scooterUpdater = ScooterUpdater(realm: realm, scooterFetcher: scooterFetcher)
         scooterUpdater.start()
         let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
-        let vc = MapViewController.createFromStoryboard(mapAnnotationProvider: mapAnnotationProvider,
-                                                        mapOverlayProvider: mapOverlayProvider,
-                                                        initialCoordinateRegion: region,
-                                                        mapViewDelegate: mapViewDelegate,
-                                                        scooterUpdater: scooterUpdater,
-                                                        currentLocationProvider: currentLocationProvider)
-        window.rootViewController = vc
+        viewFactory.createAndAttachToWindow(window: window,
+                                            mapAnnotationProvider: mapAnnotationProvider,
+                                            mapOverlayProvider: mapOverlayProvider,
+                                            initialCoordinateRegion: region,
+                                            mapViewDelegate: mapViewDelegate,
+                                            scooterUpdater: scooterUpdater,
+                                            currentLocationProvider: currentLocationProvider)
     }
 
 }
