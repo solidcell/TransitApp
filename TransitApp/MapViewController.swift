@@ -4,9 +4,9 @@ import MapKit
 class MapViewController: UIViewController {
 
     var mapAnnotationProvider: MapAnnotationProvider!
-    var mapViewDelegate: MKMapViewDelegate!
     var scooterUpdater: ScooterUpdater!
     var viewModel: MapViewModel!
+    private let mapViewDelegate = MapViewDelegate()
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -20,8 +20,8 @@ class MapViewController: UIViewController {
         viewModel.delegate = self
         viewModel.viewDidLoad()
         mapView.delegate = mapViewDelegate
-        mapAnnotationProvider.delegate = self
         mapView.showsUserLocation = true
+        mapAnnotationProvider.delegate = self
     }
 
 }
@@ -64,13 +64,11 @@ extension MapViewController {
     // Using a Storyboard, rather than a NIB, allows us access
     // to top/bottom layout guides in Interface Builder
     class func createFromStoryboard(mapAnnotationProvider: MapAnnotationProvider,
-                                    mapViewDelegate: MKMapViewDelegate,
                                     scooterUpdater: ScooterUpdater,
                                     viewModel: MapViewModel) -> MapViewController {
         let vc = UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateInitialViewController() as! MapViewController
         vc.mapAnnotationProvider = mapAnnotationProvider
-        vc.mapViewDelegate = mapViewDelegate
         vc.scooterUpdater = scooterUpdater
         vc.viewModel = viewModel
         return vc

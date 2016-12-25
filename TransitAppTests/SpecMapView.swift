@@ -50,7 +50,6 @@ class SpecMapViewFactory : MapViewFactory {
 
     func createAndAttachToWindow(window: UIWindow,
                                  mapAnnotationProvider: MapAnnotationProvider,
-                                 mapViewDelegate: MKMapViewDelegate,
                                  scooterUpdater: ScooterUpdater,
                                  viewModel: MapViewModel) {
         mapView = SpecMapView(viewModel: viewModel)

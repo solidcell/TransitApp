@@ -15,7 +15,6 @@ class MapCoordinator {
         let mapAnnotationDataSource = MapAnnotationDataSource(scooterRealmNotifier: scooterRealmNotifier)
         let mapAnnotationProvider = MapAnnotationProvider(dataSource: mapAnnotationDataSource)
         let mapOverlayProvider = MapOverlayProvider(realm: realm)
-        let mapViewDelegate = MapViewDelegate()
         let mapRegionProvider = MapRegionProvider()
         let region = mapRegionProvider.region
         let scooterFetcher = ScooterFetcher(jsonFetcher: jsonFetcher, fetchTimer: fetchTimer)
@@ -27,7 +26,6 @@ class MapCoordinator {
                                      mapOverlayProvider: mapOverlayProvider)
         viewFactory.createAndAttachToWindow(window: window,
                                             mapAnnotationProvider: mapAnnotationProvider,
-                                            mapViewDelegate: mapViewDelegate,
                                             scooterUpdater: scooterUpdater,
                                             viewModel: viewModel)
     }
