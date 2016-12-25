@@ -1,10 +1,5 @@
 import RealmSwift
 
-// NOTE: This class is untested!
-//
-// It's a slim wrapper around async Realm code.
-// Be sure to manually test any changes you make.
-
 class MapAnnotationDataSource: MapAnnotationDataSourcing, RealmNotifierDelegate {
 
     weak var delegate: MapAnnotationProvider? {

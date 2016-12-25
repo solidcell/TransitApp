@@ -13,7 +13,14 @@ class MainCoordinator {
 
     func start(window: UIWindow) {
         seedDataParser.seedIfNeeded()
-        mapCoordinator.start(window: window, realm: realm)
+        let scooterRealmNotifier = ScooterRealmNotifier(realm: realm)
+        let jsonFetcher = JSONFetcher()
+        let fetchTimer = FetchTimer()
+        mapCoordinator.start(window: window,
+                             realm: realm,
+                             scooterRealmNotifier: scooterRealmNotifier,
+                             jsonFetcher: jsonFetcher,
+                             fetchTimer: fetchTimer)
     }
     
 }
