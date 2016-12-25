@@ -42,6 +42,14 @@ class BlahSpec: TransitAppSpec {
             
         }
 
+        describe("the map overlays") {
+
+            it("are seeded with 3 business areas") {
+                expect(mapView.mapOverlays).to(haveCount(3))
+            }
+            
+        }
+
         describe("tapping on the Current Location Arrow") {
 
             beforeEach {

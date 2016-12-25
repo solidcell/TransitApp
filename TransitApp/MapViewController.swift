@@ -4,7 +4,6 @@ import MapKit
 class MapViewController: UIViewController {
 
     var mapAnnotationProvider: MapAnnotationProvider!
-    var mapOverlayProvider: MapOverlayProvider!
     var mapViewDelegate: MKMapViewDelegate!
     var scooterUpdater: ScooterUpdater!
     var viewModel: MapViewModel!
@@ -22,17 +21,9 @@ class MapViewController: UIViewController {
         viewModel.viewDidLoad()
         mapView.delegate = mapViewDelegate
         mapAnnotationProvider.delegate = self
-        configureMapOverlays()
-        configureCurrentLocation()
-    }
-
-    private func configureMapOverlays() {
-        mapOverlayProvider.overlays.forEach(mapView.add)
-    }
-
-    private func configureCurrentLocation() {
         mapView.showsUserLocation = true
     }
+
 }
 
 extension MapViewController: MapViewModelDelegate {
@@ -43,6 +34,10 @@ extension MapViewController: MapViewModelDelegate {
     
     func setRegion(_ region: MKCoordinateRegion) {
         mapView.setRegion(region, animated: true)
+    }
+
+    func setOverlays(_ overlays: [MKOverlay]) {
+        overlays.forEach(mapView.add)
     }
     
 }
@@ -69,15 +64,12 @@ extension MapViewController {
     // Using a Storyboard, rather than a NIB, allows us access
     // to top/bottom layout guides in Interface Builder
     class func createFromStoryboard(mapAnnotationProvider: MapAnnotationProvider,
-                                    mapOverlayProvider: MapOverlayProvider,
                                     mapViewDelegate: MKMapViewDelegate,
                                     scooterUpdater: ScooterUpdater,
-                                    currentLocationProvider: CurrentLocationProvider,
                                     viewModel: MapViewModel) -> MapViewController {
         let vc = UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateInitialViewController() as! MapViewController
         vc.mapAnnotationProvider = mapAnnotationProvider
-        vc.mapOverlayProvider = mapOverlayProvider
         vc.mapViewDelegate = mapViewDelegate
         vc.scooterUpdater = scooterUpdater
         vc.viewModel = viewModel
