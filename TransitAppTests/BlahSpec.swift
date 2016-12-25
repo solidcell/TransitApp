@@ -41,9 +41,24 @@ class BlahSpec: TransitAppSpec {
             }
 
             it("will present an authorization dialog") {
+                // it will not fatalError if there is a dialog to tap
+                // TODO add a way to just check for presence of dialog type
                 locationManager.tapAllowInDialog()
             }
 
+            describe("accepting location permission") {
+
+                beforeEach {
+                    locationManager.tapAllowInDialog()
+                }
+
+                it("will center the map on the current location") {
+                    expect(mapView.mapCenteredOn).to(beNil())
+                    locationManager.locationRequestSuccess()
+                    expect(mapView.mapCenteredOn).toNot(beNil())
+                }
+            }
+            
         }
     }
     

@@ -8,12 +8,12 @@ class MapViewController: UIViewController {
     var initialCoordinateRegion: MKCoordinateRegion!
     var mapViewDelegate: MKMapViewDelegate!
     var scooterUpdater: ScooterUpdater!
-    var currentLocationProvider: CurrentLocationProvider!
+    var viewModel: MapViewModel!
 
     @IBOutlet weak var mapView: MKMapView!
 
     @IBAction func currentLocationTap(_ sender: AnyObject) {
-        currentLocationProvider.getCurrentLocation()
+        viewModel.tapCurrentLocationButton()
     }
 
     override func viewDidLoad() {
@@ -31,15 +31,14 @@ class MapViewController: UIViewController {
     }
 
     private func configureCurrentLocation() {
-        currentLocationProvider.delegate = self
         mapView.showsUserLocation = true
     }
 }
 
-extension MapViewController: CurrentLocationProviderDelegate {
+extension MapViewController: MapViewModelDelegate {
 
-    func currentLocation(_ location: CLLocation) {
-        mapView.setCenter(location.coordinate, animated: true)
+    func centerMap(on coordinate: CLLocationCoordinate2D) {
+        mapView.setCenter(coordinate, animated: true)
     }
     
 }
@@ -70,7 +69,8 @@ extension MapViewController {
                                     initialCoordinateRegion: MKCoordinateRegion,
                                     mapViewDelegate: MKMapViewDelegate,
                                     scooterUpdater: ScooterUpdater,
-                                    currentLocationProvider: CurrentLocationProvider) -> MapViewController {
+                                    currentLocationProvider: CurrentLocationProvider,
+                                    viewModel: MapViewModel) -> MapViewController {
         let vc = UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateInitialViewController() as! MapViewController
         vc.mapAnnotationProvider = mapAnnotationProvider
@@ -78,7 +78,8 @@ extension MapViewController {
         vc.initialCoordinateRegion = initialCoordinateRegion
         vc.mapViewDelegate = mapViewDelegate
         vc.scooterUpdater = scooterUpdater
-        vc.currentLocationProvider = currentLocationProvider
+        vc.viewModel = viewModel
+        viewModel.delegate = vc
         return vc
     }
     

@@ -22,13 +22,15 @@ class MapCoordinator {
         let scooterUpdater = ScooterUpdater(realm: realm, scooterFetcher: scooterFetcher)
         scooterUpdater.start()
         let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
+        let viewModel = MapViewModel(currentLocationProvider: currentLocationProvider)
         viewFactory.createAndAttachToWindow(window: window,
                                             mapAnnotationProvider: mapAnnotationProvider,
                                             mapOverlayProvider: mapOverlayProvider,
                                             initialCoordinateRegion: region,
                                             mapViewDelegate: mapViewDelegate,
                                             scooterUpdater: scooterUpdater,
-                                            currentLocationProvider: currentLocationProvider)
+                                            currentLocationProvider: currentLocationProvider,
+                                            viewModel: viewModel)
     }
 
 }

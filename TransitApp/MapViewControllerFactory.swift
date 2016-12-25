@@ -9,7 +9,8 @@ protocol MapViewFactory {
                                  initialCoordinateRegion: MKCoordinateRegion,
                                  mapViewDelegate: MKMapViewDelegate,
                                  scooterUpdater: ScooterUpdater,
-                                 currentLocationProvider: CurrentLocationProvider)
+                                 currentLocationProvider: CurrentLocationProvider,
+                                 viewModel: MapViewModel)
     
 }
 
@@ -21,13 +22,15 @@ class MapViewControllerFactory : MapViewFactory {
                                  initialCoordinateRegion: MKCoordinateRegion,
                                  mapViewDelegate: MKMapViewDelegate,
                                  scooterUpdater: ScooterUpdater,
-                                 currentLocationProvider: CurrentLocationProvider) {
+                                 currentLocationProvider: CurrentLocationProvider,
+                                 viewModel: MapViewModel) {
         let vc = MapViewController.createFromStoryboard(mapAnnotationProvider: mapAnnotationProvider,
                                                         mapOverlayProvider: mapOverlayProvider,
                                                         initialCoordinateRegion: initialCoordinateRegion,
                                                         mapViewDelegate: mapViewDelegate,
                                                         scooterUpdater: scooterUpdater,
-                                                        currentLocationProvider: currentLocationProvider)
+                                                        currentLocationProvider: currentLocationProvider,
+                                                        viewModel: viewModel)
         window.rootViewController = vc
     }
     

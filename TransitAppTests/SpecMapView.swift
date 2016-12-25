@@ -4,18 +4,30 @@ import MapKit
 
 class SpecMapView {
 
-    let currentLocationProvider: CurrentLocationProvider
+    let viewModel: MapViewModel
 
-    init(currentLocationProvider: CurrentLocationProvider) {
-        self.currentLocationProvider = currentLocationProvider
+    init(viewModel: MapViewModel) {
+        self.viewModel = viewModel
     }
 
     // MARK: Input
 
     func tapCurrentLocationButton() {
-        currentLocationProvider.getCurrentLocation()
+        viewModel.tapCurrentLocationButton()
     }
+
+    // MARK: Output
+
+    var mapCenteredOn: CLLocationCoordinate2D?
     
+}
+
+extension SpecMapView : MapViewModelDelegate {
+
+    func centerMap(on coordinate: CLLocationCoordinate2D) {
+        mapCenteredOn = coordinate
+    }
+
 }
 
 class SpecMapViewFactory : MapViewFactory {
@@ -28,8 +40,10 @@ class SpecMapViewFactory : MapViewFactory {
                                  initialCoordinateRegion: MKCoordinateRegion,
                                  mapViewDelegate: MKMapViewDelegate,
                                  scooterUpdater: ScooterUpdater,
-                                 currentLocationProvider: CurrentLocationProvider) {
-        mapView = SpecMapView(currentLocationProvider: currentLocationProvider)
+                                 currentLocationProvider: CurrentLocationProvider,
+                                 viewModel: MapViewModel) {
+        mapView = SpecMapView(viewModel: viewModel)
+        viewModel.delegate = mapView
     }
     
 }
