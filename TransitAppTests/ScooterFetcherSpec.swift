@@ -50,35 +50,6 @@ class ScooterFetcherSpec: TransitAppSpec {
     }
 }
 
-private class SpecJSONFetcher: JSONFetching {
-
-    var completion: ((Any) -> Void)?
-
-    func fetch(url: String, completion: @escaping (Any) -> Void) {
-        self.completion = completion
-    }
-
-    func fetchSuccess(_ responseValue: Any) {
-        self.completion?(responseValue)
-        self.completion = nil
-    }
-
-}
-
-private class SpecFetchTimer: FetchTiming {
-
-    var block: (() -> Void)?
-
-    func start(block: @escaping () -> Void) {
-        self.block = block
-    }
-
-    func fire() {
-        self.block?()
-    }
-
-}
-
 private class SpecDelegate: ScooterFetcherDelegate {
 
     var fetchedScootersCalledWith: [Scooter]?

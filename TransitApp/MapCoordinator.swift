@@ -7,8 +7,8 @@ class MapCoordinator {
     func start(window: UIWindow,
                realm: Realm,
                scooterRealmNotifier: ScooterRealmNotifier,
-               jsonFetcher: JSONFetcher,
-               fetchTimer: FetchTimer) {
+               jsonFetcher: JSONFetching,
+               fetchTimer: FetchTiming) {
         let mapAnnotationDataSource = MapAnnotationDataSource(scooterRealmNotifier: scooterRealmNotifier)
         let mapAnnotationProvider = MapAnnotationProvider(dataSource: mapAnnotationDataSource)
         let mapOverlayProvider = MapOverlayProvider(realm: realm)

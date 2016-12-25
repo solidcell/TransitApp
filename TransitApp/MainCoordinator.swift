@@ -8,8 +8,8 @@ class MainCoordinator {
     func start(window: UIWindow,
                realm: Realm,
                scooterRealmNotifier: ScooterRealmNotifier,
-               jsonFetcher: JSONFetcher,
-               fetchTimer: FetchTimer) {
+               jsonFetcher: JSONFetching,
+               fetchTimer: FetchTiming) {
         let seedDataParser = SeedDataParser(realm: realm)
         seedDataParser.seedIfNeeded()
         mapCoordinator.start(window: window,
