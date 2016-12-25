@@ -1,0 +1,27 @@
+import UIKit
+import RealmSwift
+
+/*
+ NOTE: This class isn't tested.
+ This is where dependencies are created and things are
+ kicked off. When integration testing the app holistically,
+ this is the highest up the object graph that one will go.
+ */
+
+class AppCoordinator {
+    
+    private let coordinator = MainCoordinator()
+    
+    func start(window: UIWindow) {
+        let realm = try! Realm()
+        let scooterRealmNotifier = ScooterRealmNotifier(realm: realm)
+        let jsonFetcher = JSONFetcher()
+        let fetchTimer = FetchTimer()
+        coordinator.start(window: window,
+                          realm: realm,
+                          scooterRealmNotifier: scooterRealmNotifier,
+                          jsonFetcher: jsonFetcher,
+                          fetchTimer: fetchTimer)
+    }
+
+}
