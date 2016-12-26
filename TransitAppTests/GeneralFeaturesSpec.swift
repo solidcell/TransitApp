@@ -5,23 +5,28 @@ import MapKit
 import FakeLocationManager
 @testable import TransitApp
 
-class BlahSpec: TransitAppSpec {
+class GeneralFeaturesSpec: TransitAppSpec {
     
     override func spec() {
         super.spec()
 
+        var scooterUpdater: SpecScooterUpdater!
+        // Let the object graph hold onto this, so as not to
+        // mask possible retain issues
+        weak var locationManager: FakeLocationManager!
+        // Hold onto these, as the AppDelegate and UIKit would
         var subject: MainCoordinator!
-        var scooterRealmNotifier: SpecScooterRealmNotifier!
-        var jsonFetcher: SpecJSONFetcher!
-        var fetchTimer: SpecFetchTimer!
-        var locationManager: FakeLocationManager!
         var mapView: SpecMapViewInterating!
 
         beforeEach {
-            scooterRealmNotifier = SpecScooterRealmNotifier(realm: self.realm)
-            jsonFetcher = SpecJSONFetcher()
-            fetchTimer = SpecFetchTimer()
-            locationManager = FakeLocationManager()
+            let scooterRealmNotifier = SpecScooterRealmNotifier(realm: self.realm)
+            let jsonFetcher = SpecJSONFetcher()
+            let fetchTimer = SpecFetchTimer()
+            scooterUpdater = SpecScooterUpdater(scooterRealmNotifier: scooterRealmNotifier,
+                                                jsonFetcher: jsonFetcher,
+                                                fetchTimer: fetchTimer)
+            let _locationManager = FakeLocationManager()
+            locationManager = _locationManager
             let mapViewFactory = SpecMapViewFactory()
             subject = MainCoordinator()
             subject.start(window: UIWindow(),
@@ -83,7 +88,6 @@ class BlahSpec: TransitAppSpec {
 
                 beforeEach {
                     expect(mapView.mapAnnotations).to(haveCount(0))
-                    fetchTimer.fire()
                     let response = ScooterJSON.create([
                         SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
                                         vin: "RHMGRSAN0GT1R0112",
@@ -100,11 +104,10 @@ class BlahSpec: TransitAppSpec {
                                         energyLevel: 53,
                                         licensePlate: "201FCE")
                         ])
-                    jsonFetcher.fetchSuccess(response)
-                    expect(scooterRealmNotifier.callbackExecuted).toEventually(beTrue())
+                    scooterUpdater.updatesWith(response)
                 }
 
-                fit("should update on the map") {
+                it("should update on the map") {
                     expect(mapView.mapAnnotations).to(haveCount(2))
                 }
                 
