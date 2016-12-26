@@ -18,6 +18,8 @@
 		880A05851E103ABE00CFAFF4 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05841E103ABE00CFAFF4 /* MapViewModel.swift */; };
 		880A05881E112B5500CFAFF4 /* ScooterJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05871E112B5500CFAFF4 /* ScooterJSON.swift */; };
 		880A058A1E1134EF00CFAFF4 /* SpecScooterUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05891E1134EF00CFAFF4 /* SpecScooterUpdater.swift */; };
+		880A05A31E1179EA00CFAFF4 /* FakeLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880A058B1E11447F00CFAFF4 /* FakeLocationManager.framework */; };
+		880A05A41E1179EA00CFAFF4 /* FakeLocationManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 880A058B1E11447F00CFAFF4 /* FakeLocationManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0601DC334F500C5830E /* TransitAppSpec.swift */; };
 		880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0631DC338EF00C5830E /* MainCoordinator.swift */; };
 		880EB0671DC360C900C5830E /* MapAnnotationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */; };
@@ -67,7 +69,6 @@
 		889705AF1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705AE1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift */; };
 		889705B11DCC9F7300D8D8DF /* CurrentLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889705B01DCC9F7300D8D8DF /* CurrentLocationProvider.swift */; };
 		88A303031DD082310054A1CE /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A303021DD082310054A1CE /* Equatable.swift */; };
-		88DD9EDC1DD474D4001BD5BE /* FakeLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DD9EDB1DD474D4001BD5BE /* FakeLocationManager.framework */; };
 		88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF69381DBF905F00FE11F0 /* AppDelegate.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
 		88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DF69411DBF905F00FE11F0 /* LaunchScreen.storyboard */; };
@@ -84,6 +85,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		880A05A51E1179EA00CFAFF4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				880A05A41E1179EA00CFAFF4 /* FakeLocationManager.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		7699D0244E47BFD344B758C0 /* Pods_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +112,7 @@
 		880A05841E103ABE00CFAFF4 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		880A05871E112B5500CFAFF4 /* ScooterJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterJSON.swift; sourceTree = "<group>"; };
 		880A05891E1134EF00CFAFF4 /* SpecScooterUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecScooterUpdater.swift; sourceTree = "<group>"; };
+		880A058B1E11447F00CFAFF4 /* FakeLocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FakeLocationManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		880EB0601DC334F500C5830E /* TransitAppSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAppSpec.swift; sourceTree = "<group>"; };
 		880EB0631DC338EF00C5830E /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProviderSpec.swift; sourceTree = "<group>"; };
@@ -165,7 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88DD9EDC1DD474D4001BD5BE /* FakeLocationManager.framework in Frameworks */,
+				880A05A31E1179EA00CFAFF4 /* FakeLocationManager.framework in Frameworks */,
 				D4870CA3575749B536F4A82C /* Pods_TransitApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +200,7 @@
 		33CCF6FA65642664F1753EC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				880A058B1E11447F00CFAFF4 /* FakeLocationManager.framework */,
 				88DD9EDB1DD474D4001BD5BE /* FakeLocationManager.framework */,
 				B312C91F47FAEE6F94B9DD82 /* Pods_TransitApp.framework */,
 				7699D0244E47BFD344B758C0 /* Pods_TransitAppTests.framework */,
@@ -475,6 +492,7 @@
 				88DF69331DBF905F00FE11F0 /* Resources */,
 				BA07D756A656A5ADA841EEC8 /* [CP] Embed Pods Frameworks */,
 				273913AA01CA221A9ACDEC74 /* [CP] Copy Pods Resources */,
+				880A05A51E1179EA00CFAFF4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -854,7 +872,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9AEB5ED9C6ABF2CA676D9BE4 /* Pods-TransitApp.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3V4RS4ALV7;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -870,7 +887,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D3FC6667524E339371C7C02 /* Pods-TransitApp.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3V4RS4ALV7;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";

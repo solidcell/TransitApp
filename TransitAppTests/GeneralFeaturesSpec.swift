@@ -1,7 +1,5 @@
 import Quick
 import Nimble
-import RealmSwift
-import MapKit
 import FakeLocationManager
 @testable import TransitApp
 
