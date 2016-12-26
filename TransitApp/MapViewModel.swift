@@ -8,7 +8,7 @@ class MapViewModel {
     private let mapOverlayProvider: MapOverlayProvider
     private let mapAnnotationProvider: MapAnnotationProvider
     private let scooterUpdater: ScooterUpdater
-    var delegate: MapViewModelDelegate!
+    weak var delegate: MapViewModelDelegate!
 
     init(currentLocationProvider: CurrentLocationProvider,
          initialCoordinateRegion: MKCoordinateRegion,
@@ -55,7 +55,7 @@ extension MapViewModel : CurrentLocationProviderDelegate {
     
 }
 
-protocol MapViewModelDelegate {
+protocol MapViewModelDelegate : class {
 
     func centerMap(on: CLLocationCoordinate2D)
     func setRegion(_ region: MKCoordinateRegion)

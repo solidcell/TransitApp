@@ -26,8 +26,7 @@ class MapCoordinator {
                                      mapOverlayProvider: mapOverlayProvider,
                                      mapAnnotationProvider: mapAnnotationProvider,
                                      scooterUpdater: scooterUpdater)
-        viewFactory.createAndAttachToWindow(window: window,
-                                            viewModel: viewModel)
+        viewFactory.createAndAttachToWindow(window: window, viewModel: viewModel)
     }
 
 }

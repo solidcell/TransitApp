@@ -2,9 +2,29 @@ import UIKit
 import MapKit
 @testable import TransitApp
 
-class SpecMapView {
+protocol SpecMapViewInterating {
+    
+    // MARK: Input
 
-    let viewModel: MapViewModel
+    func tapCurrentLocationButton()
+
+    // MARK: Output
+
+    var mapCenteredOn: CLLocationCoordinate2D? { get }
+    var mapRegion: MKCoordinateRegion? { get }
+    var mapOverlays: [MKOverlay] { get }
+    var mapAnnotations: [MKAnnotation] { get }
+    
+}
+
+private class SpecMapView : SpecMapViewInterating {
+
+    var mapCenteredOn: CLLocationCoordinate2D?
+    var mapRegion: MKCoordinateRegion?
+    var mapOverlays = [MKOverlay]()
+    var mapAnnotations = [MKAnnotation]()
+
+    private let viewModel: MapViewModel
 
     init(viewModel: MapViewModel) {
         self.viewModel = viewModel
@@ -14,18 +34,9 @@ class SpecMapView {
         viewModel.viewDidLoad()
     }
 
-    // MARK: Input
-
     func tapCurrentLocationButton() {
         viewModel.tapCurrentLocationButton()
     }
-
-    // MARK: Output
-
-    var mapCenteredOn: CLLocationCoordinate2D?
-    var mapRegion: MKCoordinateRegion?
-    var mapOverlays = [MKOverlay]()
-    var mapAnnotations = [MKAnnotation]()
     
 }
 
@@ -55,9 +66,9 @@ extension SpecMapView : MapViewModelDelegate {
 
 class SpecMapViewFactory : MapViewFactory {
 
-    var mapView: SpecMapView!
+    var mapView: SpecMapViewInterating!
 
-    func createAndAttachToWindow(_: UIWindow, viewModel: MapViewModel) {
+    func createAndAttachToWindow(window _: UIWindow, viewModel: MapViewModel) {
         mapView = SpecMapView(viewModel: viewModel)
     }
     

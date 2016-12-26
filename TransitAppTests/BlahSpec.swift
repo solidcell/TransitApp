@@ -15,7 +15,7 @@ class BlahSpec: TransitAppSpec {
         var jsonFetcher: SpecJSONFetcher!
         var fetchTimer: SpecFetchTimer!
         var locationManager: FakeLocationManager!
-        var mapView: SpecMapView!
+        var mapView: SpecMapViewInterating!
 
         beforeEach {
             scooterRealmNotifier = SpecScooterRealmNotifier(realm: self.realm)
@@ -92,7 +92,7 @@ class BlahSpec: TransitAppSpec {
                     expect(scooterRealmNotifier.callbackExecuted).toEventually(beTrue())
                 }
 
-                fit("should update on the map") {
+                it("should update on the map") {
                     expect(mapView.mapAnnotations).to(haveCount(2))
                 }
                 

@@ -45,19 +45,3 @@ extension MapViewController: MapViewModelDelegate {
         UIView.animate(withDuration: 1.0, animations: update)
     }
 }
-
-// MARK: Creation
-extension MapViewController {
-    
-    private static var storyboardName = "MapViewController"
-
-    // Using a Storyboard, rather than a NIB, allows us access
-    // to top/bottom layout guides in Interface Builder
-    class func createFromStoryboard(viewModel: MapViewModel) -> MapViewController {
-        let vc = UIStoryboard(name: storyboardName, bundle: nil)
-            .instantiateInitialViewController() as! MapViewController
-        vc.viewModel = viewModel
-        return vc
-    }
-    
-}
