@@ -84,15 +84,27 @@ class BlahSpec: TransitAppSpec {
                 beforeEach {
                     expect(mapView.mapAnnotations).to(haveCount(0))
                     fetchTimer.fire()
-                    let response = ["data": ["scooters": [
-                        ["id":"05ba8757-c7d3-42ad-b225-242d85c63aa2","vin":"RHMGRSAN0GT1R0112","model":"Gogoro 1st edition","license_plate":"198FCE","energy_level":70,"location":["lng":13.415355,"lat":52.517223]],
-                        ["id":"05bdd9ae-af0c-49af-9ee5-815614f3fcdd","vin":"RHMGRSAN0GT1R0115","model":"Gogoro 1st edition","license_plate":"201FCE","energy_level":53,"location":["lng":13.360313,"lat":52.494534]]
-                        ]]]
+                    let response = ScooterJSON.create([
+                        SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
+                                        vin: "RHMGRSAN0GT1R0112",
+                                        model: "Gogoro 1st edition",
+                                        lat: 52.494534,
+                                        lng: 13.360313,
+                                        energyLevel: 70,
+                                        licensePlate: "198FCE"),
+                        SpecScooterJSON(id: "1211d9ae-af0c-49af-9ee5-815614f3fcdd",
+                                        vin: "RHMGRSAN0GT1R0115",
+                                        model: "Gogoro 1st edition",
+                                        lat: 52.51722,
+                                        lng: 13.415355,
+                                        energyLevel: 53,
+                                        licensePlate: "201FCE")
+                        ])
                     jsonFetcher.fetchSuccess(response)
                     expect(scooterRealmNotifier.callbackExecuted).toEventually(beTrue())
                 }
 
-                it("should update on the map") {
+                fit("should update on the map") {
                     expect(mapView.mapAnnotations).to(haveCount(2))
                 }
                 

@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		196FC76CBC4475AFBD08C51A /* Pods_TransitAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7699D0244E47BFD344B758C0 /* Pods_TransitAppTests.framework */; };
 		880A05741E0FEEE600CFAFF4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05731E0FEEE600CFAFF4 /* AppCoordinator.swift */; };
-		880A05781E0FF21D00CFAFF4 /* BlahSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05771E0FF21D00CFAFF4 /* BlahSpec.swift */; };
+		880A05781E0FF21D00CFAFF4 /* GeneralFeaturesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05771E0FF21D00CFAFF4 /* GeneralFeaturesSpec.swift */; };
 		880A057B1E100EB600CFAFF4 /* SpecJSONFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A057A1E100EB600CFAFF4 /* SpecJSONFetcher.swift */; };
 		880A057D1E100F1100CFAFF4 /* SpecFetchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A057C1E100F1100CFAFF4 /* SpecFetchTimer.swift */; };
 		880A057F1E100FB300CFAFF4 /* SpecScooterRealmNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A057E1E100FB300CFAFF4 /* SpecScooterRealmNotifier.swift */; };
 		880A05811E10330A00CFAFF4 /* SpecMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05801E10330A00CFAFF4 /* SpecMapView.swift */; };
 		880A05831E10353700CFAFF4 /* MapViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05821E10353700CFAFF4 /* MapViewControllerFactory.swift */; };
 		880A05851E103ABE00CFAFF4 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05841E103ABE00CFAFF4 /* MapViewModel.swift */; };
+		880A05881E112B5500CFAFF4 /* ScooterJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05871E112B5500CFAFF4 /* ScooterJSON.swift */; };
 		880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0601DC334F500C5830E /* TransitAppSpec.swift */; };
 		880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0631DC338EF00C5830E /* MainCoordinator.swift */; };
 		880EB0671DC360C900C5830E /* MapAnnotationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */; };
@@ -86,13 +87,14 @@
 		48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		7699D0244E47BFD344B758C0 /* Pods_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		880A05731E0FEEE600CFAFF4 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		880A05771E0FF21D00CFAFF4 /* BlahSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlahSpec.swift; sourceTree = "<group>"; };
+		880A05771E0FF21D00CFAFF4 /* GeneralFeaturesSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralFeaturesSpec.swift; sourceTree = "<group>"; };
 		880A057A1E100EB600CFAFF4 /* SpecJSONFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecJSONFetcher.swift; sourceTree = "<group>"; };
 		880A057C1E100F1100CFAFF4 /* SpecFetchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecFetchTimer.swift; sourceTree = "<group>"; };
 		880A057E1E100FB300CFAFF4 /* SpecScooterRealmNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecScooterRealmNotifier.swift; sourceTree = "<group>"; };
 		880A05801E10330A00CFAFF4 /* SpecMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecMapView.swift; sourceTree = "<group>"; };
 		880A05821E10353700CFAFF4 /* MapViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerFactory.swift; sourceTree = "<group>"; };
 		880A05841E103ABE00CFAFF4 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		880A05871E112B5500CFAFF4 /* ScooterJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterJSON.swift; sourceTree = "<group>"; };
 		880EB0601DC334F500C5830E /* TransitAppSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAppSpec.swift; sourceTree = "<group>"; };
 		880EB0631DC338EF00C5830E /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProviderSpec.swift; sourceTree = "<group>"; };
@@ -206,7 +208,7 @@
 		880A05761E0FF1DA00CFAFF4 /* Integration */ = {
 			isa = PBXGroup;
 			children = (
-				880A05771E0FF21D00CFAFF4 /* BlahSpec.swift */,
+				880A05771E0FF21D00CFAFF4 /* GeneralFeaturesSpec.swift */,
 			);
 			name = Integration;
 			sourceTree = "<group>";
@@ -220,6 +222,14 @@
 				880A05801E10330A00CFAFF4 /* SpecMapView.swift */,
 			);
 			name = Fakes;
+			sourceTree = "<group>";
+		};
+		880A05861E112B1600CFAFF4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				880A05871E112B5500CFAFF4 /* ScooterJSON.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		880EB0621DC338BC00C5830E /* Main */ = {
@@ -429,6 +439,7 @@
 				880A05761E0FF1DA00CFAFF4 /* Integration */,
 				880A05751E0FF1D000CFAFF4 /* Unit */,
 				880A05791E100EA200CFAFF4 /* Fakes */,
+				880A05861E112B1600CFAFF4 /* Utilities */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
 				88DF694F1DBF905F00FE11F0 /* Info.plist */,
@@ -709,9 +720,10 @@
 				889705AF1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift in Sources */,
 				887DBEFD1DCA174400D92E19 /* MapRegionProviderSpec.swift in Sources */,
 				880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */,
-				880A05781E0FF21D00CFAFF4 /* BlahSpec.swift in Sources */,
+				880A05781E0FF21D00CFAFF4 /* GeneralFeaturesSpec.swift in Sources */,
 				8827E15E1DC2507100E06654 /* SeedDataParserSpec.swift in Sources */,
 				880A057B1E100EB600CFAFF4 /* SpecJSONFetcher.swift in Sources */,
+				880A05881E112B5500CFAFF4 /* ScooterJSON.swift in Sources */,
 				8884CE2A1DC53316004365B3 /* MapViewDelegateSpec.swift in Sources */,
 				887DBEFB1DC8DF6700D92E19 /* ScooterUpdaterSpec.swift in Sources */,
 				880EB0671DC360C900C5830E /* MapAnnotationProviderSpec.swift in Sources */,
