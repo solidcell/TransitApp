@@ -3,8 +3,6 @@ import MapKit
 
 class MapViewController: UIViewController {
 
-    var mapAnnotationProvider: MapAnnotationProvider!
-    var scooterUpdater: ScooterUpdater!
     var viewModel: MapViewModel!
     private let mapViewDelegate = MapViewDelegate()
 
@@ -21,7 +19,6 @@ class MapViewController: UIViewController {
         viewModel.viewDidLoad()
         mapView.delegate = mapViewDelegate
         mapView.showsUserLocation = true
-        mapAnnotationProvider.delegate = self
     }
 
 }
@@ -40,20 +37,13 @@ extension MapViewController: MapViewModelDelegate {
         overlays.forEach(mapView.add)
     }
     
-}
-
-extension MapViewController: MapAnnotationReceiving {
-
     func newAnnotations(_ annotations: [MKAnnotation]) {
         annotations.forEach(mapView.addAnnotation)
     }
 
     func annotationsReadyForUpdate(update: @escaping () -> Void) {
-        UIView.animate(withDuration: 1.0) {
-            update()
-        }
+        UIView.animate(withDuration: 1.0, animations: update)
     }
-    
 }
 
 // MARK: Creation
@@ -63,13 +53,9 @@ extension MapViewController {
 
     // Using a Storyboard, rather than a NIB, allows us access
     // to top/bottom layout guides in Interface Builder
-    class func createFromStoryboard(mapAnnotationProvider: MapAnnotationProvider,
-                                    scooterUpdater: ScooterUpdater,
-                                    viewModel: MapViewModel) -> MapViewController {
+    class func createFromStoryboard(viewModel: MapViewModel) -> MapViewController {
         let vc = UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateInitialViewController() as! MapViewController
-        vc.mapAnnotationProvider = mapAnnotationProvider
-        vc.scooterUpdater = scooterUpdater
         vc.viewModel = viewModel
         return vc
     }

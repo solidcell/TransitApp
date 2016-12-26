@@ -3,22 +3,14 @@ import MapKit
 
 protocol MapViewFactory {
 
-    func createAndAttachToWindow(window: UIWindow,
-                                 mapAnnotationProvider: MapAnnotationProvider,
-                                 scooterUpdater: ScooterUpdater,
-                                 viewModel: MapViewModel)
-    
+    func createAndAttachToWindow(window: UIWindow, viewModel: MapViewModel)
+
 }
 
 class MapViewControllerFactory : MapViewFactory {
     
-    func createAndAttachToWindow(window: UIWindow,
-                                 mapAnnotationProvider: MapAnnotationProvider,
-                                 scooterUpdater: ScooterUpdater,
-                                 viewModel: MapViewModel) {
-        let vc = MapViewController.createFromStoryboard(mapAnnotationProvider: mapAnnotationProvider,
-                                                        scooterUpdater: scooterUpdater,
-                                                        viewModel: viewModel)
+    func createAndAttachToWindow(window: UIWindow, viewModel: MapViewModel) {
+        let vc = MapViewController.createFromStoryboard(viewModel: viewModel)
         window.rootViewController = vc
     }
     

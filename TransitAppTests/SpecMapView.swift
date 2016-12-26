@@ -25,6 +25,7 @@ class SpecMapView {
     var mapCenteredOn: CLLocationCoordinate2D?
     var mapRegion: MKCoordinateRegion?
     var mapOverlays = [MKOverlay]()
+    var mapAnnotations = [MKAnnotation]()
     
 }
 
@@ -41,6 +42,14 @@ extension SpecMapView : MapViewModelDelegate {
     func setOverlays(_ overlays: [MKOverlay]) {
         self.mapOverlays = overlays
     }
+    
+    func newAnnotations(_ annotations: [MKAnnotation]) {
+        self.mapAnnotations.append(contentsOf: annotations)
+    }
+
+    func annotationsReadyForUpdate(update: @escaping () -> Void) {
+        update()
+    }
 
 }
 
@@ -48,10 +57,7 @@ class SpecMapViewFactory : MapViewFactory {
 
     var mapView: SpecMapView!
 
-    func createAndAttachToWindow(window: UIWindow,
-                                 mapAnnotationProvider: MapAnnotationProvider,
-                                 scooterUpdater: ScooterUpdater,
-                                 viewModel: MapViewModel) {
+    func createAndAttachToWindow(_: UIWindow, viewModel: MapViewModel) {
         mapView = SpecMapView(viewModel: viewModel)
     }
     

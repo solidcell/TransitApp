@@ -23,10 +23,10 @@ class MapCoordinator {
         let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
         let viewModel = MapViewModel(currentLocationProvider: currentLocationProvider,
                                      initialCoordinateRegion: region,
-                                     mapOverlayProvider: mapOverlayProvider)
+                                     mapOverlayProvider: mapOverlayProvider,
+                                     mapAnnotationProvider: mapAnnotationProvider,
+                                     scooterUpdater: scooterUpdater)
         viewFactory.createAndAttachToWindow(window: window,
-                                            mapAnnotationProvider: mapAnnotationProvider,
-                                            scooterUpdater: scooterUpdater,
                                             viewModel: viewModel)
     }
 
