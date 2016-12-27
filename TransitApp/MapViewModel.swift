@@ -31,6 +31,7 @@ class MapViewModel {
     }
 
     func tapCurrentLocationButton() {
+        delegate.setCurrentLocationButtonState(.highlighted)
         currentLocationProvider.getCurrentLocation()
     }
     
@@ -40,6 +41,7 @@ extension MapViewModel {
 
     enum CurrentLocationButtonState {
         case nonHighlighted
+        case highlighted
     }
     
 }
