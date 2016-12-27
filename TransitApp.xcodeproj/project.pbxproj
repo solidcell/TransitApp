@@ -20,6 +20,7 @@
 		880A058A1E1134EF00CFAFF4 /* SpecScooterUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05891E1134EF00CFAFF4 /* SpecScooterUpdater.swift */; };
 		880A05A31E1179EA00CFAFF4 /* FakeLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880A058B1E11447F00CFAFF4 /* FakeLocationManager.framework */; };
 		880A05A41E1179EA00CFAFF4 /* FakeLocationManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 880A058B1E11447F00CFAFF4 /* FakeLocationManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		880A05A91E1278DE00CFAFF4 /* TransitAppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05A81E1278DE00CFAFF4 /* TransitAppFeature.swift */; };
 		880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0601DC334F500C5830E /* TransitAppSpec.swift */; };
 		880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0631DC338EF00C5830E /* MainCoordinator.swift */; };
 		880EB0671DC360C900C5830E /* MapAnnotationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */; };
@@ -113,6 +114,7 @@
 		880A05871E112B5500CFAFF4 /* ScooterJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterJSON.swift; sourceTree = "<group>"; };
 		880A05891E1134EF00CFAFF4 /* SpecScooterUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecScooterUpdater.swift; sourceTree = "<group>"; };
 		880A058B1E11447F00CFAFF4 /* FakeLocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FakeLocationManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		880A05A81E1278DE00CFAFF4 /* TransitAppFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAppFeature.swift; sourceTree = "<group>"; };
 		880EB0601DC334F500C5830E /* TransitAppSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAppSpec.swift; sourceTree = "<group>"; };
 		880EB0631DC338EF00C5830E /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProviderSpec.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				880A05771E0FF21D00CFAFF4 /* GeneralFeaturesSpec.swift */,
+				880A05A81E1278DE00CFAFF4 /* TransitAppFeature.swift */,
 			);
 			name = Integration;
 			sourceTree = "<group>";
@@ -735,6 +738,7 @@
 				8884CE341DC60AD8004365B3 /* BusinessAreaParserSpec.swift in Sources */,
 				887DBEF71DC8CDE200D92E19 /* ScooterFetcherSpec.swift in Sources */,
 				887DBEEB1DC8B11D00D92E19 /* CoupMapAnnotationSpec.swift in Sources */,
+				880A05A91E1278DE00CFAFF4 /* TransitAppFeature.swift in Sources */,
 				880EB0871DC398FC00C5830E /* ScooterParserSpec.swift in Sources */,
 				880A057D1E100F1100CFAFF4 /* SpecFetchTimer.swift in Sources */,
 				8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */,
