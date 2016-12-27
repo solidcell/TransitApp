@@ -82,7 +82,7 @@ class GeneralFeaturesSpec: TransitAppSpec {
 
         describe("map annotations") {
 
-            context("when updated over the network") {
+            context("when added over the network") {
 
                 beforeEach {
                     expect(mapView.mapAnnotations).to(haveCount(0))
@@ -105,8 +105,39 @@ class GeneralFeaturesSpec: TransitAppSpec {
                     scooterUpdater.updatesWith(response)
                 }
 
-                it("should update on the map") {
+                it("should add them on the map") {
                     expect(mapView.mapAnnotations).to(haveCount(2))
+                }
+                
+            }
+            
+            context("when updated over the network") {
+
+                beforeEach {
+                    expect(mapView.mapAnnotations).to(haveCount(0))
+                    let response = ScooterJSON.create([
+                        SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
+                                        vin: "RHMGRSAN0GT1R0112",
+                                        model: "Gogoro 1st edition",
+                                        lat: 52.494534,
+                                        lng: 13.360313,
+                                        energyLevel: 70,
+                                        licensePlate: "198FCE")])
+                    scooterUpdater.updatesWith(response)
+                    expect(mapView.mapAnnotations).to(haveCount(1))
+                }
+
+                it("should update them on the map") {
+                    let response = ScooterJSON.create([
+                        SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
+                                        vin: "RHMGRSAN0GT1R0112",
+                                        model: "Gogoro 1st edition",
+                                        lat: 50.222222,
+                                        lng: 15.444444,
+                                        energyLevel: 43,
+                                        licensePlate: "198FCE")])
+                    scooterUpdater.updatesWith(response)
+                    expect(mapView.mapAnnotations).to(haveCount(1))
                 }
                 
             }
