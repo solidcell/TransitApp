@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,8 +23,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="omJ-vu-fC1"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpP-Or-9Ia">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="gHe-Iw-EDt"/>
-                                    <constraint firstAttribute="height" constant="30" id="oNO-Qc-hpp"/>
+                                    <constraint firstAttribute="height" secondItem="hpP-Or-9Ia" secondAttribute="width" multiplier="1:1" id="zue-lG-Hqr"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="currentLocationArrow"/>
                                 <connections>
@@ -33,14 +34,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="omJ-vu-fC1" secondAttribute="trailing" id="6V1-Sm-61F"/>
-                            <constraint firstItem="hpP-Or-9Ia" firstAttribute="bottom" secondItem="omJ-vu-fC1" secondAttribute="bottom" constant="-40" id="WAf-rt-8rD"/>
+                            <constraint firstItem="omJ-vu-fC1" firstAttribute="bottom" secondItem="hpP-Or-9Ia" secondAttribute="bottom" constant="20" id="WAf-rt-8rD"/>
                             <constraint firstItem="CHg-h3-a7q" firstAttribute="top" secondItem="omJ-vu-fC1" secondAttribute="bottom" id="Ybv-yr-huS"/>
                             <constraint firstItem="omJ-vu-fC1" firstAttribute="leading" secondItem="7bk-Pb-kYI" secondAttribute="leading" id="YxY-ZP-kBm"/>
-                            <constraint firstItem="hpP-Or-9Ia" firstAttribute="trailing" secondItem="omJ-vu-fC1" secondAttribute="trailing" constant="-40" id="ZdA-Q6-THJ"/>
                             <constraint firstItem="omJ-vu-fC1" firstAttribute="top" secondItem="7bk-Pb-kYI" secondAttribute="top" id="lmy-UC-sH4"/>
+                            <constraint firstItem="hpP-Or-9Ia" firstAttribute="width" secondItem="omJ-vu-fC1" secondAttribute="width" multiplier="0.15" id="vXQ-Fr-6LI"/>
+                            <constraint firstItem="omJ-vu-fC1" firstAttribute="trailing" secondItem="hpP-Or-9Ia" secondAttribute="trailing" constant="20" id="w3b-qg-0T1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentLocationButton" destination="hpP-Or-9Ia" id="0jK-tU-VZZ"/>
                         <outlet property="mapView" destination="omJ-vu-fC1" id="GKP-5A-zwu"/>
                     </connections>
                 </viewController>
