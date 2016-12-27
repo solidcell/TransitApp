@@ -42,6 +42,7 @@ public class FakeLocationManager {
     fileprivate var locationServicesDialogResponseCount = 0
     fileprivate let bsFirstArg = CLLocationManager()
     fileprivate var locationRequestInProgress = false
+    fileprivate var updatingLocation = false
 
     private func sendCurrentStatus() {
         delegate?.locationManager?(bsFirstArg, didChangeAuthorization: authorizationStatus())
@@ -56,7 +57,7 @@ extension FakeLocationManager {
         if !authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways) {
             fatalError("CLLocationManager would not be sending the location, since user has not authorized access.")
         }
-        if !locationRequestInProgress {
+        if !(locationRequestInProgress || updatingLocation) {
             fatalError("CLLocationManager would not be sending the location, since there was no location request in progress.")
         }
         locationRequestInProgress = false
@@ -180,6 +181,19 @@ extension FakeLocationManager {
 
 }
 
+// MARK: startUpdatingLocation outcomes
+extension FakeLocationManager {
+
+    fileprivate func startUpdatingLocationWhileNotDetermined() {
+        fatalError() //check w/ device, but same as requestLocationWhileNotDetermined()?
+    }
+
+    fileprivate func startUpdatingLocationWhileWhenInUse() {
+        updatingLocation = true
+    }
+
+}
+
 // MARK: LocationManaging
 extension FakeLocationManager: LocationManaging {
 
@@ -208,6 +222,14 @@ extension FakeLocationManager: LocationManaging {
         switch authorizationStatus() {
         case .notDetermined: requestLocationWhileNotDetermined()
         case .authorizedWhenInUse: requestLocationWhileWhenInUse()
+        default: fatalError("Other authorization statuses are not supported yet.")
+        }
+    }
+
+    public func startUpdatingLocation() {
+        switch authorizationStatus() {
+        case .notDetermined: startUpdatingLocationWhileNotDetermined()
+        case .authorizedWhenInUse: startUpdatingLocationWhileWhenInUse()
         default: fatalError("Other authorization statuses are not supported yet.")
         }
     }

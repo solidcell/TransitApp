@@ -204,14 +204,41 @@ class FakeLocationManagerTests: XCTestCase {
         // user is not prompted with location services dialog a third time
         XCTAssertNil(subject.dialog)
     }
+
+    func test_locationRequestSuccess_AfterRequestLocation() {
+        // current status is .authorizedWhenInUse
+        subject.setAuthorizationStatusInSettingsApp(.authorizedWhenInUse)
+
+        subject.requestLocation()
+        
+        XCTAssertEqual(delegate.receivedUpdatedLocations.count, 0)
+        subject.locationRequestSuccess()
+        XCTAssertEqual(delegate.receivedUpdatedLocations.count, 1)
+    }
+
+    func test_locationRequestSuccess_AfterStartUpdatingLocation() {
+        // current status is .authorizedWhenInUse
+        subject.setAuthorizationStatusInSettingsApp(.authorizedWhenInUse)
+
+        subject.startUpdatingLocation()
+        
+        XCTAssertEqual(delegate.receivedUpdatedLocations.count, 0)
+        subject.locationRequestSuccess()
+        XCTAssertEqual(delegate.receivedUpdatedLocations.count, 1)
+    }
 }
 
 private class SpecDelegate: NSObject, CLLocationManagerDelegate {
 
     var receivedAuthorizationChange: CLAuthorizationStatus?
+    var receivedUpdatedLocations = [CLLocation]()
     
     func locationManager(_: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         receivedAuthorizationChange = status
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        receivedUpdatedLocations.append(contentsOf: locations)
     }
 
 }

@@ -24,5 +24,6 @@ public protocol LocationManaging: class {
     var location: CLLocation? { get }
     func requestLocation()
     func requestWhenInUseAuthorization()
+    func startUpdatingLocation()
     
 }
