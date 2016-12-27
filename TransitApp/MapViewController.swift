@@ -94,5 +94,13 @@ extension MapViewController: MapViewModelDelegate {
     }
 
     func setCurrentLocationButtonState(_ state: MapViewModel.CurrentLocationButtonState) {
+        let image: UIImage
+        switch state {
+        case .highlighted:
+            image = #imageLiteral(resourceName: "currentLocationArrowFilled")
+        case .nonHighlighted:
+            image = #imageLiteral(resourceName: "currentLocationArrowHollow")
+        }
+        currentLocationButton.setImage(image, for: .normal)
     }
 }
