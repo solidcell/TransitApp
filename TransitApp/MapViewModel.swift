@@ -27,10 +27,19 @@ class MapViewModel {
         mapAnnotationProvider.delegate = self
         delegate.setOverlays(mapOverlayProvider.overlays)
         delegate.setRegion(initialCoordinateRegion)
+        delegate.setCurrentLocationButtonState(.nonHighlighted)
     }
 
     func tapCurrentLocationButton() {
         currentLocationProvider.getCurrentLocation()
+    }
+    
+}
+
+extension MapViewModel {
+
+    enum CurrentLocationButtonState {
+        case nonHighlighted
     }
     
 }
@@ -62,5 +71,6 @@ protocol MapViewModelDelegate : class {
     func setOverlays(_ overlays: [MKOverlay])
     func newAnnotations(_ annotations: [MKAnnotation])
     func annotationsReadyForUpdate(update: @escaping () -> Void)
+    func setCurrentLocationButtonState(_ state: MapViewModel.CurrentLocationButtonState)
     
 }

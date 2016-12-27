@@ -1,31 +1,42 @@
 import Quick
 import Nimble
+@testable import TransitApp
 
 class CurrentLocationFeature: TransitAppFeature { override func spec() {
     super.spec()
 
-    describe("tapping on the Current Location Arrow") {
+    context("without having given or denied permission before") {
 
-        beforeEach {
-            self.mapView.tapCurrentLocationButton()
+        describe("the arrow") {
+            
+            it("will not be highlighted") {
+                expect(self.mapView.currentLocationButtonState).to(equal(MapViewModel.CurrentLocationButtonState.nonHighlighted))
+            }
         }
 
-        it("will present an authorization dialog") {
-            // it will not fatalError if there is a dialog to tap
-            // TODO add a way to just check for presence of dialog type
-            self.locationManager.tapAllowInDialog()
-        }
-
-        describe("accepting location permission") {
+        context("tapping on the arrow") {
 
             beforeEach {
+                self.mapView.tapCurrentLocationButton()
+            }
+
+            it("will present an authorization dialog") {
+                // it will not fatalError if there is a dialog to tap
+                // TODO add a way to just check for presence of dialog type
                 self.locationManager.tapAllowInDialog()
             }
 
-            it("will center the map on the current location") {
-                expect(self.mapView.mapCenteredOn).to(beNil())
-                self.locationManager.locationRequestSuccess()
-                expect(self.mapView.mapCenteredOn).toNot(beNil())
+            context("accepting location permission") {
+
+                beforeEach {
+                    self.locationManager.tapAllowInDialog()
+                }
+
+                it("will center the map on the current location") {
+                    expect(self.mapView.mapCenteredOn).to(beNil())
+                    self.locationManager.locationRequestSuccess()
+                    expect(self.mapView.mapCenteredOn).toNot(beNil())
+                }
             }
         }
     }

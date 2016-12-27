@@ -235,11 +235,10 @@
 		880A05761E0FF1DA00CFAFF4 /* Integration */ = {
 			isa = PBXGroup;
 			children = (
-				880A05B01E127B7B00CFAFF4 /* MapAnnotationFeature.swift */,
 				880A05AE1E127B4D00CFAFF4 /* CurrentLocationFeature.swift */,
+				880A05B01E127B7B00CFAFF4 /* MapAnnotationFeature.swift */,
 				880A05AA1E127AE200CFAFF4 /* MapRegionFeature.swift */,
 				880A05AC1E127B2300CFAFF4 /* MapOverlayFeature.swift */,
-				880A05A81E1278DE00CFAFF4 /* TransitAppFeature.swift */,
 			);
 			name = Integration;
 			sourceTree = "<group>";
@@ -473,6 +472,7 @@
 				880A05791E100EA200CFAFF4 /* Fakes */,
 				880A05861E112B1600CFAFF4 /* Utilities */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
+				880A05A81E1278DE00CFAFF4 /* TransitAppFeature.swift */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
 				88DF694F1DBF905F00FE11F0 /* Info.plist */,
 			);

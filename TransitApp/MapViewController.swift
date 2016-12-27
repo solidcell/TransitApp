@@ -44,4 +44,8 @@ extension MapViewController: MapViewModelDelegate {
     func annotationsReadyForUpdate(update: @escaping () -> Void) {
         UIView.animate(withDuration: 1.0, animations: update)
     }
+
+    func setCurrentLocationButtonState(_ state: MapViewModel.CurrentLocationButtonState) {
+        fatalError("implement the UI")
+    }
 }

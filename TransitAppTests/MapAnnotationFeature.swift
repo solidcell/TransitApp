@@ -27,7 +27,7 @@ class MapAnnotationFeature: TransitAppFeature { override func spec() {
             self.scooterUpdater.updatesWith(response)
         }
 
-        it("should add them on the map") {
+        it("adds them on the map") {
             expect(self.mapView.mapAnnotations).to(haveCount(2))
         }
     }
@@ -48,7 +48,7 @@ class MapAnnotationFeature: TransitAppFeature { override func spec() {
             expect(self.mapView.mapAnnotations).to(haveCount(1))
         }
 
-        it("should update them on the map") {
+        it("updates them on the map") {
             let response = ScooterJSON.create([
                 SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
                                 vin: "RHMGRSAN0GT1R0112",

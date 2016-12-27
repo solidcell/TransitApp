@@ -14,6 +14,7 @@ protocol SpecMapViewInterating {
     var mapRegion: MKCoordinateRegion? { get }
     var mapOverlays: [MKOverlay] { get }
     var mapAnnotations: [MKAnnotation] { get }
+    var currentLocationButtonState: MapViewModel.CurrentLocationButtonState! { get }
     
 }
 
@@ -23,6 +24,7 @@ private class SpecMapView : SpecMapViewInterating {
     var mapRegion: MKCoordinateRegion?
     var mapOverlays = [MKOverlay]()
     var mapAnnotations = [MKAnnotation]()
+    var currentLocationButtonState: MapViewModel.CurrentLocationButtonState!
 
     private let viewModel: MapViewModel
 
@@ -60,6 +62,10 @@ extension SpecMapView : MapViewModelDelegate {
 
     func annotationsReadyForUpdate(update: @escaping () -> Void) {
         update()
+    }
+
+    func setCurrentLocationButtonState(_ state: MapViewModel.CurrentLocationButtonState) {
+        self.currentLocationButtonState = state
     }
 
 }
