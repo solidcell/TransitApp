@@ -8,7 +8,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
     context("without having given or denied permission before") {
 
         it("the arrow will not be highlighted") {
-            expect(self.mapView.currentLocationButtonState).to(equal(MapViewModel.CurrentLocationButtonState.nonHighlighted))
+            self.expectCurrentLocationButtonState(.nonHighlighted)
         }
 
         context("tapping on the arrow") {
@@ -18,7 +18,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             }
 
             it("will highlight the arrow") {
-                expect(self.mapView.currentLocationButtonState).to(equal(MapViewModel.CurrentLocationButtonState.highlighted))
+                self.expectCurrentLocationButtonState(.highlighted)
             }
 
             it("will present an authorization dialog") {
@@ -53,7 +53,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
         beforeEach {
             self.mapView.tapCurrentLocationButton()
             self.locationManager.tapAllowInDialog()
-            expect(self.mapView.currentLocationButtonState).to(equal(MapViewModel.CurrentLocationButtonState.highlighted))
+            self.expectCurrentLocationButtonState(.highlighted)
         }
 
         context("tapping on the arrow") {
@@ -63,10 +63,29 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             }
 
             it("will un-highlight the arrow") {
-                expect(self.mapView.currentLocationButtonState).to(equal(MapViewModel.CurrentLocationButtonState.nonHighlighted))
+                self.expectCurrentLocationButtonState(.nonHighlighted)
+            }
+            
+            context("if/when the location is updated") {
+
+                beforeEach {
+                    expect(self.mapView.mapCenteredOn).to(beNil())
+                    self.locationManager.locationRequestSuccess()
+                }
+
+                it("will not center the map on the current location") {
+                    expect(self.mapView.mapCenteredOn).to(beNil())
+                }
             }
         }
     }
     
+    }
+}
+
+extension CurrentLocationFeature {
+
+    func expectCurrentLocationButtonState(_ state: MapViewModel.CurrentLocationButtonState) {
+        expect(self.mapView.currentLocationButtonState).to(equal(state))
     }
 }

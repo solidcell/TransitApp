@@ -8,7 +8,7 @@ class MapViewModel {
     private let mapOverlayProvider: MapOverlayProvider
     private let mapAnnotationProvider: MapAnnotationProvider
     private let scooterUpdater: ScooterUpdater
-    private var currentLocationButtonState = CurrentLocationButtonState.nonHighlighted
+    fileprivate var currentLocationButtonState = CurrentLocationButtonState.nonHighlighted
     weak var delegate: MapViewModelDelegate!
 
     init(currentLocationProvider: CurrentLocationProvider,
@@ -76,7 +76,9 @@ extension MapViewModel : MapAnnotationReceiving {
 extension MapViewModel : CurrentLocationProviderDelegate {
 
     func currentLocation(_ location: CLLocation) {
-        delegate.centerMap(on: location.coordinate)
+        if currentLocationButtonState == .highlighted {
+            delegate.centerMap(on: location.coordinate)
+        }
     }
     
 }
