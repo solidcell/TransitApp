@@ -25,7 +25,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="hpP-Or-9Ia" secondAttribute="width" multiplier="1:1" id="zue-lG-Hqr"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="currentLocationArrow"/>
+                                <state key="normal" title="Button" image="currentLocationArrowHollow"/>
                                 <connections>
                                     <action selector="currentLocationTap:" destination="zDx-62-8KF" eventType="touchUpInside" id="chF-4S-J3B"/>
                                 </connections>
@@ -53,6 +53,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="currentLocationArrow" width="202" height="205"/>
+        <image name="currentLocationArrowHollow" width="202" height="205"/>
     </resources>
 </document>
