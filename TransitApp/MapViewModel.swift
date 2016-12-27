@@ -8,6 +8,7 @@ class MapViewModel {
     private let mapOverlayProvider: MapOverlayProvider
     private let mapAnnotationProvider: MapAnnotationProvider
     private let scooterUpdater: ScooterUpdater
+    private var currentLocationButtonState = CurrentLocationButtonState.nonHighlighted
     weak var delegate: MapViewModelDelegate!
 
     init(currentLocationProvider: CurrentLocationProvider,
@@ -27,12 +28,26 @@ class MapViewModel {
         mapAnnotationProvider.delegate = self
         delegate.setOverlays(mapOverlayProvider.overlays)
         delegate.setRegion(initialCoordinateRegion)
-        delegate.setCurrentLocationButtonState(.nonHighlighted)
+        notifyDelegateOfCurrentLocationButtonState()
     }
 
     func tapCurrentLocationButton() {
-        delegate.setCurrentLocationButtonState(.highlighted)
+        toggleCurrentLocationButtonStates()
         currentLocationProvider.getCurrentLocation()
+    }
+
+    private func notifyDelegateOfCurrentLocationButtonState() {
+        delegate.setCurrentLocationButtonState(currentLocationButtonState)
+    }
+
+    private func toggleCurrentLocationButtonStates() {
+        switch currentLocationButtonState {
+        case .nonHighlighted:
+            currentLocationButtonState = .highlighted
+        case .highlighted:
+            currentLocationButtonState = .nonHighlighted
+        }
+        notifyDelegateOfCurrentLocationButtonState()
     }
     
 }

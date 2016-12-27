@@ -47,5 +47,26 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             }
         }
     }
+
+    context("when already following current location") {
+
+        beforeEach {
+            self.mapView.tapCurrentLocationButton()
+            self.locationManager.tapAllowInDialog()
+            expect(self.mapView.currentLocationButtonState).to(equal(MapViewModel.CurrentLocationButtonState.highlighted))
+        }
+
+        context("tapping on the arrow") {
+
+            beforeEach {
+                self.mapView.tapCurrentLocationButton()
+            }
+
+            it("will un-highlight the arrow") {
+                expect(self.mapView.currentLocationButtonState).to(equal(MapViewModel.CurrentLocationButtonState.nonHighlighted))
+            }
+        }
+    }
+    
     }
 }
