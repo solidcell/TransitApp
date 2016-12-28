@@ -16,6 +16,7 @@ class CurrentLocationViewModel {
     }
 
     func tapCurrentLocationButton() {
+        if provider.authorizationDenied { return }
         toggleCurrentLocationButtonStates()
         provider.startUpdatingLocation()
     }

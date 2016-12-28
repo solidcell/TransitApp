@@ -67,6 +67,25 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
         }
     }
 
+    context("when permission was already denied") {
+        
+        beforeEach {
+            self.mapView.tapCurrentLocationButton()
+            self.locationManager.tapDoNotAllowAccessInDialog()
+        }
+
+        context("tapping on the arrow") {
+
+            beforeEach {
+                self.mapView.tapCurrentLocationButton()
+            }
+
+            it("the arrow will still not be highlighted") {
+                self.expectCurrentLocationButtonState(.nonHighlighted)
+            }
+        }
+    }
+
     context("when already following current location") {
 
         beforeEach {

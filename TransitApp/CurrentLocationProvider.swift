@@ -15,6 +15,10 @@ class CurrentLocationProvider: NSObject {
         self.locationManager.delegate = self
     }
 
+    var authorizationDenied: Bool {
+        return locationManager.authorizationStatus() == .denied
+    }
+
     func startUpdatingLocation() {
         if !authorized {
             wantingToStartUpdatingLocation = true
