@@ -33,6 +33,10 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
                     self.locationManager.tapAllowInDialog()
                 }
 
+                it("the arrow will still be highlighted") {
+                    self.expectCurrentLocationButtonState(.highlighted)
+                }
+
                 context("if/when the location is updated") {
 
                     beforeEach {
@@ -42,6 +46,10 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
 
                     it("will center the map on the current location") {
                         expect(self.mapView.mapCenteredOn).toNot(beNil())
+                    }
+
+                    it("the arrow will still be highlighted") {
+                        self.expectCurrentLocationButtonState(.highlighted)
                     }
                 }
             }

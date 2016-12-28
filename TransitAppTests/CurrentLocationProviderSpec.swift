@@ -25,10 +25,10 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 expect(locationManager.authorizationStatus()).to(equal(CLAuthorizationStatus.notDetermined))
             }
 
-            describe("getCurrentLocation") {
+            describe("startUpdatingLocation") {
 
                 beforeEach {
-                    subject.getCurrentLocation()
+                    subject.startUpdatingLocation()
                 }
 
                 it("will prompt the user for access") {
@@ -82,10 +82,10 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 locationManager.setAuthorizationStatusInSettingsApp(.denied)
             }
 
-            describe("getCurrentLocation") {
+            describe("startUpdatingLocation") {
 
                 beforeEach {
-                    subject.getCurrentLocation()
+                    subject.startUpdatingLocation()
                 }
 
                 it("will not prompt the user for access") {
@@ -104,10 +104,10 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 locationManager.setAuthorizationStatusInSettingsApp(.authorizedWhenInUse)
             }
 
-            describe("getCurrentLocation") {
+            describe("startUpdatingLocation") {
 
                 beforeEach {
-                    subject.getCurrentLocation()
+                    subject.startUpdatingLocation()
                 }
 
                 it("will not prompt the user for access") {
@@ -117,32 +117,14 @@ class CurrentLocationProviderSpec: TransitAppSpec {
 
             context("if there is no location already available") {
 
-                describe("getCurrentLocation") {
+                describe("startUpdatingLocation") {
 
                     beforeEach {
-                        subject.getCurrentLocation()
+                        subject.startUpdatingLocation()
                     }
 
                     it("will update the delegate with the current location") {
                         locationManager.locationRequestSuccess()
-                        expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
-                    }
-                }
-            }
-
-            context("if there is already a location available") {
-
-                beforeEach {
-                    locationManager.mostRecentLocation = CLLocation(latitude: 1.0, longitude: 3.0)
-                }
-
-                describe("getCurrentLocation") {
-
-                    beforeEach {
-                        subject.getCurrentLocation()
-                    }
-                    
-                    it("will update the delegate with the current location") {
                         expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
                     }
                 }
@@ -155,10 +137,10 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 locationManager.setLocationServicesEnabledInSettingsApp(false)
             }
 
-            describe("getCurrentLocation") {
+            describe("startUpdatingLocation") {
 
                 beforeEach {
-                    subject.getCurrentLocation()
+                    subject.startUpdatingLocation()
                 }
 
                 it("will prompt the user to turn on Location Services") {
@@ -182,20 +164,14 @@ class CurrentLocationProviderSpec: TransitAppSpec {
             
             beforeEach {
                 locationManager.setLocationServicesEnabledInSettingsApp(false)
-                subject.getCurrentLocation()
+                subject.startUpdatingLocation()
                 locationManager.tapSettingsOrCancelInDialog()
                 locationManager.setLocationServicesEnabledInSettingsApp(true)
             }
 
-            describe("getCurrentLocation") {
 
-                beforeEach {
-                    subject.getCurrentLocation()
-                }
-
-                it("will prompt the user for access") {
-                    expect(locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestAccessWhileInUse))
-                }
+            it("will prompt the user for access") {
+                expect(locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestAccessWhileInUse))
             }
         }
         
@@ -206,10 +182,10 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 locationManager.setLocationServicesEnabledInSettingsApp(false)
             }
 
-            describe("getCurrentLocation") {
+            describe("startUpdatingLocation") {
 
                 beforeEach {
-                    subject.getCurrentLocation()
+                    subject.startUpdatingLocation()
                 }
 
                 context("when the user dismisses the dialog and turns it on") {
@@ -234,10 +210,10 @@ class CurrentLocationProviderSpec: TransitAppSpec {
                 locationManager.setLocationServicesEnabledInSettingsApp(false)
             }
 
-            describe("getCurrentLocation") {
+            describe("startUpdatingLocation") {
 
                 beforeEach {
-                    subject.getCurrentLocation()
+                    subject.startUpdatingLocation()
                 }
 
                 it("will not prompt the user to turn on Location Services") {
@@ -251,19 +227,19 @@ class CurrentLocationProviderSpec: TransitAppSpec {
             beforeEach {
                 locationManager.setLocationServicesEnabledInSettingsApp(false)
                 // first time
-                subject.getCurrentLocation()
+                subject.startUpdatingLocation()
                 expect(locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestJumpToLocationServicesSettings))
                 locationManager.tapSettingsOrCancelInDialog()
                 // second time
-                subject.getCurrentLocation()
+                subject.startUpdatingLocation()
                 expect(locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestJumpToLocationServicesSettings))
                 locationManager.tapSettingsOrCancelInDialog()
             }
 
-            describe("getCurrentLocation") {
+            describe("startUpdatingLocation") {
 
                 beforeEach {
-                    subject.getCurrentLocation()
+                    subject.startUpdatingLocation()
                 }
                 
                 it("will not prompt the user anymore to turn on Location Services") {

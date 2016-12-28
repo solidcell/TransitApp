@@ -7,6 +7,7 @@ class CurrentLocationProvider: NSObject {
 
     weak var delegate: CurrentLocationProviderDelegate?
     fileprivate let locationManager: LocationManaging
+    fileprivate var wantingToStartUpdatingLocation = false
     
     init(locationManager: LocationManaging) {
         self.locationManager = locationManager
@@ -14,21 +15,12 @@ class CurrentLocationProvider: NSObject {
         self.locationManager.delegate = self
     }
 
-    func getCurrentLocation() {
+    func startUpdatingLocation() {
         if !authorized {
+            wantingToStartUpdatingLocation = true
             locationManager.requestWhenInUseAuthorization()
         } else {
-            getCurrentLocationIfAuthorized()
-        }
-    }
-
-    fileprivate func getCurrentLocationIfAuthorized() {
-        if !authorized { return }
-
-        if let location = locationManager.location {
-            updateDelegateWithLocation(location)
-        } else {
-            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
         }
     }
 
@@ -53,8 +45,10 @@ extension CurrentLocationProvider: CLLocationManagerDelegate {
         // We should probably implement some kind of notification for the user, like a banner notice.
     }
 
-    func locationManager(_: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        getCurrentLocationIfAuthorized()
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if wantingToStartUpdatingLocation {
+            startUpdatingLocation()
+        }
     }
 
 }

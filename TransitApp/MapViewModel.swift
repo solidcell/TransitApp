@@ -33,7 +33,7 @@ class MapViewModel {
 
     func tapCurrentLocationButton() {
         toggleCurrentLocationButtonStates()
-        currentLocationProvider.getCurrentLocation()
+        currentLocationProvider.startUpdatingLocation()
     }
 
     private func notifyDelegateOfCurrentLocationButtonState() {
