@@ -60,7 +60,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
                     self.locationManager.tapDoNotAllowAccessInDialog()
                 }
 
-                fit("the arrow will no longer be highlighted") {
+                it("the arrow will no longer be highlighted") {
                     self.expectCurrentLocationButtonState(.nonHighlighted)
                 }
             }
@@ -104,7 +104,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
 
 extension CurrentLocationFeature {
 
-    func expectCurrentLocationButtonState(_ state: MapViewModel.CurrentLocationButtonState,
+    func expectCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState,
                                           f: String = #file, _ l: UInt = #line) {
         NMB_expect({self.mapView.currentLocationButtonState}, f, l).to(equal(state))
     }

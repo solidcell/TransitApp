@@ -24,6 +24,7 @@
 		880A05AD1E127B2300CFAFF4 /* MapOverlayFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05AC1E127B2300CFAFF4 /* MapOverlayFeature.swift */; };
 		880A05AF1E127B4D00CFAFF4 /* CurrentLocationFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05AE1E127B4D00CFAFF4 /* CurrentLocationFeature.swift */; };
 		880A05B11E127B7B00CFAFF4 /* MapAnnotationFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05B01E127B7B00CFAFF4 /* MapAnnotationFeature.swift */; };
+		880A05B31E141E3200CFAFF4 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05B21E141E3200CFAFF4 /* CurrentLocationViewModel.swift */; };
 		880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0601DC334F500C5830E /* TransitAppSpec.swift */; };
 		880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0631DC338EF00C5830E /* MainCoordinator.swift */; };
 		880EB0671DC360C900C5830E /* MapAnnotationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */; };
@@ -121,6 +122,7 @@
 		880A05AC1E127B2300CFAFF4 /* MapOverlayFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOverlayFeature.swift; sourceTree = "<group>"; };
 		880A05AE1E127B4D00CFAFF4 /* CurrentLocationFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationFeature.swift; sourceTree = "<group>"; };
 		880A05B01E127B7B00CFAFF4 /* MapAnnotationFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationFeature.swift; sourceTree = "<group>"; };
+		880A05B21E141E3200CFAFF4 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
 		880EB0601DC334F500C5830E /* TransitAppSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAppSpec.swift; sourceTree = "<group>"; };
 		880EB0631DC338EF00C5830E /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProviderSpec.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */,
 				880A05821E10353700CFAFF4 /* MapViewControllerFactory.swift */,
 				880A05841E103ABE00CFAFF4 /* MapViewModel.swift */,
+				880A05B21E141E3200CFAFF4 /* CurrentLocationViewModel.swift */,
 				887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */,
 				880EB0701DC3736F00C5830E /* MapViewDelegate.swift */,
 				887DBEDF1DC75CED00D92E19 /* MapViewController.storyboard */,
@@ -718,6 +721,7 @@
 				887DBEF21DC8C31A00D92E19 /* FetchTimer.swift in Sources */,
 				880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */,
 				887DBEE91DC8A24B00D92E19 /* MapAnnotationDataSource.swift in Sources */,
+				880A05B31E141E3200CFAFF4 /* CurrentLocationViewModel.swift in Sources */,
 				8884CE471DC619C5004365B3 /* MapOverlayCreator.swift in Sources */,
 				880EB0911DC39FCB00C5830E /* SeedDataParser.swift in Sources */,
 				880EB07D1DC3975400C5830E /* Scooter.swift in Sources */,

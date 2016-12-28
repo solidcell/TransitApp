@@ -93,7 +93,7 @@ extension MapViewController: MapViewModelDelegate {
         UIView.animate(withDuration: 1.0, animations: update)
     }
 
-    func setCurrentLocationButtonState(_ state: MapViewModel.CurrentLocationButtonState) {
+    func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
         let image: UIImage
         switch state {
         case .highlighted:

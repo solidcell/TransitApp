@@ -5,7 +5,7 @@ import FakeLocationManager
 
 class CurrentLocationProvider: NSObject {
 
-    weak var delegate: CurrentLocationProviderDelegate?
+    weak var delegate: CurrentLocationProviderDelegate!
     fileprivate let locationManager: LocationManaging
     fileprivate var wantingToStartUpdatingLocation = false
     
@@ -29,7 +29,7 @@ class CurrentLocationProvider: NSObject {
     }
 
     fileprivate func updateDelegateWithLocation(_ location: CLLocation) {
-        delegate?.currentLocation(location)
+        delegate.currentLocation(location)
     }
     
 }

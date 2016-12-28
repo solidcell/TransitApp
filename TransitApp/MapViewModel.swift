@@ -3,22 +3,19 @@ import MapKit
 
 class MapViewModel {
     
-    private let currentLocationProvider: CurrentLocationProvider
+    private let currentLocationViewModel: CurrentLocationViewModel
     private let initialCoordinateRegion: MKCoordinateRegion
     private let mapOverlayProvider: MapOverlayProvider
     private let mapAnnotationProvider: MapAnnotationProvider
     private let scooterUpdater: ScooterUpdater
-    fileprivate var currentLocationButtonState = CurrentLocationButtonState.nonHighlighted {
-        didSet { notifyDelegateOfCurrentLocationButtonState() }
-    }
     weak var delegate: MapViewModelDelegate!
 
-    init(currentLocationProvider: CurrentLocationProvider,
+    init(currentLocationViewModel: CurrentLocationViewModel,
          initialCoordinateRegion: MKCoordinateRegion,
          mapOverlayProvider: MapOverlayProvider,
          mapAnnotationProvider: MapAnnotationProvider,
          scooterUpdater: ScooterUpdater) {
-        self.currentLocationProvider = currentLocationProvider
+        self.currentLocationViewModel = currentLocationViewModel
         self.initialCoordinateRegion = initialCoordinateRegion
         self.mapOverlayProvider = mapOverlayProvider
         self.mapAnnotationProvider = mapAnnotationProvider
@@ -26,38 +23,26 @@ class MapViewModel {
     }
 
     func viewDidLoad() {
-        currentLocationProvider.delegate = self
         mapAnnotationProvider.delegate = self
+        currentLocationViewModel.delegate = self
         delegate.setOverlays(mapOverlayProvider.overlays)
         delegate.setRegion(initialCoordinateRegion)
-        notifyDelegateOfCurrentLocationButtonState()
     }
 
     func tapCurrentLocationButton() {
-        toggleCurrentLocationButtonStates()
-        currentLocationProvider.startUpdatingLocation()
-    }
-
-    private func notifyDelegateOfCurrentLocationButtonState() {
-        delegate.setCurrentLocationButtonState(currentLocationButtonState)
-    }
-
-    private func toggleCurrentLocationButtonStates() {
-        switch currentLocationButtonState {
-        case .nonHighlighted:
-            currentLocationButtonState = .highlighted
-        case .highlighted:
-            currentLocationButtonState = .nonHighlighted
-        }
+        currentLocationViewModel.tapCurrentLocationButton()
     }
     
 }
 
-extension MapViewModel {
+extension MapViewModel : CurrentLocationViewModelDelegate {
 
-    enum CurrentLocationButtonState {
-        case nonHighlighted
-        case highlighted
+    func centerMap(on coordinate: CLLocationCoordinate2D) {
+        delegate.centerMap(on: coordinate)
+    }
+
+    func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
+        delegate.setCurrentLocationButtonState(state)
     }
     
 }
@@ -74,20 +59,6 @@ extension MapViewModel : MapAnnotationReceiving {
 
 }
 
-extension MapViewModel : CurrentLocationProviderDelegate {
-
-    func currentLocation(_ location: CLLocation) {
-        if currentLocationButtonState == .highlighted {
-            delegate.centerMap(on: location.coordinate)
-        }
-    }
-
-    func authorizationTurnedOff() {
-        currentLocationButtonState = .nonHighlighted
-    }
-    
-}
-
 protocol MapViewModelDelegate : class {
 
     func centerMap(on: CLLocationCoordinate2D)
@@ -95,6 +66,6 @@ protocol MapViewModelDelegate : class {
     func setOverlays(_ overlays: [MKOverlay])
     func newAnnotations(_ annotations: [MKAnnotation])
     func annotationsReadyForUpdate(update: @escaping () -> Void)
-    func setCurrentLocationButtonState(_ state: MapViewModel.CurrentLocationButtonState)
+    func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
     
 }

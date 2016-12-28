@@ -113,7 +113,7 @@ class CurrentLocationProviderSpec: TransitAppSpec {
             }
 
 
-            it("will prompt the user for access") {
+            xit("will prompt the user for access") {
                 expect(locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestAccessWhileInUse))
             }
         }

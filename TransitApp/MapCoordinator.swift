@@ -21,7 +21,8 @@ class MapCoordinator {
         let scooterUpdater = ScooterUpdater(realm: realm, scooterFetcher: scooterFetcher)
         scooterUpdater.start()
         let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
-        let viewModel = MapViewModel(currentLocationProvider: currentLocationProvider,
+        let currentLocationViewModel = CurrentLocationViewModel(provider: currentLocationProvider)
+        let viewModel = MapViewModel(currentLocationViewModel: currentLocationViewModel,
                                      initialCoordinateRegion: region,
                                      mapOverlayProvider: mapOverlayProvider,
                                      mapAnnotationProvider: mapAnnotationProvider,
