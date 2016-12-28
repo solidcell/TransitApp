@@ -53,6 +53,17 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
                     }
                 }
             }
+
+            context("declining location permission") {
+
+                beforeEach {
+                    self.locationManager.tapDoNotAllowAccessInDialog()
+                }
+
+                fit("the arrow will no longer be highlighted") {
+                    self.expectCurrentLocationButtonState(.nonHighlighted)
+                }
+            }
         }
     }
 
@@ -93,7 +104,8 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
 
 extension CurrentLocationFeature {
 
-    func expectCurrentLocationButtonState(_ state: MapViewModel.CurrentLocationButtonState) {
-        expect(self.mapView.currentLocationButtonState).to(equal(state))
+    func expectCurrentLocationButtonState(_ state: MapViewModel.CurrentLocationButtonState,
+                                          f: String = #file, _ l: UInt = #line) {
+        NMB_expect({self.mapView.currentLocationButtonState}, f, l).to(equal(state))
     }
 }

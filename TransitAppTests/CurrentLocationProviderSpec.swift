@@ -19,63 +19,6 @@ class CurrentLocationProviderSpec: TransitAppSpec {
             subject.delegate = delegate
         }
 
-        context("when user has never been asked for location authorization before") {
-
-            beforeEach {
-                expect(locationManager.authorizationStatus()).to(equal(CLAuthorizationStatus.notDetermined))
-            }
-
-            describe("startUpdatingLocation") {
-
-                beforeEach {
-                    subject.startUpdatingLocation()
-                }
-
-                it("will prompt the user for access") {
-                    expect(locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestAccessWhileInUse))
-                }
-
-                context("when the user allows access") {
-                    
-                    beforeEach {
-                        locationManager.tapAllowInDialog()
-                    }
-
-                    it("will dismiss the dialog") {
-                        expect(locationManager.dialog).to(beNil())
-                    }
-
-                    it("will update the delegate with the current location") {
-                        locationManager.locationRequestSuccess()
-                        expect(delegate.receivedCurrentLocation).to(beAnInstanceOf(CLLocation.self))
-                    }
-
-                    it("will set the authorization status to authorizedWhenInUse") {
-                        expect(locationManager.authorizationStatus()).to(equal(CLAuthorizationStatus.authorizedWhenInUse))
-                    }
-                }
-
-                context("when the user does not allow access") {
-                    
-                    beforeEach {
-                        locationManager.tapDoNotAllowAccessInDialog()
-                    }
-
-                    it("will dismiss the dialog") {
-                        expect(locationManager.dialog).to(beNil())
-                    }
-
-                    it("will not update the delegate with the current location") {
-                        expect(delegate.receivedCurrentLocation).to(beNil())
-                    }
-
-                    it("will set the authorization status to authorizedWhenInUse") {
-                        expect(locationManager.authorizationStatus()).to(equal(CLAuthorizationStatus.denied))
-                    }
-                }
-            }
-        }
-
         context("when the user has already denied access") {
 
             beforeEach {
@@ -265,6 +208,9 @@ extension SpecDelegate: CurrentLocationProviderDelegate {
 
     func currentLocation(_ location: CLLocation) {
         receivedCurrentLocation = location
+    }
+
+    func authorizationTurnedOff() {
     }
     
 }

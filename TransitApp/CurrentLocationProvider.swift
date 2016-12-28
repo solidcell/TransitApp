@@ -46,8 +46,12 @@ extension CurrentLocationProvider: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if wantingToStartUpdatingLocation {
-            startUpdatingLocation()
+        if authorized {
+            if wantingToStartUpdatingLocation {
+                startUpdatingLocation()
+            }
+        } else {
+            delegate?.authorizationTurnedOff()
         }
     }
 
@@ -56,5 +60,6 @@ extension CurrentLocationProvider: CLLocationManagerDelegate {
 protocol CurrentLocationProviderDelegate: class {
 
     func currentLocation(_ location: CLLocation)
+    func authorizationTurnedOff()
     
 }
