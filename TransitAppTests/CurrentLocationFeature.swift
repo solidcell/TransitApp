@@ -83,6 +83,22 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             it("the arrow will still not be highlighted") {
                 self.expectCurrentLocationButtonState(.nonHighlighted)
             }
+
+            it("will display an alert explaining the issue") {
+                let alert = self.mapView.shownAlert
+                expect(alert).toNot(beNil())
+                if let alert = alert {
+                    expect(alert.title).to(equal("Please give permission"))
+                    expect(alert.message).to(equal("You have previously declined permission to use your location."))
+                    expect(alert.actions).to(haveCount(2))
+                    let firstAction = alert.actions[0]
+                    expect(firstAction.title).to(equal("OK"))
+                    expect(firstAction.style).to(equal(UIAlertActionStyle.default))
+                    let secondAction = alert.actions[1]
+                    expect(secondAction.title).to(equal("Cancel"))
+                    expect(secondAction.style).to(equal(UIAlertActionStyle.cancel))
+                }
+            }
         }
     }
 

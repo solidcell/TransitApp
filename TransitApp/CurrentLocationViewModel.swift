@@ -16,7 +16,10 @@ class CurrentLocationViewModel {
     }
 
     func tapCurrentLocationButton() {
-        if provider.authorizationDenied { return }
+        if provider.authorizationDenied {
+            showPreviouslyDeniedAlert()
+            return
+        }
         toggleCurrentLocationButtonStates()
         provider.startUpdatingLocation()
     }
@@ -32,6 +35,19 @@ class CurrentLocationViewModel {
         case .highlighted:
             currentLocationButtonState = .nonHighlighted
         }
+    }
+
+    private func showPreviouslyDeniedAlert() {
+        let alert = MapViewModel.Alert(
+            title: "Please give permission",
+            message: "You have previously declined permission to use your location.",
+            actions: [
+                MapViewModel.Alert.Action(title: "OK",
+                                          style: .default),
+                MapViewModel.Alert.Action(title: "Cancel",
+                                          style: .cancel)
+            ])
+        delegate.showAlert(alert)
     }
     
 }
@@ -63,5 +79,6 @@ protocol CurrentLocationViewModelDelegate : class {
     
     func centerMap(on: CLLocationCoordinate2D)
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
+    func showAlert(_ alert: MapViewModel.Alert)
     
 }

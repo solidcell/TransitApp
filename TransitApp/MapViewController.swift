@@ -103,4 +103,17 @@ extension MapViewController: MapViewModelDelegate {
         }
         currentLocationButton.setImage(image, for: .normal)
     }
+
+    func showAlert(_ alert: MapViewModel.Alert) {
+        let controller = UIAlertController(title: alert.title,
+                                           message: alert.message,
+                                           preferredStyle: .alert)
+        alert.actions.forEach { action in
+            let action = UIAlertAction(title: action.title,
+                                       style: action.style,
+                                       handler: action.handler)
+            controller.addAction(action)
+        }
+        self.present(controller, animated: true, completion: nil)
+    }
 }

@@ -32,6 +32,18 @@ class MapViewModel {
     func tapCurrentLocationButton() {
         currentLocationViewModel.tapCurrentLocationButton()
     }
+
+    struct Alert {
+        let title: String
+        let message: String?
+        let actions: [Action]
+
+        struct Action {
+            let title: String?
+            let style: UIAlertActionStyle
+            let handler: ((UIAlertAction) -> Void)? = nil
+        }
+    }
     
 }
 
@@ -43,6 +55,10 @@ extension MapViewModel : CurrentLocationViewModelDelegate {
 
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
         delegate.setCurrentLocationButtonState(state)
+    }
+
+    func showAlert(_ alert: MapViewModel.Alert) {
+        delegate.showAlert(alert)
     }
     
 }
@@ -67,5 +83,6 @@ protocol MapViewModelDelegate : class {
     func newAnnotations(_ annotations: [MKAnnotation])
     func annotationsReadyForUpdate(update: @escaping () -> Void)
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
+    func showAlert(_ alert: MapViewModel.Alert)
     
 }
