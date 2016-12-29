@@ -1,4 +1,5 @@
 import CoreLocation
+import UIKit
 
 class CurrentLocationViewModel {
 
@@ -38,14 +39,17 @@ class CurrentLocationViewModel {
     }
 
     private func showPreviouslyDeniedAlert() {
+        guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
         let alert = MapViewModel.Alert(
             title: "Please give permission",
             message: "You have previously declined permission to use your location.",
             actions: [
                 MapViewModel.Alert.Action(title: "OK",
-                                          style: .default),
+                                          style: .default,
+                                          handler: .url(url)),
                 MapViewModel.Alert.Action(title: "Cancel",
-                                          style: .cancel)
+                                          style: .cancel,
+                                          handler: .noop)
             ])
         delegate.showAlert(alert)
     }

@@ -109,9 +109,16 @@ extension MapViewController: MapViewModelDelegate {
                                            message: alert.message,
                                            preferredStyle: .alert)
         alert.actions.forEach { action in
+            let handler: ((UIAlertAction) -> Void)?
+            switch action.handler {
+            case .noop:
+                handler = nil
+            case .url(let url):
+                handler = { _ in UIApplication.shared.openURL(url) }
+            }
             let action = UIAlertAction(title: action.title,
                                        style: action.style,
-                                       handler: action.handler)
+                                       handler: handler)
             controller.addAction(action)
         }
         self.present(controller, animated: true, completion: nil)

@@ -38,6 +38,7 @@
 		880EB08D1DC399BC00C5830E /* TestScooterJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 880EB0821DC3986400C5830E /* TestScooterJSON.json */; };
 		880EB0911DC39FCB00C5830E /* SeedDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0901DC39FCB00C5830E /* SeedDataParser.swift */; };
 		880EB0931DC3A20200C5830E /* MapAnnotationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */; };
+		8825321D1E152189007824BC /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825321C1E152189007824BC /* Equatable.swift */; };
 		8827E1301DC0BB5E00E06654 /* TestRandomJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */; };
 		8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */; };
 		8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1351DC0BD4300E06654 /* JSONParser.swift */; };
@@ -136,6 +137,7 @@
 		880EB08B1DC3994E00C5830E /* ScooterParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterParser.swift; sourceTree = "<group>"; };
 		880EB0901DC39FCB00C5830E /* SeedDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedDataParser.swift; sourceTree = "<group>"; };
 		880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProvider.swift; sourceTree = "<group>"; };
+		8825321C1E152189007824BC /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TestRandomJSON.json; path = TransitAppTests/TestRandomJSON.json; sourceTree = SOURCE_ROOT; };
 		8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransitAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParserSpec.swift; sourceTree = "<group>"; };
@@ -325,6 +327,14 @@
 			name = Coup;
 			sourceTree = "<group>";
 		};
+		8825321B1E15216B007824BC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8825321C1E152189007824BC /* Equatable.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		8827E12B1DC0B77F00E06654 /* SeedData */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,6 +484,7 @@
 				880A05751E0FF1D000CFAFF4 /* Unit */,
 				880A05791E100EA200CFAFF4 /* Fakes */,
 				880A05861E112B1600CFAFF4 /* Utilities */,
+				8825321B1E15216B007824BC /* Extensions */,
 				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				880A05A81E1278DE00CFAFF4 /* TransitAppFeature.swift */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
@@ -759,6 +770,7 @@
 				880A05B11E127B7B00CFAFF4 /* MapAnnotationFeature.swift in Sources */,
 				8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */,
 				889705AF1DCC9F2C00D8D8DF /* CurrentLocationProviderSpec.swift in Sources */,
+				8825321D1E152189007824BC /* Equatable.swift in Sources */,
 				887DBEFD1DCA174400D92E19 /* MapRegionProviderSpec.swift in Sources */,
 				880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */,
 				880A05AB1E127AE200CFAFF4 /* MapRegionFeature.swift in Sources */,

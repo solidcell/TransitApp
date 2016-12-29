@@ -41,7 +41,12 @@ class MapViewModel {
         struct Action {
             let title: String?
             let style: UIAlertActionStyle
-            let handler: ((UIAlertAction) -> Void)? = nil
+            let handler: Handler
+
+            enum Handler {
+                case noop
+                case url(URL)
+            }
         }
     }
     

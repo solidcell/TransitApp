@@ -90,13 +90,19 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
                 if let alert = alert {
                     expect(alert.title).to(equal("Please give permission"))
                     expect(alert.message).to(equal("You have previously declined permission to use your location."))
+
                     expect(alert.actions).to(haveCount(2))
+
                     let firstAction = alert.actions[0]
                     expect(firstAction.title).to(equal("OK"))
                     expect(firstAction.style).to(equal(UIAlertActionStyle.default))
+                    let settingsURL = URL(string:UIApplicationOpenSettingsURLString)!
+                    expect(firstAction.handler).to(equal(MapViewModel.Alert.Action.Handler.url(settingsURL)))
+
                     let secondAction = alert.actions[1]
                     expect(secondAction.title).to(equal("Cancel"))
                     expect(secondAction.style).to(equal(UIAlertActionStyle.cancel))
+                    expect(secondAction.handler).to(equal(MapViewModel.Alert.Action.Handler.noop))
                 }
             }
         }
