@@ -922,7 +922,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D906B18321400739B4B477B5 /* Pods-TransitAppTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TransitAppTests/Info.plist;
@@ -940,7 +939,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TransitAppTests/Info.plist;
