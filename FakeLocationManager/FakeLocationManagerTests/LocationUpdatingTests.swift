@@ -19,6 +19,18 @@ class LocationUpdatingTests: FakeLocationManagerTestCase {
         }
     }
 
+    func test_requestLocation_WhileNotDetermined() {
+        // current status is .notDetermined
+        XCTAssertEqual(subject.authorizationStatus(), .notDetermined)
+        // have not yet received an error
+        XCTAssertNil(delegate.receivedError)
+
+        subject.requestLocation()
+
+        // sends an error to the delegate
+        XCTAssertNotNil(delegate.receivedError)
+    }
+
     func test_locationRequestSuccess_AfterStartUpdatingLocation() {
         // current status is .authorizedWhenInUse
         subject.setAuthorizationStatusInSettingsApp(.authorizedWhenInUse)
@@ -30,6 +42,30 @@ class LocationUpdatingTests: FakeLocationManagerTestCase {
         XCTAssertEqual(delegate.receivedUpdatedLocations.count, 1)
         subject.locationRequestSuccess()
         XCTAssertEqual(delegate.receivedUpdatedLocations.count, 2)
+    }
+
+    func test_startUpdatingLocation_WhileNotDetermined() {
+        // current status is .notDetermined
+        XCTAssertEqual(subject.authorizationStatus(), .notDetermined)
+        // have not yet received an error
+        XCTAssertNil(delegate.receivedError)
+
+        subject.startUpdatingLocation()
+
+        // does not send an error to the delegate
+        XCTAssertNil(delegate.receivedError)
+    }
+
+    func test_location_BeforeHavingEverReceivedALocation() {
+        XCTAssertNil(subject.location)
+    }
+
+    func test_location_AfterHavingReceivedALocationBefore() {
+        subject.setAuthorizationStatusInSettingsApp(.authorizedWhenInUse)
+        subject.requestLocation()
+        subject.locationRequestSuccess()
+        
+        XCTAssertNotNil(subject.location)
     }
 
     func test_updatedLocationWithoutAuthorization() {

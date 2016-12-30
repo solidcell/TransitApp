@@ -116,6 +116,7 @@ extension FakeLocationManager {
         }
         locationRequestInProgress = false
         let fakeCurrentLocation = CLLocation(latitude: 1.0, longitude: 2.0)
+        mostRecentLocation = fakeCurrentLocation
         delegate!.locationManager?(bsFirstArg, didUpdateLocations: [fakeCurrentLocation])
     }
 
@@ -237,6 +238,7 @@ extension FakeLocationManager {
 
     fileprivate func requestLocationWhileNotDetermined() {
         let error = NSError(domain: kCLErrorDomain, code: 0, userInfo: nil)
+        // this actually happens about 10 seconds later
         delegate!.locationManager!(bsFirstArg, didFailWithError: error)
     }
 
@@ -248,10 +250,6 @@ extension FakeLocationManager {
 
 // MARK: startUpdatingLocation outcomes
 extension FakeLocationManager {
-
-    fileprivate func startUpdatingLocationWhileNotDetermined() {
-        fatalError() //check w/ device, but same as requestLocationWhileNotDetermined()?
-    }
 
     fileprivate func startUpdatingLocationWhileWhenInUse() {
         updatingLocation = true
@@ -293,7 +291,7 @@ extension FakeLocationManager: LocationManaging {
 
     public func startUpdatingLocation() {
         switch authorizationStatus() {
-        case .notDetermined: startUpdatingLocationWhileNotDetermined()
+        case .notDetermined: break
         case .authorizedWhenInUse: startUpdatingLocationWhileWhenInUse()
         default: fatalError("Other authorization statuses are not supported yet.")
         }
