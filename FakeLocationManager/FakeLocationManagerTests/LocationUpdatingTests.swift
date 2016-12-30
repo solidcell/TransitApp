@@ -13,6 +13,10 @@ class LocationUpdatingTests: FakeLocationManagerTestCase {
         XCTAssertEqual(delegate.receivedUpdatedLocations.count, 0)
         subject.locationRequestSuccess()
         XCTAssertEqual(delegate.receivedUpdatedLocations.count, 1)
+        subject.fatalErrorsOff() {
+            subject.locationRequestSuccess()
+            XCTAssertEqual(subject.erroredWith, .noLocationRequestInProgress)
+        }
     }
 
     func test_locationRequestSuccess_AfterStartUpdatingLocation() {
@@ -24,5 +28,7 @@ class LocationUpdatingTests: FakeLocationManagerTestCase {
         XCTAssertEqual(delegate.receivedUpdatedLocations.count, 0)
         subject.locationRequestSuccess()
         XCTAssertEqual(delegate.receivedUpdatedLocations.count, 1)
+        subject.locationRequestSuccess()
+        XCTAssertEqual(delegate.receivedUpdatedLocations.count, 2)
     }
 }

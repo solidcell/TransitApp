@@ -14,6 +14,14 @@ import CoreLocation
 public class FakeLocationManager {
 
     public init() {}
+    
+    public var fatalErrorsOn: Bool = true
+    public func fatalErrorsOff(block: () -> Void) {
+        let previousSetting = fatalErrorsOn
+        defer { fatalErrorsOn = previousSetting }
+        fatalErrorsOn = false
+        block()
+    }
 
     // this probably belongs in a Spec UIApplication
     public enum Dialog {
@@ -48,6 +56,21 @@ public class FakeLocationManager {
         delegate?.locationManager?(bsFirstArg, didChangeAuthorization: authorizationStatus())
     }
 
+    public enum InternalInconsistency {
+        case noLocationRequestInProgress
+    }
+
+    public private(set) var erroredWith: InternalInconsistency?
+    fileprivate func errorWith(_ internalInconsistency: InternalInconsistency) {
+        if fatalErrorsOn {
+            switch internalInconsistency {
+            case .noLocationRequestInProgress:
+                fatalError("CLLocationManager would not be sending the location, since there was no location request in progress.")
+            }
+        }
+        erroredWith = internalInconsistency
+    }
+
 }
 
 // MARK: Async callbacks
@@ -58,7 +81,7 @@ extension FakeLocationManager {
             fatalError("CLLocationManager would not be sending the location, since user has not authorized access.")
         }
         if !(locationRequestInProgress || updatingLocation) {
-            fatalError("CLLocationManager would not be sending the location, since there was no location request in progress.")
+            errorWith(.noLocationRequestInProgress)
         }
         locationRequestInProgress = false
         let fakeCurrentLocation = CLLocation(latitude: 1.0, longitude: 2.0)
