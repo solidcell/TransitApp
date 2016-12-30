@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		882532221E166675007824BC /* FakeLocationManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882532211E166675007824BC /* FakeLocationManagerTestCase.swift */; };
 		882532241E1666BC007824BC /* SpecDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882532231E1666BC007824BC /* SpecDelegate.swift */; };
+		882532261E166839007824BC /* AuthorizationStatusesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882532251E166839007824BC /* AuthorizationStatusesTests.swift */; };
 		88A302E71DD07CB90054A1CE /* FakeLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A302DD1DD07CB90054A1CE /* FakeLocationManager.framework */; };
 		88A302EE1DD07CB90054A1CE /* FakeLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 88A302E01DD07CB90054A1CE /* FakeLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88A302F91DD07D2A0054A1CE /* FakeLocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A302F81DD07D2A0054A1CE /* FakeLocationManagerTests.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		882532211E166675007824BC /* FakeLocationManagerTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeLocationManagerTestCase.swift; sourceTree = "<group>"; };
 		882532231E1666BC007824BC /* SpecDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecDelegate.swift; sourceTree = "<group>"; };
+		882532251E166839007824BC /* AuthorizationStatusesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationStatusesTests.swift; sourceTree = "<group>"; };
 		88A302DD1DD07CB90054A1CE /* FakeLocationManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FakeLocationManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A302E01DD07CB90054A1CE /* FakeLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FakeLocationManager.h; sourceTree = "<group>"; };
 		88A302E11DD07CB90054A1CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				882532231E1666BC007824BC /* SpecDelegate.swift */,
 				88A302ED1DD07CB90054A1CE /* Info.plist */,
 				88A302F71DD07D2A0054A1CE /* FakeLocationManagerTests-Bridging-Header.h */,
+				882532251E166839007824BC /* AuthorizationStatusesTests.swift */,
 			);
 			name = Tests;
 			path = FakeLocationManagerTests;
@@ -233,6 +236,7 @@
 			files = (
 				88A302F91DD07D2A0054A1CE /* FakeLocationManagerTests.swift in Sources */,
 				882532241E1666BC007824BC /* SpecDelegate.swift in Sources */,
+				882532261E166839007824BC /* AuthorizationStatusesTests.swift in Sources */,
 				882532221E166675007824BC /* FakeLocationManagerTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
