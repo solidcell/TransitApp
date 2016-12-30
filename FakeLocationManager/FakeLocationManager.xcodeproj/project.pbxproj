@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		882532221E166675007824BC /* FakeLocationManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882532211E166675007824BC /* FakeLocationManagerTestCase.swift */; };
 		882532241E1666BC007824BC /* SpecDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882532231E1666BC007824BC /* SpecDelegate.swift */; };
-		882532261E166839007824BC /* AuthorizationStatusesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882532251E166839007824BC /* AuthorizationStatusesTests.swift */; };
+		882532261E166839007824BC /* GeneralAuthorizationStatusesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882532251E166839007824BC /* GeneralAuthorizationStatusesTests.swift */; };
 		882532281E1668BC007824BC /* LocationServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882532271E1668BC007824BC /* LocationServicesTests.swift */; };
+		8825322A1E166944007824BC /* LocationUpdatingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882532291E166944007824BC /* LocationUpdatingTests.swift */; };
+		882532301E166A59007824BC /* AuthorizationInSettingsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825322F1E166A59007824BC /* AuthorizationInSettingsAppTests.swift */; };
+		882532321E166B22007824BC /* RequestingAuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882532311E166B22007824BC /* RequestingAuthorizationTests.swift */; };
 		88A302E71DD07CB90054A1CE /* FakeLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A302DD1DD07CB90054A1CE /* FakeLocationManager.framework */; };
 		88A302EE1DD07CB90054A1CE /* FakeLocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 88A302E01DD07CB90054A1CE /* FakeLocationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88A302F91DD07D2A0054A1CE /* FakeLocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A302F81DD07D2A0054A1CE /* FakeLocationManagerTests.swift */; };
 		88A302FB1DD07D3D0054A1CE /* FakeLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A302FA1DD07D3D0054A1CE /* FakeLocationManager.swift */; };
 		88A302FD1DD080AD0054A1CE /* LocationManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A302FC1DD080AD0054A1CE /* LocationManaging.swift */; };
 		88A302FF1DD081500054A1CE /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A302FE1DD081500054A1CE /* Equatable.swift */; };
@@ -33,15 +35,17 @@
 /* Begin PBXFileReference section */
 		882532211E166675007824BC /* FakeLocationManagerTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeLocationManagerTestCase.swift; sourceTree = "<group>"; };
 		882532231E1666BC007824BC /* SpecDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecDelegate.swift; sourceTree = "<group>"; };
-		882532251E166839007824BC /* AuthorizationStatusesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationStatusesTests.swift; sourceTree = "<group>"; };
+		882532251E166839007824BC /* GeneralAuthorizationStatusesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralAuthorizationStatusesTests.swift; sourceTree = "<group>"; };
 		882532271E1668BC007824BC /* LocationServicesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServicesTests.swift; sourceTree = "<group>"; };
+		882532291E166944007824BC /* LocationUpdatingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUpdatingTests.swift; sourceTree = "<group>"; };
+		8825322F1E166A59007824BC /* AuthorizationInSettingsAppTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationInSettingsAppTests.swift; sourceTree = "<group>"; };
+		882532311E166B22007824BC /* RequestingAuthorizationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestingAuthorizationTests.swift; sourceTree = "<group>"; };
 		88A302DD1DD07CB90054A1CE /* FakeLocationManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FakeLocationManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A302E01DD07CB90054A1CE /* FakeLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FakeLocationManager.h; sourceTree = "<group>"; };
 		88A302E11DD07CB90054A1CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88A302E61DD07CB90054A1CE /* FakeLocationManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FakeLocationManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88A302ED1DD07CB90054A1CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88A302F71DD07D2A0054A1CE /* FakeLocationManagerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FakeLocationManagerTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		88A302F81DD07D2A0054A1CE /* FakeLocationManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeLocationManagerTests.swift; sourceTree = "<group>"; };
 		88A302FA1DD07D3D0054A1CE /* FakeLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeLocationManager.swift; sourceTree = "<group>"; };
 		88A302FC1DD080AD0054A1CE /* LocationManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManaging.swift; sourceTree = "<group>"; };
 		88A302FE1DD081500054A1CE /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Equatable.swift; path = ../../TransitApp/Equatable.swift; sourceTree = "<group>"; };
@@ -67,6 +71,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8825322B1E16697C007824BC /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				882532231E1666BC007824BC /* SpecDelegate.swift */,
+			);
+			name = Fakes;
+			sourceTree = "<group>";
+		};
+		8825322C1E1669ED007824BC /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				8825322D1E166A01007824BC /* Authorization Status */,
+				882532271E1668BC007824BC /* LocationServicesTests.swift */,
+				882532291E166944007824BC /* LocationUpdatingTests.swift */,
+			);
+			name = Unit;
+			sourceTree = "<group>";
+		};
+		8825322D1E166A01007824BC /* Authorization Status */ = {
+			isa = PBXGroup;
+			children = (
+				882532251E166839007824BC /* GeneralAuthorizationStatusesTests.swift */,
+				8825322F1E166A59007824BC /* AuthorizationInSettingsAppTests.swift */,
+				882532311E166B22007824BC /* RequestingAuthorizationTests.swift */,
+			);
+			name = "Authorization Status";
+			sourceTree = "<group>";
+		};
 		88A302D31DD07CB90054A1CE = {
 			isa = PBXGroup;
 			children = (
@@ -102,11 +134,9 @@
 		88A302EA1DD07CB90054A1CE /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				882532251E166839007824BC /* AuthorizationStatusesTests.swift */,
-				882532271E1668BC007824BC /* LocationServicesTests.swift */,
-				88A302F81DD07D2A0054A1CE /* FakeLocationManagerTests.swift */,
+				8825322C1E1669ED007824BC /* Unit */,
+				8825322B1E16697C007824BC /* Fakes */,
 				882532211E166675007824BC /* FakeLocationManagerTestCase.swift */,
-				882532231E1666BC007824BC /* SpecDelegate.swift */,
 				88A302ED1DD07CB90054A1CE /* Info.plist */,
 				88A302F71DD07D2A0054A1CE /* FakeLocationManagerTests-Bridging-Header.h */,
 			);
@@ -237,11 +267,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88A302F91DD07D2A0054A1CE /* FakeLocationManagerTests.swift in Sources */,
 				882532241E1666BC007824BC /* SpecDelegate.swift in Sources */,
-				882532261E166839007824BC /* AuthorizationStatusesTests.swift in Sources */,
+				8825322A1E166944007824BC /* LocationUpdatingTests.swift in Sources */,
+				882532261E166839007824BC /* GeneralAuthorizationStatusesTests.swift in Sources */,
 				882532281E1668BC007824BC /* LocationServicesTests.swift in Sources */,
 				882532221E166675007824BC /* FakeLocationManagerTestCase.swift in Sources */,
+				882532321E166B22007824BC /* RequestingAuthorizationTests.swift in Sources */,
+				882532301E166A59007824BC /* AuthorizationInSettingsAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

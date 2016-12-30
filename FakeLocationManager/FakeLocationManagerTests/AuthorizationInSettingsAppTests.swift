@@ -2,14 +2,7 @@ import XCTest
 import CoreLocation
 import FakeLocationManager
 
-class AuthorizationStatusesTests: FakeLocationManagerTestCase {
-
-    func test_WhenStatusNotDetermined() {
-        // initial status is .notDetermined
-        XCTAssertEqual(subject.authorizationStatus(), .notDetermined)
-        // notifies delegate
-        XCTAssertEqual(delegate.receivedAuthorizationChange, .notDetermined)
-    }
+class AuthorizationInSettingsAppTests: FakeLocationManagerTestCase {
 
     func test_WhenStatusNotDetermined_ThenAuthorizedWhenInUse() {
         // initial status is .notDetermined
