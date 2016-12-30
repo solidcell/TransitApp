@@ -73,6 +73,7 @@ extension FakeLocationManager {
         case noLocationRequestInProgress
         case notAuthorized
         case noLocationServicesDialog
+        case noRequestPermissionDialog
         case noDialog
     }
 
@@ -94,6 +95,8 @@ extension FakeLocationManager {
                 fatalError("The dialog to jump to Location Services was not prompted.")
             case .noDialog:
                 fatalError("There is no dialog to be responding to.")
+            case .noRequestPermissionDialog:
+                fatalError("The requestPermission dialog was not prompted.")
             }
         }
         if erroredWith == nil { erroredWith = internalInconsistency }
@@ -161,12 +164,16 @@ extension FakeLocationManager {
     }
 
     private func fatalErrorWrongDialog() {
-        fatalError("The requestPermission dialog was not prompted.")
+        errorWith(.noRequestPermissionDialog)
     }
 
     private func respondToAccessDialog(_ level: CLAuthorizationStatus) {
+        guard let _dialog = dialog else {
+            errorWith(.noDialog)
+            return
+        }
         // the dialog must currently be one asking for authorization
-        if !dialog!.isOneOf(.requestAccessWhileInUse, .requestAccessAlways) {
+        if !_dialog.isOneOf(.requestAccessWhileInUse, .requestAccessAlways) {
             fatalErrorWrongDialog()
         }
         // the authorization must be one that can come from a user tap on the dialog

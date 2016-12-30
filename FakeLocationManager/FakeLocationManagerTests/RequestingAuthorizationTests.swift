@@ -125,10 +125,43 @@ class RequestingAuthorizationTests: FakeLocationManagerTestCase {
         XCTAssertNil(delegate.receivedAuthorizationChange)
     }
 
-    func test_respondingToDialogWhenNotPrompted() {
+    func test_tappingAllowInDialogWhenNotPrompted() {
+        XCTAssertNil(subject.dialog)
+        
         subject.fatalErrorsOff() {
             subject.tapAllowInDialog()
             XCTAssertEqual(subject.erroredWith, .noDialog)
+        }
+    }
+
+    func test_tappingAllowInDialogWhenWrongDialog() {
+        subject.setLocationServicesEnabledInSettingsApp(false)
+        subject.requestWhenInUseAuthorization()
+        XCTAssertEqual(subject.dialog, .requestJumpToLocationServicesSettings)
+        
+        subject.fatalErrorsOff() {
+            subject.tapAllowInDialog()
+            XCTAssertEqual(subject.erroredWith, .noRequestPermissionDialog)
+        }
+    }
+
+    func test_tappingDoNotAllowInDialogWhenNotPrompted() {
+        XCTAssertNil(subject.dialog)
+        
+        subject.fatalErrorsOff() {
+            subject.tapDoNotAllowAccessInDialog()
+            XCTAssertEqual(subject.erroredWith, .noDialog)
+        }
+    }
+
+    func test_tappingDoNotAllowInDialogWhenWrongDialog() {
+        subject.setLocationServicesEnabledInSettingsApp(false)
+        subject.requestWhenInUseAuthorization()
+        XCTAssertEqual(subject.dialog, .requestJumpToLocationServicesSettings)
+        
+        subject.fatalErrorsOff() {
+            subject.tapDoNotAllowAccessInDialog()
+            XCTAssertEqual(subject.erroredWith, .noRequestPermissionDialog)
         }
     }
     
