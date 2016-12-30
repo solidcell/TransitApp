@@ -31,4 +31,11 @@ class LocationUpdatingTests: FakeLocationManagerTestCase {
         subject.locationRequestSuccess()
         XCTAssertEqual(delegate.receivedUpdatedLocations.count, 2)
     }
+
+    func test_updatedLocationWithoutAuthorization() {
+        subject.fatalErrorsOff() {
+            subject.locationRequestSuccess()
+            XCTAssertEqual(subject.erroredWith, .notAuthorized)
+        }
+    }
 }

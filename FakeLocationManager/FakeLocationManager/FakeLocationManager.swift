@@ -58,6 +58,7 @@ public class FakeLocationManager {
 
     public enum InternalInconsistency {
         case noLocationRequestInProgress
+        case notAuthorized
     }
 
     public private(set) var erroredWith: InternalInconsistency?
@@ -66,9 +67,11 @@ public class FakeLocationManager {
             switch internalInconsistency {
             case .noLocationRequestInProgress:
                 fatalError("CLLocationManager would not be sending the location, since there was no location request in progress.")
+            case .notAuthorized:
+                fatalError("CLLocationManager would not be sending the location, since user has not authorized access.")
             }
         }
-        erroredWith = internalInconsistency
+        if erroredWith == nil { erroredWith = internalInconsistency }
     }
 
 }
@@ -78,7 +81,7 @@ extension FakeLocationManager {
 
     public func locationRequestSuccess() {
         if !authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways) {
-            fatalError("CLLocationManager would not be sending the location, since user has not authorized access.")
+            errorWith(.notAuthorized)
         }
         if !(locationRequestInProgress || updatingLocation) {
             errorWith(.noLocationRequestInProgress)
