@@ -63,12 +63,17 @@ extension FakeLocationManager {
      should know right away. However, in testing FakeLocationManager itself, we
      want to be able to test these checks where a fatalError would normally be
      occuring. Thus: InternalInconsistency.
+     
+     Note: When testing for internal inconsistencies, ensure that the test tests
+     nothing further afterward, since a fatalError would normally halt operation.
+     However, in tests, execution can continue, so any state afterward is unreliable.
      */
 
     public enum InternalInconsistency {
         case noLocationRequestInProgress
         case notAuthorized
         case noLocationServicesDialog
+        case noDialog
     }
 
     public func fatalErrorsOff(block: () -> Void) {
@@ -87,6 +92,8 @@ extension FakeLocationManager {
                 fatalError("CLLocationManager would not be sending the location, since user has not authorized access.")
             case .noLocationServicesDialog:
                 fatalError("The dialog to jump to Location Services was not prompted.")
+            case .noDialog:
+                fatalError("There is no dialog to be responding to.")
             }
         }
         if erroredWith == nil { erroredWith = internalInconsistency }
@@ -133,8 +140,12 @@ extension FakeLocationManager {
 extension FakeLocationManager {
 
     public func tapAllowInDialog() {
+        guard let dialog = dialog else {
+            errorWith(.noDialog)
+            return
+        }
         let accessLevel: CLAuthorizationStatus
-        switch dialog! {
+        switch dialog {
         case .requestAccessWhileInUse: accessLevel = .authorizedWhenInUse
         case .requestAccessAlways: accessLevel = .authorizedAlways
         case .requestJumpToLocationServicesSettings:

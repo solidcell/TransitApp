@@ -43,6 +43,7 @@ class LocationServicesTests: FakeLocationManagerTestCase {
     func test_respondingToDialogWhenItIsNotPresented() {
         subject.fatalErrorsOff() {
             subject.tapSettingsOrCancelInDialog()
+            XCTAssertEqual(subject.erroredWith, .noLocationServicesDialog)
         }
     }
     

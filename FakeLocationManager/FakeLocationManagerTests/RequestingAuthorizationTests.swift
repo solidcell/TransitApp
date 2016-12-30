@@ -124,5 +124,12 @@ class RequestingAuthorizationTests: FakeLocationManagerTestCase {
         // does not notify delegate
         XCTAssertNil(delegate.receivedAuthorizationChange)
     }
+
+    func test_respondingToDialogWhenNotPrompted() {
+        subject.fatalErrorsOff() {
+            subject.tapAllowInDialog()
+            XCTAssertEqual(subject.erroredWith, .noDialog)
+        }
+    }
     
 }
