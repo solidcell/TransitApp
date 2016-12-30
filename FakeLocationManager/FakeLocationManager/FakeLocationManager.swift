@@ -14,14 +14,6 @@ import CoreLocation
 public class FakeLocationManager {
 
     public init() {}
-    
-    public var fatalErrorsOn: Bool = true
-    public func fatalErrorsOff(block: () -> Void) {
-        let previousSetting = fatalErrorsOn
-        defer { fatalErrorsOn = previousSetting }
-        fatalErrorsOn = false
-        block()
-    }
 
     // this probably belongs in a Spec UIApplication
     public enum Dialog {
@@ -35,6 +27,9 @@ public class FakeLocationManager {
         // [Settings] [Cancel]
         case requestJumpToLocationServicesSettings
     }
+    
+    fileprivate var fatalErrorsOn: Bool = true
+    public fileprivate(set) var erroredWith: InternalInconsistency?
 
     public weak var delegate: CLLocationManagerDelegate? {
         didSet { sendCurrentStatus() }
@@ -56,12 +51,33 @@ public class FakeLocationManager {
         delegate?.locationManager?(bsFirstArg, didChangeAuthorization: authorizationStatus())
     }
 
+}
+
+// MARK: Internal Inconsistencies
+extension FakeLocationManager {
+
+    /*
+     During normal usage of FakeLocationManager in specs, incorrect usage should
+     fatalError immediately. If you're trying to do something that wouldn't be
+     possible, or something that CLLocationManager wouldn't actually be doing, we
+     should know right away. However, in testing FakeLocationManager itself, we
+     want to be able to test these checks where a fatalError would normally be
+     occuring. Thus: InternalInconsistency.
+     */
+
     public enum InternalInconsistency {
         case noLocationRequestInProgress
         case notAuthorized
+        case noLocationServicesDialog
     }
 
-    public private(set) var erroredWith: InternalInconsistency?
+    public func fatalErrorsOff(block: () -> Void) {
+        let previousSetting = fatalErrorsOn
+        defer { fatalErrorsOn = previousSetting }
+        fatalErrorsOn = false
+        block()
+    }
+
     fileprivate func errorWith(_ internalInconsistency: InternalInconsistency) {
         if fatalErrorsOn {
             switch internalInconsistency {
@@ -69,6 +85,8 @@ public class FakeLocationManager {
                 fatalError("CLLocationManager would not be sending the location, since there was no location request in progress.")
             case .notAuthorized:
                 fatalError("CLLocationManager would not be sending the location, since user has not authorized access.")
+            case .noLocationServicesDialog:
+                fatalError("The dialog to jump to Location Services was not prompted.")
             }
         }
         if erroredWith == nil { erroredWith = internalInconsistency }
@@ -103,7 +121,7 @@ extension FakeLocationManager {
      */
     public func tapSettingsOrCancelInDialog() {
         if dialog != .requestJumpToLocationServicesSettings {
-            fatalError("The dialog to jump to Location Services was not prompted.")
+            errorWith(.noLocationServicesDialog)
         }
         dialog = nil
         locationServicesDialogResponseCount += 1
@@ -119,7 +137,10 @@ extension FakeLocationManager {
         switch dialog! {
         case .requestAccessWhileInUse: accessLevel = .authorizedWhenInUse
         case .requestAccessAlways: accessLevel = .authorizedAlways
-        case .requestJumpToLocationServicesSettings: fatalErrorWrongDialog(); accessLevel = .authorizedAlways
+        case .requestJumpToLocationServicesSettings:
+            fatalErrorWrongDialog()
+            // it needs to be set, even though we don't care about it now
+            accessLevel = .authorizedAlways
         }
         respondToAccessDialog(accessLevel)
     }

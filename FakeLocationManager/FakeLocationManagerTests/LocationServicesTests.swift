@@ -39,5 +39,11 @@ class LocationServicesTests: FakeLocationManagerTestCase {
         // user is not prompted with location services dialog a third time
         XCTAssertNil(subject.dialog)
     }
+
+    func test_respondingToDialogWhenItIsNotPresented() {
+        subject.fatalErrorsOff() {
+            subject.tapSettingsOrCancelInDialog()
+        }
+    }
     
 }
