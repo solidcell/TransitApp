@@ -2,18 +2,7 @@ import XCTest
 import CoreLocation
 import FakeLocationManager
 
-class FakeLocationManagerTests: XCTestCase {
-
-    var subject: FakeLocationManager!
-    fileprivate var delegate: SpecDelegate!
-    
-    override func setUp() {
-        super.setUp()
-
-        subject = FakeLocationManager()
-        delegate = SpecDelegate()
-        subject.delegate = delegate
-    }
+class FakeLocationManagerTests: FakeLocationManagerTestCase {
 
     func test_WhenStatusNotDetermined() {
         // initial status is .notDetermined
@@ -226,19 +215,4 @@ class FakeLocationManagerTests: XCTestCase {
         subject.locationRequestSuccess()
         XCTAssertEqual(delegate.receivedUpdatedLocations.count, 1)
     }
-}
-
-private class SpecDelegate: NSObject, CLLocationManagerDelegate {
-
-    var receivedAuthorizationChange: CLAuthorizationStatus?
-    var receivedUpdatedLocations = [CLLocation]()
-    
-    func locationManager(_: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        receivedAuthorizationChange = status
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        receivedUpdatedLocations.append(contentsOf: locations)
-    }
-
 }
