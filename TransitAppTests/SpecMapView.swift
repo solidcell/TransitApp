@@ -10,7 +10,7 @@ protocol SpecMapViewInterating {
 
     // MARK: Output
 
-    var mapCenteredOn: CLLocationCoordinate2D? { get }
+    var userTrackingMode: MKUserTrackingMode? { get }
     var mapRegion: MKCoordinateRegion? { get }
     var mapOverlays: [MKOverlay] { get }
     var mapAnnotations: [MKAnnotation] { get }
@@ -21,7 +21,7 @@ protocol SpecMapViewInterating {
 
 private class SpecMapView : SpecMapViewInterating {
 
-    var mapCenteredOn: CLLocationCoordinate2D?
+    var userTrackingMode: MKUserTrackingMode?
     var mapRegion: MKCoordinateRegion?
     var mapOverlays = [MKOverlay]()
     var mapAnnotations = [MKAnnotation]()
@@ -46,8 +46,8 @@ private class SpecMapView : SpecMapViewInterating {
 
 extension SpecMapView : MapViewModelDelegate {
 
-    func centerMap(on coordinate: CLLocationCoordinate2D) {
-        self.mapCenteredOn = coordinate
+    func setUserTracking(mode: MKUserTrackingMode) {
+        self.userTrackingMode = mode
     }
 
     func setRegion(_ region: MKCoordinateRegion) {

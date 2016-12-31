@@ -19,30 +19,17 @@ class CurrentLocationProvider: NSObject {
         return locationManager.authorizationStatus() == .denied
     }
 
-    func startUpdatingLocation() {
-        if !authorized {
-            wantingToStartUpdatingLocation = true
-            locationManager.requestWhenInUseAuthorization()
-        } else {
-            locationManager.startUpdatingLocation()
-        }
+    func authorize() {
+        locationManager.requestWhenInUseAuthorization()
     }
 
-    fileprivate var authorized: Bool {
+    var authorized: Bool {
         return locationManager.authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways)
-    }
-
-    fileprivate func updateDelegateWithLocation(_ location: CLLocation) {
-        delegate.currentLocation(location)
     }
     
 }
 
 extension CurrentLocationProvider: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        updateDelegateWithLocation(locations.last!)
-    }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         // This can happen when location was requested, but could not be determined, for instance.
@@ -50,20 +37,15 @@ extension CurrentLocationProvider: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if authorized {
-            if wantingToStartUpdatingLocation {
-                startUpdatingLocation()
-            }
-        } else {
-            delegate?.authorizationTurnedOff()
-        }
+        if authorized { delegate?.authorizationTurnedOn() }
+        else { delegate?.authorizationTurnedOff() }
     }
 
 }
 
 protocol CurrentLocationProviderDelegate: class {
 
-    func currentLocation(_ location: CLLocation)
+    func authorizationTurnedOn()
     func authorizationTurnedOff()
     
 }

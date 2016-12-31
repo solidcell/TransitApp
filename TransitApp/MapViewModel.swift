@@ -54,8 +54,8 @@ class MapViewModel {
 
 extension MapViewModel : CurrentLocationViewModelDelegate {
 
-    func centerMap(on coordinate: CLLocationCoordinate2D) {
-        delegate.centerMap(on: coordinate)
+    func setUserTracking(mode: MKUserTrackingMode) {
+        delegate.setUserTracking(mode: mode)
     }
 
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
@@ -82,7 +82,7 @@ extension MapViewModel : MapAnnotationReceiving {
 
 protocol MapViewModelDelegate : class {
 
-    func centerMap(on: CLLocationCoordinate2D)
+    func setUserTracking(mode: MKUserTrackingMode)
     func setRegion(_ region: MKCoordinateRegion)
     func setOverlays(_ overlays: [MKOverlay])
     func newAnnotations(_ annotations: [MKAnnotation])

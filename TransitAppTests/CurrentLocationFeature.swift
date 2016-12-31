@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import MapKit
 @testable import TransitApp
 
 class CurrentLocationFeature: TransitAppFeature { override func spec() {
@@ -30,6 +31,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             context("accepting location permission") {
 
                 beforeEach {
+                    expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.none))
                     self.locationManager.tapAllowInDialog()
                 }
 
@@ -37,20 +39,8 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
                     self.expectCurrentLocationButtonState(.highlighted)
                 }
 
-                context("if/when the location is updated") {
-
-                    beforeEach {
-                        expect(self.mapView.mapCenteredOn).to(beNil())
-                        self.locationManager.locationRequestSuccess()
-                    }
-
-                    it("will center the map on the current location") {
-                        expect(self.mapView.mapCenteredOn).toNot(beNil())
-                    }
-
-                    it("the arrow will still be highlighted") {
-                        self.expectCurrentLocationButtonState(.highlighted)
-                    }
+                it("will turn on user tracking") {
+                    expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.follow))
                 }
             }
 
@@ -67,8 +57,31 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
         }
     }
 
-    context("when permission was already denied") {
+    context("when permission was already authorized") {
         
+        beforeEach {
+            self.mapView.tapCurrentLocationButton()
+            self.locationManager.tapAllowInDialog()
+            self.mapView.tapCurrentLocationButton()
+        }
+
+        context("tapping on the arrow") {
+
+            beforeEach {
+                self.expectCurrentLocationButtonState(.nonHighlighted)
+                self.mapView.tapCurrentLocationButton()
+            }
+
+            it("the arrow will be highlighted") {
+                self.expectCurrentLocationButtonState(.highlighted)
+            }
+
+        }
+        
+    }
+
+    context("when permission was already denied") {
+
         beforeEach {
             self.mapView.tapCurrentLocationButton()
             self.locationManager.tapDoNotAllowAccessInDialog()
@@ -80,7 +93,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
                 self.mapView.tapCurrentLocationButton()
             }
 
-            it("the arrow will still not be highlighted") {
+            it("the arrow will not be highlighted") {
                 self.expectCurrentLocationButtonState(.nonHighlighted)
             }
 
@@ -114,6 +127,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             self.mapView.tapCurrentLocationButton()
             self.locationManager.tapAllowInDialog()
             self.expectCurrentLocationButtonState(.highlighted)
+            expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.follow))
         }
 
         context("tapping on the arrow") {
@@ -125,17 +139,9 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             it("will un-highlight the arrow") {
                 self.expectCurrentLocationButtonState(.nonHighlighted)
             }
-            
-            context("if/when the location is updated") {
 
-                beforeEach {
-                    expect(self.mapView.mapCenteredOn).to(beNil())
-                    self.locationManager.locationRequestSuccess()
-                }
-
-                it("will not center the map on the current location") {
-                    expect(self.mapView.mapCenteredOn).to(beNil())
-                }
+            it("will turn off user tracking") {
+                expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.none))
             }
         }
     }

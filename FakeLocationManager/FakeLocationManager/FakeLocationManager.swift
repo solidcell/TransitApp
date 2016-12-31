@@ -226,9 +226,8 @@ extension FakeLocationManager {
     }
 
     private func fatalErrorIfCurrentlyADialog() {
-        if dialog != nil {
-            fatalError("There is already a dialog displayed: \(dialog). If showing another one would create a stack of dialogs, then update `dialog` to handle a stack.")
-        }
+        guard let dialog = dialog else { return }
+        fatalError("There is already a dialog displayed: \(dialog). If showing another one would create a stack of dialogs, then update `dialog` to handle a stack.")
     }
 
 }

@@ -1,5 +1,4 @@
 import UIKit
-import SwiftyJSON
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

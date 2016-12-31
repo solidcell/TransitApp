@@ -1,13 +1,19 @@
-import CoreLocation
+import MapKit
 import UIKit
 
 class CurrentLocationViewModel {
 
     weak var delegate: CurrentLocationViewModelDelegate! {
-        didSet { notifyDelegateOfCurrentLocationButtonState() }
+        didSet {
+            notifyDelegateOfUserTrackingMode()
+            notifyDelegateOfButtonState()
+        }
     }
-    fileprivate var currentLocationButtonState = ButtonState.nonHighlighted {
-        didSet { notifyDelegateOfCurrentLocationButtonState() }
+    fileprivate var userTrackingMode: MKUserTrackingMode = .none {
+        didSet { notifyDelegateOfUserTrackingMode() }
+    }
+    fileprivate var buttonState: ButtonState = .nonHighlighted {
+        didSet { notifyDelegateOfButtonState() }
     }
     private let provider: CurrentLocationProvider
 
@@ -17,29 +23,41 @@ class CurrentLocationViewModel {
     }
 
     func tapCurrentLocationButton() {
-        if provider.authorizationDenied {
-            showPreviouslyDeniedAlert()
-            return
-        }
-        toggleCurrentLocationButtonStates()
-        provider.startUpdatingLocation()
+        toggleUserTrackingMode()
     }
 
-    private func notifyDelegateOfCurrentLocationButtonState() {
-        delegate.setCurrentLocationButtonState(currentLocationButtonState)
+    private func notifyDelegateOfUserTrackingMode() {
+        delegate.setUserTracking(mode: userTrackingMode)
     }
 
-    private func toggleCurrentLocationButtonStates() {
-        switch currentLocationButtonState {
-        case .nonHighlighted:
-            currentLocationButtonState = .highlighted
-        case .highlighted:
-            currentLocationButtonState = .nonHighlighted
+    private func notifyDelegateOfButtonState() {
+        delegate.setCurrentLocationButtonState(buttonState)
+    }
+
+    fileprivate var wantingToTurnTrackingOn = false
+
+    private func toggleUserTrackingMode() {
+        switch userTrackingMode {
+        case .none:
+            if provider.authorizationDenied {
+                showPreviouslyDeniedAlert()
+                return
+            }
+            if provider.authorized {
+                userTrackingMode = .follow
+            } else {
+                wantingToTurnTrackingOn = true
+                provider.authorize()
+            }
+            buttonState = .highlighted
+        default:
+            userTrackingMode = .none
+            buttonState = .nonHighlighted
         }
     }
 
     private func showPreviouslyDeniedAlert() {
-        guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
+        let url = URL(string: UIApplicationOpenSettingsURLString)!
         let alert = MapViewModel.Alert(
             title: "Please give permission",
             message: "You have previously declined permission to use your location.",
@@ -67,21 +85,23 @@ extension CurrentLocationViewModel {
 
 extension CurrentLocationViewModel : CurrentLocationProviderDelegate {
 
-    func currentLocation(_ location: CLLocation) {
-        if currentLocationButtonState == .highlighted {
-            delegate.centerMap(on: location.coordinate)
+    func authorizationTurnedOn() {
+        if wantingToTurnTrackingOn {
+            userTrackingMode = .follow
+            buttonState = .highlighted
         }
     }
 
     func authorizationTurnedOff() {
-        currentLocationButtonState = .nonHighlighted
+        userTrackingMode = .none
+        buttonState = .nonHighlighted
     }
     
 }
 
 protocol CurrentLocationViewModelDelegate : class {
     
-    func centerMap(on: CLLocationCoordinate2D)
+    func setUserTracking(mode: MKUserTrackingMode)
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
     func showAlert(_ alert: MapViewModel.Alert)
     

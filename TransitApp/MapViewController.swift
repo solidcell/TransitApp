@@ -73,8 +73,8 @@ fileprivate extension MapViewController {
 
 extension MapViewController: MapViewModelDelegate {
 
-    func centerMap(on coordinate: CLLocationCoordinate2D) {
-        mapView.setCenter(coordinate, animated: true)
+    func setUserTracking(mode: MKUserTrackingMode) {
+        mapView.setUserTrackingMode(mode, animated: true)
     }
     
     func setRegion(_ region: MKCoordinateRegion) {
