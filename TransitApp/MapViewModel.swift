@@ -54,6 +54,10 @@ class MapViewModel {
 
 extension MapViewModel : CurrentLocationViewModelDelegate {
 
+    func setShowCurrentLocation(_ enabled: Bool) {
+        delegate.setShowCurrentLocation(enabled)
+    }
+
     func setUserTracking(mode: MKUserTrackingMode) {
         delegate.setUserTracking(mode: mode)
     }
@@ -83,11 +87,12 @@ extension MapViewModel : MapAnnotationReceiving {
 protocol MapViewModelDelegate : class {
 
     func setUserTracking(mode: MKUserTrackingMode)
+    func setShowCurrentLocation(_ enabled: Bool)
     func setRegion(_ region: MKCoordinateRegion)
     func setOverlays(_ overlays: [MKOverlay])
     func newAnnotations(_ annotations: [MKAnnotation])
     func annotationsReadyForUpdate(update: @escaping () -> Void)
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
     func showAlert(_ alert: MapViewModel.Alert)
-    
+
 }

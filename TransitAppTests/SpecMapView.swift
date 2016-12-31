@@ -10,6 +10,7 @@ protocol SpecMapViewInterating {
 
     // MARK: Output
 
+    var showCurrentLocation: Bool? { get }
     var userTrackingMode: MKUserTrackingMode? { get }
     var mapRegion: MKCoordinateRegion? { get }
     var mapOverlays: [MKOverlay] { get }
@@ -21,6 +22,7 @@ protocol SpecMapViewInterating {
 
 private class SpecMapView : SpecMapViewInterating {
 
+    var showCurrentLocation: Bool?
     var userTrackingMode: MKUserTrackingMode?
     var mapRegion: MKCoordinateRegion?
     var mapOverlays = [MKOverlay]()
@@ -45,6 +47,10 @@ private class SpecMapView : SpecMapViewInterating {
 }
 
 extension SpecMapView : MapViewModelDelegate {
+
+    func setShowCurrentLocation(_ enabled: Bool) {
+        self.showCurrentLocation = enabled
+    }
 
     func setUserTracking(mode: MKUserTrackingMode) {
         self.userTrackingMode = mode

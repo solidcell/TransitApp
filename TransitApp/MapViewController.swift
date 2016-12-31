@@ -19,7 +19,6 @@ class MapViewController: UIViewController {
         viewModel.delegate = self
         viewModel.viewDidLoad()
         mapView.delegate = mapViewDelegate
-        mapView.showsUserLocation = true
     }
 
     override func viewDidLayoutSubviews() {
@@ -72,6 +71,10 @@ fileprivate extension MapViewController {
 }
 
 extension MapViewController: MapViewModelDelegate {
+
+    func setShowCurrentLocation(_ enabled: Bool) {
+        mapView.showsUserLocation = enabled
+    }
 
     func setUserTracking(mode: MKUserTrackingMode) {
         mapView.setUserTrackingMode(mode, animated: true)

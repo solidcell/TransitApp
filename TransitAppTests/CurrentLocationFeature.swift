@@ -12,6 +12,10 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             self.expectCurrentLocationButtonState(.nonHighlighted)
         }
 
+        it("will not be trying to show the current location") {
+            expect(self.mapView.showCurrentLocation).to(beNil())
+        }
+
         context("tapping on the arrow") {
 
             beforeEach {
@@ -20,6 +24,10 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
 
             it("will highlight the arrow") {
                 self.expectCurrentLocationButtonState(.highlighted)
+            }
+
+            it("will still not be trying to show the current location") {
+                expect(self.mapView.showCurrentLocation).to(beNil())
             }
 
             it("will present an authorization dialog") {
@@ -41,6 +49,10 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
 
                 it("will turn on user tracking") {
                     expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.follow))
+                }
+
+                it("will show the current location") {
+                    expect(self.mapView.showCurrentLocation).to(beTrue())
                 }
             }
 
