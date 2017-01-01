@@ -4,7 +4,6 @@ import MapKit
 class MapViewController: UIViewController {
 
     var viewModel: MapViewModel!
-    private let mapViewDelegate = MapViewDelegate()
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentLocationButton: UIButton!
@@ -17,8 +16,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         viewModel.delegate = self
-        viewModel.viewDidLoad()
-        mapView.delegate = mapViewDelegate
+        viewModel.viewDidLoad(mapViewDelegateHaving: mapView)
     }
 
     override func viewDidLayoutSubviews() {

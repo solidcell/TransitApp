@@ -8,21 +8,25 @@ class MapViewModel {
     private let mapOverlayProvider: MapOverlayProvider
     private let mapAnnotationProvider: MapAnnotationProvider
     private let scooterUpdater: ScooterUpdater
+    private let mapViewDelegate: MapViewDelegate
     weak var delegate: MapViewModelDelegate!
 
     init(currentLocationViewModel: CurrentLocationViewModel,
          initialCoordinateRegion: MKCoordinateRegion,
          mapOverlayProvider: MapOverlayProvider,
          mapAnnotationProvider: MapAnnotationProvider,
-         scooterUpdater: ScooterUpdater) {
+         scooterUpdater: ScooterUpdater,
+         mapViewDelegate: MapViewDelegate) {
         self.currentLocationViewModel = currentLocationViewModel
         self.initialCoordinateRegion = initialCoordinateRegion
         self.mapOverlayProvider = mapOverlayProvider
         self.mapAnnotationProvider = mapAnnotationProvider
         self.scooterUpdater = scooterUpdater
+        self.mapViewDelegate = mapViewDelegate
     }
 
-    func viewDidLoad() {
+    func viewDidLoad(mapViewDelegateHaving: MKMapViewDelegateHaving) {
+        mapViewDelegateHaving.delegate = mapViewDelegate
         mapAnnotationProvider.delegate = self
         currentLocationViewModel.delegate = self
         delegate.setOverlays(mapOverlayProvider.overlays)

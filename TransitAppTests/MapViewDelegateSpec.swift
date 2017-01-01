@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 import MapKit
+import FakeLocationManager
 @testable import TransitApp
 
 class MapViewDelegateSpec: TransitAppSpec {
@@ -11,7 +12,10 @@ class MapViewDelegateSpec: TransitAppSpec {
         var mapView: MKMapView!
 
         beforeEach {
-            subject = MapViewDelegate()
+            let locationManager = FakeLocationManager()
+            let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
+            let currentLocationViewModel = CurrentLocationViewModel(provider: currentLocationProvider)
+            subject = MapViewDelegate(userTrackingModeDelegate: currentLocationViewModel)
             mapView = MKMapView()
         }
 

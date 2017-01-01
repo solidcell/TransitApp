@@ -3,6 +3,11 @@ import MapKit
 class MapViewDelegate: NSObject, MKMapViewDelegate {
 
     let coupMapAnnotationViewCreator = CoupMapAnnotationViewCreator()
+    weak var userTrackingModeDelegate: UserTrackingModeDelegate?
+
+    init(userTrackingModeDelegate: UserTrackingModeDelegate) {
+        self.userTrackingModeDelegate = userTrackingModeDelegate
+    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let coupAnnotation = annotation as? CoupMapAnnotation {
@@ -19,4 +24,14 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
         return polygon
     }
 
+    func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
+        userTrackingModeDelegate!.didChangeMode(mode)
+    }
+
+}
+
+protocol UserTrackingModeDelegate : class {
+
+    func didChangeMode(_ mode: MKUserTrackingMode)
+    
 }

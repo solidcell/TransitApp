@@ -7,6 +7,7 @@ protocol SpecMapViewInterating {
     // MARK: Input
 
     func tapCurrentLocationButton()
+    func drag()
 
     // MARK: Output
 
@@ -31,17 +32,22 @@ private class SpecMapView : SpecMapViewInterating {
     var shownAlert: MapViewModel.Alert?
 
     private let viewModel: MapViewModel
+    private let mkMapView = SpecMKMapView()
 
     init(viewModel: MapViewModel) {
         self.viewModel = viewModel
         // the following could be moved/removed if RxSwift
         // were used. Some other way without it?
         viewModel.delegate = self
-        viewModel.viewDidLoad()
+        viewModel.viewDidLoad(mapViewDelegateHaving: mkMapView)
     }
 
     func tapCurrentLocationButton() {
         viewModel.tapCurrentLocationButton()
+    }
+
+    func drag() {
+        mkMapView.drag()
     }
     
 }

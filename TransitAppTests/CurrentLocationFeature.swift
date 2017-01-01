@@ -134,7 +134,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
         }
     }
 
-    context("when already following current location") {
+    context("when following current location") {
 
         beforeEach {
             self.mapView.tapCurrentLocationButton()
@@ -147,6 +147,21 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
 
             beforeEach {
                 self.mapView.tapCurrentLocationButton()
+            }
+
+            it("will un-highlight the arrow") {
+                self.expectCurrentLocationButtonState(.nonHighlighted)
+            }
+
+            it("will turn off user tracking") {
+                expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.none))
+            }
+        }
+
+        context("dragging the map") {
+
+            beforeEach {
+                self.mapView.drag()
             }
 
             it("will un-highlight the arrow") {

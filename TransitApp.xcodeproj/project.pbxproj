@@ -47,6 +47,8 @@
 		8827E15E1DC2507100E06654 /* SeedDataParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E15D1DC2507100E06654 /* SeedDataParserSpec.swift */; };
 		883D8FC91DCE07C5006B6B92 /* ScooterRealmNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883D8FC81DCE07C5006B6B92 /* ScooterRealmNotifier.swift */; };
 		8864759D1E17DEEE00A1F94F /* CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8864759C1E17DEEE00A1F94F /* CustomStringConvertible.swift */; };
+		886475A41E198D7300A1F94F /* SpecMKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886475A31E198D7300A1F94F /* SpecMKMapView.swift */; };
+		886475A61E198F9700A1F94F /* MKMapViewDelegateHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886475A51E198F9700A1F94F /* MKMapViewDelegateHaving.swift */; };
 		887DBED41DC62A8500D92E19 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBED31DC62A8500D92E19 /* UIColor.swift */; };
 		887DBEDC1DC75AD300D92E19 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */; };
 		887DBEDE1DC75B3E00D92E19 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */; };
@@ -146,6 +148,8 @@
 		8827E15D1DC2507100E06654 /* SeedDataParserSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedDataParserSpec.swift; sourceTree = "<group>"; };
 		883D8FC81DCE07C5006B6B92 /* ScooterRealmNotifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterRealmNotifier.swift; sourceTree = "<group>"; };
 		8864759C1E17DEEE00A1F94F /* CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStringConvertible.swift; sourceTree = "<group>"; };
+		886475A31E198D7300A1F94F /* SpecMKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecMKMapView.swift; sourceTree = "<group>"; };
+		886475A51E198F9700A1F94F /* MKMapViewDelegateHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegateHaving.swift; sourceTree = "<group>"; };
 		887DBED31DC62A8500D92E19 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		887DBEDB1DC75AD300D92E19 /* MapCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 				880A057C1E100F1100CFAFF4 /* SpecFetchTimer.swift */,
 				880A057E1E100FB300CFAFF4 /* SpecScooterRealmNotifier.swift */,
 				880A05801E10330A00CFAFF4 /* SpecMapView.swift */,
+				886475A31E198D7300A1F94F /* SpecMKMapView.swift */,
 			);
 			name = Fakes;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 		8827E1421DC0D64400E06654 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				886475A51E198F9700A1F94F /* MKMapViewDelegateHaving.swift */,
 				880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */,
 				887DBED31DC62A8500D92E19 /* UIColor.swift */,
 				88A303021DD082310054A1CE /* Equatable.swift */,
@@ -387,7 +393,6 @@
 			children = (
 				880A05821E10353700CFAFF4 /* MapViewControllerFactory.swift */,
 				887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */,
-				880EB0701DC3736F00C5830E /* MapViewDelegate.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 			children = (
 				880A05841E103ABE00CFAFF4 /* MapViewModel.swift */,
 				880A05B21E141E3200CFAFF4 /* CurrentLocationViewModel.swift */,
+				880EB0701DC3736F00C5830E /* MapViewDelegate.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -746,6 +752,7 @@
 				8884CE3F1DC61038004365B3 /* BusinessAreaCoordinateParser.swift in Sources */,
 				880A05851E103ABE00CFAFF4 /* MapViewModel.swift in Sources */,
 				887DBEF21DC8C31A00D92E19 /* FetchTimer.swift in Sources */,
+				886475A61E198F9700A1F94F /* MKMapViewDelegateHaving.swift in Sources */,
 				880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */,
 				887DBEE91DC8A24B00D92E19 /* MapAnnotationDataSource.swift in Sources */,
 				880A05B31E141E3200CFAFF4 /* CurrentLocationViewModel.swift in Sources */,
@@ -783,6 +790,7 @@
 				880A05AF1E127B4D00CFAFF4 /* CurrentLocationFeature.swift in Sources */,
 				880EB0871DC398FC00C5830E /* ScooterParserSpec.swift in Sources */,
 				880A057D1E100F1100CFAFF4 /* SpecFetchTimer.swift in Sources */,
+				886475A41E198D7300A1F94F /* SpecMKMapView.swift in Sources */,
 				880A05B11E127B7B00CFAFF4 /* MapAnnotationFeature.swift in Sources */,
 				8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */,
 				8825321D1E152189007824BC /* Equatable.swift in Sources */,

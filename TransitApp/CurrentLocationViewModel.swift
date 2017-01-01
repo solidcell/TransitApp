@@ -105,6 +105,15 @@ extension CurrentLocationViewModel : CurrentLocationProviderDelegate {
     
 }
 
+extension CurrentLocationViewModel : UserTrackingModeDelegate {
+
+    func didChangeMode(_ mode: MKUserTrackingMode) {
+        userTrackingMode = mode
+        buttonState = mode == .none ? .nonHighlighted : .highlighted
+    }
+    
+}
+
 protocol CurrentLocationViewModelDelegate : class {
     
     func setUserTracking(mode: MKUserTrackingMode)

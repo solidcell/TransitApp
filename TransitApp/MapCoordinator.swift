@@ -22,11 +22,13 @@ class MapCoordinator {
         scooterUpdater.start()
         let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
         let currentLocationViewModel = CurrentLocationViewModel(provider: currentLocationProvider)
+        let mapViewDelegate = MapViewDelegate(userTrackingModeDelegate: currentLocationViewModel)
         let viewModel = MapViewModel(currentLocationViewModel: currentLocationViewModel,
                                      initialCoordinateRegion: region,
                                      mapOverlayProvider: mapOverlayProvider,
                                      mapAnnotationProvider: mapAnnotationProvider,
-                                     scooterUpdater: scooterUpdater)
+                                     scooterUpdater: scooterUpdater,
+                                     mapViewDelegate: mapViewDelegate)
         viewFactory.createAndAttachToWindow(window: window, viewModel: viewModel)
     }
 
