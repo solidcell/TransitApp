@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 import MapKit
+import FakeLocationManager
 @testable import TransitApp
 
 class CurrentLocationFeature: TransitAppFeature { override func spec() {
@@ -154,6 +155,24 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
 
             it("will turn off user tracking") {
                 expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.none))
+            }
+        }
+    }
+
+    context("when location services are off") {
+
+        beforeEach {
+            self.locationManager.setLocationServicesEnabledInSettingsApp(false)
+        }
+
+        context("tapping on the arrow") {
+
+            beforeEach {
+                self.mapView.tapCurrentLocationButton()
+            }
+
+            it("will show a prompt to turn on location services") {
+                expect(self.locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestJumpToLocationServicesSettings))
             }
         }
     }

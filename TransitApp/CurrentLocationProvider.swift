@@ -18,6 +18,10 @@ class CurrentLocationProvider: NSObject {
     var authorizationDenied: Bool {
         return locationManager.authorizationStatus() == .denied
     }
+    
+    var locationServicesEnabled: Bool {
+        return locationManager.isLocationServicesEnabled()
+    }
 
     func authorize() {
         locationManager.requestWhenInUseAuthorization()

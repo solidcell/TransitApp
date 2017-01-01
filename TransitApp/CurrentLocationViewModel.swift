@@ -39,7 +39,11 @@ class CurrentLocationViewModel {
     private func toggleUserTrackingMode() {
         switch userTrackingMode {
         case .none:
-            if provider.authorizationDenied {
+            if !provider.locationServicesEnabled {
+                provider.authorize()
+                return
+            }
+            else if provider.authorizationDenied {
                 showPreviouslyDeniedAlert()
                 return
             }

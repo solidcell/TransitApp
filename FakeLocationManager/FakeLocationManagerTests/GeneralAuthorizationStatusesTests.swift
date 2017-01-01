@@ -10,5 +10,12 @@ class GeneralAuthorizationStatusesTests: FakeLocationManagerTestCase {
         // notifies delegate
         XCTAssertEqual(delegate.receivedAuthorizationChange, .notDetermined)
     }
+
+    func test_WhenLocationServicesIsOff() {
+        // when Location Services are off
+        subject.setLocationServicesEnabledInSettingsApp(false)
+        // status is .denied
+        XCTAssertEqual(subject.authorizationStatus(), .denied)
+    }
     
 }
