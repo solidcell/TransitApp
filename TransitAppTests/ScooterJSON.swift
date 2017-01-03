@@ -2,9 +2,9 @@ import SwiftyJSON
 
 class ScooterJSON {
 
-    class func create(_ collection: [SpecScooterJSON]) -> [String : Any]? {
+    class func create(_ collection: [SpecScooterJSON]) -> [String : Any] {
         let mapped = collection.map({$0.asJSON})
-        return JSON(["data": ["scooters": mapped]]).dictionaryObject
+        return JSON(["data": ["scooters": mapped]]).dictionaryObject!
     }
 
 }
