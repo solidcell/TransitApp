@@ -22,48 +22,7 @@ class MapViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        styleCurrentLocationArrow()
-    }
-
-}
-
-fileprivate extension MapViewController {
-
-    func styleCurrentLocationArrow() {
-        addCircleBehindCurrentLocationArrow()
-        positionCurrentLocationArrowWithinCircle()
-        addShadowToCurrentLocationArrow()
-    }
-
-    private func addShadowToCurrentLocationArrow() {
-        currentLocationButton.layer.shadowRadius = 5.0
-        currentLocationButton.layer.shadowOffset = CGSize(width: 0, height: 0)
-        currentLocationButton.layer.shadowOpacity = 0.2
-    }
-
-    private func addCircleBehindCurrentLocationArrow() {
-        currentLocationButton.backgroundColor = UIColor(rgb: 0xeff5f4)
-        currentLocationButton.layer.borderColor = UIColor(rgb: 0x7c8082).cgColor
-        currentLocationButton.layer.borderWidth = 0.25
-        currentLocationButton.layer.cornerRadius =  buttonHeight/2
-    }
-    
-    private func positionCurrentLocationArrowWithinCircle() {
-        currentLocationButton.imageEdgeInsets = imageInsets
-    }
-
-    private var buttonHeight: CGFloat {
-        return currentLocationButton.frame.height
-    }
-
-    private var imageInsets: UIEdgeInsets {
-        let imageSizePercentage: CGFloat = 0.6
-        let imageInset: CGFloat = buttonHeight/2 * (1 - imageSizePercentage)
-        let irregularSideExtra: CGFloat = buttonHeight * imageSizePercentage * 0.15
-        return UIEdgeInsetsMake(imageInset+irregularSideExtra,
-                                imageInset,
-                                imageInset,
-                                imageInset+irregularSideExtra)
+        RoundButtonStyler.style(button: currentLocationButton)
     }
 
 }

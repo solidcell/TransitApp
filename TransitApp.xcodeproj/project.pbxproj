@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		196FC76CBC4475AFBD08C51A /* Pods_TransitAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7699D0244E47BFD344B758C0 /* Pods_TransitAppTests.framework */; };
+		8807409D1E1E6A1200CECDDF /* RoundButtonStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8807409C1E1E6A1200CECDDF /* RoundButtonStyler.swift */; };
 		880A05741E0FEEE600CFAFF4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05731E0FEEE600CFAFF4 /* AppCoordinator.swift */; };
 		880A057B1E100EB600CFAFF4 /* SpecJSONFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A057A1E100EB600CFAFF4 /* SpecJSONFetcher.swift */; };
 		880A057D1E100F1100CFAFF4 /* SpecFetchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A057C1E100F1100CFAFF4 /* SpecFetchTimer.swift */; };
@@ -110,6 +111,7 @@
 /* Begin PBXFileReference section */
 		48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		7699D0244E47BFD344B758C0 /* Pods_TransitAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8807409C1E1E6A1200CECDDF /* RoundButtonStyler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButtonStyler.swift; sourceTree = "<group>"; };
 		880A05731E0FEEE600CFAFF4 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		880A057A1E100EB600CFAFF4 /* SpecJSONFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecJSONFetcher.swift; sourceTree = "<group>"; };
 		880A057C1E100F1100CFAFF4 /* SpecFetchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecFetchTimer.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 			children = (
 				880A05821E10353700CFAFF4 /* MapViewControllerFactory.swift */,
 				887DBEDD1DC75B3E00D92E19 /* MapViewController.swift */,
+				8807409C1E1E6A1200CECDDF /* RoundButtonStyler.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */,
 				88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */,
 				887DBEF51DC8CDC700D92E19 /* ScooterFetcher.swift in Sources */,
+				8807409D1E1E6A1200CECDDF /* RoundButtonStyler.swift in Sources */,
 				880A05831E10353700CFAFF4 /* MapViewControllerFactory.swift in Sources */,
 				883D8FC91DCE07C5006B6B92 /* ScooterRealmNotifier.swift in Sources */,
 			);
