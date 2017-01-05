@@ -32,9 +32,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             }
 
             it("will present an authorization dialog") {
-                // it will not fatalError if there is a dialog to tap
-                // TODO add a way to just check for presence of dialog type
-                self.locationManager.tapAllowInDialog()
+                expect(self.locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestAccessWhileInUse))
             }
 
             context("accepting location permission") {
