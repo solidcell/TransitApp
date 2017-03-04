@@ -1,11 +1,9 @@
 import Quick
 import Nimble
 
-class MapOverlayFeature: TransitAppFeature { override func spec() {
-    super.spec()
+class MapOverlayFeature: TransitAppFeature {
 
-    it("is seeded with 3 business areas") {
-        expect(self.mapView.mapOverlays).to(haveCount(3))
-    }
+    func testIsSeeded() {
+        XCTAssertEqual(self.mapView.mapOverlays.count, 3)
     }
 }

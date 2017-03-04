@@ -5,93 +5,72 @@ import SpecUIKitFringes
 @testable import TransitApp
 
 class MapViewDelegateSpec: TransitAppSpec {
-    override func spec() {
-        super.spec()
 
-        var subject: MapViewDelegate!
-        var mapView: MKMapView!
+    var subject: MapViewDelegate!
+    var mapView: MKMapView!
 
-        beforeEach {
-            let dialogManager = SpecDialogManager()
-            let locationServices = SpecLocationServices()
-            let userLocation = SpecUserLocation()
-            let locationAuthorizationStatus = SpecLocationAuthorizationStatus()
-            let locationManager = SpecLocationManager(dialogManager: dialogManager,
-                                                      userLocation: userLocation,
-                                                      locationServices: locationServices,
-                                                      locationAuthorizationStatus: locationAuthorizationStatus)
-            let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
-            let currentLocationViewModel = CurrentLocationViewModel(provider: currentLocationProvider)
-            subject = MapViewDelegate(userTrackingModeDelegate: currentLocationViewModel)
-            mapView = MKMapView()
-        }
+    override func setUp() {
+        super.setUp()
 
-        describe("mapView(_:viewFor:)") {
+        let dialogManager = SpecDialogManager()
+        let locationServices = SpecLocationServices()
+        let userLocation = SpecUserLocation()
+        let locationAuthorizationStatus = SpecLocationAuthorizationStatus()
+        let locationManager = SpecLocationManager(dialogManager: dialogManager,
+                                                  userLocation: userLocation,
+                                                  locationServices: locationServices,
+                                                  locationAuthorizationStatus: locationAuthorizationStatus)
+        let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
+        let currentLocationViewModel = CurrentLocationViewModel(provider: currentLocationProvider)
+        subject = MapViewDelegate(userTrackingModeDelegate: currentLocationViewModel)
+        mapView = MKMapView()
+    }
 
-            var coupMapAnnotation: CoupMapAnnotation!
+    func testMapViewViewForHasACalloutEnabled() {
+        let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: 0, licensePlate: "")
+        let coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
 
-            it("has a callout enabled") {
-                let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: 0, licensePlate: "")
-                coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
+        let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
+        let pinAnnotationView = results as! MKPinAnnotationView
+        XCTAssertTrue(pinAnnotationView.canShowCallout)
+    }
 
-                let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
-                let pinAnnotationView = results as! MKPinAnnotationView
-                expect(pinAnnotationView.canShowCallout).to(beTrue())
-            }
+    func testMapViewViewForWithEnergyLevelAbove50() {
+        let energyLevel = 51
 
-            context("with energy level 51-100") {
-                let energyLevel = 51
+        let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
+        let coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
 
-                beforeEach {
-                    let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
-                    coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
-                }
+        let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
+        let pinAnnotationView = results as! MKPinAnnotationView
+        XCTAssertEqual(pinAnnotationView.pinTintColor, UIColor.green)
+    }
 
-                it("returns an MKPinAnnotationView with a green tint") {
-                    let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
-                    let pinAnnotationView = results as! MKPinAnnotationView
-                    expect(pinAnnotationView.pinTintColor).to(equal(UIColor.green))
-                }
-            }
+    func testMapViewViewForWithEnergyLevelBetween31and50() {
+        let energyLevel = 31
 
-            context("with energy level 31-50") {
-                let energyLevel = 31
+        let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
+        let coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
 
-                beforeEach {
-                    let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
-                    coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
-                }
+        let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
+        let pinAnnotationView = results as! MKPinAnnotationView
+        XCTAssertEqual(pinAnnotationView.pinTintColor, UIColor.yellow)
+    }
 
-                it("returns an MKPinAnnotationView with a yellow tint") {
-                    let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
-                    let pinAnnotationView = results as! MKPinAnnotationView
-                    expect(pinAnnotationView.pinTintColor).to(equal(UIColor.yellow))
-                }
-            }
+    func testMapViewViewWithEnergyLevelBelow31() {
+        let energyLevel = 30
 
-            context("with energy level 0-30") {
-                let energyLevel = 30
+        let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
+        let coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
 
-                beforeEach {
-                    let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
-                    coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
-                }
+        let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
+        let pinAnnotationView = results as! MKPinAnnotationView
+        XCTAssertEqual(pinAnnotationView.pinTintColor, UIColor.red)
+    }
 
-                it("returns an MKPinAnnotationView with a red tint") {
-                    let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
-                    let pinAnnotationView = results as! MKPinAnnotationView
-                    expect(pinAnnotationView.pinTintColor).to(equal(UIColor.red))
-                }
-            }
-
-        }
-
-        describe("mapView(_:rendererFor:)") {
-            it("returns an MKPolygonRenderer") {
-                let overlay = MKPolygon(coordinates: [], count: 0)
-                let result = subject.mapView(mapView, rendererFor: overlay)
-                expect(result).to(beAnInstanceOf(MKPolygonRenderer.self))
-            }
-        }
+    func testMapViewRendererFor() {
+        let overlay = MKPolygon(coordinates: [], count: 0)
+        let result = subject.mapView(mapView, rendererFor: overlay)
+        XCTAssertNotNil(result as? MKPolygonRenderer)
     }
 }

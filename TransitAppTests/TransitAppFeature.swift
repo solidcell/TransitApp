@@ -1,4 +1,4 @@
-import Quick
+import XCTest
 import SpecUIKitFringes
 @testable import TransitApp
 
@@ -14,38 +14,35 @@ class TransitAppFeature: TransitAppSpec {
     var dialogManager: SpecDialogManager!
     var settingsApp: SpecSettingsApp!
 
-    override func spec() {
-        super.spec()
+    override func setUp() {
+        super.setUp()
 
-        beforeEach {
-            let scooterRealmNotifier = SpecScooterRealmNotifier(realm: self.realm)
-            let jsonFetcher = SpecJSONFetcher()
-            let fetchTimer = SpecFetchTimer()
-            self.scooterUpdater = SpecScooterUpdater(scooterRealmNotifier: scooterRealmNotifier,
-                                                     jsonFetcher: jsonFetcher,
-                                                     fetchTimer: fetchTimer)
-            self.dialogManager = SpecDialogManager()
-            let locationServices = SpecLocationServices()
-            let userLocation = SpecUserLocation()
-            let locationAuthorizationStatus = SpecLocationAuthorizationStatus()
-            self.settingsApp = SpecSettingsApp(locationAuthorizationStatus: locationAuthorizationStatus,
-                                               locationServices: locationServices)
-            let _locationManager = SpecLocationManager(dialogManager: self.dialogManager,
-                                                       userLocation: userLocation,
-                                                       locationServices: locationServices,
-                                                       locationAuthorizationStatus: locationAuthorizationStatus)
-            self.locationManager = _locationManager
-            let mapViewFactory = SpecMapViewFactory()
-            self.subject = MainCoordinator()
-            self.subject.start(window: UIWindow(),
-                               mapViewFactory: mapViewFactory,
-                               realm: self.realm,
-                               scooterRealmNotifier: scooterRealmNotifier,
-                               jsonFetcher: jsonFetcher,
-                               fetchTimer: fetchTimer,
-                               locationManager: self.locationManager)
-            self.mapView = mapViewFactory.mapView
-        }
+        let scooterRealmNotifier = SpecScooterRealmNotifier(realm: self.realm)
+        let jsonFetcher = SpecJSONFetcher()
+        let fetchTimer = SpecFetchTimer()
+        self.scooterUpdater = SpecScooterUpdater(scooterRealmNotifier: scooterRealmNotifier,
+                                                 jsonFetcher: jsonFetcher,
+                                                 fetchTimer: fetchTimer)
+        self.dialogManager = SpecDialogManager()
+        let locationServices = SpecLocationServices()
+        let userLocation = SpecUserLocation()
+        let locationAuthorizationStatus = SpecLocationAuthorizationStatus()
+        self.settingsApp = SpecSettingsApp(locationAuthorizationStatus: locationAuthorizationStatus,
+                                           locationServices: locationServices)
+        let _locationManager = SpecLocationManager(dialogManager: self.dialogManager,
+                                                   userLocation: userLocation,
+                                                   locationServices: locationServices,
+                                                   locationAuthorizationStatus: locationAuthorizationStatus)
+        self.locationManager = _locationManager
+        let mapViewFactory = SpecMapViewFactory()
+        self.subject = MainCoordinator()
+        self.subject.start(window: UIWindow(),
+                           mapViewFactory: mapViewFactory,
+                           realm: self.realm,
+                           scooterRealmNotifier: scooterRealmNotifier,
+                           jsonFetcher: jsonFetcher,
+                           fetchTimer: fetchTimer,
+                           locationManager: self.locationManager)
+        self.mapView = mapViewFactory.mapView
     }
-    
 }

@@ -1,11 +1,9 @@
 import Quick
 import Nimble
 
-class MapRegionFeature: TransitAppFeature { override func spec() {
-    super.spec()
+class MapRegionFeature: TransitAppFeature {
 
-    it("starts at an initial map region") {
-        expect(self.mapView.mapRegion).toNot(beNil())
-    }
+    func testInitialRegion() {
+        XCTAssertNotNil(self.mapView.mapRegion)
     }
 }

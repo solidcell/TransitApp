@@ -1,8 +1,8 @@
-import Quick
+import XCTest
 import RealmSwift
 @testable import TransitApp
 
-class TransitAppSpec: QuickSpec {
+class TransitAppSpec: XCTestCase {
     
     var realm: Realm {
         if let _realm = _realm { return _realm }
@@ -19,9 +19,8 @@ class TransitAppSpec: QuickSpec {
 
     private var _realm: Realm?
     
-    override func spec() {
-        beforeEach {
-            self.newRealm()
-        }
+    override func setUp() {
+        super.setUp()
+        self.newRealm()
     }
 }

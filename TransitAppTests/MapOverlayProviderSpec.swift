@@ -5,40 +5,28 @@ import MapKit
 @testable import TransitApp
 
 class MapOverlayProviderSpec: TransitAppSpec {
-    override func spec() {
-        super.spec()
 
-        var subject: MapOverlayProvider!
+    func testOverlaysReturnsAnOverlayForEachBusinessArea() {
 
-        beforeEach {
-            let coordinates = [BusinessAreaCoordinate(latitude: 44.0, longitude: 62.0),
-                               BusinessAreaCoordinate(latitude: 40.0, longitude: 60.0),
-                               BusinessAreaCoordinate(latitude: 50.0, longitude: 70.0)]
-            let businessArea = BusinessArea(coordinates: coordinates)
+        let coordinates = [BusinessAreaCoordinate(latitude: 44.0, longitude: 62.0),
+                           BusinessAreaCoordinate(latitude: 40.0, longitude: 60.0),
+                           BusinessAreaCoordinate(latitude: 50.0, longitude: 70.0)]
+        let businessArea = BusinessArea(coordinates: coordinates)
 
-            try! self.realm.write {
-                self.realm.add(businessArea)
-            }
+        try! self.realm.write {
+            self.realm.add(businessArea)
         }
 
-        describe("overlays") {
+        let subject = MapOverlayProvider(realm: self.realm)
 
-            beforeEach {
-                subject = MapOverlayProvider(realm: self.realm)
-            }
+        XCTAssertEqual(subject.overlays.count, 1)
 
-            it("returns an overlay for each BusinessArea") {
-                expect(subject.overlays).to(haveCount(1))
+        let overlay = subject.overlays.first as! MKPolygon
+        XCTAssertEqual(overlay.pointCount, 3)
 
-                let overlay = subject.overlays.first as! MKPolygon
-                expect(overlay.pointCount).to(equal(3))
-
-                let firstMapPoint = overlay.points()[0]
-                let firstCoordinate = MKCoordinateForMapPoint(firstMapPoint)
-                expect(firstCoordinate.latitude).to(beCloseTo(44.0))
-                expect(firstCoordinate.longitude).to(beCloseTo(62.0))
-            }
-            
-        }
+        let firstMapPoint = overlay.points()[0]
+        let firstCoordinate = MKCoordinateForMapPoint(firstMapPoint)
+        XCTAssertEqualWithAccuracy(firstCoordinate.latitude, 44.0, accuracy: 0.00000001)
+        XCTAssertEqualWithAccuracy(firstCoordinate.longitude, 62.0, accuracy: 0.00000001)
     }
 }

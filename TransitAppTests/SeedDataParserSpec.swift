@@ -4,33 +4,29 @@ import RealmSwift
 @testable import TransitApp
 
 class SeedDataParserSpec: TransitAppSpec {
-    override func spec() {
-        super.spec()
 
-        var subject: SeedDataParser!
+    var subject: SeedDataParser!
 
-        beforeEach {
-            subject = SeedDataParser(realm: self.realm)
-        }
+    override func setUp() {
+        super.setUp()
+        subject = SeedDataParser(realm: self.realm)
+    }
 
-        describe("seedIfNeeded") {
-            it("saves the seed data if the app currently has none") {
-                expect(self.realm.businessAreas).to(beEmpty())
+    func testSeedIfNeededSavesSeedDataIfTheAppCurrentlyHasNone() {
+        XCTAssertEqual(self.realm.businessAreas.count, 0)
 
-                subject.seedIfNeeded()
+        subject.seedIfNeeded()
 
-                expect(self.realm.businessAreas).to(haveCount(3))
-            }
+        XCTAssertEqual(self.realm.businessAreas.count, 3)
+    }
 
-            it("does nothing if data already exists") {
-                subject.seedIfNeeded()
+    func testSeedIfNeededDoesNothingIfDataAlreadyExists() {
+        subject.seedIfNeeded()
 
-                expect(self.realm.businessAreas).to(haveCount(3))
-                
-                subject.seedIfNeeded()
+        XCTAssertEqual(self.realm.businessAreas.count, 3)
 
-                expect(self.realm.businessAreas).to(haveCount(3))
-            }
-        }
+        subject.seedIfNeeded()
+
+        XCTAssertEqual(self.realm.businessAreas.count, 3)
     }
 }

@@ -4,199 +4,105 @@ import MapKit
 import SpecUIKitFringes
 @testable import TransitApp
 
-class CurrentLocationFeature: TransitAppFeature { override func spec() {
-    super.spec()
+class CurrentLocationFeature: TransitAppFeature {
 
-    context("without having given or denied permission before") {
+    func testInitialState() {
+        XCTAssertEqual(self.mapView.currentLocationButtonState, .nonHighlighted)
+        XCTAssertNil(self.mapView.showCurrentLocation)
+    }
 
-        it("the arrow will not be highlighted") {
-            self.expectCurrentLocationButtonState(.nonHighlighted)
-        }
+    func testTappingOnTheArrow() {
+        self.mapView.tapCurrentLocationButton()
+        XCTAssertEqual(self.mapView.currentLocationButtonState, .highlighted)
+        XCTAssertNil(self.mapView.showCurrentLocation)
+        XCTAssertEqual(self.dialogManager.visibleDialog, SpecDialogManager.DialogIdentifier.locationManager(.requestAccessWhileInUse))
+    }
 
-        it("will not be trying to show the current location") {
-            expect(self.mapView.showCurrentLocation).to(beNil())
-        }
+    func testAcceptingLocationPermission() {
+        self.mapView.tapCurrentLocationButton()
+        XCTAssertEqual(self.mapView.userTrackingMode, MKUserTrackingMode.none)
+        self.dialogManager.tap(.allow)
 
-        context("tapping on the arrow") {
+        XCTAssertEqual(self.mapView.currentLocationButtonState, .highlighted)
+        XCTAssertEqual(self.mapView.userTrackingMode, MKUserTrackingMode.follow)
+        XCTAssertTrue(self.mapView.showCurrentLocation!)
+    }
 
-            beforeEach {
-                self.mapView.tapCurrentLocationButton()
-            }
+    func testDecliningLocationPermission() {
+        self.mapView.tapCurrentLocationButton()
+        self.dialogManager.tap(.dontAllow)
 
-            it("will highlight the arrow") {
-                self.expectCurrentLocationButtonState(.highlighted)
-            }
+        XCTAssertEqual(self.mapView.currentLocationButtonState, .nonHighlighted)
+    }
 
-            it("will still not be trying to show the current location") {
-                expect(self.mapView.showCurrentLocation).to(beNil())
-            }
+    func testTappingOnTheArrowWhenPermissionWasAlreadyAuthorized() {
+        self.mapView.tapCurrentLocationButton()
+        self.dialogManager.tap(.allow)
+        self.mapView.tapCurrentLocationButton()
 
-            it("will present an authorization dialog") {
-                expect(self.dialogManager.visibleDialog).to(equal(SpecDialogManager.DialogIdentifier.locationManager(.requestAccessWhileInUse)))
-            }
+        XCTAssertEqual(self.mapView.currentLocationButtonState, .nonHighlighted)
+        self.mapView.tapCurrentLocationButton()
+        XCTAssertEqual(self.mapView.currentLocationButtonState, .highlighted)
+    }
 
-            context("accepting location permission") {
+    func testTappingOnTheArrowWhenPermissionWasAlreadyDenied() {
 
-                beforeEach {
-                    expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.none))
-                    self.dialogManager.tap(.allow)
-                }
+        self.mapView.tapCurrentLocationButton()
+        self.dialogManager.tap(.dontAllow)
+        self.mapView.tapCurrentLocationButton()
 
-                it("the arrow will still be highlighted") {
-                    self.expectCurrentLocationButtonState(.highlighted)
-                }
+        XCTAssertEqual(self.mapView.currentLocationButtonState, .nonHighlighted)
 
-                it("will turn on user tracking") {
-                    expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.follow))
-                }
+        let alert = self.mapView.shownAlert
+        XCTAssertNotNil(alert)
+        if let alert = alert {
+            XCTAssertEqual(alert.title, "Please give permission")
+            XCTAssertEqual(alert.message, "You have previously declined permission to use your location.")
 
-                it("will show the current location") {
-                    expect(self.mapView.showCurrentLocation).to(beTrue())
-                }
-            }
+            XCTAssertEqual(alert.actions.count, 2)
 
-            context("declining location permission") {
+            let firstAction = alert.actions[0]
+            XCTAssertEqual(firstAction.title, "OK")
+            XCTAssertEqual(firstAction.style, UIAlertActionStyle.default)
+            let settingsURL = URL(string:UIApplicationOpenSettingsURLString)!
+            XCTAssertEqual(firstAction.handler, MapViewModel.Alert.Action.Handler.url(settingsURL))
 
-                beforeEach {
-                    self.dialogManager.tap(.dontAllow)
-                }
-
-                it("the arrow will no longer be highlighted") {
-                    self.expectCurrentLocationButtonState(.nonHighlighted)
-                }
-            }
+            let secondAction = alert.actions[1]
+            XCTAssertEqual(secondAction.title, "Cancel")
+            XCTAssertEqual(secondAction.style, UIAlertActionStyle.cancel)
+            XCTAssertEqual(secondAction.handler, MapViewModel.Alert.Action.Handler.noop)
         }
     }
 
-    context("when permission was already authorized") {
-        
-        beforeEach {
-            self.mapView.tapCurrentLocationButton()
-            self.dialogManager.tap(.allow)
-            self.mapView.tapCurrentLocationButton()
-        }
+    func testTappingOnTheArrowWhenFollowingCurrentLocation() {
 
-        context("tapping on the arrow") {
+        self.mapView.tapCurrentLocationButton()
+        self.dialogManager.tap(.allow)
+        XCTAssertEqual(self.mapView.currentLocationButtonState, .highlighted)
+        XCTAssertEqual(self.mapView.userTrackingMode, MKUserTrackingMode.follow)
+        self.mapView.tapCurrentLocationButton()
 
-            beforeEach {
-                self.expectCurrentLocationButtonState(.nonHighlighted)
-                self.mapView.tapCurrentLocationButton()
-            }
-
-            it("the arrow will be highlighted") {
-                self.expectCurrentLocationButtonState(.highlighted)
-            }
-
-        }
-        
+        XCTAssertEqual(self.mapView.currentLocationButtonState, .nonHighlighted)
+        XCTAssertEqual(self.mapView.userTrackingMode, MKUserTrackingMode.none)
     }
 
-    context("when permission was already denied") {
+    func testDraggingTheMapWhenFollowingCurrentLocation() {
 
-        beforeEach {
-            self.mapView.tapCurrentLocationButton()
-            self.dialogManager.tap(.dontAllow)
-        }
+        self.mapView.tapCurrentLocationButton()
+        self.dialogManager.tap(.allow)
+        XCTAssertEqual(self.mapView.currentLocationButtonState, .highlighted)
+        XCTAssertEqual(self.mapView.userTrackingMode, MKUserTrackingMode.follow)
+        self.mapView.drag()
 
-        context("tapping on the arrow") {
-
-            beforeEach {
-                self.mapView.tapCurrentLocationButton()
-            }
-
-            it("the arrow will not be highlighted") {
-                self.expectCurrentLocationButtonState(.nonHighlighted)
-            }
-
-            it("will display an alert explaining the issue") {
-                let alert = self.mapView.shownAlert
-                expect(alert).toNot(beNil())
-                if let alert = alert {
-                    expect(alert.title).to(equal("Please give permission"))
-                    expect(alert.message).to(equal("You have previously declined permission to use your location."))
-
-                    expect(alert.actions).to(haveCount(2))
-
-                    let firstAction = alert.actions[0]
-                    expect(firstAction.title).to(equal("OK"))
-                    expect(firstAction.style).to(equal(UIAlertActionStyle.default))
-                    let settingsURL = URL(string:UIApplicationOpenSettingsURLString)!
-                    expect(firstAction.handler).to(equal(MapViewModel.Alert.Action.Handler.url(settingsURL)))
-
-                    let secondAction = alert.actions[1]
-                    expect(secondAction.title).to(equal("Cancel"))
-                    expect(secondAction.style).to(equal(UIAlertActionStyle.cancel))
-                    expect(secondAction.handler).to(equal(MapViewModel.Alert.Action.Handler.noop))
-                }
-            }
-        }
+        XCTAssertEqual(self.mapView.currentLocationButtonState, .nonHighlighted)
+        XCTAssertEqual(self.mapView.userTrackingMode, MKUserTrackingMode.none)
     }
 
-    context("when following current location") {
+    func testTappingOnTheArrowWhenLocationServicesAreOff() {
+        self.settingsApp.set(locationServicesEnabled: false)
+        self.mapView.tapCurrentLocationButton()
 
-        beforeEach {
-            self.mapView.tapCurrentLocationButton()
-            self.dialogManager.tap(.allow)
-            self.expectCurrentLocationButtonState(.highlighted)
-            expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.follow))
-        }
+        XCTAssertEqual(self.dialogManager.visibleDialog, SpecDialogManager.DialogIdentifier.locationManager(.requestJumpToLocationServicesSettings))
 
-        context("tapping on the arrow") {
-
-            beforeEach {
-                self.mapView.tapCurrentLocationButton()
-            }
-
-            it("will un-highlight the arrow") {
-                self.expectCurrentLocationButtonState(.nonHighlighted)
-            }
-
-            it("will turn off user tracking") {
-                expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.none))
-            }
-        }
-
-        context("dragging the map") {
-
-            beforeEach {
-                self.mapView.drag()
-            }
-
-            it("will un-highlight the arrow") {
-                self.expectCurrentLocationButtonState(.nonHighlighted)
-            }
-
-            it("will turn off user tracking") {
-                expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.none))
-            }
-        }
-    }
-
-    context("when location services are off") {
-
-        beforeEach {
-            self.settingsApp.set(locationServicesEnabled: false)
-        }
-
-        context("tapping on the arrow") {
-
-            beforeEach {
-                self.mapView.tapCurrentLocationButton()
-            }
-
-            it("will show a prompt to turn on location services") {
-                expect(self.dialogManager.visibleDialog).to(equal(SpecDialogManager.DialogIdentifier.locationManager(.requestJumpToLocationServicesSettings)))
-            }
-        }
-    }
-    
-    }
-}
-
-extension CurrentLocationFeature {
-
-    func expectCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState,
-                                          f: String = #file, _ l: UInt = #line) {
-        NMB_expect({self.mapView.currentLocationButtonState}, f, l).to(equal(state))
     }
 }

@@ -4,22 +4,11 @@ import MapKit
 @testable import TransitApp
 
 class MapRegionProviderSpec: TransitAppSpec {
-    override func spec() {
-        super.spec()
+    
+    func testRegionSuccessfullyReturnsARegion() {
+        let subject = MapRegionProvider()
 
-        var subject: MapRegionProvider!
-
-        beforeEach {
-            subject = MapRegionProvider()
-        }
-
-        describe("region") {
-
-            it("successfully returns a region") {
-                // simple check that the method returns without error
-                _ = subject.region
-            }
-
-        }
+        // simple check that the method returns without error
+        _ = subject.region
     }
 }
