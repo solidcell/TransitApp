@@ -1,1 +1,6 @@
+github "Alamofire/Alamofire" "4.4.0"
 github "solidcell/HolistiKit" "0f7209423b45b7ec302a9ba954328334534612e4"
+github "Quick/Nimble" "v5.1.1"
+github "Quick/Quick" "v0.10.0"
+github "SwiftyJSON/SwiftyJSON" "3.1.4"
+github "realm/realm-cocoa" "v2.4.3"

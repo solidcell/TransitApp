@@ -1,1 +1,7 @@
 github "solidcell/HolistiKit" "master"
+github "SwiftyJSON/SwiftyJSON" ~> 3.1.1
+github "realm/realm-cocoa" ~> 2.0.2
+github "Alamofire/Alamofire" ~> 4.0.1
+github "Quick/Quick" ~> 0.10.0
+github "Quick/Nimble" ~> 5.1.0
+

@@ -84,7 +84,6 @@ extension CurrentLocationViewModel {
         case nonHighlighted
         case highlighted
     }
-    
 }
 
 extension CurrentLocationViewModel : CurrentLocationProviderDelegate {

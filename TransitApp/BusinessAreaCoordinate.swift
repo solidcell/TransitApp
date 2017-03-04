@@ -1,4 +1,5 @@
 import RealmSwift
+import Foundation
 
 class BusinessAreaCoordinate: Object {
     dynamic var latitude: Double = 0.0
