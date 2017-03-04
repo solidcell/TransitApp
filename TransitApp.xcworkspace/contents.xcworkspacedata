@@ -5,9 +5,6 @@
       location = "group:TransitApp.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:FakeLocationManager/FakeLocationManager.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

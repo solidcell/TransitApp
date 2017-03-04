@@ -1,6 +1,6 @@
 import UIKit
 import RealmSwift
-import FakeLocationManager
+import UIKitFringes
 
 class MainCoordinator {
 

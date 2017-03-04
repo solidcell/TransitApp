@@ -1,7 +1,7 @@
 import UIKit
 import RealmSwift
 import CoreLocation
-import FakeLocationManager
+import UIKitFringes
 
 class MapCoordinator {
 

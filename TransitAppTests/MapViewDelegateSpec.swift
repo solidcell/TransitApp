@@ -1,7 +1,7 @@
 import Quick
 import Nimble
 import MapKit
-import FakeLocationManager
+import SpecUIKitFringes
 @testable import TransitApp
 
 class MapViewDelegateSpec: TransitAppSpec {
@@ -12,7 +12,14 @@ class MapViewDelegateSpec: TransitAppSpec {
         var mapView: MKMapView!
 
         beforeEach {
-            let locationManager = FakeLocationManager()
+            let dialogManager = SpecDialogManager()
+            let locationServices = SpecLocationServices()
+            let userLocation = SpecUserLocation()
+            let locationAuthorizationStatus = SpecLocationAuthorizationStatus()
+            let locationManager = SpecLocationManager(dialogManager: dialogManager,
+                                                      userLocation: userLocation,
+                                                      locationServices: locationServices,
+                                                      locationAuthorizationStatus: locationAuthorizationStatus)
             let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
             let currentLocationViewModel = CurrentLocationViewModel(provider: currentLocationProvider)
             subject = MapViewDelegate(userTrackingModeDelegate: currentLocationViewModel)

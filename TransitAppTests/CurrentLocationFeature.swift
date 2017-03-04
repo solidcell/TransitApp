@@ -1,7 +1,7 @@
 import Quick
 import Nimble
 import MapKit
-import FakeLocationManager
+import SpecUIKitFringes
 @testable import TransitApp
 
 class CurrentLocationFeature: TransitAppFeature { override func spec() {
@@ -32,14 +32,14 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             }
 
             it("will present an authorization dialog") {
-                expect(self.locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestAccessWhileInUse))
+                expect(self.dialogManager.visibleDialog).to(equal(SpecDialogManager.DialogIdentifier.locationManager(.requestAccessWhileInUse)))
             }
 
             context("accepting location permission") {
 
                 beforeEach {
                     expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.none))
-                    self.locationManager.tapAllowInDialog()
+                    self.dialogManager.tap(.allow)
                 }
 
                 it("the arrow will still be highlighted") {
@@ -58,7 +58,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             context("declining location permission") {
 
                 beforeEach {
-                    self.locationManager.tapDoNotAllowAccessInDialog()
+                    self.dialogManager.tap(.dontAllow)
                 }
 
                 it("the arrow will no longer be highlighted") {
@@ -72,7 +72,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
         
         beforeEach {
             self.mapView.tapCurrentLocationButton()
-            self.locationManager.tapAllowInDialog()
+            self.dialogManager.tap(.allow)
             self.mapView.tapCurrentLocationButton()
         }
 
@@ -95,7 +95,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
 
         beforeEach {
             self.mapView.tapCurrentLocationButton()
-            self.locationManager.tapDoNotAllowAccessInDialog()
+            self.dialogManager.tap(.dontAllow)
         }
 
         context("tapping on the arrow") {
@@ -136,7 +136,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
 
         beforeEach {
             self.mapView.tapCurrentLocationButton()
-            self.locationManager.tapAllowInDialog()
+            self.dialogManager.tap(.allow)
             self.expectCurrentLocationButtonState(.highlighted)
             expect(self.mapView.userTrackingMode).to(equal(MKUserTrackingMode.follow))
         }
@@ -175,7 +175,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
     context("when location services are off") {
 
         beforeEach {
-            self.locationManager.setLocationServicesEnabledInSettingsApp(false)
+            self.settingsApp.set(locationServicesEnabled: false)
         }
 
         context("tapping on the arrow") {
@@ -185,7 +185,7 @@ class CurrentLocationFeature: TransitAppFeature { override func spec() {
             }
 
             it("will show a prompt to turn on location services") {
-                expect(self.locationManager.dialog).to(equal(FakeLocationManager.Dialog.requestJumpToLocationServicesSettings))
+                expect(self.dialogManager.visibleDialog).to(equal(SpecDialogManager.DialogIdentifier.locationManager(.requestJumpToLocationServicesSettings)))
             }
         }
     }

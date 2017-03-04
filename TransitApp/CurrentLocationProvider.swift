@@ -1,5 +1,5 @@
 import CoreLocation
-import FakeLocationManager
+import UIKitFringes
 
 // This class wraps CLLocationManager(LocationManaging) interaction
 

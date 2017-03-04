@@ -18,8 +18,6 @@
 		880A05851E103ABE00CFAFF4 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05841E103ABE00CFAFF4 /* MapViewModel.swift */; };
 		880A05881E112B5500CFAFF4 /* ScooterJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05871E112B5500CFAFF4 /* ScooterJSON.swift */; };
 		880A058A1E1134EF00CFAFF4 /* SpecScooterUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05891E1134EF00CFAFF4 /* SpecScooterUpdater.swift */; };
-		880A05A31E1179EA00CFAFF4 /* FakeLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880A058B1E11447F00CFAFF4 /* FakeLocationManager.framework */; };
-		880A05A41E1179EA00CFAFF4 /* FakeLocationManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 880A058B1E11447F00CFAFF4 /* FakeLocationManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		880A05A91E1278DE00CFAFF4 /* TransitAppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05A81E1278DE00CFAFF4 /* TransitAppFeature.swift */; };
 		880A05AB1E127AE200CFAFF4 /* MapRegionFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05AA1E127AE200CFAFF4 /* MapRegionFeature.swift */; };
 		880A05AD1E127B2300CFAFF4 /* MapOverlayFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05AC1E127B2300CFAFF4 /* MapOverlayFeature.swift */; };
@@ -81,6 +79,8 @@
 		88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DF69381DBF905F00FE11F0 /* AppDelegate.swift */; };
 		88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DF693F1DBF905F00FE11F0 /* Assets.xcassets */; };
 		88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88DF69411DBF905F00FE11F0 /* LaunchScreen.storyboard */; };
+		88FED84F1E6B3FBC00C020DC /* SpecUIKitFringes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FED84E1E6B3FBC00C020DC /* SpecUIKitFringes.framework */; };
+		88FED8511E6B3FCE00C020DC /* UIKitFringes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FED8501E6B3FCE00C020DC /* UIKitFringes.framework */; };
 		D4870CA3575749B536F4A82C /* Pods_TransitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B312C91F47FAEE6F94B9DD82 /* Pods_TransitApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,20 +93,6 @@
 			remoteInfo = TransitApp;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		880A05A51E1179EA00CFAFF4 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				880A05A41E1179EA00CFAFF4 /* FakeLocationManager.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		48CE241E6B51E73CF5AF8672 /* Pods-TransitAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitAppTests/Pods-TransitAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,7 +107,6 @@
 		880A05841E103ABE00CFAFF4 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		880A05871E112B5500CFAFF4 /* ScooterJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterJSON.swift; sourceTree = "<group>"; };
 		880A05891E1134EF00CFAFF4 /* SpecScooterUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecScooterUpdater.swift; sourceTree = "<group>"; };
-		880A058B1E11447F00CFAFF4 /* FakeLocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FakeLocationManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		880A05A81E1278DE00CFAFF4 /* TransitAppFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAppFeature.swift; sourceTree = "<group>"; };
 		880A05AA1E127AE200CFAFF4 /* MapRegionFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRegionFeature.swift; sourceTree = "<group>"; };
 		880A05AC1E127B2300CFAFF4 /* MapOverlayFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOverlayFeature.swift; sourceTree = "<group>"; };
@@ -180,7 +165,6 @@
 		8884CE461DC619C5004365B3 /* MapOverlayCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapOverlayCreator.swift; sourceTree = "<group>"; };
 		889705B01DCC9F7300D8D8DF /* CurrentLocationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationProvider.swift; sourceTree = "<group>"; };
 		88A303021DD082310054A1CE /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
-		88DD9EDB1DD474D4001BD5BE /* FakeLocationManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FakeLocationManager.framework; path = "FakeLocationManager/build/Debug-iphoneos/FakeLocationManager.framework"; sourceTree = "<group>"; };
 		88DF69351DBF905F00FE11F0 /* TransitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF69381DBF905F00FE11F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88DF693F1DBF905F00FE11F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +172,8 @@
 		88DF69441DBF905F00FE11F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88DF69491DBF905F00FE11F0 /* TransitAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransitAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88DF694F1DBF905F00FE11F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88FED84E1E6B3FBC00C020DC /* SpecUIKitFringes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpecUIKitFringes.framework; path = Carthage/Build/iOS/SpecUIKitFringes.framework; sourceTree = "<group>"; };
+		88FED8501E6B3FCE00C020DC /* UIKitFringes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKitFringes.framework; path = Carthage/Build/iOS/UIKitFringes.framework; sourceTree = "<group>"; };
 		8D3FC6667524E339371C7C02 /* Pods-TransitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransitApp/Pods-TransitApp.release.xcconfig"; sourceTree = "<group>"; };
 		9AEB5ED9C6ABF2CA676D9BE4 /* Pods-TransitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransitApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransitApp/Pods-TransitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B312C91F47FAEE6F94B9DD82 /* Pods_TransitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,7 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				880A05A31E1179EA00CFAFF4 /* FakeLocationManager.framework in Frameworks */,
+				88FED8511E6B3FCE00C020DC /* UIKitFringes.framework in Frameworks */,
 				D4870CA3575749B536F4A82C /* Pods_TransitApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FED84F1E6B3FBC00C020DC /* SpecUIKitFringes.framework in Frameworks */,
 				196FC76CBC4475AFBD08C51A /* Pods_TransitAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,8 +205,8 @@
 		33CCF6FA65642664F1753EC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				880A058B1E11447F00CFAFF4 /* FakeLocationManager.framework */,
-				88DD9EDB1DD474D4001BD5BE /* FakeLocationManager.framework */,
+				88FED8501E6B3FCE00C020DC /* UIKitFringes.framework */,
+				88FED84E1E6B3FBC00C020DC /* SpecUIKitFringes.framework */,
 				B312C91F47FAEE6F94B9DD82 /* Pods_TransitApp.framework */,
 				7699D0244E47BFD344B758C0 /* Pods_TransitAppTests.framework */,
 			);
@@ -543,7 +530,7 @@
 				88DF69331DBF905F00FE11F0 /* Resources */,
 				BA07D756A656A5ADA841EEC8 /* [CP] Embed Pods Frameworks */,
 				273913AA01CA221A9ACDEC74 /* [CP] Copy Pods Resources */,
-				880A05A51E1179EA00CFAFF4 /* Embed Frameworks */,
+				88FED84C1E6B3F4400C020DC /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -564,6 +551,7 @@
 				88DF69471DBF905F00FE11F0 /* Resources */,
 				B98D189D29BF2E96A53EC6DF /* [CP] Embed Pods Frameworks */,
 				96577C516299A5CB5B354772 /* [CP] Copy Pods Resources */,
+				88FED84D1E6B3F9500C020DC /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -672,6 +660,36 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		88FED84C1E6B3F4400C020DC /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/UIKitFringes.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		88FED84D1E6B3F9500C020DC /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SpecUIKitFringes.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 		96577C516299A5CB5B354772 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -934,7 +952,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3V4RS4ALV7;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TransitApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.TransitApp;
@@ -949,7 +970,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3V4RS4ALV7;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TransitApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.TransitApp;
@@ -964,6 +988,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TransitAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.TransitAppTests;
@@ -981,6 +1009,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TransitAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.TransitAppTests;
