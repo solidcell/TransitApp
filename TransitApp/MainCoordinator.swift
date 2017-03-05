@@ -1,4 +1,5 @@
 import UIKit
+import UIKitFringes
 import RealmSwift
 import UIKitFringes
 
@@ -9,16 +10,17 @@ class MainCoordinator {
     func start(window: UIWindow,
                mapViewFactory: MapViewFactory,
                realm: Realm,
-               jsonFetcher: JSONFetching,
-               fetchTimer: FetchTiming,
+               urlSession: URLSessionProtocol,
+               timerFactory: TimerFactoryProtocol,
                locationManager: LocationManaging) {
         let seedDataParser = SeedDataParser(realm: realm)
         seedDataParser.seedIfNeeded()
+        let jsonFetcher = JSONFetcher(urlSession: urlSession)
         mapCoordinator.start(window: window,
                              viewFactory: mapViewFactory,
                              realm: realm,
                              jsonFetcher: jsonFetcher,
-                             fetchTimer: fetchTimer,
+                             timerFactory: timerFactory,
                              locationManager: locationManager)
     }
     

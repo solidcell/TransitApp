@@ -1,4 +1,5 @@
 import SwiftyJSON
+import UIKitFringes
 
 // When iOS backgrounds the app, it will not fire the timer.
 // When the app foregrounds, the timer will continue to fire
@@ -12,19 +13,19 @@ class ScooterFetcher: ScooterFetching {
     
     weak var delegate: ScooterFetcherDelegate?
     private let jsonFetcher: JSONFetching
-    private let fetchTimer: FetchTiming
+    private let timer: Timing
     private let scooterParser = ScooterParser()
 
-    init(jsonFetcher: JSONFetching, fetchTimer: FetchTiming) {
+    init(jsonFetcher: JSONFetching, timer: Timing) {
         self.jsonFetcher = jsonFetcher
-        self.fetchTimer = fetchTimer
+        self.timer = timer
     }
 
     func start() {
         // fetch once immediately
         fetchJSON()
         // fetch subsequently by some interval
-        fetchTimer.start { [weak self] in
+        timer.start(interval: 15.0, repeats: true) { [weak self] in
             self?.fetchJSON()
         }
     }

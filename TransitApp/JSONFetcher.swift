@@ -1,17 +1,21 @@
-import Alamofire
-
-// NOTE: This class is not tested.
-//
-// It's a simple wrapper around asynchronous network code.
-// If you change something here, be sure to test it manually.
+import Foundation
+import UIKitFringes
 
 class JSONFetcher: JSONFetching {
 
-    func fetch(url: String, completion: @escaping (Any) -> Void) {
-        Alamofire.request(url).responseJSON { response in
-            guard let json = response.result.value else { return }
+    let urlSession: URLSessionProtocol
+
+    init(urlSession: URLSessionProtocol) {
+        self.urlSession = urlSession
+    }
+
+    func fetch(url urlString: String, completion: @escaping (Any) -> Void) {
+        let url = URL(string: urlString)!
+        let task = urlSession.urlDataTask(with: url) { (data, urlResponse, error) in
+            let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String : Any]
             completion(json)
         }
+        task.resume()
     }
 }
 

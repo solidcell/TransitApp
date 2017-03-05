@@ -1,4 +1,5 @@
 import UIKit
+import UIKitFringes
 import RealmSwift
 import CoreLocation
 
@@ -16,14 +17,14 @@ class AppCoordinator {
     func start(window: UIWindow) {
         let mapViewFactory = MapViewControllerFactory()
         let realm = try! Realm()
-        let jsonFetcher = JSONFetcher()
-        let fetchTimer = FetchTimer()
+        let urlSession = URLSession(configuration: .default)
+        let timerFactory = TimerFactory()
         let locationManager = CLLocationManager()
         coordinator.start(window: window,
                           mapViewFactory: mapViewFactory,
                           realm: realm,
-                          jsonFetcher: jsonFetcher,
-                          fetchTimer: fetchTimer,
+                          urlSession: urlSession,
+                          timerFactory: timerFactory,
                           locationManager: locationManager)
     }
 

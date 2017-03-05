@@ -1,12 +1,12 @@
-import SwiftyJSON
+import Foundation
 
 class ScooterJSON {
 
-    class func create(_ collection: [SpecScooterJSON]) -> [String : Any] {
+    class func create(_ collection: [SpecScooterJSON]) -> Data {
         let mapped = collection.map({$0.asJSON})
-        return JSON(["data": ["scooters": mapped]]).dictionaryObject!
+        let json = ["data": ["scooters": mapped]]
+        return try! JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
     }
-
 }
 
 struct SpecScooterJSON {
@@ -19,7 +19,7 @@ struct SpecScooterJSON {
     let energyLevel: Int
     let licensePlate: String
 
-    var asJSON: JSON {
+    var asJSON: [String: Any] {
         return [
             "id" : id,
             "vin" : vin,

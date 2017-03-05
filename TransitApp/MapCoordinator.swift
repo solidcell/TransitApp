@@ -9,12 +9,13 @@ class MapCoordinator {
                viewFactory: MapViewFactory,
                realm: Realm,
                jsonFetcher: JSONFetching,
-               fetchTimer: FetchTiming,
+               timerFactory: TimerFactoryProtocol,
                locationManager: LocationManaging) {
         let mapOverlayProvider = MapOverlayProvider(realm: realm)
         let mapRegionProvider = MapRegionProvider()
         let region = mapRegionProvider.region
-        let scooterFetcher = ScooterFetcher(jsonFetcher: jsonFetcher, fetchTimer: fetchTimer)
+        let timer = timerFactory.create()
+        let scooterFetcher = ScooterFetcher(jsonFetcher: jsonFetcher, timer: timer)
         let scooterUpdater = ScooterUpdater(scooterFetcher: scooterFetcher)
         let mapAnnotationProvider = MapAnnotationProvider(scooterUpdater: scooterUpdater)
         scooterUpdater.start()

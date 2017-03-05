@@ -4,7 +4,6 @@ import SpecUIKitFringes
 
 class TransitAppFeature: TransitAppSpec {
 
-    var scooterUpdater: SpecScooterUpdater!
     // Let the object graph hold onto this, so as not to
     // mask possible retain issues
     weak var locationManager: SpecLocationManager!
@@ -13,14 +12,15 @@ class TransitAppFeature: TransitAppSpec {
     var mapView: SpecMapViewInterating!
     var dialogManager: SpecDialogManager!
     var settingsApp: SpecSettingsApp!
+    var dateProvider: SpecDateProvider!
+    var urlSession: SpecURLSession!
 
     override func setUp() {
         super.setUp()
 
-        let jsonFetcher = SpecJSONFetcher()
-        let fetchTimer = SpecFetchTimer()
-        scooterUpdater = SpecScooterUpdater(jsonFetcher: jsonFetcher,
-                                            fetchTimer: fetchTimer)
+        urlSession = SpecURLSession()
+        dateProvider = SpecDateProvider()
+        let timerFactory = SpecTimerFactory(dateProvider: dateProvider)
         dialogManager = SpecDialogManager()
         let locationServices = SpecLocationServices()
         let userLocation = SpecUserLocation()
@@ -37,8 +37,8 @@ class TransitAppFeature: TransitAppSpec {
         subject.start(window: UIWindow(),
                       mapViewFactory: mapViewFactory,
                       realm: realm,
-                      jsonFetcher: jsonFetcher,
-                      fetchTimer: fetchTimer,
+                      urlSession: urlSession,
+                      timerFactory: timerFactory,
                       locationManager: locationManager)
         mapView = mapViewFactory.mapView
     }

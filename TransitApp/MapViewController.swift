@@ -42,15 +42,21 @@ extension MapViewController: MapViewModelDelegate {
     }
 
     func setOverlays(_ overlays: [MKOverlay]) {
-        overlays.forEach(mapView.add)
+        DispatchQueue.main.sync {
+            overlays.forEach(mapView.add)
+        }
     }
     
     func add(annotations: [MKAnnotation]) {
-        annotations.forEach(mapView.addAnnotation)
+        DispatchQueue.main.sync {
+            annotations.forEach(mapView.addAnnotation)
+        }
     }
 
     func removeAllAnnotations() {
-        mapView.removeAnnotations(mapView.annotations)
+        DispatchQueue.main.sync {
+            self.mapView.removeAnnotations(mapView.annotations)
+        }
     }
 
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
