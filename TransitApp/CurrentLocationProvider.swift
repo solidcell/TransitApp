@@ -1,8 +1,6 @@
 import CoreLocation
 import UIKitFringes
 
-// This class wraps CLLocationManager(LocationManaging) interaction
-
 class CurrentLocationProvider: NSObject {
 
     weak var delegate: CurrentLocationProviderDelegate!

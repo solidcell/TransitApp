@@ -17,12 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mapViewFactory = MapViewControllerFactory()
         let urlSession = URLSession(configuration: .default)
         let timerFactory = TimerFactory()
-        let locationManager = CLLocationManager()
+        let locationManagerFactory = CLLocationManagerFactory()
         coordinator.start(window: window,
                           mapViewFactory: mapViewFactory,
                           urlSession: urlSession,
                           timerFactory: timerFactory,
-                          locationManager: locationManager)
+                          locationManagerFactory: locationManagerFactory)
         
         window.makeKeyAndVisible()
         return true

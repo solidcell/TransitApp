@@ -9,7 +9,7 @@ class MapCoordinator {
                viewFactory: MapViewFactory,
                jsonFetcher: JSONFetching,
                timerFactory: TimerFactoryProtocol,
-               locationManager: LocationManaging) {
+               locationManagerFactory: LocationManagingFactoryProtocol) {
         let businessAreas = SeedDataParser().businessAreas
         let mapOverlayProvider = MapOverlayProvider(businessAreas: businessAreas)
         let mapRegionProvider = MapRegionProvider()
@@ -19,6 +19,7 @@ class MapCoordinator {
         let scooterUpdater = ScooterUpdater(scooterFetcher: scooterFetcher)
         let mapAnnotationProvider = MapAnnotationProvider(scooterUpdater: scooterUpdater)
         scooterUpdater.start()
+        let locationManager = locationManagerFactory.create()
         let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
         let currentLocationViewModel = CurrentLocationViewModel(provider: currentLocationProvider)
         let mapViewDelegate = MapViewDelegate(userTrackingModeDelegate: currentLocationViewModel)

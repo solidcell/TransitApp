@@ -4,9 +4,6 @@ import SpecUIKitFringes
 
 class TransitAppFeature: XCTestCase {
 
-    // Let the object graph hold onto this, so as not to
-    // mask possible retain issues
-    weak var locationManager: SpecLocationManager!
     // Hold onto these, as the AppDelegate and UIKit would
     var subject: AppCoordinator!
     var mapView: SpecMapViewInterating!
@@ -27,18 +24,17 @@ class TransitAppFeature: XCTestCase {
         settingsApp = SpecSettingsApp(locationAuthorizationStatus: locationAuthorizationStatus,
                                       locationServices: locationServices)
         let timerFactory = SpecTimerFactory(dateProvider: dateProvider)
-        let _locationManager = SpecLocationManager(dialogManager: dialogManager,
-                                                   userLocation: userLocation,
-                                                   locationServices: locationServices,
-                                                   locationAuthorizationStatus: locationAuthorizationStatus)
-        locationManager = _locationManager
+        let locationManagerFactory = SpecLocationManagerFactory(dialogManager: dialogManager,
+                                                                userLocation: userLocation,
+                                                                locationServices: locationServices,
+                                                                locationAuthorizationStatus: locationAuthorizationStatus)
         let mapViewFactory = SpecMapViewFactory()
         subject = AppCoordinator()
         subject.start(window: UIWindow(),
                       mapViewFactory: mapViewFactory,
                       urlSession: urlSession,
                       timerFactory: timerFactory,
-                      locationManager: locationManager)
+                      locationManagerFactory: locationManagerFactory)
         mapView = mapViewFactory.mapView
     }
 }

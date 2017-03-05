@@ -10,13 +10,13 @@ class AppCoordinator {
                mapViewFactory: MapViewFactory,
                urlSession: URLSessionProtocol,
                timerFactory: TimerFactoryProtocol,
-               locationManager: LocationManaging) {
+               locationManagerFactory: LocationManagingFactoryProtocol) {
         let jsonFetcher = JSONFetcher(urlSession: urlSession)
         mapCoordinator.start(window: window,
                              viewFactory: mapViewFactory,
                              jsonFetcher: jsonFetcher,
                              timerFactory: timerFactory,
-                             locationManager: locationManager)
+                             locationManagerFactory: locationManagerFactory)
     }
 
 }
