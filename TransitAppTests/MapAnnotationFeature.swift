@@ -3,7 +3,6 @@ import XCTest
 class MapAnnotationFeature: TransitAppFeature {
 
     private func respond(with data: Data) {
-        dateProvider.progress(seconds: 15)
         let urlString = "https://app.joincoup.com/api/v1/scooters.json"
         let url = URL(string: urlString)!
         let urlResponse = URLResponse(url: url,
@@ -58,6 +57,7 @@ class MapAnnotationFeature: TransitAppFeature {
                             lng: 15.444444,
                             energyLevel: 43,
                             licensePlate: "198FCE")])
+        dateProvider.progress(seconds: 15)
         respond(with: response)
         XCTAssertEqual(mapView.mapAnnotations.count, 1)
     }

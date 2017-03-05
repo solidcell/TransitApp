@@ -5,8 +5,9 @@ import MapKit
 class CoupMapAnnotationSpec: TransitAppSpec {
 
     func testCreatesAConfiguredAnnotation() {
-        let scooter = Scooter(latitude: 50.0, longitude: 60.0,
-                              energyLevel: 70, licensePlate: "123abc")
+        let scooter = Scooter(coordinate: CLLocationCoordinate2D(latitude: 50.0, longitude: 60.0),
+                              energyLevel: 70,
+                              licensePlate: "123abc")
         let subject = CoupMapAnnotation(scooter: scooter)
 
         XCTAssertEqual(subject.title, "123abc")
