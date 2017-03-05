@@ -1,6 +1,5 @@
 import MapKit
 
-
 class MapOverlayCreator {
 
     func overlays(businessAreas: [BusinessArea]) -> [MKOverlay] {

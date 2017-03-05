@@ -15,6 +15,7 @@ protocol SpecMapViewInterating {
     var userTrackingMode: MKUserTrackingMode? { get }
     var mapRegion: MKCoordinateRegion? { get }
     var mapOverlays: [MKOverlay] { get }
+    var businessAreaOverlays: [MKPolygon] { get }
     var mapAnnotations: [MKAnnotation] { get }
     var scooterAnnotations: [CoupMapAnnotation] { get }
     var currentLocationButtonState: CurrentLocationViewModel.ButtonState! { get }
@@ -53,6 +54,10 @@ private class SpecMapView : SpecMapViewInterating {
     
     var scooterAnnotations: [CoupMapAnnotation] {
         return mapAnnotations.flatMap { $0 as? CoupMapAnnotation }
+    }
+    
+    var businessAreaOverlays: [MKPolygon] {
+        return mapOverlays.flatMap { $0 as? MKPolygon }
     }
 }
 
