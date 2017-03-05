@@ -1,8 +1,9 @@
 import XCTest
 import MapKit
 import SpecUIKitFringes
+import CoreLocation
 @testable import TransitApp
-/*
+
 class MapViewDelegateSpec: XCTestCase {
 
     var subject: MapViewDelegate!
@@ -26,7 +27,9 @@ class MapViewDelegateSpec: XCTestCase {
     }
 
     func testMapViewViewForHasACalloutEnabled() {
-        let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: 0, licensePlate: "")
+        let scooter = Scooter(coordinate: CLLocationCoordinate2D(latitude: 1.0, longitude: 2.0),
+                              energyLevel: 0,
+                              licensePlate: "")
         let coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
 
         let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
@@ -37,7 +40,9 @@ class MapViewDelegateSpec: XCTestCase {
     func testMapViewViewForWithEnergyLevelAbove50() {
         let energyLevel = 51
 
-        let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
+        let scooter = Scooter(coordinate: CLLocationCoordinate2D(latitude: 1.0, longitude: 2.0),
+                              energyLevel: energyLevel,
+                              licensePlate: "")
         let coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
 
         let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
@@ -48,7 +53,9 @@ class MapViewDelegateSpec: XCTestCase {
     func testMapViewViewForWithEnergyLevelBetween31and50() {
         let energyLevel = 31
 
-        let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
+        let scooter = Scooter(coordinate: CLLocationCoordinate2D(latitude: 1.0, longitude: 2.0),
+                              energyLevel: energyLevel,
+                              licensePlate: "")
         let coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
 
         let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
@@ -59,7 +66,9 @@ class MapViewDelegateSpec: XCTestCase {
     func testMapViewViewWithEnergyLevelBelow31() {
         let energyLevel = 30
 
-        let scooter = Scooter(latitude: 1.0, longitude: 2.0, energyLevel: energyLevel, licensePlate: "")
+        let scooter = Scooter(coordinate: CLLocationCoordinate2D(latitude: 1.0, longitude: 2.0),
+                              energyLevel: energyLevel,
+                              licensePlate: "")
         let coupMapAnnotation = CoupMapAnnotation(scooter: scooter)
 
         let results = subject.mapView(mapView, viewFor: coupMapAnnotation)
@@ -73,4 +82,3 @@ class MapViewDelegateSpec: XCTestCase {
         XCTAssertNotNil(result as? MKPolygonRenderer)
     }
 }
-*/
