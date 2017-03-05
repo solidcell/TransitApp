@@ -10,9 +10,9 @@ class AppCoordinator {
          urlSession: URLSessionProtocol,
          timerFactory: TimerFactoryProtocol,
          locationManagerFactory: LocationManagingFactoryProtocol) {
-        let jsonFetcher = JSONFetcher(urlSession: urlSession)
+        let jsonFetcherFactory = JSONFetcherFactory(urlSession: urlSession)
         self.mapCoordinatorFactory = MapCoordinatorFactory(viewFactory: mapViewFactory,
-                                                           jsonFetcher: jsonFetcher,
+                                                           jsonFetcherFactory: jsonFetcherFactory,
                                                            timerFactory: timerFactory,
                                                            locationManagerFactory: locationManagerFactory)
     }

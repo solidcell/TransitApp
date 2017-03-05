@@ -6,23 +6,23 @@ import UIKitFringes
 class MapCoordinatorFactory {
     
     private let viewFactory: MapViewFactory
-    private let jsonFetcher: JSONFetching
+    private let jsonFetcherFactory: JSONFetcherFactory
     private let timerFactory: TimerFactoryProtocol
     private let locationManagerFactory: LocationManagingFactoryProtocol
 
     init(viewFactory: MapViewFactory,
-         jsonFetcher: JSONFetching,
+         jsonFetcherFactory: JSONFetcherFactory,
          timerFactory: TimerFactoryProtocol,
          locationManagerFactory: LocationManagingFactoryProtocol) {
         self.viewFactory = viewFactory
-        self.jsonFetcher = jsonFetcher
+        self.jsonFetcherFactory = jsonFetcherFactory
         self.timerFactory = timerFactory
         self.locationManagerFactory = locationManagerFactory
     }
 
     func create() -> MapCoordinator {
         return MapCoordinator(viewFactory: viewFactory,
-                              jsonFetcher: jsonFetcher,
+                              jsonFetcherFactory: jsonFetcherFactory,
                               timerFactory: timerFactory,
                               locationManagerFactory: locationManagerFactory)
     }
@@ -31,16 +31,16 @@ class MapCoordinatorFactory {
 class MapCoordinator {
     
     private let viewFactory: MapViewFactory
-    private let jsonFetcher: JSONFetching
+    private let jsonFetcherFactory: JSONFetcherFactory
     private let timerFactory: TimerFactoryProtocol
     private let locationManagerFactory: LocationManagingFactoryProtocol
     
     init(viewFactory: MapViewFactory,
-         jsonFetcher: JSONFetching,
+         jsonFetcherFactory: JSONFetcherFactory,
          timerFactory: TimerFactoryProtocol,
          locationManagerFactory: LocationManagingFactoryProtocol) {
         self.viewFactory = viewFactory
-        self.jsonFetcher = jsonFetcher
+        self.jsonFetcherFactory = jsonFetcherFactory
         self.timerFactory = timerFactory
         self.locationManagerFactory = locationManagerFactory
     }
@@ -51,6 +51,7 @@ class MapCoordinator {
         let mapRegionProvider = MapRegionProvider()
         let region = mapRegionProvider.region
         let timer = timerFactory.create()
+        let jsonFetcher = jsonFetcherFactory.create()
         let scooterFetcher = ScooterFetcher(jsonFetcher: jsonFetcher, timer: timer)
         let scooterUpdater = ScooterUpdater(scooterFetcher: scooterFetcher)
         let mapAnnotationProvider = MapAnnotationProvider(scooterUpdater: scooterUpdater)

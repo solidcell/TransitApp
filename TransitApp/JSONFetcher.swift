@@ -1,9 +1,22 @@
 import Foundation
 import UIKitFringes
 
-class JSONFetcher: JSONFetching {
+class JSONFetcherFactory {
 
-    let urlSession: URLSessionProtocol
+    private let urlSession: URLSessionProtocol
+
+    init(urlSession: URLSessionProtocol) {
+        self.urlSession = urlSession
+    }
+
+    func create() -> JSONFetcher {
+        return JSONFetcher(urlSession: urlSession)
+    }
+}
+
+class JSONFetcher {
+
+    private let urlSession: URLSessionProtocol
 
     init(urlSession: URLSessionProtocol) {
         self.urlSession = urlSession
@@ -17,10 +30,4 @@ class JSONFetcher: JSONFetching {
         }
         task.resume()
     }
-}
-
-protocol JSONFetching {
-
-    func fetch(url: String, completion: @escaping (Any) -> Void)
-    
 }
