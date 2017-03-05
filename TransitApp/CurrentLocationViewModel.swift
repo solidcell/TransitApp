@@ -75,7 +75,6 @@ class CurrentLocationViewModel {
             ])
         delegate.showAlert(alert)
     }
-    
 }
 
 extension CurrentLocationViewModel {
@@ -86,7 +85,13 @@ extension CurrentLocationViewModel {
     }
 }
 
-extension CurrentLocationViewModel : CurrentLocationProviderDelegate {
+protocol CurrentLocationProviderDelegate: class {
+
+    func authorizationTurnedOn()
+    func authorizationTurnedOff()
+}
+
+extension CurrentLocationViewModel: CurrentLocationProviderDelegate {
 
     func authorizationTurnedOn() {
         if wantingToTurnTrackingOn {
@@ -101,23 +106,20 @@ extension CurrentLocationViewModel : CurrentLocationProviderDelegate {
         buttonState = .nonHighlighted
         delegate?.setShowCurrentLocation(false)
     }
-    
 }
 
-extension CurrentLocationViewModel : UserTrackingModeDelegate {
+extension CurrentLocationViewModel: UserTrackingModeDelegate {
 
     func didChangeMode(_ mode: MKUserTrackingMode) {
         userTrackingMode = mode
         buttonState = mode == .none ? .nonHighlighted : .highlighted
     }
-    
 }
 
-protocol CurrentLocationViewModelDelegate : class {
+protocol CurrentLocationViewModelDelegate: class {
     
     func setUserTracking(mode: MKUserTrackingMode)
     func setShowCurrentLocation(_ enabled: Bool)
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
     func showAlert(_ alert: MapViewModel.Alert)
-    
 }

@@ -1,11 +1,11 @@
 import CoreLocation
 import UIKitFringes
 
-class CurrentLocationProvider: NSObject {
+class CurrentLocationProvider: NSObject, CLLocationManagerDelegate {
 
     weak var delegate: CurrentLocationProviderDelegate!
-    fileprivate let locationManager: LocationManaging
-    fileprivate var wantingToStartUpdatingLocation = false
+    private let locationManager: LocationManaging
+    private var wantingToStartUpdatingLocation = false
     
     init(locationManager: LocationManaging) {
         self.locationManager = locationManager
@@ -28,10 +28,6 @@ class CurrentLocationProvider: NSObject {
     var authorized: Bool {
         return locationManager.authorizationStatus().isOneOf(.authorizedWhenInUse, .authorizedAlways)
     }
-    
-}
-
-extension CurrentLocationProvider: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         // This can happen when location was requested, but could not be determined, for instance.
@@ -42,12 +38,4 @@ extension CurrentLocationProvider: CLLocationManagerDelegate {
         if authorized { delegate?.authorizationTurnedOn() }
         else { delegate?.authorizationTurnedOff() }
     }
-
-}
-
-protocol CurrentLocationProviderDelegate: class {
-
-    func authorizationTurnedOn()
-    func authorizationTurnedOff()
-    
 }

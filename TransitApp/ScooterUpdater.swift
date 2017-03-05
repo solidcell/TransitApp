@@ -1,11 +1,9 @@
+class ScooterUpdater: ScooterFetcherDelegate {
 
-
-class ScooterUpdater {
-
-    private let scooterFetcher: ScooterFetching
+    private let scooterFetcher: ScooterFetcher
     weak var delegate: ScooterUpdaterDelegate?
 
-    init(scooterFetcher: ScooterFetching) {
+    init(scooterFetcher: ScooterFetcher) {
         self.scooterFetcher = scooterFetcher
         self.scooterFetcher.delegate = self
     }
@@ -13,12 +11,13 @@ class ScooterUpdater {
     func start() {
         scooterFetcher.start()
     }
-    
-}
-
-extension ScooterUpdater: ScooterFetcherDelegate {
 
     func fetchedScooters(scooters: [Scooter]) {
         delegate?.received(scooters: scooters)
     }
+}
+
+protocol ScooterFetcherDelegate: class {
+
+    func fetchedScooters(scooters: [Scooter])
 }
