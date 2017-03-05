@@ -19,7 +19,6 @@
 		880A05AF1E127B4D00CFAFF4 /* CurrentLocationFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05AE1E127B4D00CFAFF4 /* CurrentLocationFeature.swift */; };
 		880A05B11E127B7B00CFAFF4 /* MapAnnotationFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05B01E127B7B00CFAFF4 /* MapAnnotationFeature.swift */; };
 		880A05B31E141E3200CFAFF4 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05B21E141E3200CFAFF4 /* CurrentLocationViewModel.swift */; };
-		880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0631DC338EF00C5830E /* MainCoordinator.swift */; };
 		880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */; };
 		880EB06F1DC36E1A00C5830E /* MapRegionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB06E1DC36E1A00C5830E /* MapRegionProvider.swift */; };
 		880EB0711DC3736F00C5830E /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0701DC3736F00C5830E /* MapViewDelegate.swift */; };
@@ -84,7 +83,6 @@
 		880A05AE1E127B4D00CFAFF4 /* CurrentLocationFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationFeature.swift; sourceTree = "<group>"; };
 		880A05B01E127B7B00CFAFF4 /* MapAnnotationFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationFeature.swift; sourceTree = "<group>"; };
 		880A05B21E141E3200CFAFF4 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
-		880EB0631DC338EF00C5830E /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		880EB06E1DC36E1A00C5830E /* MapRegionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapRegionProvider.swift; sourceTree = "<group>"; };
 		880EB0701DC3736F00C5830E /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 				8827E14E1DC0FD1500E06654 /* main.swift */,
 				88DF69381DBF905F00FE11F0 /* AppDelegate.swift */,
 				880A05731E0FEEE600CFAFF4 /* AppCoordinator.swift */,
-				880EB0631DC338EF00C5830E /* MainCoordinator.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -543,7 +540,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */,
 				88A303031DD082310054A1CE /* Equatable.swift in Sources */,
 				8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */,
 				8884CE441DC6167A004365B3 /* MapOverlayProvider.swift in Sources */,

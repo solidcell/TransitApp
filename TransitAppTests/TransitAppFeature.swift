@@ -8,7 +8,7 @@ class TransitAppFeature: XCTestCase {
     // mask possible retain issues
     weak var locationManager: SpecLocationManager!
     // Hold onto these, as the AppDelegate and UIKit would
-    var subject: MainCoordinator!
+    var subject: AppCoordinator!
     var mapView: SpecMapViewInterating!
     var dialogManager: SpecDialogManager!
     var settingsApp: SpecSettingsApp!
@@ -33,7 +33,7 @@ class TransitAppFeature: XCTestCase {
                                                    locationAuthorizationStatus: locationAuthorizationStatus)
         locationManager = _locationManager
         let mapViewFactory = SpecMapViewFactory()
-        subject = MainCoordinator()
+        subject = AppCoordinator()
         subject.start(window: UIWindow(),
                       mapViewFactory: mapViewFactory,
                       urlSession: urlSession,
