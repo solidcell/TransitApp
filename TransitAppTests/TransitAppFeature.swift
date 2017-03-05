@@ -4,8 +4,6 @@ import SpecUIKitFringes
 
 class TransitAppFeature: XCTestCase {
 
-    // Hold onto these, as the AppDelegate and UIKit would
-    var subject: AppCoordinator!
     var mapView: SpecMapViewInterating!
     var dialogManager: SpecDialogManager!
     var settingsApp: SpecSettingsApp!
@@ -29,12 +27,12 @@ class TransitAppFeature: XCTestCase {
                                                                 locationServices: locationServices,
                                                                 locationAuthorizationStatus: locationAuthorizationStatus)
         let mapViewFactory = SpecMapViewFactory()
-        subject = AppCoordinator()
-        subject.start(window: UIWindow(),
-                      mapViewFactory: mapViewFactory,
-                      urlSession: urlSession,
-                      timerFactory: timerFactory,
-                      locationManagerFactory: locationManagerFactory)
+        let appCoordinator = AppCoordinator(mapViewFactory: mapViewFactory,
+                                            urlSession: urlSession,
+                                            timerFactory: timerFactory,
+                                            locationManagerFactory: locationManagerFactory)
+        let window = UIWindow()
+        appCoordinator.didFinishLaunching(withWindow: window)
         mapView = mapViewFactory.mapView
     }
 }

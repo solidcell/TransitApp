@@ -6,8 +6,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private let coordinator = AppCoordinator()
-
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -18,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let urlSession = URLSession(configuration: .default)
         let timerFactory = TimerFactory()
         let locationManagerFactory = CLLocationManagerFactory()
-        coordinator.start(window: window,
-                          mapViewFactory: mapViewFactory,
-                          urlSession: urlSession,
-                          timerFactory: timerFactory,
-                          locationManagerFactory: locationManagerFactory)
+        let coordinator = AppCoordinator(mapViewFactory: mapViewFactory,
+                                         urlSession: urlSession,
+                                         timerFactory: timerFactory,
+                                         locationManagerFactory: locationManagerFactory)
+        coordinator.didFinishLaunching(withWindow: window)
         
         window.makeKeyAndVisible()
         return true
