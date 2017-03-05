@@ -45,12 +45,12 @@ extension MapViewController: MapViewModelDelegate {
         overlays.forEach(mapView.add)
     }
     
-    func newAnnotations(_ annotations: [MKAnnotation]) {
+    func add(annotations: [MKAnnotation]) {
         annotations.forEach(mapView.addAnnotation)
     }
 
-    func annotationsReadyForUpdate(update: @escaping () -> Void) {
-        UIView.animate(withDuration: 1.0, animations: update)
+    func removeAllAnnotations() {
+        mapView.removeAnnotations(mapView.annotations)
     }
 
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {

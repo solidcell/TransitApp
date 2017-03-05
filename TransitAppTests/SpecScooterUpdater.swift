@@ -10,14 +10,11 @@ class SpecScooterUpdater {
     // Don't hold onto these objects. The app's object graph
     // should be holding onto these. If it doesn't, we want it
     // to crash so we know ASAP that there's a retain issue.
-    weak var scooterRealmNotifier: SpecScooterRealmNotifier!
     weak var jsonFetcher: SpecJSONFetcher!
     weak var fetchTimer: SpecFetchTimer!
 
-    init(scooterRealmNotifier: SpecScooterRealmNotifier,
-         jsonFetcher: SpecJSONFetcher,
+    init(jsonFetcher: SpecJSONFetcher,
          fetchTimer: SpecFetchTimer) {
-        self.scooterRealmNotifier = scooterRealmNotifier
         self.jsonFetcher = jsonFetcher
         self.fetchTimer = fetchTimer
     }
@@ -27,8 +24,6 @@ class SpecScooterUpdater {
         fetchTimer.fire()
         // The request is a success
         jsonFetcher.fetchSuccess(response)
-        // Wait for Realm to fire a changeset notification
-//        expect(scooterRealmNotifier.callbackExecuted).toEventually(beTrue())
     }
 
 }

@@ -17,18 +17,16 @@ class TransitAppFeature: TransitAppSpec {
     override func setUp() {
         super.setUp()
 
-        let scooterRealmNotifier = SpecScooterRealmNotifier(realm: realm)
         let jsonFetcher = SpecJSONFetcher()
         let fetchTimer = SpecFetchTimer()
-        scooterUpdater = SpecScooterUpdater(scooterRealmNotifier: scooterRealmNotifier,
-                                                 jsonFetcher: jsonFetcher,
-                                                 fetchTimer: fetchTimer)
+        scooterUpdater = SpecScooterUpdater(jsonFetcher: jsonFetcher,
+                                            fetchTimer: fetchTimer)
         dialogManager = SpecDialogManager()
         let locationServices = SpecLocationServices()
         let userLocation = SpecUserLocation()
         let locationAuthorizationStatus = SpecLocationAuthorizationStatus()
         settingsApp = SpecSettingsApp(locationAuthorizationStatus: locationAuthorizationStatus,
-                                           locationServices: locationServices)
+                                      locationServices: locationServices)
         let _locationManager = SpecLocationManager(dialogManager: dialogManager,
                                                    userLocation: userLocation,
                                                    locationServices: locationServices,
@@ -37,12 +35,11 @@ class TransitAppFeature: TransitAppSpec {
         let mapViewFactory = SpecMapViewFactory()
         subject = MainCoordinator()
         subject.start(window: UIWindow(),
-                           mapViewFactory: mapViewFactory,
-                           realm: realm,
-                           scooterRealmNotifier: scooterRealmNotifier,
-                           jsonFetcher: jsonFetcher,
-                           fetchTimer: fetchTimer,
-                           locationManager: locationManager)
+                      mapViewFactory: mapViewFactory,
+                      realm: realm,
+                      jsonFetcher: jsonFetcher,
+                      fetchTimer: fetchTimer,
+                      locationManager: locationManager)
         mapView = mapViewFactory.mapView
     }
 }

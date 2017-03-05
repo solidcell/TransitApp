@@ -9,7 +9,6 @@ class MainCoordinator {
     func start(window: UIWindow,
                mapViewFactory: MapViewFactory,
                realm: Realm,
-               scooterRealmNotifier: ScooterRealmNotifier,
                jsonFetcher: JSONFetching,
                fetchTimer: FetchTiming,
                locationManager: LocationManaging) {
@@ -18,7 +17,6 @@ class MainCoordinator {
         mapCoordinator.start(window: window,
                              viewFactory: mapViewFactory,
                              realm: realm,
-                             scooterRealmNotifier: scooterRealmNotifier,
                              jsonFetcher: jsonFetcher,
                              fetchTimer: fetchTimer,
                              locationManager: locationManager)

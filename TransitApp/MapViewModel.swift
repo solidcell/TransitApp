@@ -7,7 +7,6 @@ class MapViewModel {
     private let initialCoordinateRegion: MKCoordinateRegion
     private let mapOverlayProvider: MapOverlayProvider
     private let mapAnnotationProvider: MapAnnotationProvider
-    private let scooterUpdater: ScooterUpdater
     private let mapViewDelegate: MapViewDelegate
     weak var delegate: MapViewModelDelegate!
 
@@ -15,13 +14,11 @@ class MapViewModel {
          initialCoordinateRegion: MKCoordinateRegion,
          mapOverlayProvider: MapOverlayProvider,
          mapAnnotationProvider: MapAnnotationProvider,
-         scooterUpdater: ScooterUpdater,
          mapViewDelegate: MapViewDelegate) {
         self.currentLocationViewModel = currentLocationViewModel
         self.initialCoordinateRegion = initialCoordinateRegion
         self.mapOverlayProvider = mapOverlayProvider
         self.mapAnnotationProvider = mapAnnotationProvider
-        self.scooterUpdater = scooterUpdater
         self.mapViewDelegate = mapViewDelegate
     }
 
@@ -73,19 +70,19 @@ extension MapViewModel : CurrentLocationViewModelDelegate {
     func showAlert(_ alert: MapViewModel.Alert) {
         delegate.showAlert(alert)
     }
-    
+}
+
+protocol MapAnnotationReceiving: class {
+
+    func set(annotations: [MKAnnotation])
 }
 
 extension MapViewModel : MapAnnotationReceiving {
 
-    func newAnnotations(_ annotations: [MKAnnotation]) {
-        delegate.newAnnotations(annotations)
+    func set(annotations: [MKAnnotation]) {
+        delegate?.removeAllAnnotations()
+        delegate?.add(annotations: annotations)
     }
-
-    func annotationsReadyForUpdate(update: @escaping () -> Void) {
-        delegate.annotationsReadyForUpdate(update: update)
-    }
-
 }
 
 protocol MapViewModelDelegate : class {
@@ -94,9 +91,8 @@ protocol MapViewModelDelegate : class {
     func setShowCurrentLocation(_ enabled: Bool)
     func setRegion(_ region: MKCoordinateRegion)
     func setOverlays(_ overlays: [MKOverlay])
-    func newAnnotations(_ annotations: [MKAnnotation])
-    func annotationsReadyForUpdate(update: @escaping () -> Void)
+    func add(annotations: [MKAnnotation])
+    func removeAllAnnotations()
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
     func showAlert(_ alert: MapViewModel.Alert)
-
 }

@@ -2,11 +2,10 @@ import RealmSwift
 
 class ScooterUpdater {
 
-    fileprivate let realm: Realm
     private let scooterFetcher: ScooterFetching
+    weak var delegate: ScooterUpdaterDelegate?
 
-    init(realm: Realm, scooterFetcher: ScooterFetching) {
-        self.realm = realm
+    init(scooterFetcher: ScooterFetching) {
         self.scooterFetcher = scooterFetcher
         self.scooterFetcher.delegate = self
     }
@@ -20,9 +19,6 @@ class ScooterUpdater {
 extension ScooterUpdater: ScooterFetcherDelegate {
 
     func fetchedScooters(scooters: [Scooter]) {
-        try! realm.write {
-            realm.add(scooters, update: true)
-        }
+        delegate?.received(scooters: scooters)
     }
-    
 }

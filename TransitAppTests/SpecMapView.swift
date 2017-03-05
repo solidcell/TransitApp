@@ -70,12 +70,12 @@ extension SpecMapView : MapViewModelDelegate {
         mapOverlays = overlays
     }
     
-    func newAnnotations(_ annotations: [MKAnnotation]) {
-        mapAnnotations.append(contentsOf: annotations)
+    func add(annotations: [MKAnnotation]) {
+        mapAnnotations = annotations
     }
 
-    func annotationsReadyForUpdate(update: @escaping () -> Void) {
-        update()
+    func removeAllAnnotations() {
+        mapAnnotations = []
     }
 
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
