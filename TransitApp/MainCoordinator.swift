@@ -13,8 +13,6 @@ class MainCoordinator {
                urlSession: URLSessionProtocol,
                timerFactory: TimerFactoryProtocol,
                locationManager: LocationManaging) {
-        let seedDataParser = SeedDataParser(realm: realm)
-        seedDataParser.seedIfNeeded()
         let jsonFetcher = JSONFetcher(urlSession: urlSession)
         mapCoordinator.start(window: window,
                              viewFactory: mapViewFactory,

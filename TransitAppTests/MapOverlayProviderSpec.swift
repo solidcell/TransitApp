@@ -1,5 +1,4 @@
 import XCTest
-import RealmSwift
 import MapKit
 @testable import TransitApp
 
@@ -7,16 +6,12 @@ class MapOverlayProviderSpec: TransitAppSpec {
 
     func testOverlaysReturnsAnOverlayForEachBusinessArea() {
 
-        let coordinates = [BusinessAreaCoordinate(latitude: 44.0, longitude: 62.0),
-                           BusinessAreaCoordinate(latitude: 40.0, longitude: 60.0),
-                           BusinessAreaCoordinate(latitude: 50.0, longitude: 70.0)]
+        let coordinates = [CLLocationCoordinate2D(latitude: 44.0, longitude: 62.0),
+                           CLLocationCoordinate2D(latitude: 40.0, longitude: 60.0),
+                           CLLocationCoordinate2D(latitude: 50.0, longitude: 70.0)]
         let businessArea = BusinessArea(coordinates: coordinates)
 
-        try! realm.write {
-            realm.add(businessArea)
-        }
-
-        let subject = MapOverlayProvider(realm: realm)
+        let subject = MapOverlayProvider(businessAreas: [businessArea])
 
         XCTAssertEqual(subject.overlays.count, 1)
 

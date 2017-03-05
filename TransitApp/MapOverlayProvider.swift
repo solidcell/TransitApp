@@ -3,16 +3,15 @@ import MapKit
 
 class MapOverlayProvider {
     
-    private let realm: Realm
+    private let businessAreas: [BusinessArea]
     private let mapOverlayCreator = MapOverlayCreator()
 
-    init(realm: Realm) {
-        self.realm = realm
+    init(businessAreas: [BusinessArea]) {
+        self.businessAreas = businessAreas
     }
 
     lazy var overlays: [MKOverlay] = {
-        let businessAreas = self.realm.businessAreas
-        return self.mapOverlayCreator.overlays(businessAreas: businessAreas)
+        return self.mapOverlayCreator.overlays(businessAreas: self.businessAreas)
     }()
     
 }

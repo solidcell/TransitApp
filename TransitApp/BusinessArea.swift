@@ -1,24 +1,6 @@
-import RealmSwift
+import CoreLocation
 
-class BusinessArea: Object {
-    let coordinates = List<BusinessAreaCoordinate>()
-}
+struct BusinessArea {
 
-// MARK: Creation
-extension BusinessArea {
-
-    convenience init(coordinates: [BusinessAreaCoordinate]) {
-        self.init()
-        self.coordinates.append(objectsIn: coordinates)
-    }
-    
-}
-
-// MARK: Queries
-extension Realm {
-
-    var businessAreas: Results<BusinessArea> {
-        return objects(BusinessArea.self)
-    }
-    
+    let coordinates: [CLLocationCoordinate2D]
 }

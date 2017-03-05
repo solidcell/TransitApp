@@ -11,7 +11,8 @@ class MapCoordinator {
                jsonFetcher: JSONFetching,
                timerFactory: TimerFactoryProtocol,
                locationManager: LocationManaging) {
-        let mapOverlayProvider = MapOverlayProvider(realm: realm)
+        let businessAreas = SeedDataParser().businessAreas
+        let mapOverlayProvider = MapOverlayProvider(businessAreas: businessAreas)
         let mapRegionProvider = MapRegionProvider()
         let region = mapRegionProvider.region
         let timer = timerFactory.create()
