@@ -1,5 +1,4 @@
-import Quick
-import Nimble
+import XCTest
 @testable import TransitApp
 
 class ScooterFetcherSpec: TransitAppSpec {

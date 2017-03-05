@@ -1,5 +1,4 @@
-import Quick
-import Nimble
+import XCTest
 import MapKit
 import SpecUIKitFringes
 @testable import TransitApp

@@ -1,5 +1,4 @@
-import Quick
-import Nimble
+import XCTest
 import RealmSwift
 import MapKit
 @testable import TransitApp

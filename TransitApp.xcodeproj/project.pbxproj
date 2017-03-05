@@ -40,8 +40,6 @@
 		8814A8331E6B5D6700C9FFBD /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814A82F1E6B5D6700C9FFBD /* Realm.framework */; };
 		8814A8341E6B5D6700C9FFBD /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814A8301E6B5D6700C9FFBD /* RealmSwift.framework */; };
 		8814A8351E6B5D6700C9FFBD /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814A8311E6B5D6700C9FFBD /* SwiftyJSON.framework */; };
-		8814A8381E6B5DE700C9FFBD /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814A8361E6B5DE700C9FFBD /* Nimble.framework */; };
-		8814A8391E6B5DE700C9FFBD /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814A8371E6B5DE700C9FFBD /* Quick.framework */; };
 		8825321D1E152189007824BC /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825321C1E152189007824BC /* Equatable.swift */; };
 		8827E1301DC0BB5E00E06654 /* TestRandomJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */; };
 		8827E1341DC0BC9900E06654 /* JSONParserSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1331DC0BC9900E06654 /* JSONParserSpec.swift */; };
@@ -132,8 +130,6 @@
 		8814A82F1E6B5D6700C9FFBD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		8814A8301E6B5D6700C9FFBD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		8814A8311E6B5D6700C9FFBD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		8814A8361E6B5DE700C9FFBD /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		8814A8371E6B5DE700C9FFBD /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		8825321C1E152189007824BC /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		8827E12F1DC0BB5E00E06654 /* TestRandomJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TestRandomJSON.json; path = TransitAppTests/TestRandomJSON.json; sourceTree = SOURCE_ROOT; };
 		8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransitAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -201,8 +197,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8814A8381E6B5DE700C9FFBD /* Nimble.framework in Frameworks */,
-				8814A8391E6B5DE700C9FFBD /* Quick.framework in Frameworks */,
 				88FED84F1E6B3FBC00C020DC /* SpecUIKitFringes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,8 +207,6 @@
 		33CCF6FA65642664F1753EC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8814A8361E6B5DE700C9FFBD /* Nimble.framework */,
-				8814A8371E6B5DE700C9FFBD /* Quick.framework */,
 				8814A82E1E6B5D6700C9FFBD /* Alamofire.framework */,
 				8814A82F1E6B5D6700C9FFBD /* Realm.framework */,
 				8814A8301E6B5D6700C9FFBD /* RealmSwift.framework */,
@@ -651,8 +643,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SpecUIKitFringes.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 			);
 			name = Carthage;
 			outputPaths = (
