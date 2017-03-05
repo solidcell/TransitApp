@@ -5,8 +5,7 @@ class CoupMapAnnotation: NSObject, MKAnnotation {
     
     let title: String?
     var energyLevel = 0
-    // dynamic is necessary for animation when changing coordinate
-    dynamic var coordinate = CLLocationCoordinate2D()
+    var coordinate = CLLocationCoordinate2D()
 
     init(scooter: Scooter) {
         self.title = scooter.licensePlate

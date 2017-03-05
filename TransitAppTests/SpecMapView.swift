@@ -16,6 +16,7 @@ protocol SpecMapViewInterating {
     var mapRegion: MKCoordinateRegion? { get }
     var mapOverlays: [MKOverlay] { get }
     var mapAnnotations: [MKAnnotation] { get }
+    var scooterAnnotations: [CoupMapAnnotation] { get }
     var currentLocationButtonState: CurrentLocationViewModel.ButtonState! { get }
     var shownAlert: MapViewModel.Alert? { get }
 
@@ -50,6 +51,9 @@ private class SpecMapView : SpecMapViewInterating {
         mkMapView.drag()
     }
     
+    var scooterAnnotations: [CoupMapAnnotation] {
+        return mapAnnotations.flatMap { $0 as? CoupMapAnnotation }
+    }
 }
 
 extension SpecMapView : MapViewModelDelegate {

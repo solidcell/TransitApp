@@ -1,4 +1,5 @@
 import XCTest
+import CoreLocation
 
 class MapAnnotationFeature: TransitAppFeature {
 
@@ -60,5 +61,25 @@ class MapAnnotationFeature: TransitAppFeature {
         dateProvider.progress(seconds: 15)
         respond(with: response)
         XCTAssertEqual(mapView.mapAnnotations.count, 1)
+    }
+
+    func testWhenScooterEnergyLevelIsAbove50() {
+        XCTAssertEqual(mapView.mapAnnotations.count, 0)
+        let data = ScooterJSON.create([
+            SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
+                            vin: "RHMGRSAN0GT1R0112",
+                            model: "Gogoro 1st edition",
+                            lat: 6,
+                            lng: 50,
+                            energyLevel: 70,
+                            licensePlate: "198FCE")
+            ])
+        respond(with: data)
+
+        let annotation = mapView.scooterAnnotations.first!
+        XCTAssertEqual(annotation.title, "198FCE")
+        XCTAssertEqual(annotation.coordinate,
+                       CLLocationCoordinate2D(latitude: 6, longitude: 50))
+        XCTAssertEqual(annotation.subtitle, "70%")
     }
 }
