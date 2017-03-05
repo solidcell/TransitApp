@@ -24,7 +24,6 @@ class MapViewController: UIViewController {
 
         RoundButtonStyler.style(button: currentLocationButton)
     }
-
 }
 
 extension MapViewController: MapViewModelDelegate {
@@ -42,20 +41,20 @@ extension MapViewController: MapViewModelDelegate {
     }
 
     func setOverlays(_ overlays: [MKOverlay]) {
-        DispatchQueue.main.sync {
-            overlays.forEach(mapView.add)
+        DispatchQueue.main.async {
+            self.mapView.addOverlays(overlays)
         }
     }
     
     func add(annotations: [MKAnnotation]) {
-        DispatchQueue.main.sync {
-            annotations.forEach(mapView.addAnnotation)
+        DispatchQueue.main.async {
+            self.mapView.addAnnotations(annotations)
         }
     }
 
     func removeAllAnnotations() {
-        DispatchQueue.main.sync {
-            self.mapView.removeAnnotations(mapView.annotations)
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
         }
     }
 

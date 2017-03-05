@@ -26,7 +26,6 @@
 		880EB0751DC37E6A00C5830E /* CoupBusinessAreasData.json in Resources */ = {isa = PBXBuildFile; fileRef = 880EB0741DC37E6A00C5830E /* CoupBusinessAreasData.json */; };
 		880EB07D1DC3975400C5830E /* Scooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB07C1DC3975400C5830E /* Scooter.swift */; };
 		880EB08C1DC3994E00C5830E /* ScooterParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB08B1DC3994E00C5830E /* ScooterParser.swift */; };
-		880EB08D1DC399BC00C5830E /* TestScooterJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 880EB0821DC3986400C5830E /* TestScooterJSON.json */; };
 		880EB0911DC39FCB00C5830E /* SeedDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0901DC39FCB00C5830E /* SeedDataParser.swift */; };
 		880EB0931DC3A20200C5830E /* MapAnnotationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */; };
 		8814A8351E6B5D6700C9FFBD /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814A8311E6B5D6700C9FFBD /* SwiftyJSON.framework */; };
@@ -91,7 +90,6 @@
 		880EB0701DC3736F00C5830E /* MapViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		880EB0741DC37E6A00C5830E /* CoupBusinessAreasData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CoupBusinessAreasData.json; sourceTree = "<group>"; };
 		880EB07C1DC3975400C5830E /* Scooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scooter.swift; sourceTree = "<group>"; };
-		880EB0821DC3986400C5830E /* TestScooterJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestScooterJSON.json; sourceTree = "<group>"; };
 		880EB08B1DC3994E00C5830E /* ScooterParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterParser.swift; sourceTree = "<group>"; };
 		880EB0901DC39FCB00C5830E /* SeedDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedDataParser.swift; sourceTree = "<group>"; };
 		880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProvider.swift; sourceTree = "<group>"; };
@@ -218,14 +216,6 @@
 				8884CE271DC52F63004365B3 /* CoupMapAnnotation.swift */,
 			);
 			name = MapAnnotations;
-			sourceTree = "<group>";
-		};
-		880EB0811DC3982900C5830E /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				880EB0821DC3986400C5830E /* TestScooterJSON.json */,
-			);
-			name = Assets;
 			sourceTree = "<group>";
 		};
 		880EB08A1DC3994200C5830E /* Coup */ = {
@@ -400,7 +390,6 @@
 			children = (
 				880A05761E0FF1DA00CFAFF4 /* Integration */,
 				880A05751E0FF1D000CFAFF4 /* Unit */,
-				880EB0811DC3982900C5830E /* Assets */,
 				880A05791E100EA200CFAFF4 /* Fakes */,
 				880A05861E112B1600CFAFF4 /* Utilities */,
 				8825321B1E15216B007824BC /* Extensions */,
@@ -503,7 +492,6 @@
 				88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */,
 				880EB0751DC37E6A00C5830E /* CoupBusinessAreasData.json in Resources */,
 				887DBEE01DC75CED00D92E19 /* MapViewController.storyboard in Resources */,
-				880EB08D1DC399BC00C5830E /* TestScooterJSON.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
