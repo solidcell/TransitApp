@@ -21,6 +21,6 @@ class TransitAppSpec: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        self.newRealm()
+        newRealm()
     }
 }

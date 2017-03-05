@@ -50,7 +50,7 @@ private class SpecDelegate: ScooterFetcherDelegate {
     var fetchedScootersCalledWith: [Scooter]?
 
     func fetchedScooters(scooters: [Scooter]) {
-        self.fetchedScootersCalledWith = scooters
+        fetchedScootersCalledWith = scooters
     }
 
 }

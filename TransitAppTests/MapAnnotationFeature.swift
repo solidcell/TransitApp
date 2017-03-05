@@ -3,7 +3,7 @@ import XCTest
 class MapAnnotationFeature: TransitAppFeature {
 
     func testWhenScootersAreAddedOverTheNetwork() {
-        XCTAssertEqual(self.mapView.mapAnnotations.count, 0)
+        XCTAssertEqual(mapView.mapAnnotations.count, 0)
         let response = ScooterJSON.create([
             SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
                             vin: "RHMGRSAN0GT1R0112",
@@ -20,14 +20,14 @@ class MapAnnotationFeature: TransitAppFeature {
                             energyLevel: 53,
                             licensePlate: "201FCE")
             ])
-        self.scooterUpdater.updatesWith(response)
+        scooterUpdater.updatesWith(response)
 
-        XCTAssertEqual(self.mapView.mapAnnotations.count, 2)
+        XCTAssertEqual(mapView.mapAnnotations.count, 2)
     }
 
     func testWhenScootersAreUpdatedOverTheNetwork() {
 
-        XCTAssertEqual(self.mapView.mapAnnotations.count, 0)
+        XCTAssertEqual(mapView.mapAnnotations.count, 0)
         let existingResponse = ScooterJSON.create([
             SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
                             vin: "RHMGRSAN0GT1R0112",
@@ -36,8 +36,8 @@ class MapAnnotationFeature: TransitAppFeature {
                             lng: 13.360313,
                             energyLevel: 70,
                             licensePlate: "198FCE")])
-        self.scooterUpdater.updatesWith(existingResponse)
-        XCTAssertEqual(self.mapView.mapAnnotations.count, 1)
+        scooterUpdater.updatesWith(existingResponse)
+        XCTAssertEqual(mapView.mapAnnotations.count, 1)
 
         let response = ScooterJSON.create([
             SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
@@ -47,7 +47,7 @@ class MapAnnotationFeature: TransitAppFeature {
                             lng: 15.444444,
                             energyLevel: 43,
                             licensePlate: "198FCE")])
-        self.scooterUpdater.updatesWith(response)
-        XCTAssertEqual(self.mapView.mapAnnotations.count, 1)
+        scooterUpdater.updatesWith(response)
+        XCTAssertEqual(mapView.mapAnnotations.count, 1)
     }
 }

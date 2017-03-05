@@ -9,7 +9,7 @@ class SpecFetchTimer: FetchTiming {
     }
 
     func fire() {
-        self.block?()
+        block?()
     }
 
 }

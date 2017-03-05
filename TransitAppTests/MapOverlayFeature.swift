@@ -3,6 +3,6 @@ import XCTest
 class MapOverlayFeature: TransitAppFeature {
 
     func testIsSeeded() {
-        XCTAssertEqual(self.mapView.mapOverlays.count, 3)
+        XCTAssertEqual(mapView.mapOverlays.count, 3)
     }
 }

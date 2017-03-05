@@ -55,23 +55,23 @@ private class SpecMapView : SpecMapViewInterating {
 extension SpecMapView : MapViewModelDelegate {
 
     func setShowCurrentLocation(_ enabled: Bool) {
-        self.showCurrentLocation = enabled
+        showCurrentLocation = enabled
     }
 
     func setUserTracking(mode: MKUserTrackingMode) {
-        self.userTrackingMode = mode
+        userTrackingMode = mode
     }
 
     func setRegion(_ region: MKCoordinateRegion) {
-        self.mapRegion = region
+        mapRegion = region
     }
 
     func setOverlays(_ overlays: [MKOverlay]) {
-        self.mapOverlays = overlays
+        mapOverlays = overlays
     }
     
     func newAnnotations(_ annotations: [MKAnnotation]) {
-        self.mapAnnotations.append(contentsOf: annotations)
+        mapAnnotations.append(contentsOf: annotations)
     }
 
     func annotationsReadyForUpdate(update: @escaping () -> Void) {
@@ -79,11 +79,11 @@ extension SpecMapView : MapViewModelDelegate {
     }
 
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
-        self.currentLocationButtonState = state
+        currentLocationButtonState = state
     }
     
     func showAlert(_ alert: MapViewModel.Alert) {
-        self.shownAlert = alert
+        shownAlert = alert
     }
 
 }

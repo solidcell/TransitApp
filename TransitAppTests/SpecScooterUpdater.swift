@@ -28,7 +28,7 @@ class SpecScooterUpdater {
         // The request is a success
         jsonFetcher.fetchSuccess(response)
         // Wait for Realm to fire a changeset notification
-//        expect(self.scooterRealmNotifier.callbackExecuted).toEventually(beTrue())
+//        expect(scooterRealmNotifier.callbackExecuted).toEventually(beTrue())
     }
 
 }

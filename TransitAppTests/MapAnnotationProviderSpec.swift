@@ -13,14 +13,14 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
     override func setUp() {
         super.setUp()
-        scooterRealmNotifier = SpecScooterRealmNotifier(realm: self.realm)
+        scooterRealmNotifier = SpecScooterRealmNotifier(realm: realm)
         dataSource = MapAnnotationDataSource(scooterRealmNotifier: scooterRealmNotifier)
         subject = MapAnnotationProvider(dataSource: dataSource)
         delegate = SpecDelegate()
 
         scooter = Scooter(latitude: 50.0, longitude: 60.0,
                           energyLevel: 70, licensePlate: "123abc")
-        self.realm.addOrUpdate(scooters: [scooter])
+        realm.addOrUpdate(scooters: [scooter])
     }
 
     func testWhenSettingTheDelegate() {
@@ -45,7 +45,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
 
         let newScooter = Scooter(latitude: -10.0, longitude: 55.0,
                                  energyLevel: 2, licensePlate: "xyz111")
-        self.realm.addOrUpdate(scooters: [newScooter])
+        realm.addOrUpdate(scooters: [newScooter])
         expect(scooterRealmNotifier.callbackExecuted).toEventually(beTrue())
         expect(delegate.annotations).to(haveCount(2))
     }
@@ -59,7 +59,7 @@ class MapAnnotationProviderSpec: TransitAppSpec {
                                                                  longitude: 60.0)))
         let updatedScooter = Scooter(latitude: 51.0, longitude: 61.0,
                                      energyLevel: 68, licensePlate: "123abc")
-        self.realm.addOrUpdate(scooters: [updatedScooter])
+        realm.addOrUpdate(scooters: [updatedScooter])
         expect(scooterRealmNotifier.callbackExecuted).toEventually(beTrue())
 
         expect(delegate.annotations).to(haveCount(1))
@@ -74,7 +74,7 @@ private class SpecDelegate: MapAnnotationReceiving {
     var annotations = [MKAnnotation]()
 
     func newAnnotations(_ annotations: [MKAnnotation]) {
-        self.annotations += annotations
+        annotations += annotations
     }
 
     func annotationsReadyForUpdate(update: @escaping () -> Void) {

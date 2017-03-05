@@ -17,32 +17,32 @@ class TransitAppFeature: TransitAppSpec {
     override func setUp() {
         super.setUp()
 
-        let scooterRealmNotifier = SpecScooterRealmNotifier(realm: self.realm)
+        let scooterRealmNotifier = SpecScooterRealmNotifier(realm: realm)
         let jsonFetcher = SpecJSONFetcher()
         let fetchTimer = SpecFetchTimer()
-        self.scooterUpdater = SpecScooterUpdater(scooterRealmNotifier: scooterRealmNotifier,
+        scooterUpdater = SpecScooterUpdater(scooterRealmNotifier: scooterRealmNotifier,
                                                  jsonFetcher: jsonFetcher,
                                                  fetchTimer: fetchTimer)
-        self.dialogManager = SpecDialogManager()
+        dialogManager = SpecDialogManager()
         let locationServices = SpecLocationServices()
         let userLocation = SpecUserLocation()
         let locationAuthorizationStatus = SpecLocationAuthorizationStatus()
-        self.settingsApp = SpecSettingsApp(locationAuthorizationStatus: locationAuthorizationStatus,
+        settingsApp = SpecSettingsApp(locationAuthorizationStatus: locationAuthorizationStatus,
                                            locationServices: locationServices)
-        let _locationManager = SpecLocationManager(dialogManager: self.dialogManager,
+        let _locationManager = SpecLocationManager(dialogManager: dialogManager,
                                                    userLocation: userLocation,
                                                    locationServices: locationServices,
                                                    locationAuthorizationStatus: locationAuthorizationStatus)
-        self.locationManager = _locationManager
+        locationManager = _locationManager
         let mapViewFactory = SpecMapViewFactory()
-        self.subject = MainCoordinator()
-        self.subject.start(window: UIWindow(),
+        subject = MainCoordinator()
+        subject.start(window: UIWindow(),
                            mapViewFactory: mapViewFactory,
-                           realm: self.realm,
+                           realm: realm,
                            scooterRealmNotifier: scooterRealmNotifier,
                            jsonFetcher: jsonFetcher,
                            fetchTimer: fetchTimer,
-                           locationManager: self.locationManager)
-        self.mapView = mapViewFactory.mapView
+                           locationManager: locationManager)
+        mapView = mapViewFactory.mapView
     }
 }

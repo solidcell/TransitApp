@@ -12,11 +12,11 @@ class MapOverlayProviderSpec: TransitAppSpec {
                            BusinessAreaCoordinate(latitude: 50.0, longitude: 70.0)]
         let businessArea = BusinessArea(coordinates: coordinates)
 
-        try! self.realm.write {
-            self.realm.add(businessArea)
+        try! realm.write {
+            realm.add(businessArea)
         }
 
-        let subject = MapOverlayProvider(realm: self.realm)
+        let subject = MapOverlayProvider(realm: realm)
 
         XCTAssertEqual(subject.overlays.count, 1)
 

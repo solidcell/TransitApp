@@ -10,36 +10,36 @@ class ScooterUpdaterSpec: TransitAppSpec {
     override func setUp() {
         super.setUp()
         scooterFetcher = SpecScooterFetcher()
-        subject = ScooterUpdater(realm: self.realm,
+        subject = ScooterUpdater(realm: realm,
                                  scooterFetcher: scooterFetcher)
     }
 
     func testStartWhenThereAreNoScootersWhenTheFetcherReturnsScooters() {
         subject.start()
-        XCTAssertEqual(self.realm.scooters.count, 0)
+        XCTAssertEqual(realm.scooters.count, 0)
 
         let scooter = Scooter(latitude: 50.0, longitude: 60.0,
                               energyLevel: 70, licensePlate: "123abc")
         scooterFetcher.simulateFetchedScooters([scooter])
-        XCTAssertEqual(self.realm.scooters.count, 1)
+        XCTAssertEqual(realm.scooters.count, 1)
     }
 
 
     func testWhenThereAreScootersAlreadyWhenTheFetcherReturnsScooters() {
         subject.start()
-        try! self.realm.write {
+        try! realm.write {
             let scooter = Scooter(latitude: 50.0, longitude: 60.0,
                                   energyLevel: 70, licensePlate: "123abc")
-            self.realm.add(scooter)
+            realm.add(scooter)
         }
-        XCTAssertEqual(self.realm.scooters.count, 1)
+        XCTAssertEqual(realm.scooters.count, 1)
 
         let scooter = Scooter(latitude: 50.1, longitude: 60.5,
                               energyLevel: 59, licensePlate: "123abc")
         scooterFetcher.simulateFetchedScooters([scooter])
 
-        XCTAssertEqual(self.realm.scooters.count, 1)
-        XCTAssertEqual(self.realm.scooters.first!.energyLevel, 59)
+        XCTAssertEqual(realm.scooters.count, 1)
+        XCTAssertEqual(realm.scooters.first!.energyLevel, 59)
     }
 }
 

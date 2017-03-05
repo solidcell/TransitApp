@@ -3,6 +3,6 @@ import XCTest
 class MapRegionFeature: TransitAppFeature {
 
     func testInitialRegion() {
-        XCTAssertNotNil(self.mapView.mapRegion)
+        XCTAssertNotNil(mapView.mapRegion)
     }
 }

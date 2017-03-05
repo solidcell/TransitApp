@@ -9,8 +9,8 @@ class SpecJSONFetcher: JSONFetching {
     }
 
     func fetchSuccess(_ responseValue: Any) {
-        self.completion?(responseValue)
-        self.completion = nil
+        completion?(responseValue)
+        completion = nil
     }
 
 }

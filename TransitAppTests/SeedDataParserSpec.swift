@@ -8,24 +8,24 @@ class SeedDataParserSpec: TransitAppSpec {
 
     override func setUp() {
         super.setUp()
-        subject = SeedDataParser(realm: self.realm)
+        subject = SeedDataParser(realm: realm)
     }
 
     func testSeedIfNeededSavesSeedDataIfTheAppCurrentlyHasNone() {
-        XCTAssertEqual(self.realm.businessAreas.count, 0)
+        XCTAssertEqual(realm.businessAreas.count, 0)
 
         subject.seedIfNeeded()
 
-        XCTAssertEqual(self.realm.businessAreas.count, 3)
+        XCTAssertEqual(realm.businessAreas.count, 3)
     }
 
     func testSeedIfNeededDoesNothingIfDataAlreadyExists() {
         subject.seedIfNeeded()
 
-        XCTAssertEqual(self.realm.businessAreas.count, 3)
+        XCTAssertEqual(realm.businessAreas.count, 3)
 
         subject.seedIfNeeded()
 
-        XCTAssertEqual(self.realm.businessAreas.count, 3)
+        XCTAssertEqual(realm.businessAreas.count, 3)
     }
 }
