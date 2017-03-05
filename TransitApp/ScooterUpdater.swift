@@ -1,4 +1,4 @@
-import RealmSwift
+
 
 class ScooterUpdater {
 

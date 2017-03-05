@@ -1,7 +1,7 @@
 import XCTest
 @testable import TransitApp
 /*
-class ScooterFetcherSpec: TransitAppSpec {
+class ScooterFetcherSpec: XCTestCase {
 
     var subject: ScooterFetcher!
     var jsonFetcher: SpecJSONFetcher!

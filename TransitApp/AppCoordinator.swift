@@ -1,6 +1,6 @@
 import UIKit
 import UIKitFringes
-import RealmSwift
+
 import CoreLocation
 
 /*
@@ -16,13 +16,11 @@ class AppCoordinator {
     
     func start(window: UIWindow) {
         let mapViewFactory = MapViewControllerFactory()
-        let realm = try! Realm()
         let urlSession = URLSession(configuration: .default)
         let timerFactory = TimerFactory()
         let locationManager = CLLocationManager()
         coordinator.start(window: window,
                           mapViewFactory: mapViewFactory,
-                          realm: realm,
                           urlSession: urlSession,
                           timerFactory: timerFactory,
                           locationManager: locationManager)

@@ -2,7 +2,7 @@ import XCTest
 import MapKit
 @testable import TransitApp
 
-class CoupMapAnnotationSpec: TransitAppSpec {
+class CoupMapAnnotationSpec: XCTestCase {
 
     func testCreatesAConfiguredAnnotation() {
         let scooter = Scooter(coordinate: CLLocationCoordinate2D(latitude: 50.0, longitude: 60.0),

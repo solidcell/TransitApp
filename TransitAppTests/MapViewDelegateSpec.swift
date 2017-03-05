@@ -3,7 +3,7 @@ import MapKit
 import SpecUIKitFringes
 @testable import TransitApp
 /*
-class MapViewDelegateSpec: TransitAppSpec {
+class MapViewDelegateSpec: XCTestCase {
 
     var subject: MapViewDelegate!
     var mapView: MKMapView!

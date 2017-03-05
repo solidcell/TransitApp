@@ -2,7 +2,7 @@ import XCTest
 import MapKit
 @testable import TransitApp
 
-class MapRegionProviderSpec: TransitAppSpec {
+class MapRegionProviderSpec: XCTestCase {
     
     func testRegionSuccessfullyReturnsARegion() {
         let subject = MapRegionProvider()

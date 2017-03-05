@@ -1,5 +1,5 @@
 import UIKit
-import RealmSwift
+
 import CoreLocation
 import UIKitFringes
 
@@ -7,7 +7,6 @@ class MapCoordinator {
 
     func start(window: UIWindow,
                viewFactory: MapViewFactory,
-               realm: Realm,
                jsonFetcher: JSONFetching,
                timerFactory: TimerFactoryProtocol,
                locationManager: LocationManaging) {

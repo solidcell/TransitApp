@@ -1,4 +1,4 @@
-import RealmSwift
+
 import MapKit
 
 protocol ScooterUpdaterDelegate: class {

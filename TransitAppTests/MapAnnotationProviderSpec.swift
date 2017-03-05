@@ -1,9 +1,9 @@
 import XCTest
-import RealmSwift
+
 import MapKit
 @testable import TransitApp
 /*
-class MapAnnotationProviderSpec: TransitAppSpec {
+class MapAnnotationProviderSpec: XCTestCase {
 
     var subject: MapAnnotationProvider!
     var dataSource: MapAnnotationDataSource!

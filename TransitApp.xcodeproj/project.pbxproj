@@ -19,7 +19,6 @@
 		880A05AF1E127B4D00CFAFF4 /* CurrentLocationFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05AE1E127B4D00CFAFF4 /* CurrentLocationFeature.swift */; };
 		880A05B11E127B7B00CFAFF4 /* MapAnnotationFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05B01E127B7B00CFAFF4 /* MapAnnotationFeature.swift */; };
 		880A05B31E141E3200CFAFF4 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05B21E141E3200CFAFF4 /* CurrentLocationViewModel.swift */; };
-		880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0601DC334F500C5830E /* TransitAppSpec.swift */; };
 		880EB0641DC338EF00C5830E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0631DC338EF00C5830E /* MainCoordinator.swift */; };
 		880EB0671DC360C900C5830E /* MapAnnotationProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */; };
 		880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */; };
@@ -31,9 +30,6 @@
 		880EB08D1DC399BC00C5830E /* TestScooterJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 880EB0821DC3986400C5830E /* TestScooterJSON.json */; };
 		880EB0911DC39FCB00C5830E /* SeedDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0901DC39FCB00C5830E /* SeedDataParser.swift */; };
 		880EB0931DC3A20200C5830E /* MapAnnotationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */; };
-		8814A8321E6B5D6700C9FFBD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814A82E1E6B5D6700C9FFBD /* Alamofire.framework */; };
-		8814A8331E6B5D6700C9FFBD /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814A82F1E6B5D6700C9FFBD /* Realm.framework */; };
-		8814A8341E6B5D6700C9FFBD /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814A8301E6B5D6700C9FFBD /* RealmSwift.framework */; };
 		8814A8351E6B5D6700C9FFBD /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814A8311E6B5D6700C9FFBD /* SwiftyJSON.framework */; };
 		8825321D1E152189007824BC /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825321C1E152189007824BC /* Equatable.swift */; };
 		8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1351DC0BD4300E06654 /* JSONParser.swift */; };
@@ -94,7 +90,6 @@
 		880A05AE1E127B4D00CFAFF4 /* CurrentLocationFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationFeature.swift; sourceTree = "<group>"; };
 		880A05B01E127B7B00CFAFF4 /* MapAnnotationFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationFeature.swift; sourceTree = "<group>"; };
 		880A05B21E141E3200CFAFF4 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
-		880EB0601DC334F500C5830E /* TransitAppSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAppSpec.swift; sourceTree = "<group>"; };
 		880EB0631DC338EF00C5830E /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		880EB0661DC360C900C5830E /* MapAnnotationProviderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProviderSpec.swift; sourceTree = "<group>"; };
 		880EB06B1DC363D700C5830E /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
@@ -106,9 +101,6 @@
 		880EB08B1DC3994E00C5830E /* ScooterParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterParser.swift; sourceTree = "<group>"; };
 		880EB0901DC39FCB00C5830E /* SeedDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedDataParser.swift; sourceTree = "<group>"; };
 		880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProvider.swift; sourceTree = "<group>"; };
-		8814A82E1E6B5D6700C9FFBD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		8814A82F1E6B5D6700C9FFBD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		8814A8301E6B5D6700C9FFBD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		8814A8311E6B5D6700C9FFBD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		8825321C1E152189007824BC /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransitAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -156,9 +148,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8814A8321E6B5D6700C9FFBD /* Alamofire.framework in Frameworks */,
-				8814A8331E6B5D6700C9FFBD /* Realm.framework in Frameworks */,
-				8814A8341E6B5D6700C9FFBD /* RealmSwift.framework in Frameworks */,
 				8814A8351E6B5D6700C9FFBD /* SwiftyJSON.framework in Frameworks */,
 				88FED8511E6B3FCE00C020DC /* UIKitFringes.framework in Frameworks */,
 			);
@@ -178,9 +167,6 @@
 		33CCF6FA65642664F1753EC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8814A82E1E6B5D6700C9FFBD /* Alamofire.framework */,
-				8814A82F1E6B5D6700C9FFBD /* Realm.framework */,
-				8814A8301E6B5D6700C9FFBD /* RealmSwift.framework */,
 				8814A8311E6B5D6700C9FFBD /* SwiftyJSON.framework */,
 				88FED8501E6B3FCE00C020DC /* UIKitFringes.framework */,
 				88FED84E1E6B3FBC00C020DC /* SpecUIKitFringes.framework */,
@@ -433,7 +419,6 @@
 				880A05791E100EA200CFAFF4 /* Fakes */,
 				880A05861E112B1600CFAFF4 /* Utilities */,
 				8825321B1E15216B007824BC /* Extensions */,
-				880EB0601DC334F500C5830E /* TransitAppSpec.swift */,
 				880A05A81E1278DE00CFAFF4 /* TransitAppFeature.swift */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
 				88DF694F1DBF905F00FE11F0 /* Info.plist */,
@@ -555,10 +540,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/UIKitFringes.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -640,7 +622,6 @@
 				880A05B11E127B7B00CFAFF4 /* MapAnnotationFeature.swift in Sources */,
 				8825321D1E152189007824BC /* Equatable.swift in Sources */,
 				887DBEFD1DCA174400D92E19 /* MapRegionProviderSpec.swift in Sources */,
-				880EB0611DC334F500C5830E /* TransitAppSpec.swift in Sources */,
 				880A05AB1E127AE200CFAFF4 /* MapRegionFeature.swift in Sources */,
 				8864759D1E17DEEE00A1F94F /* CustomStringConvertible.swift in Sources */,
 				880A05881E112B5500CFAFF4 /* ScooterJSON.swift in Sources */,

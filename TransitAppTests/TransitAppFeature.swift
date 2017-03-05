@@ -2,7 +2,7 @@ import XCTest
 import SpecUIKitFringes
 @testable import TransitApp
 
-class TransitAppFeature: TransitAppSpec {
+class TransitAppFeature: XCTestCase {
 
     // Let the object graph hold onto this, so as not to
     // mask possible retain issues
@@ -20,13 +20,13 @@ class TransitAppFeature: TransitAppSpec {
 
         urlSession = SpecURLSession()
         dateProvider = SpecDateProvider()
-        let timerFactory = SpecTimerFactory(dateProvider: dateProvider)
         dialogManager = SpecDialogManager()
         let locationServices = SpecLocationServices()
         let userLocation = SpecUserLocation()
         let locationAuthorizationStatus = SpecLocationAuthorizationStatus()
         settingsApp = SpecSettingsApp(locationAuthorizationStatus: locationAuthorizationStatus,
                                       locationServices: locationServices)
+        let timerFactory = SpecTimerFactory(dateProvider: dateProvider)
         let _locationManager = SpecLocationManager(dialogManager: dialogManager,
                                                    userLocation: userLocation,
                                                    locationServices: locationServices,
@@ -36,7 +36,6 @@ class TransitAppFeature: TransitAppSpec {
         subject = MainCoordinator()
         subject.start(window: UIWindow(),
                       mapViewFactory: mapViewFactory,
-                      realm: realm,
                       urlSession: urlSession,
                       timerFactory: timerFactory,
                       locationManager: locationManager)

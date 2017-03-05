@@ -2,7 +2,7 @@ import XCTest
 import MapKit
 @testable import TransitApp
 
-class MapOverlayProviderSpec: TransitAppSpec {
+class MapOverlayProviderSpec: XCTestCase {
 
     func testOverlaysReturnsAnOverlayForEachBusinessArea() {
 

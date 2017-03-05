@@ -1,5 +1,5 @@
 import SwiftyJSON
-import RealmSwift
+
 
 class SeedDataParser {
     
