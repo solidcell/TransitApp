@@ -3,13 +3,49 @@ import UIKit
 import CoreLocation
 import UIKitFringes
 
-class MapCoordinator {
+class MapCoordinatorFactory {
+    
+    private let viewFactory: MapViewFactory
+    private let jsonFetcher: JSONFetching
+    private let timerFactory: TimerFactoryProtocol
+    private let locationManagerFactory: LocationManagingFactoryProtocol
 
-    func start(window: UIWindow,
-               viewFactory: MapViewFactory,
-               jsonFetcher: JSONFetching,
-               timerFactory: TimerFactoryProtocol,
-               locationManagerFactory: LocationManagingFactoryProtocol) {
+    init(viewFactory: MapViewFactory,
+         jsonFetcher: JSONFetching,
+         timerFactory: TimerFactoryProtocol,
+         locationManagerFactory: LocationManagingFactoryProtocol) {
+        self.viewFactory = viewFactory
+        self.jsonFetcher = jsonFetcher
+        self.timerFactory = timerFactory
+        self.locationManagerFactory = locationManagerFactory
+    }
+
+    func create() -> MapCoordinator {
+        return MapCoordinator(viewFactory: viewFactory,
+                              jsonFetcher: jsonFetcher,
+                              timerFactory: timerFactory,
+                              locationManagerFactory: locationManagerFactory)
+    }
+}
+
+class MapCoordinator {
+    
+    private let viewFactory: MapViewFactory
+    private let jsonFetcher: JSONFetching
+    private let timerFactory: TimerFactoryProtocol
+    private let locationManagerFactory: LocationManagingFactoryProtocol
+    
+    init(viewFactory: MapViewFactory,
+         jsonFetcher: JSONFetching,
+         timerFactory: TimerFactoryProtocol,
+         locationManagerFactory: LocationManagingFactoryProtocol) {
+        self.viewFactory = viewFactory
+        self.jsonFetcher = jsonFetcher
+        self.timerFactory = timerFactory
+        self.locationManagerFactory = locationManagerFactory
+    }
+
+    func start(window: UIWindow) {
         let businessAreas = SeedDataParser().businessAreas
         let mapOverlayProvider = MapOverlayProvider(businessAreas: businessAreas)
         let mapRegionProvider = MapRegionProvider()
@@ -30,5 +66,4 @@ class MapCoordinator {
                                      mapViewDelegate: mapViewDelegate)
         viewFactory.createAndAttachToWindow(window: window, viewModel: viewModel)
     }
-
 }
