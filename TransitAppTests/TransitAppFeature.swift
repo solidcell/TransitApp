@@ -4,7 +4,7 @@ import SpecUIKitFringes
 
 class TransitAppFeature: XCTestCase {
 
-    var mapView: SpecMapViewInterating!
+    var window: SpecWindow!
     var dialogManager: SpecDialogManager!
     var settingsApp: SpecSettingsApp!
     var dateProvider: SpecDateProvider!
@@ -13,6 +13,7 @@ class TransitAppFeature: XCTestCase {
     override func setUp() {
         super.setUp()
 
+        window = SpecWindow()
         urlSession = SpecURLSession()
         dateProvider = SpecDateProvider()
         dialogManager = SpecDialogManager()
@@ -31,8 +32,8 @@ class TransitAppFeature: XCTestCase {
                                             urlSession: urlSession,
                                             timerFactory: timerFactory,
                                             locationManagerFactory: locationManagerFactory)
-        let window = UIWindow()
         appCoordinator.didFinishLaunching(withWindow: window)
-        mapView = mapViewFactory.mapView
     }
+
+    var mapView: SpecMapView { return window.topViewController as! SpecMapView }
 }

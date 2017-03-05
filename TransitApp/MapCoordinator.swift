@@ -1,5 +1,4 @@
 import UIKit
-
 import CoreLocation
 import UIKitFringes
 
@@ -45,7 +44,7 @@ class MapCoordinator {
         self.locationManagerFactory = locationManagerFactory
     }
 
-    func start(window: UIWindow) {
+    func start(window: Windowing) {
         let businessAreas = SeedDataParser().businessAreas
         let mapOverlayProvider = MapOverlayProvider(businessAreas: businessAreas)
         let mapRegionProvider = MapRegionProvider()
@@ -65,6 +64,8 @@ class MapCoordinator {
                                      mapOverlayProvider: mapOverlayProvider,
                                      mapAnnotationProvider: mapAnnotationProvider,
                                      mapViewDelegate: mapViewDelegate)
-        viewFactory.createAndAttachToWindow(window: window, viewModel: viewModel)
+        let viewController = viewFactory.create()
+        viewController.viewModel = viewModel
+        window.set(rootViewController: viewController)
     }
 }

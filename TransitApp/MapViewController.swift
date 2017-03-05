@@ -1,7 +1,13 @@
 import UIKit
+import UIKitFringes
 import MapKit
 
-class MapViewController: UIViewController {
+protocol MapViewControlling: class, ViewControlling {
+    
+    var viewModel: MapViewModel! { get set }
+}
+
+class MapViewController: UIViewController, MapViewControlling {
 
     var viewModel: MapViewModel!
 

@@ -1,4 +1,5 @@
 import UIKit
+import SpecUIKitFringes
 import MapKit
 @testable import TransitApp
 
@@ -23,7 +24,7 @@ protocol SpecMapViewInterating {
 
 }
 
-private class SpecMapView : SpecMapViewInterating {
+class SpecMapView: SpecViewController, MapViewControlling, SpecMapViewInterating {
 
     var showCurrentLocation: Bool?
     var userTrackingMode: MKUserTrackingMode?
@@ -33,13 +34,11 @@ private class SpecMapView : SpecMapViewInterating {
     var currentLocationButtonState: CurrentLocationViewModel.ButtonState!
     var shownAlert: MapViewModel.Alert?
 
-    private let viewModel: MapViewModel
     private let mkMapView = SpecMKMapView()
 
-    init(viewModel: MapViewModel) {
-        self.viewModel = viewModel
-        // the following could be moved/removed if RxSwift
-        // were used. Some other way without it?
+    var viewModel: MapViewModel!
+
+    override func viewDidLoad() {
         viewModel.delegate = self
         viewModel.viewDidLoad(mapViewDelegateHaving: mkMapView)
     }
@@ -99,10 +98,7 @@ extension SpecMapView : MapViewModelDelegate {
 
 class SpecMapViewFactory : MapViewFactory {
 
-    var mapView: SpecMapViewInterating!
-
-    func createAndAttachToWindow(window _: UIWindow, viewModel: MapViewModel) {
-        mapView = SpecMapView(viewModel: viewModel)
+    func create() -> MapViewControlling {
+        return SpecMapView()
     }
-    
 }

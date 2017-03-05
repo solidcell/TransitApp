@@ -17,7 +17,7 @@ class AppCoordinator {
                                                            locationManagerFactory: locationManagerFactory)
     }
 
-    func didFinishLaunching(withWindow window: UIWindow) {
+    func didFinishLaunching(withWindow window: Windowing) {
         let mapCoordinator = mapCoordinatorFactory.create()
         mapCoordinator.start(window: window)
     }
