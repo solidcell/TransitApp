@@ -4,21 +4,22 @@ import CoreLocation
 
 class AppCoordinator {
     
-    private let mapCoordinatorFactory: MapCoordinatorFactory
+    private let mapRouterFactory: MapRouterFactory
 
     init(mapViewFactory: MapViewFactory,
          urlSession: URLSessionProtocol,
          timerFactory: TimerFactoryProtocol,
          locationManagerFactory: LocationManagingFactoryProtocol) {
         let jsonFetcherFactory = JSONFetcherFactory(urlSession: urlSession)
-        self.mapCoordinatorFactory = MapCoordinatorFactory(viewFactory: mapViewFactory,
-                                                           jsonFetcherFactory: jsonFetcherFactory,
-                                                           timerFactory: timerFactory,
-                                                           locationManagerFactory: locationManagerFactory)
+        let mapModuleFactory = MapModuleFactory(viewFactory: mapViewFactory,
+                                                jsonFetcherFactory: jsonFetcherFactory,
+                                                timerFactory: timerFactory,
+                                                locationManagerFactory: locationManagerFactory)
+        self.mapRouterFactory = MapRouterFactory(mapModuleFactory: mapModuleFactory)
     }
 
     func didFinishLaunching(withWindow window: Windowing) {
-        let mapRouter = mapCoordinatorFactory.create()
+        let mapRouter = mapRouterFactory.create()
         mapRouter.start(window: window)
     }
 }

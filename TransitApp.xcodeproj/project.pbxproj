@@ -34,6 +34,7 @@
 		883BC38A1E6C465C00B2D7DB /* MKMultiPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3891E6C465C00B2D7DB /* MKMultiPoint.swift */; };
 		883BC3C31E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C21E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift */; };
 		883BC3C51E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C41E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift */; };
+		883BC3C71E7488F200B2D7DB /* MapModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C61E7488F200B2D7DB /* MapModuleFactory.swift */; };
 		8864759D1E17DEEE00A1F94F /* CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8864759C1E17DEEE00A1F94F /* CustomStringConvertible.swift */; };
 		886475A41E198D7300A1F94F /* SpecMKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886475A31E198D7300A1F94F /* SpecMKMapView.swift */; };
 		886475A61E198F9700A1F94F /* MKMapViewDelegateHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886475A51E198F9700A1F94F /* MKMapViewDelegateHaving.swift */; };
@@ -100,6 +101,7 @@
 		883BC3891E6C465C00B2D7DB /* MKMultiPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMultiPoint.swift; sourceTree = "<group>"; };
 		883BC3C21E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateSpan+Equatable.swift"; sourceTree = "<group>"; };
 		883BC3C41E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
+		883BC3C61E7488F200B2D7DB /* MapModuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModuleFactory.swift; sourceTree = "<group>"; };
 		8864759C1E17DEEE00A1F94F /* CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStringConvertible.swift; sourceTree = "<group>"; };
 		886475A31E198D7300A1F94F /* SpecMKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecMKMapView.swift; sourceTree = "<group>"; };
 		886475A51E198F9700A1F94F /* MKMapViewDelegateHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegateHaving.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				887DBEDB1DC75AD300D92E19 /* MapRouter.swift */,
+				883BC3C61E7488F200B2D7DB /* MapModuleFactory.swift */,
 				8864759E1E17E29600A1F94F /* ViewController */,
 				8864759F1E17E2A000A1F94F /* Presenter */,
 				887DBEDF1DC75CED00D92E19 /* MapViewController.storyboard */,
@@ -556,6 +559,7 @@
 				8884CE3A1DC60CC7004365B3 /* BusinessArea.swift in Sources */,
 				880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */,
 				88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */,
+				883BC3C71E7488F200B2D7DB /* MapModuleFactory.swift in Sources */,
 				887DBEF51DC8CDC700D92E19 /* ScooterFetcher.swift in Sources */,
 				8807409D1E1E6A1200CECDDF /* RoundButtonStyler.swift in Sources */,
 				880A05831E10353700CFAFF4 /* MapViewControllerFactory.swift in Sources */,
