@@ -102,7 +102,6 @@ extension SpecMapViewController : MapViewModelDelegate {
     func showAlert(_ alert: MapViewModel.Alert) {
         shownAlert = alert
     }
-
 }
 
 class SpecMapViewFactory : MapViewFactory {
