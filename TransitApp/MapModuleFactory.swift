@@ -2,12 +2,12 @@ import UIKitFringes
 
 class MapModuleFactory {
     
-    private let viewFactory: MapViewFactory
+    private let viewFactory: MapViewControllerFactoryProtocol
     private let jsonFetcherFactory: JSONFetcherFactory
     private let timerFactory: TimerFactoryProtocol
     private let locationManagerFactory: LocationManagingFactoryProtocol
     
-    init(viewFactory: MapViewFactory,
+    init(viewFactory: MapViewControllerFactoryProtocol,
          jsonFetcherFactory: JSONFetcherFactory,
          timerFactory: TimerFactoryProtocol,
          locationManagerFactory: LocationManagingFactoryProtocol) {

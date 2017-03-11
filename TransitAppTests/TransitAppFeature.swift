@@ -27,8 +27,8 @@ class TransitAppFeature: XCTestCase {
                                                                 userLocation: userLocation,
                                                                 locationServices: locationServices,
                                                                 locationAuthorizationStatus: locationAuthorizationStatus)
-        let mapViewFactory = SpecMapViewFactory()
-        let appCoordinator = AppCoordinator(mapViewFactory: mapViewFactory,
+        let mapViewControllerFactory = SpecMapViewFactory()
+        let appCoordinator = AppCoordinator(mapViewControllerFactory: mapViewControllerFactory,
                                             urlSession: urlSession,
                                             timerFactory: timerFactory,
                                             locationManagerFactory: locationManagerFactory)

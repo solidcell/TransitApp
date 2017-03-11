@@ -104,7 +104,7 @@ extension SpecMapViewController : MapViewModelDelegate {
     }
 }
 
-class SpecMapViewFactory : MapViewFactory {
+class SpecMapViewFactory: MapViewControllerFactoryProtocol {
 
     func create() -> MapViewControlling {
         return SpecMapViewController()

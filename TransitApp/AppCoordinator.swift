@@ -6,12 +6,12 @@ class AppCoordinator {
     
     private let mapRouterFactory: MapRouterFactory
 
-    init(mapViewFactory: MapViewFactory,
+    init(mapViewControllerFactory: MapViewControllerFactoryProtocol,
          urlSession: URLSessionProtocol,
          timerFactory: TimerFactoryProtocol,
          locationManagerFactory: LocationManagingFactoryProtocol) {
         let jsonFetcherFactory = JSONFetcherFactory(urlSession: urlSession)
-        let mapModuleFactory = MapModuleFactory(viewFactory: mapViewFactory,
+        let mapModuleFactory = MapModuleFactory(viewFactory: mapViewControllerFactory,
                                                 jsonFetcherFactory: jsonFetcherFactory,
                                                 timerFactory: timerFactory,
                                                 locationManagerFactory: locationManagerFactory)

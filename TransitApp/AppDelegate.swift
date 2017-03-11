@@ -12,11 +12,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         
-        let mapViewFactory = MapViewControllerFactory()
+        let mapViewControllerFactory = MapViewControllerFactory()
         let urlSession = URLSession(configuration: .default)
         let timerFactory = TimerFactory()
         let locationManagerFactory = CLLocationManagerFactory()
-        let coordinator = AppCoordinator(mapViewFactory: mapViewFactory,
+        let coordinator = AppCoordinator(mapViewControllerFactory: mapViewControllerFactory,
                                          urlSession: urlSession,
                                          timerFactory: timerFactory,
                                          locationManagerFactory: locationManagerFactory)

@@ -1,12 +1,12 @@
 import UIKit
 import MapKit
 
-protocol MapViewFactory {
+protocol MapViewControllerFactoryProtocol {
 
     func create() -> MapViewControlling
 }
 
-class MapViewControllerFactory: MapViewFactory {
+class MapViewControllerFactory: MapViewControllerFactoryProtocol {
     
     private let storyboardName = "MapViewController"
     
