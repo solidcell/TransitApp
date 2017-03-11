@@ -2,32 +2,7 @@ import UIKit
 import CoreLocation
 import UIKitFringes
 
-class MapCoordinatorFactory {
-    
-    private let viewFactory: MapViewFactory
-    private let jsonFetcherFactory: JSONFetcherFactory
-    private let timerFactory: TimerFactoryProtocol
-    private let locationManagerFactory: LocationManagingFactoryProtocol
-
-    init(viewFactory: MapViewFactory,
-         jsonFetcherFactory: JSONFetcherFactory,
-         timerFactory: TimerFactoryProtocol,
-         locationManagerFactory: LocationManagingFactoryProtocol) {
-        self.viewFactory = viewFactory
-        self.jsonFetcherFactory = jsonFetcherFactory
-        self.timerFactory = timerFactory
-        self.locationManagerFactory = locationManagerFactory
-    }
-
-    func create() -> MapCoordinator {
-        return MapCoordinator(viewFactory: viewFactory,
-                              jsonFetcherFactory: jsonFetcherFactory,
-                              timerFactory: timerFactory,
-                              locationManagerFactory: locationManagerFactory)
-    }
-}
-
-class MapCoordinator {
+class MapRouter {
     
     private let viewFactory: MapViewFactory
     private let jsonFetcherFactory: JSONFetcherFactory
@@ -67,5 +42,30 @@ class MapCoordinator {
         let viewController = viewFactory.create()
         viewController.presenter = presenter
         window.set(rootViewController: viewController)
+    }
+}
+
+class MapCoordinatorFactory {
+    
+    private let viewFactory: MapViewFactory
+    private let jsonFetcherFactory: JSONFetcherFactory
+    private let timerFactory: TimerFactoryProtocol
+    private let locationManagerFactory: LocationManagingFactoryProtocol
+
+    init(viewFactory: MapViewFactory,
+         jsonFetcherFactory: JSONFetcherFactory,
+         timerFactory: TimerFactoryProtocol,
+         locationManagerFactory: LocationManagingFactoryProtocol) {
+        self.viewFactory = viewFactory
+        self.jsonFetcherFactory = jsonFetcherFactory
+        self.timerFactory = timerFactory
+        self.locationManagerFactory = locationManagerFactory
+    }
+
+    func create() -> MapRouter {
+        return MapRouter(viewFactory: viewFactory,
+                              jsonFetcherFactory: jsonFetcherFactory,
+                              timerFactory: timerFactory,
+                              locationManagerFactory: locationManagerFactory)
     }
 }

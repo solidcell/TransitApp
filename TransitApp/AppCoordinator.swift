@@ -18,7 +18,7 @@ class AppCoordinator {
     }
 
     func didFinishLaunching(withWindow window: Windowing) {
-        let mapCoordinator = mapCoordinatorFactory.create()
-        mapCoordinator.start(window: window)
+        let mapRouter = mapCoordinatorFactory.create()
+        mapRouter.start(window: window)
     }
 }
