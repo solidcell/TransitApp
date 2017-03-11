@@ -19,8 +19,8 @@ class MapAnnotationFeature: TransitAppFeature {
             SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
                             vin: "RHMGRSAN0GT1R0112",
                             model: "Gogoro 1st edition",
-                            lat: 52.494534,
-                            lng: 13.360313,
+                            lat: 10,
+                            lng: 20,
                             energyLevel: 70,
                             licensePlate: "198FCE"),
             SpecScooterJSON(id: "1211d9ae-af0c-49af-9ee5-815614f3fcdd",
@@ -63,6 +63,28 @@ class MapAnnotationFeature: TransitAppFeature {
         XCTAssertEqual(mapView.mapAnnotations.count, 1)
     }
 
+    func testAnnotationConfiguration() {
+        XCTAssertEqual(mapView.mapAnnotations.count, 0)
+        let data = ScooterJSON.create([
+            SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
+                            vin: "RHMGRSAN0GT1R0112",
+                            model: "Gogoro 1st edition",
+                            lat: 10,
+                            lng: 20,
+                            energyLevel: 70,
+                            licensePlate: "198FCE")
+            ])
+        respond(with: data)
+
+        let annotation = mapView.scooterAnnotations.first!
+        XCTAssertEqual(annotation.title, "198FCE")
+        XCTAssertEqual(annotation.coordinate,
+                       CLLocationCoordinate2D(latitude: 10, longitude: 20))
+        XCTAssertEqual(annotation.subtitle, "70%")
+        let annotationView = mapView.scooterAnnotationView(for: annotation)!
+        XCTAssertTrue(annotationView.canShowCallout)
+    }
+
     func testWhenScooterEnergyLevelIsAbove50() {
         XCTAssertEqual(mapView.mapAnnotations.count, 0)
         let data = ScooterJSON.create([
@@ -77,9 +99,43 @@ class MapAnnotationFeature: TransitAppFeature {
         respond(with: data)
 
         let annotation = mapView.scooterAnnotations.first!
-        XCTAssertEqual(annotation.title, "198FCE")
-        XCTAssertEqual(annotation.coordinate,
-                       CLLocationCoordinate2D(latitude: 6, longitude: 50))
-        XCTAssertEqual(annotation.subtitle, "70%")
+        let annotationView = mapView.scooterAnnotationView(for: annotation)!
+        XCTAssertEqual(annotationView.pinTintColor, UIColor.green)
+    }
+
+    func testWhenScooterEnergyLevelIsBetween31and50() {
+        XCTAssertEqual(mapView.mapAnnotations.count, 0)
+        let data = ScooterJSON.create([
+            SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
+                            vin: "RHMGRSAN0GT1R0112",
+                            model: "Gogoro 1st edition",
+                            lat: 6,
+                            lng: 50,
+                            energyLevel: 40,
+                            licensePlate: "198FCE")
+            ])
+        respond(with: data)
+
+        let annotation = mapView.scooterAnnotations.first!
+        let annotationView = mapView.scooterAnnotationView(for: annotation)!
+        XCTAssertEqual(annotationView.pinTintColor, UIColor.yellow)
+    }
+
+    func testWhenScooterEnergyLevelIsBelow31() {
+        XCTAssertEqual(mapView.mapAnnotations.count, 0)
+        let data = ScooterJSON.create([
+            SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
+                            vin: "RHMGRSAN0GT1R0112",
+                            model: "Gogoro 1st edition",
+                            lat: 6,
+                            lng: 50,
+                            energyLevel: 30,
+                            licensePlate: "198FCE")
+            ])
+        respond(with: data)
+
+        let annotation = mapView.scooterAnnotations.first!
+        let annotationView = mapView.scooterAnnotationView(for: annotation)!
+        XCTAssertEqual(annotationView.pinTintColor, UIColor.red)
     }
 }

@@ -21,7 +21,8 @@ protocol SpecMapViewInterating {
     var scooterAnnotations: [CoupMapAnnotation] { get }
     var currentLocationButtonState: CurrentLocationViewModel.ButtonState! { get }
     var shownAlert: MapViewModel.Alert? { get }
-
+    func scooterAnnotationView(for: MKAnnotation) -> CoupMapAnnotationView?
+    func polygonRenderer(for overlay: MKOverlay) -> MKPolygonRenderer?
 }
 
 class SpecMapView: SpecViewController, MapViewControlling, SpecMapViewInterating {
@@ -37,6 +38,14 @@ class SpecMapView: SpecViewController, MapViewControlling, SpecMapViewInterating
     private let mkMapView = SpecMKMapView()
 
     var viewModel: MapViewModel!
+
+    func scooterAnnotationView(for annotation: MKAnnotation) -> CoupMapAnnotationView? {
+        return mkMapView.delegate?.mapView?(mkMapView.bsMapView, viewFor: annotation) as? CoupMapAnnotationView
+    }
+    
+    func polygonRenderer(for overlay: MKOverlay) -> MKPolygonRenderer? {
+        return mkMapView.delegate?.mapView?(mkMapView.bsMapView, rendererFor: overlay) as? MKPolygonRenderer
+    }
 
     override func viewDidLoad() {
         viewModel.delegate = self

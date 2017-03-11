@@ -5,7 +5,7 @@ class SpecMKMapView : MKMapViewDelegateHaving {
     
     weak var delegate: MKMapViewDelegate?
     
-    private let bsMapView = MKMapView()
+    let bsMapView = MKMapView()
 
     func drag() {
         // TODO add some state to keep track of the tracking mode and
