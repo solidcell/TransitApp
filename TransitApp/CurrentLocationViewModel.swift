@@ -62,14 +62,14 @@ class CurrentLocationViewModel {
 
     private func showPreviouslyDeniedAlert() {
         let url = URL(string: UIApplicationOpenSettingsURLString)!
-        let alert = MapViewModel.Alert(
+        let alert = MapPresenter.Alert(
             title: "Please give permission",
             message: "You have previously declined permission to use your location.",
             actions: [
-                MapViewModel.Alert.Action(title: "OK",
+                MapPresenter.Alert.Action(title: "OK",
                                           style: .default,
                                           handler: .url(url)),
-                MapViewModel.Alert.Action(title: "Cancel",
+                MapPresenter.Alert.Action(title: "Cancel",
                                           style: .cancel,
                                           handler: .noop)
             ])
@@ -121,5 +121,5 @@ protocol CurrentLocationViewModelDelegate: class {
     func setUserTracking(mode: MKUserTrackingMode)
     func setShowCurrentLocation(_ enabled: Bool)
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
-    func showAlert(_ alert: MapViewModel.Alert)
+    func showAlert(_ alert: MapPresenter.Alert)
 }

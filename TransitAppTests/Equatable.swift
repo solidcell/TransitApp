@@ -1,6 +1,6 @@
 @testable import TransitApp
 
-typealias Handler = MapViewModel.Alert.Action.Handler
+typealias Handler = MapPresenter.Alert.Action.Handler
 
 extension Handler : Equatable {
     

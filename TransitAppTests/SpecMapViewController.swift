@@ -20,7 +20,7 @@ protocol SpecMapViewInterating {
     var mapAnnotations: [MKAnnotation] { get }
     var scooterAnnotations: [CoupMapAnnotation] { get }
     var currentLocationButtonState: CurrentLocationViewModel.ButtonState! { get }
-    var shownAlert: MapViewModel.Alert! { get }
+    var shownAlert: MapPresenter.Alert! { get }
     func scooterAnnotationView(for: MKAnnotation) -> CoupMapAnnotationView?
     func polygonRenderer(for overlay: MKOverlay) -> MKPolygonRenderer?
 }
@@ -33,11 +33,11 @@ class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapView
     var mapOverlays = [MKOverlay]()
     var mapAnnotations = [MKAnnotation]()
     var currentLocationButtonState: CurrentLocationViewModel.ButtonState!
-    var shownAlert: MapViewModel.Alert!
+    var shownAlert: MapPresenter.Alert!
 
     private let mapView = SpecMKMapView()
 
-    var viewModel: MapViewModel!
+    var presenter: MapPresenter!
 
     func scooterAnnotationView(for annotation: MKAnnotation) -> CoupMapAnnotationView? {
         return mapView.delegate?.mapView?(mapView, viewFor: annotation) as? CoupMapAnnotationView
@@ -48,12 +48,12 @@ class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapView
     }
 
     override func viewDidLoad() {
-        viewModel.delegate = self
-        viewModel.viewDidLoad(mapViewDelegateHaving: mapView)
+        presenter.delegate = self
+        presenter.viewDidLoad(mapViewDelegateHaving: mapView)
     }
 
     func tapCurrentLocationButton() {
-        viewModel.tapCurrentLocationButton()
+        presenter.tapCurrentLocationButton()
     }
 
     func drag() {
@@ -99,7 +99,7 @@ extension SpecMapViewController : MapViewModelDelegate {
         currentLocationButtonState = state
     }
     
-    func showAlert(_ alert: MapViewModel.Alert) {
+    func showAlert(_ alert: MapPresenter.Alert) {
         shownAlert = alert
     }
 }

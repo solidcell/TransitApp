@@ -61,12 +61,12 @@ class CurrentLocationFeature: TransitAppFeature {
         XCTAssertEqual(firstAction.title, "OK")
         XCTAssertEqual(firstAction.style, UIAlertActionStyle.default)
         let settingsURL = URL(string:UIApplicationOpenSettingsURLString)!
-        XCTAssertEqual(firstAction.handler, MapViewModel.Alert.Action.Handler.url(settingsURL))
+        XCTAssertEqual(firstAction.handler, MapPresenter.Alert.Action.Handler.url(settingsURL))
 
         let secondAction = alert.actions[1]
         XCTAssertEqual(secondAction.title, "Cancel")
         XCTAssertEqual(secondAction.style, UIAlertActionStyle.cancel)
-        XCTAssertEqual(secondAction.handler, MapViewModel.Alert.Action.Handler.noop)
+        XCTAssertEqual(secondAction.handler, MapPresenter.Alert.Action.Handler.noop)
     }
 
     func testTappingOnTheArrowWhenFollowingCurrentLocation() {

@@ -1,7 +1,7 @@
 import CoreLocation
 import MapKit
 
-class MapViewModel {
+class MapPresenter {
     
     private let currentLocationViewModel: CurrentLocationViewModel
     private let initialCoordinateRegion: MKCoordinateRegion
@@ -52,7 +52,7 @@ class MapViewModel {
     }
 }
 
-extension MapViewModel : CurrentLocationViewModelDelegate {
+extension MapPresenter : CurrentLocationViewModelDelegate {
 
     func setShowCurrentLocation(_ enabled: Bool) {
         delegate.setShowCurrentLocation(enabled)
@@ -66,7 +66,7 @@ extension MapViewModel : CurrentLocationViewModelDelegate {
         delegate.setCurrentLocationButtonState(state)
     }
 
-    func showAlert(_ alert: MapViewModel.Alert) {
+    func showAlert(_ alert: MapPresenter.Alert) {
         delegate.showAlert(alert)
     }
 }
@@ -76,7 +76,7 @@ protocol MapAnnotationReceiving: class {
     func set(annotations: [MKAnnotation])
 }
 
-extension MapViewModel : MapAnnotationReceiving {
+extension MapPresenter : MapAnnotationReceiving {
 
     func set(annotations: [MKAnnotation]) {
         delegate?.add(annotations: annotations)
@@ -91,5 +91,5 @@ protocol MapViewModelDelegate : class {
     func setOverlays(_ overlays: [MKOverlay])
     func add(annotations: [MKAnnotation])
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
-    func showAlert(_ alert: MapViewModel.Alert)
+    func showAlert(_ alert: MapPresenter.Alert)
 }

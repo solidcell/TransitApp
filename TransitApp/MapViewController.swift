@@ -4,25 +4,25 @@ import MapKit
 
 protocol MapViewControlling: class, ViewControlling {
     
-    var viewModel: MapViewModel! { get set }
+    var presenter: MapPresenter! { get set }
 }
 
 class MapViewController: UIViewController, MapViewControlling {
 
-    var viewModel: MapViewModel!
+    var presenter: MapPresenter!
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentLocationButton: UIButton!
     
     @IBAction func currentLocationTap(_ sender: AnyObject) {
-        viewModel.tapCurrentLocationButton()
+        presenter.tapCurrentLocationButton()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.delegate = self
-        viewModel.viewDidLoad(mapViewDelegateHaving: mapView)
+        presenter.delegate = self
+        presenter.viewDidLoad(mapViewDelegateHaving: mapView)
     }
 
     override func viewDidLayoutSubviews() {
@@ -69,7 +69,7 @@ extension MapViewController: MapViewModelDelegate {
         currentLocationButton.setImage(image, for: .normal)
     }
 
-    func showAlert(_ alert: MapViewModel.Alert) {
+    func showAlert(_ alert: MapPresenter.Alert) {
         let controller = UIAlertController(title: alert.title,
                                            message: alert.message,
                                            preferredStyle: .alert)

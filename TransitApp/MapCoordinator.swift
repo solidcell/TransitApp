@@ -59,13 +59,13 @@ class MapCoordinator {
         let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
         let currentLocationViewModel = CurrentLocationViewModel(provider: currentLocationProvider)
         let mapViewDelegate = MapViewDelegate(userTrackingModeDelegate: currentLocationViewModel)
-        let viewModel = MapViewModel(currentLocationViewModel: currentLocationViewModel,
+        let presenter = MapPresenter(currentLocationViewModel: currentLocationViewModel,
                                      initialCoordinateRegion: region,
                                      mapOverlayProvider: mapOverlayProvider,
                                      mapAnnotationProvider: mapAnnotationProvider,
                                      mapViewDelegate: mapViewDelegate)
         let viewController = viewFactory.create()
-        viewController.viewModel = viewModel
+        viewController.presenter = presenter
         window.set(rootViewController: viewController)
     }
 }
