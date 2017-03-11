@@ -1,5 +1,7 @@
 language: objective-c
 osx_image: xcode8
-script: set -o pipefail && xcodebuild clean build test -scheme TransitApp -destination "platform=iOS Simulator,name=iPhone 6S" -enableCodeCoverage YES | xcpretty
+script:
+  - carthage bootstrap --platform iOS
+  - set -o pipefail && xcodebuild clean build test -scheme TransitApp -destination "platform=iOS Simulator,name=iPhone 6S" -enableCodeCoverage YES | xcpretty
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'TransitApp'
