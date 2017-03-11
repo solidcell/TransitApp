@@ -1,5 +1,5 @@
 language: objective-c
 osx_image: xcode8
-script: xcodebuild clean build test -workspace TransitApp.xcworkspace -scheme TransitApp -destination "platform=iOS Simulator,name=iPhone 6S" -enableCodeCoverage YES
+script: xcodebuild clean build test -scheme TransitApp -destination "platform=iOS Simulator,name=iPhone 6S" -enableCodeCoverage YES
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'TransitApp'
