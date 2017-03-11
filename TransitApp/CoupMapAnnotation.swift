@@ -7,14 +7,12 @@ class CoupMapAnnotation: NSObject, MKAnnotation {
     var energyLevel = 0
     var coordinate = CLLocationCoordinate2D()
 
-    init(scooter: Scooter) {
-        self.title = scooter.licensePlate
-        super.init()
-        configure(for: scooter)
+    init(title: String) {
+        self.title = title
     }
 
     var subtitle: String? {
-        return "\(self.energyLevel)%"
+        return "\(energyLevel)%"
     }
 
     func configure(for scooter: Scooter) {

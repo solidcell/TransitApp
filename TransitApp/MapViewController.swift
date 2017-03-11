@@ -58,12 +58,6 @@ extension MapViewController: MapViewModelDelegate {
         }
     }
 
-    func removeAllAnnotations() {
-        DispatchQueue.main.async {
-            self.mapView.removeAnnotations(self.mapView.annotations)
-        }
-    }
-
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
         let image: UIImage
         switch state {

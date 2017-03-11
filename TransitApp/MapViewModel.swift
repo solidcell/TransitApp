@@ -80,7 +80,6 @@ protocol MapAnnotationReceiving: class {
 extension MapViewModel : MapAnnotationReceiving {
 
     func set(annotations: [MKAnnotation]) {
-        delegate?.removeAllAnnotations()
         delegate?.add(annotations: annotations)
     }
 }
@@ -92,7 +91,6 @@ protocol MapViewModelDelegate : class {
     func setRegion(_ region: MKCoordinateRegion)
     func setOverlays(_ overlays: [MKOverlay])
     func add(annotations: [MKAnnotation])
-    func removeAllAnnotations()
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
     func showAlert(_ alert: MapViewModel.Alert)
 }

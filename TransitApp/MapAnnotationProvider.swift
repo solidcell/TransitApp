@@ -1,4 +1,3 @@
-
 import MapKit
 
 protocol ScooterUpdaterDelegate: class {
@@ -16,8 +15,24 @@ class MapAnnotationProvider: ScooterUpdaterDelegate {
         scooterUpdater.delegate = self
     }
 
+    private var dataSource = [String : CoupMapAnnotation]()
+
+    private func getOrAddAnnotation(forLicensePlate licensePlate: String) -> CoupMapAnnotation {
+        if let annotation = dataSource[licensePlate] {
+            return annotation
+        }
+        let annotation = CoupMapAnnotation(title: licensePlate)
+        dataSource[licensePlate] = annotation
+        return annotation
+    }
+
+    private func addOrUpdateAnnotation(forScooter scooter: Scooter) {
+        let annotation = getOrAddAnnotation(forLicensePlate: scooter.licensePlate)
+        annotation.configure(for: scooter)
+    }
+
     func received(scooters: [Scooter]) {
-        let annotations = scooters.map(CoupMapAnnotation.init)
-        delegate?.set(annotations: annotations)
+        scooters.forEach(addOrUpdateAnnotation)
+        delegate?.set(annotations: Array(dataSource.values))
     }
 }
