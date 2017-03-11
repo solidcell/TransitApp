@@ -25,7 +25,7 @@ protocol SpecMapViewInterating {
     func polygonRenderer(for overlay: MKOverlay) -> MKPolygonRenderer?
 }
 
-class SpecMapView: SpecViewController, MapViewControlling, SpecMapViewInterating {
+class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapViewInterating {
 
     var showCurrentLocation: Bool?
     var userTrackingMode: MKUserTrackingMode?
@@ -69,7 +69,7 @@ class SpecMapView: SpecViewController, MapViewControlling, SpecMapViewInterating
     }
 }
 
-extension SpecMapView : MapViewModelDelegate {
+extension SpecMapViewController : MapViewModelDelegate {
 
     func setShowCurrentLocation(_ enabled: Bool) {
         showCurrentLocation = enabled
@@ -108,6 +108,6 @@ extension SpecMapView : MapViewModelDelegate {
 class SpecMapViewFactory : MapViewFactory {
 
     func create() -> MapViewControlling {
-        return SpecMapView()
+        return SpecMapViewController()
     }
 }

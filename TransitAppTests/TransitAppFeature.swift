@@ -35,5 +35,5 @@ class TransitAppFeature: XCTestCase {
         appCoordinator.didFinishLaunching(withWindow: window)
     }
 
-    var mapView: SpecMapView { return window.topViewController as! SpecMapView }
+    var mapViewController: SpecMapViewController { return window.topViewController as! SpecMapViewController }
 }

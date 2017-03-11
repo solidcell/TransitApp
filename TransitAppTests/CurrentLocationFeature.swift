@@ -6,53 +6,53 @@ import SpecUIKitFringes
 class CurrentLocationFeature: TransitAppFeature {
 
     func testInitialState() {
-        XCTAssertEqual(mapView.currentLocationButtonState, .nonHighlighted)
-        XCTAssertNil(mapView.showCurrentLocation)
+        XCTAssertEqual(mapViewController.currentLocationButtonState, .nonHighlighted)
+        XCTAssertNil(mapViewController.showCurrentLocation)
     }
 
     func testTappingOnTheArrow() {
-        mapView.tapCurrentLocationButton()
-        XCTAssertEqual(mapView.currentLocationButtonState, .highlighted)
-        XCTAssertNil(mapView.showCurrentLocation)
+        mapViewController.tapCurrentLocationButton()
+        XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
+        XCTAssertNil(mapViewController.showCurrentLocation)
         XCTAssertEqual(dialogManager.visibleDialog, SpecDialogManager.DialogIdentifier.locationManager(.requestAccessWhileInUse))
     }
 
     func testAcceptingLocationPermission() {
-        mapView.tapCurrentLocationButton()
-        XCTAssertEqual(mapView.userTrackingMode, MKUserTrackingMode.none)
+        mapViewController.tapCurrentLocationButton()
+        XCTAssertEqual(mapViewController.userTrackingMode, MKUserTrackingMode.none)
         dialogManager.tap(.allow)
 
-        XCTAssertEqual(mapView.currentLocationButtonState, .highlighted)
-        XCTAssertEqual(mapView.userTrackingMode, MKUserTrackingMode.follow)
-        XCTAssertTrue(mapView.showCurrentLocation!)
+        XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
+        XCTAssertEqual(mapViewController.userTrackingMode, MKUserTrackingMode.follow)
+        XCTAssertTrue(mapViewController.showCurrentLocation!)
     }
 
     func testDecliningLocationPermission() {
-        mapView.tapCurrentLocationButton()
+        mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.dontAllow)
 
-        XCTAssertEqual(mapView.currentLocationButtonState, .nonHighlighted)
+        XCTAssertEqual(mapViewController.currentLocationButtonState, .nonHighlighted)
     }
 
     func testTappingOnTheArrowWhenPermissionWasAlreadyAuthorized() {
-        mapView.tapCurrentLocationButton()
+        mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.allow)
-        mapView.tapCurrentLocationButton()
+        mapViewController.tapCurrentLocationButton()
 
-        XCTAssertEqual(mapView.currentLocationButtonState, .nonHighlighted)
-        mapView.tapCurrentLocationButton()
-        XCTAssertEqual(mapView.currentLocationButtonState, .highlighted)
+        XCTAssertEqual(mapViewController.currentLocationButtonState, .nonHighlighted)
+        mapViewController.tapCurrentLocationButton()
+        XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
     }
 
     func testTappingOnTheArrowWhenPermissionWasAlreadyDenied() {
 
-        mapView.tapCurrentLocationButton()
+        mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.dontAllow)
-        mapView.tapCurrentLocationButton()
+        mapViewController.tapCurrentLocationButton()
 
-        XCTAssertEqual(mapView.currentLocationButtonState, .nonHighlighted)
+        XCTAssertEqual(mapViewController.currentLocationButtonState, .nonHighlighted)
 
-        let alert = mapView.shownAlert
+        let alert = mapViewController.shownAlert
         XCTAssertNotNil(alert)
         if let alert = alert {
             XCTAssertEqual(alert.title, "Please give permission")
@@ -75,31 +75,31 @@ class CurrentLocationFeature: TransitAppFeature {
 
     func testTappingOnTheArrowWhenFollowingCurrentLocation() {
 
-        mapView.tapCurrentLocationButton()
+        mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.allow)
-        XCTAssertEqual(mapView.currentLocationButtonState, .highlighted)
-        XCTAssertEqual(mapView.userTrackingMode, MKUserTrackingMode.follow)
-        mapView.tapCurrentLocationButton()
+        XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
+        XCTAssertEqual(mapViewController.userTrackingMode, MKUserTrackingMode.follow)
+        mapViewController.tapCurrentLocationButton()
 
-        XCTAssertEqual(mapView.currentLocationButtonState, .nonHighlighted)
-        XCTAssertEqual(mapView.userTrackingMode, MKUserTrackingMode.none)
+        XCTAssertEqual(mapViewController.currentLocationButtonState, .nonHighlighted)
+        XCTAssertEqual(mapViewController.userTrackingMode, MKUserTrackingMode.none)
     }
 
     func testDraggingTheMapWhenFollowingCurrentLocation() {
 
-        mapView.tapCurrentLocationButton()
+        mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.allow)
-        XCTAssertEqual(mapView.currentLocationButtonState, .highlighted)
-        XCTAssertEqual(mapView.userTrackingMode, MKUserTrackingMode.follow)
-        mapView.drag()
+        XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
+        XCTAssertEqual(mapViewController.userTrackingMode, MKUserTrackingMode.follow)
+        mapViewController.drag()
 
-        XCTAssertEqual(mapView.currentLocationButtonState, .nonHighlighted)
-        XCTAssertEqual(mapView.userTrackingMode, MKUserTrackingMode.none)
+        XCTAssertEqual(mapViewController.currentLocationButtonState, .nonHighlighted)
+        XCTAssertEqual(mapViewController.userTrackingMode, MKUserTrackingMode.none)
     }
 
     func testTappingOnTheArrowWhenLocationServicesAreOff() {
         settingsApp.set(locationServicesEnabled: false)
-        mapView.tapCurrentLocationButton()
+        mapViewController.tapCurrentLocationButton()
 
         XCTAssertEqual(dialogManager.visibleDialog, SpecDialogManager.DialogIdentifier.locationManager(.requestJumpToLocationServicesSettings))
 

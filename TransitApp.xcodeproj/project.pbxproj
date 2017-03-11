@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8807409D1E1E6A1200CECDDF /* RoundButtonStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8807409C1E1E6A1200CECDDF /* RoundButtonStyler.swift */; };
 		880A05741E0FEEE600CFAFF4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05731E0FEEE600CFAFF4 /* AppCoordinator.swift */; };
-		880A05811E10330A00CFAFF4 /* SpecMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05801E10330A00CFAFF4 /* SpecMapView.swift */; };
+		880A05811E10330A00CFAFF4 /* SpecMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05801E10330A00CFAFF4 /* SpecMapViewController.swift */; };
 		880A05831E10353700CFAFF4 /* MapViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05821E10353700CFAFF4 /* MapViewControllerFactory.swift */; };
 		880A05851E103ABE00CFAFF4 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05841E103ABE00CFAFF4 /* MapViewModel.swift */; };
 		880A05881E112B5500CFAFF4 /* ScooterJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A05871E112B5500CFAFF4 /* ScooterJSON.swift */; };
@@ -74,7 +74,7 @@
 /* Begin PBXFileReference section */
 		8807409C1E1E6A1200CECDDF /* RoundButtonStyler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButtonStyler.swift; sourceTree = "<group>"; };
 		880A05731E0FEEE600CFAFF4 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		880A05801E10330A00CFAFF4 /* SpecMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecMapView.swift; sourceTree = "<group>"; };
+		880A05801E10330A00CFAFF4 /* SpecMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecMapViewController.swift; sourceTree = "<group>"; };
 		880A05821E10353700CFAFF4 /* MapViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewControllerFactory.swift; sourceTree = "<group>"; };
 		880A05841E103ABE00CFAFF4 /* MapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		880A05871E112B5500CFAFF4 /* ScooterJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScooterJSON.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		880A05791E100EA200CFAFF4 /* Fakes */ = {
 			isa = PBXGroup;
 			children = (
-				880A05801E10330A00CFAFF4 /* SpecMapView.swift */,
+				880A05801E10330A00CFAFF4 /* SpecMapViewController.swift */,
 				886475A31E198D7300A1F94F /* SpecMKMapView.swift */,
 			);
 			name = Fakes;
@@ -574,7 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				880A05811E10330A00CFAFF4 /* SpecMapView.swift in Sources */,
+				880A05811E10330A00CFAFF4 /* SpecMapViewController.swift in Sources */,
 				880A05AD1E127B2300CFAFF4 /* MapOverlayFeature.swift in Sources */,
 				880A05A91E1278DE00CFAFF4 /* TransitAppFeature.swift in Sources */,
 				880A05AF1E127B4D00CFAFF4 /* CurrentLocationFeature.swift in Sources */,
