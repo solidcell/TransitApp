@@ -12,28 +12,28 @@ protocol SpecMapViewInterating {
 
     // MARK: Output
 
-    var showCurrentLocation: Bool? { get }
-    var userTrackingMode: MKUserTrackingMode? { get }
+    var showCurrentLocation: Bool! { get }
+    var userTrackingMode: MKUserTrackingMode! { get }
     var mapRegion: MKCoordinateRegion? { get }
     var mapOverlays: [MKOverlay] { get }
     var businessAreaOverlays: [MKPolygon] { get }
     var mapAnnotations: [MKAnnotation] { get }
     var scooterAnnotations: [CoupMapAnnotation] { get }
     var currentLocationButtonState: CurrentLocationViewModel.ButtonState! { get }
-    var shownAlert: MapViewModel.Alert? { get }
+    var shownAlert: MapViewModel.Alert! { get }
     func scooterAnnotationView(for: MKAnnotation) -> CoupMapAnnotationView?
     func polygonRenderer(for overlay: MKOverlay) -> MKPolygonRenderer?
 }
 
 class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapViewInterating {
 
-    var showCurrentLocation: Bool?
-    var userTrackingMode: MKUserTrackingMode?
+    var showCurrentLocation: Bool!
+    var userTrackingMode: MKUserTrackingMode!
     var mapRegion: MKCoordinateRegion?
     var mapOverlays = [MKOverlay]()
     var mapAnnotations = [MKAnnotation]()
     var currentLocationButtonState: CurrentLocationViewModel.ButtonState!
-    var shownAlert: MapViewModel.Alert?
+    var shownAlert: MapViewModel.Alert!
 
     private let mapView = SpecMKMapView()
 

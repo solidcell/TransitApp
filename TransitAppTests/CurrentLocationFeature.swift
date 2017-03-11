@@ -14,7 +14,7 @@ class CurrentLocationFeature: TransitAppFeature {
         mapViewController.tapCurrentLocationButton()
         XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
         XCTAssertNil(mapViewController.showCurrentLocation)
-        XCTAssertEqual(dialogManager.visibleDialog, SpecDialogManager.DialogIdentifier.locationManager(.requestAccessWhileInUse))
+        XCTAssertEqual(dialogManager.visibleDialog, .locationManager(.requestAccessWhileInUse))
     }
 
     func testAcceptingLocationPermission() {
@@ -23,8 +23,8 @@ class CurrentLocationFeature: TransitAppFeature {
         dialogManager.tap(.allow)
 
         XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
-        XCTAssertEqual(mapViewController.userTrackingMode, MKUserTrackingMode.follow)
-        XCTAssertTrue(mapViewController.showCurrentLocation!)
+        XCTAssertEqual(mapViewController.userTrackingMode, .follow)
+        XCTAssertTrue(mapViewController.showCurrentLocation)
     }
 
     func testDecliningLocationPermission() {
@@ -45,36 +45,31 @@ class CurrentLocationFeature: TransitAppFeature {
     }
 
     func testTappingOnTheArrowWhenPermissionWasAlreadyDenied() {
-
         mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.dontAllow)
         mapViewController.tapCurrentLocationButton()
 
         XCTAssertEqual(mapViewController.currentLocationButtonState, .nonHighlighted)
 
-        let alert = mapViewController.shownAlert
-        XCTAssertNotNil(alert)
-        if let alert = alert {
-            XCTAssertEqual(alert.title, "Please give permission")
-            XCTAssertEqual(alert.message, "You have previously declined permission to use your location.")
+        let alert = mapViewController.shownAlert!
+        XCTAssertEqual(alert.title, "Please give permission")
+        XCTAssertEqual(alert.message, "You have previously declined permission to use your location.")
 
-            XCTAssertEqual(alert.actions.count, 2)
+        XCTAssertEqual(alert.actions.count, 2)
 
-            let firstAction = alert.actions[0]
-            XCTAssertEqual(firstAction.title, "OK")
-            XCTAssertEqual(firstAction.style, UIAlertActionStyle.default)
-            let settingsURL = URL(string:UIApplicationOpenSettingsURLString)!
-            XCTAssertEqual(firstAction.handler, MapViewModel.Alert.Action.Handler.url(settingsURL))
+        let firstAction = alert.actions[0]
+        XCTAssertEqual(firstAction.title, "OK")
+        XCTAssertEqual(firstAction.style, UIAlertActionStyle.default)
+        let settingsURL = URL(string:UIApplicationOpenSettingsURLString)!
+        XCTAssertEqual(firstAction.handler, MapViewModel.Alert.Action.Handler.url(settingsURL))
 
-            let secondAction = alert.actions[1]
-            XCTAssertEqual(secondAction.title, "Cancel")
-            XCTAssertEqual(secondAction.style, UIAlertActionStyle.cancel)
-            XCTAssertEqual(secondAction.handler, MapViewModel.Alert.Action.Handler.noop)
-        }
+        let secondAction = alert.actions[1]
+        XCTAssertEqual(secondAction.title, "Cancel")
+        XCTAssertEqual(secondAction.style, UIAlertActionStyle.cancel)
+        XCTAssertEqual(secondAction.handler, MapViewModel.Alert.Action.Handler.noop)
     }
 
     func testTappingOnTheArrowWhenFollowingCurrentLocation() {
-
         mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.allow)
         XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
@@ -86,7 +81,6 @@ class CurrentLocationFeature: TransitAppFeature {
     }
 
     func testDraggingTheMapWhenFollowingCurrentLocation() {
-
         mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.allow)
         XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
@@ -101,7 +95,7 @@ class CurrentLocationFeature: TransitAppFeature {
         settingsApp.set(locationServicesEnabled: false)
         mapViewController.tapCurrentLocationButton()
 
-        XCTAssertEqual(dialogManager.visibleDialog, SpecDialogManager.DialogIdentifier.locationManager(.requestJumpToLocationServicesSettings))
+        XCTAssertEqual(dialogManager.visibleDialog, .locationManager(.requestJumpToLocationServicesSettings))
 
     }
 }
