@@ -14,5 +14,4 @@ class MapViewControllerFactory: MapViewFactory {
         return UIStoryboard(name: storyboardName, bundle: nil)
             .instantiateInitialViewController() as! MapViewController
     }
-    
 }

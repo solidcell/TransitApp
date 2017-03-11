@@ -50,7 +50,6 @@ class MapViewModel {
             }
         }
     }
-    
 }
 
 extension MapViewModel : CurrentLocationViewModelDelegate {

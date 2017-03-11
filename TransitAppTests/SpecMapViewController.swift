@@ -35,21 +35,21 @@ class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapView
     var currentLocationButtonState: CurrentLocationViewModel.ButtonState!
     var shownAlert: MapViewModel.Alert?
 
-    private let mkMapView = SpecMKMapView()
+    private let mapView = SpecMKMapView()
 
     var viewModel: MapViewModel!
 
     func scooterAnnotationView(for annotation: MKAnnotation) -> CoupMapAnnotationView? {
-        return mkMapView.delegate?.mapView?(mkMapView.bsMapView, viewFor: annotation) as? CoupMapAnnotationView
+        return mapView.delegate?.mapView?(mapView, viewFor: annotation) as? CoupMapAnnotationView
     }
     
     func polygonRenderer(for overlay: MKOverlay) -> MKPolygonRenderer? {
-        return mkMapView.delegate?.mapView?(mkMapView.bsMapView, rendererFor: overlay) as? MKPolygonRenderer
+        return mapView.delegate?.mapView?(mapView, rendererFor: overlay) as? MKPolygonRenderer
     }
 
     override func viewDidLoad() {
         viewModel.delegate = self
-        viewModel.viewDidLoad(mapViewDelegateHaving: mkMapView)
+        viewModel.viewDidLoad(mapViewDelegateHaving: mapView)
     }
 
     func tapCurrentLocationButton() {
@@ -57,7 +57,7 @@ class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapView
     }
 
     func drag() {
-        mkMapView.drag()
+        mapView.drag()
     }
     
     var scooterAnnotations: [CoupMapAnnotation] {
