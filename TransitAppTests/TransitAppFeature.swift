@@ -4,36 +4,20 @@ import SpecUIKitFringes
 
 class TransitAppFeature: XCTestCase {
 
-    var window: SpecWindow!
-    var dialogManager: SpecDialogManager!
-    var settingsApp: SpecSettingsApp!
-    var dateProvider: SpecDateProvider!
-    var urlSession: SpecURLSession!
-
+    private var system: TransitAppSpecSystem!
+    
     override func setUp() {
         super.setUp()
-
-        window = SpecWindow()
-        urlSession = SpecURLSession()
-        dateProvider = SpecDateProvider()
-        dialogManager = SpecDialogManager()
-        let locationServices = SpecLocationServices()
-        let userLocation = SpecUserLocation()
-        let locationAuthorizationStatus = SpecLocationAuthorizationStatus()
-        settingsApp = SpecSettingsApp(locationAuthorizationStatus: locationAuthorizationStatus,
-                                      locationServices: locationServices)
-        let timerFactory = SpecTimerFactory(dateProvider: dateProvider)
-        let locationManagerFactory = SpecLocationManagerFactory(dialogManager: dialogManager,
-                                                                userLocation: userLocation,
-                                                                locationServices: locationServices,
-                                                                locationAuthorizationStatus: locationAuthorizationStatus)
-        let mapViewControllerFactory = SpecMapViewFactory()
-        let appCoordinator = AppCoordinator(mapViewControllerFactory: mapViewControllerFactory,
-                                            urlSession: urlSession,
-                                            timerFactory: timerFactory,
-                                            locationManagerFactory: locationManagerFactory)
-        appCoordinator.didFinishLaunching(withWindow: window)
+        system = TransitAppSpecSystem()
     }
+    
+    func tapAppIcon() { system.tapAppIcon() }
 
+    var urlSession: SpecURLSession { return system.urlSession }
+    var dateProvider: SpecDateProvider { return system.dateProvider }
+    var dialogManager: SpecDialogManager { return system.dialogManager }
+    var settingsApp: SpecSettingsApp { return system.settingsApp }
+    
+    private var window: SpecWindow { return system.appDelegate.window! }
     var mapViewController: SpecMapViewController { return window.topViewController as! SpecMapViewController }
 }

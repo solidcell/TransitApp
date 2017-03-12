@@ -6,11 +6,13 @@ import SpecUIKitFringes
 class CurrentLocationFeature: TransitAppFeature {
 
     func testInitialState() {
+        tapAppIcon()
         XCTAssertEqual(mapViewController.currentLocationButtonState, .nonHighlighted)
         XCTAssertNil(mapViewController.showCurrentLocation)
     }
 
     func testTappingOnTheArrow() {
+        tapAppIcon()
         mapViewController.tapCurrentLocationButton()
         XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
         XCTAssertNil(mapViewController.showCurrentLocation)
@@ -18,6 +20,7 @@ class CurrentLocationFeature: TransitAppFeature {
     }
 
     func testAcceptingLocationPermission() {
+        tapAppIcon()
         mapViewController.tapCurrentLocationButton()
         XCTAssertEqual(mapViewController.userTrackingMode, MKUserTrackingMode.none)
         dialogManager.tap(.allow)
@@ -28,6 +31,7 @@ class CurrentLocationFeature: TransitAppFeature {
     }
 
     func testDecliningLocationPermission() {
+        tapAppIcon()
         mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.dontAllow)
 
@@ -35,6 +39,7 @@ class CurrentLocationFeature: TransitAppFeature {
     }
 
     func testTappingOnTheArrowWhenPermissionWasAlreadyAuthorized() {
+        tapAppIcon()
         mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.allow)
         mapViewController.tapCurrentLocationButton()
@@ -45,6 +50,7 @@ class CurrentLocationFeature: TransitAppFeature {
     }
 
     func testTappingOnTheArrowWhenPermissionWasAlreadyDenied() {
+        tapAppIcon()
         mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.dontAllow)
         mapViewController.tapCurrentLocationButton()
@@ -70,6 +76,7 @@ class CurrentLocationFeature: TransitAppFeature {
     }
 
     func testTappingOnTheArrowWhenFollowingCurrentLocation() {
+        tapAppIcon()
         mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.allow)
         XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
@@ -81,6 +88,7 @@ class CurrentLocationFeature: TransitAppFeature {
     }
 
     func testDraggingTheMapWhenFollowingCurrentLocation() {
+        tapAppIcon()
         mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.allow)
         XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
@@ -92,10 +100,10 @@ class CurrentLocationFeature: TransitAppFeature {
     }
 
     func testTappingOnTheArrowWhenLocationServicesAreOff() {
+        tapAppIcon()
         settingsApp.set(locationServicesEnabled: false)
         mapViewController.tapCurrentLocationButton()
 
         XCTAssertEqual(dialogManager.visibleDialog, .locationManager(.requestJumpToLocationServicesSettings))
-
     }
 }

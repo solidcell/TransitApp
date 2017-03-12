@@ -14,6 +14,7 @@ class MapAnnotationFeature: TransitAppFeature {
     }
 
     func testWhenScootersAreAddedOverTheNetwork() {
+        tapAppIcon()
         XCTAssertEqual(mapViewController.mapAnnotations.count, 0)
         let data = ScooterJSON.create([
             SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
@@ -37,6 +38,7 @@ class MapAnnotationFeature: TransitAppFeature {
     }
 
     func testWhenScootersAreUpdatedOverTheNetwork() {
+        tapAppIcon()
 
         XCTAssertEqual(mapViewController.mapAnnotations.count, 0)
         let existingResponse = ScooterJSON.create([
@@ -64,6 +66,7 @@ class MapAnnotationFeature: TransitAppFeature {
     }
 
     func testAnnotationConfiguration() {
+        tapAppIcon()
         XCTAssertEqual(mapViewController.mapAnnotations.count, 0)
         let data = ScooterJSON.create([
             SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
@@ -86,6 +89,7 @@ class MapAnnotationFeature: TransitAppFeature {
     }
 
     func testWhenScooterEnergyLevelIsAbove50() {
+        tapAppIcon()
         XCTAssertEqual(mapViewController.mapAnnotations.count, 0)
         let data = ScooterJSON.create([
             SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
@@ -104,6 +108,7 @@ class MapAnnotationFeature: TransitAppFeature {
     }
 
     func testWhenScooterEnergyLevelIsBetween31and50() {
+        tapAppIcon()
         XCTAssertEqual(mapViewController.mapAnnotations.count, 0)
         let data = ScooterJSON.create([
             SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",
@@ -122,6 +127,7 @@ class MapAnnotationFeature: TransitAppFeature {
     }
 
     func testWhenScooterEnergyLevelIsBelow31() {
+        tapAppIcon()
         XCTAssertEqual(mapViewController.mapAnnotations.count, 0)
         let data = ScooterJSON.create([
             SpecScooterJSON(id: "05ba8757-c7d3-42ad-b225-242d85c63aa2",

@@ -36,6 +36,8 @@
 		883BC3C51E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C41E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift */; };
 		883BC3C71E7488F200B2D7DB /* MapModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C61E7488F200B2D7DB /* MapModuleFactory.swift */; };
 		883BC3CA1E74A06A00B2D7DB /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C91E74A06A00B2D7DB /* MapInteractor.swift */; };
+		883BC3CC1E754A1900B2D7DB /* TransitAppSpecSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3CB1E754A1900B2D7DB /* TransitAppSpecSystem.swift */; };
+		883BC3CE1E754ADD00B2D7DB /* SpecAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3CD1E754ADD00B2D7DB /* SpecAppDelegate.swift */; };
 		8864759D1E17DEEE00A1F94F /* CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8864759C1E17DEEE00A1F94F /* CustomStringConvertible.swift */; };
 		886475A41E198D7300A1F94F /* SpecMKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886475A31E198D7300A1F94F /* SpecMKMapView.swift */; };
 		886475A61E198F9700A1F94F /* MKMapViewDelegateHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886475A51E198F9700A1F94F /* MKMapViewDelegateHaving.swift */; };
@@ -104,6 +106,8 @@
 		883BC3C41E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
 		883BC3C61E7488F200B2D7DB /* MapModuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModuleFactory.swift; sourceTree = "<group>"; };
 		883BC3C91E74A06A00B2D7DB /* MapInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		883BC3CB1E754A1900B2D7DB /* TransitAppSpecSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitAppSpecSystem.swift; sourceTree = "<group>"; };
+		883BC3CD1E754ADD00B2D7DB /* SpecAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecAppDelegate.swift; sourceTree = "<group>"; };
 		8864759C1E17DEEE00A1F94F /* CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStringConvertible.swift; sourceTree = "<group>"; };
 		886475A31E198D7300A1F94F /* SpecMKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecMKMapView.swift; sourceTree = "<group>"; };
 		886475A51E198F9700A1F94F /* MKMapViewDelegateHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegateHaving.swift; sourceTree = "<group>"; };
@@ -392,6 +396,8 @@
 				880A05861E112B1600CFAFF4 /* Utilities */,
 				8825321B1E15216B007824BC /* Extensions */,
 				880A05A81E1278DE00CFAFF4 /* TransitAppFeature.swift */,
+				883BC3CB1E754A1900B2D7DB /* TransitAppSpecSystem.swift */,
+				883BC3CD1E754ADD00B2D7DB /* SpecAppDelegate.swift */,
 				8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */,
 				88DF694F1DBF905F00FE11F0 /* Info.plist */,
 			);
@@ -584,6 +590,7 @@
 			files = (
 				880A05811E10330A00CFAFF4 /* SpecMapViewController.swift in Sources */,
 				880A05AD1E127B2300CFAFF4 /* MapOverlayFeature.swift in Sources */,
+				883BC3CE1E754ADD00B2D7DB /* SpecAppDelegate.swift in Sources */,
 				880A05A91E1278DE00CFAFF4 /* TransitAppFeature.swift in Sources */,
 				880A05AF1E127B4D00CFAFF4 /* CurrentLocationFeature.swift in Sources */,
 				883BC3C31E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift in Sources */,
@@ -595,6 +602,7 @@
 				8864759D1E17DEEE00A1F94F /* CustomStringConvertible.swift in Sources */,
 				880A05881E112B5500CFAFF4 /* ScooterJSON.swift in Sources */,
 				883BC3C51E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift in Sources */,
+				883BC3CC1E754A1900B2D7DB /* TransitAppSpecSystem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
