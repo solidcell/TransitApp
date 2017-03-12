@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zDx-62-8KF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zDx-62-8KF">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,8 +23,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="omJ-vu-fC1"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="omJ-vu-fC1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpP-Or-9Ia">
+                                <rect key="frame" x="299" y="591" width="56" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" secondItem="hpP-Or-9Ia" secondAttribute="width" multiplier="1:1" id="zue-lG-Hqr"/>
                                 </constraints>
@@ -37,8 +43,8 @@
                             <constraint firstItem="omJ-vu-fC1" firstAttribute="bottom" secondItem="hpP-Or-9Ia" secondAttribute="bottom" constant="20" id="WAf-rt-8rD"/>
                             <constraint firstItem="CHg-h3-a7q" firstAttribute="top" secondItem="omJ-vu-fC1" secondAttribute="bottom" id="Ybv-yr-huS"/>
                             <constraint firstItem="omJ-vu-fC1" firstAttribute="leading" secondItem="7bk-Pb-kYI" secondAttribute="leading" id="YxY-ZP-kBm"/>
-                            <constraint firstItem="omJ-vu-fC1" firstAttribute="top" secondItem="7bk-Pb-kYI" secondAttribute="top" id="lmy-UC-sH4"/>
                             <constraint firstItem="hpP-Or-9Ia" firstAttribute="width" secondItem="omJ-vu-fC1" secondAttribute="width" multiplier="0.15" id="vXQ-Fr-6LI"/>
+                            <constraint firstItem="omJ-vu-fC1" firstAttribute="top" secondItem="7bk-Pb-kYI" secondAttribute="top" id="veZ-0W-pPJ"/>
                             <constraint firstItem="omJ-vu-fC1" firstAttribute="trailing" secondItem="hpP-Or-9Ia" secondAttribute="trailing" constant="20" id="w3b-qg-0T1"/>
                         </constraints>
                     </view>
