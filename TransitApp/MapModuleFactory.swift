@@ -27,18 +27,22 @@ class MapModuleFactory {
         let scooterFetcher = ScooterFetcher(jsonFetcher: jsonFetcher, timer: timer)
         let scooterUpdater = ScooterUpdater(scooterFetcher: scooterFetcher)
         let mapAnnotationProvider = MapAnnotationProvider(scooterUpdater: scooterUpdater)
-        scooterUpdater.start()
+        let presenter = MapPresenter(initialCoordinateRegion: region,
+                                     mapOverlayProvider: mapOverlayProvider,
+                                     mapAnnotationProvider: mapAnnotationProvider)
+        
         let locationManager = locationManagerFactory.create()
         let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)
         let currentLocationViewModel = CurrentLocationViewModel(provider: currentLocationProvider)
         let mapViewDelegate = MapViewDelegate(userTrackingModeDelegate: currentLocationViewModel)
-        let presenter = MapPresenter(currentLocationViewModel: currentLocationViewModel,
-                                     initialCoordinateRegion: region,
-                                     mapOverlayProvider: mapOverlayProvider,
-                                     mapAnnotationProvider: mapAnnotationProvider,
-                                     mapViewDelegate: mapViewDelegate)
+        let interactor = MapInteractor(presenter: presenter,
+                                       mapViewDelegate: mapViewDelegate,
+                                       currentLocationViewModel: currentLocationViewModel)
+        
         let viewController = viewFactory.create()
-        viewController.presenter = presenter
+        viewController.interactor = interactor
+        presenter.viewController = viewController
+        
         return viewController
     }
 }

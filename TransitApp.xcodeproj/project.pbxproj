@@ -35,6 +35,7 @@
 		883BC3C31E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C21E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift */; };
 		883BC3C51E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C41E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift */; };
 		883BC3C71E7488F200B2D7DB /* MapModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C61E7488F200B2D7DB /* MapModuleFactory.swift */; };
+		883BC3CA1E74A06A00B2D7DB /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C91E74A06A00B2D7DB /* MapInteractor.swift */; };
 		8864759D1E17DEEE00A1F94F /* CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8864759C1E17DEEE00A1F94F /* CustomStringConvertible.swift */; };
 		886475A41E198D7300A1F94F /* SpecMKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886475A31E198D7300A1F94F /* SpecMKMapView.swift */; };
 		886475A61E198F9700A1F94F /* MKMapViewDelegateHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886475A51E198F9700A1F94F /* MKMapViewDelegateHaving.swift */; };
@@ -102,6 +103,7 @@
 		883BC3C21E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateSpan+Equatable.swift"; sourceTree = "<group>"; };
 		883BC3C41E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
 		883BC3C61E7488F200B2D7DB /* MapModuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapModuleFactory.swift; sourceTree = "<group>"; };
+		883BC3C91E74A06A00B2D7DB /* MapInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		8864759C1E17DEEE00A1F94F /* CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStringConvertible.swift; sourceTree = "<group>"; };
 		886475A31E198D7300A1F94F /* SpecMKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecMKMapView.swift; sourceTree = "<group>"; };
 		886475A51E198F9700A1F94F /* MKMapViewDelegateHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegateHaving.swift; sourceTree = "<group>"; };
@@ -262,6 +264,14 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		883BC3C81E74A05300B2D7DB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				883BC3C91E74A06A00B2D7DB /* MapInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
 		8864759E1E17E29600A1F94F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,8 +298,9 @@
 			children = (
 				887DBEDB1DC75AD300D92E19 /* MapRouter.swift */,
 				883BC3C61E7488F200B2D7DB /* MapModuleFactory.swift */,
-				8864759E1E17E29600A1F94F /* ViewController */,
+				883BC3C81E74A05300B2D7DB /* Interactor */,
 				8864759F1E17E2A000A1F94F /* Presenter */,
+				8864759E1E17E29600A1F94F /* ViewController */,
 				880EB06E1DC36E1A00C5830E /* MapRegionProvider.swift */,
 				889705B01DCC9F7300D8D8DF /* CurrentLocationProvider.swift */,
 				887DBEF81DC8D9BA00D92E19 /* ScooterUpdater.swift */,
@@ -553,6 +564,7 @@
 				887DBEDC1DC75AD300D92E19 /* MapRouter.swift in Sources */,
 				8827E14F1DC0FD1500E06654 /* main.swift in Sources */,
 				887DBEED1DC8B82D00D92E19 /* JSONFetcher.swift in Sources */,
+				883BC3CA1E74A06A00B2D7DB /* MapInteractor.swift in Sources */,
 				880EB06F1DC36E1A00C5830E /* MapRegionProvider.swift in Sources */,
 				889705B11DCC9F7300D8D8DF /* CurrentLocationProvider.swift in Sources */,
 				8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */,

@@ -15,6 +15,10 @@ class MapAnnotationProvider: ScooterUpdaterDelegate {
         scooterUpdater.delegate = self
     }
 
+    func start() {
+        scooterUpdater.start()
+    }
+
     private var dataSource = [String : CoupMapAnnotation]()
 
     private func getOrAddAnnotation(forLicensePlate licensePlate: String) -> CoupMapAnnotation {

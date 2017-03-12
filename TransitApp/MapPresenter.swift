@@ -3,35 +3,24 @@ import MapKit
 
 class MapPresenter {
     
-    private let currentLocationViewModel: CurrentLocationViewModel
     private let initialCoordinateRegion: MKCoordinateRegion
     private let mapOverlayProvider: MapOverlayProvider
     private let mapAnnotationProvider: MapAnnotationProvider
-    private let mapViewDelegate: MapViewDelegate
-    weak var delegate: MapViewModelDelegate!
+    weak var viewController: MapViewControlling?
 
-    init(currentLocationViewModel: CurrentLocationViewModel,
-         initialCoordinateRegion: MKCoordinateRegion,
+    init(initialCoordinateRegion: MKCoordinateRegion,
          mapOverlayProvider: MapOverlayProvider,
-         mapAnnotationProvider: MapAnnotationProvider,
-         mapViewDelegate: MapViewDelegate) {
-        self.currentLocationViewModel = currentLocationViewModel
+         mapAnnotationProvider: MapAnnotationProvider) {
         self.initialCoordinateRegion = initialCoordinateRegion
         self.mapOverlayProvider = mapOverlayProvider
         self.mapAnnotationProvider = mapAnnotationProvider
-        self.mapViewDelegate = mapViewDelegate
-    }
-
-    func viewDidLoad(mapViewDelegateHaving: MKMapViewDelegateHaving) {
-        mapViewDelegateHaving.delegate = mapViewDelegate
         mapAnnotationProvider.delegate = self
-        currentLocationViewModel.delegate = self
-        delegate.setOverlays(mapOverlayProvider.overlays)
-        delegate.setRegion(initialCoordinateRegion)
     }
 
-    func tapCurrentLocationButton() {
-        currentLocationViewModel.tapCurrentLocationButton()
+    func viewDidLoad() {
+        viewController?.setOverlays(mapOverlayProvider.overlays)
+        viewController?.setRegion(initialCoordinateRegion)
+        mapAnnotationProvider.start()
     }
 
     struct Alert {
@@ -52,22 +41,22 @@ class MapPresenter {
     }
 }
 
-extension MapPresenter : CurrentLocationViewModelDelegate {
+extension MapPresenter: CurrentLocationViewModelDelegate {
 
     func setShowCurrentLocation(_ enabled: Bool) {
-        delegate.setShowCurrentLocation(enabled)
+        viewController?.setShowCurrentLocation(enabled)
     }
 
     func setUserTracking(mode: MKUserTrackingMode) {
-        delegate.setUserTracking(mode: mode)
+        viewController?.setUserTracking(mode: mode)
     }
 
     func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
-        delegate.setCurrentLocationButtonState(state)
+        viewController?.setCurrentLocationButtonState(state)
     }
 
     func showAlert(_ alert: MapPresenter.Alert) {
-        delegate.showAlert(alert)
+        viewController?.showAlert(alert)
     }
 }
 
@@ -79,17 +68,6 @@ protocol MapAnnotationReceiving: class {
 extension MapPresenter : MapAnnotationReceiving {
 
     func set(annotations: [MKAnnotation]) {
-        delegate?.add(annotations: annotations)
+        viewController?.add(annotations: annotations)
     }
-}
-
-protocol MapViewModelDelegate : class {
-
-    func setUserTracking(mode: MKUserTrackingMode)
-    func setShowCurrentLocation(_ enabled: Bool)
-    func setRegion(_ region: MKCoordinateRegion)
-    func setOverlays(_ overlays: [MKOverlay])
-    func add(annotations: [MKAnnotation])
-    func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
-    func showAlert(_ alert: MapPresenter.Alert)
 }

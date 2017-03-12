@@ -37,7 +37,7 @@ class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapView
 
     private let mapView = SpecMKMapView()
 
-    var presenter: MapPresenter!
+    var interactor: MapInteractor!
 
     func scooterAnnotationView(for annotation: MKAnnotation) -> CoupMapAnnotationView? {
         return mapView.delegate?.mapView?(mapView, viewFor: annotation) as? CoupMapAnnotationView
@@ -48,12 +48,11 @@ class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapView
     }
 
     override func viewDidLoad() {
-        presenter.delegate = self
-        presenter.viewDidLoad(mapViewDelegateHaving: mapView)
+        interactor.viewDidLoad(mapViewDelegateHaving: mapView)
     }
 
     func tapCurrentLocationButton() {
-        presenter.tapCurrentLocationButton()
+        interactor.tapCurrentLocationButton()
     }
 
     func drag() {
@@ -67,9 +66,6 @@ class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapView
     var businessAreaOverlays: [MKPolygon] {
         return mapOverlays.flatMap { $0 as? MKPolygon }
     }
-}
-
-extension SpecMapViewController : MapViewModelDelegate {
 
     func setShowCurrentLocation(_ enabled: Bool) {
         showCurrentLocation = enabled
