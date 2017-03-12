@@ -6,7 +6,7 @@ import MapKit
 
 class MapRegionProvider {
 
-    private let distance: CLLocationDistance = 23000
+    private let distance: CLLocationDistance = 10000
     private let coordinate = CLLocationCoordinate2D(latitude: 52.52, longitude: 13.4145)
 
     var region: MKCoordinateRegion {

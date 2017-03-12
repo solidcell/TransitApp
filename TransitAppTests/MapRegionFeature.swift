@@ -7,7 +7,7 @@ class MapRegionFeature: TransitAppFeature {
     func testInitialRegion() {
         let region = mapViewController.mapRegion!
         let expectedRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: 52.52, longitude: 13.4145),
-                                                                23000, 23000)
+                                                                10000, 10000)
         XCTAssertEqual(region, expectedRegion)
     }
 }
