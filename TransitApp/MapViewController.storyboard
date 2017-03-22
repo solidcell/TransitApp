@@ -33,7 +33,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="currentLocationArrowHollow"/>
                                 <connections>
-                                    <action selector="currentLocationTap:" destination="zDx-62-8KF" eventType="touchUpInside" id="chF-4S-J3B"/>
+                                    <action selector="tapCurrentLocationButton" destination="zDx-62-8KF" eventType="touchUpInside" id="z4G-gw-3ap"/>
                                 </connections>
                             </button>
                         </subviews>

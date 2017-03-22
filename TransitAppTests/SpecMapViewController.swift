@@ -27,13 +27,13 @@ protocol SpecMapViewInterating {
 
 class SpecMapViewController: MapViewController, SpecMapViewInterating {
 
-    var showCurrentLocation: Bool!
-    var userTrackingMode: MKUserTrackingMode!
-    var mapRegion: MKCoordinateRegion?
-    var mapOverlays = [MKOverlay]()
-    var mapAnnotations = [MKAnnotation]()
-    var currentLocationButtonState: CurrentLocationViewModel.ButtonState!
-    var shownAlert: MapPresenter.Alert!
+    private(set) var showCurrentLocation: Bool!
+    private(set) var userTrackingMode: MKUserTrackingMode!
+    private(set) var mapRegion: MKCoordinateRegion?
+    private(set) var mapOverlays = [MKOverlay]()
+    private(set) var mapAnnotations = [MKAnnotation]()
+    private(set) var currentLocationButtonState: CurrentLocationViewModel.ButtonState!
+    private(set) var shownAlert: MapPresenter.Alert!
 
     private let specMapView = SpecMKMapView()
     override var mapView: MKMapView! {
@@ -47,14 +47,6 @@ class SpecMapViewController: MapViewController, SpecMapViewInterating {
     
     func polygonRenderer(for overlay: MKOverlay) -> MKPolygonRenderer? {
         return mapView.delegate?.mapView?(mapView, rendererFor: overlay) as? MKPolygonRenderer
-    }
-
-    override func viewDidLoad() {
-        interactor.viewDidLoad(mapViewDelegateHaving: mapView)
-    }
-
-    func tapCurrentLocationButton() {
-        interactor.tapCurrentLocationButton()
     }
 
     func drag() {
@@ -87,10 +79,6 @@ class SpecMapViewController: MapViewController, SpecMapViewInterating {
     
     override func add(annotations: [MKAnnotation]) {
         mapAnnotations = annotations
-    }
-
-    func removeAllAnnotations() {
-        mapAnnotations = []
     }
 
     override func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {

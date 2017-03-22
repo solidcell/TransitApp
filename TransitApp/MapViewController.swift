@@ -9,7 +9,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentLocationButton: UIButton!
     
-    @IBAction func currentLocationTap(_ sender: AnyObject) {
+    @IBAction func tapCurrentLocationButton() {
         interactor.tapCurrentLocationButton()
     }
 
