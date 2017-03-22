@@ -6,7 +6,7 @@ class MapPresenter {
     private let initialCoordinateRegion: MKCoordinateRegion
     private let mapOverlayProvider: MapOverlayProvider
     private let mapAnnotationProvider: MapAnnotationProvider
-    weak var viewController: MapViewControlling?
+    weak var viewController: MapViewController?
 
     init(initialCoordinateRegion: MKCoordinateRegion,
          mapOverlayProvider: MapOverlayProvider,

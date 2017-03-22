@@ -25,7 +25,7 @@ protocol SpecMapViewInterating {
     func polygonRenderer(for overlay: MKOverlay) -> MKPolygonRenderer?
 }
 
-class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapViewInterating {
+class SpecMapViewController: MapViewController, SpecMapViewInterating {
 
     var showCurrentLocation: Bool!
     var userTrackingMode: MKUserTrackingMode!
@@ -35,9 +35,11 @@ class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapView
     var currentLocationButtonState: CurrentLocationViewModel.ButtonState!
     var shownAlert: MapPresenter.Alert!
 
-    private let mapView = SpecMKMapView()
-
-    var interactor: MapInteractor!
+    private let specMapView = SpecMKMapView()
+    override var mapView: MKMapView! {
+        get { return specMapView }
+        set { fatalError() }
+    }
 
     func scooterAnnotationView(for annotation: MKAnnotation) -> CoupMapAnnotationView? {
         return mapView.delegate?.mapView?(mapView, viewFor: annotation) as? CoupMapAnnotationView
@@ -56,7 +58,7 @@ class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapView
     }
 
     func drag() {
-        mapView.drag()
+        specMapView.drag()
     }
     
     var scooterAnnotations: [CoupMapAnnotation] {
@@ -67,23 +69,23 @@ class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapView
         return mapOverlays.flatMap { $0 as? MKPolygon }
     }
 
-    func setShowCurrentLocation(_ enabled: Bool) {
+    override func setShowCurrentLocation(_ enabled: Bool) {
         showCurrentLocation = enabled
     }
 
-    func setUserTracking(mode: MKUserTrackingMode) {
+    override func setUserTracking(mode: MKUserTrackingMode) {
         userTrackingMode = mode
     }
 
-    func setRegion(_ region: MKCoordinateRegion) {
+    override func setRegion(_ region: MKCoordinateRegion) {
         mapRegion = region
     }
 
-    func setOverlays(_ overlays: [MKOverlay]) {
+    override func setOverlays(_ overlays: [MKOverlay]) {
         mapOverlays = overlays
     }
     
-    func add(annotations: [MKAnnotation]) {
+    override func add(annotations: [MKAnnotation]) {
         mapAnnotations = annotations
     }
 
@@ -91,18 +93,18 @@ class SpecMapViewController: SpecViewController, MapViewControlling, SpecMapView
         mapAnnotations = []
     }
 
-    func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
+    override func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
         currentLocationButtonState = state
     }
     
-    func showAlert(_ alert: MapPresenter.Alert) {
+    override func showAlert(_ alert: MapPresenter.Alert) {
         shownAlert = alert
     }
 }
 
 class SpecMapViewFactory: MapViewControllerFactoryProtocol {
 
-    func create() -> MapViewControlling {
+    func create() -> MapViewController {
         return SpecMapViewController()
     }
 }

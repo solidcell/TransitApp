@@ -10,9 +10,9 @@ class MapRouter {
         self.mapModuleFactory = mapModuleFactory
     }
 
-    func start(window: Windowing) {
+    func start(window: UIWindow) {
         let viewController = mapModuleFactory.create()
-        window.set(rootViewController: viewController)
+        window.rootViewController = viewController
     }
 }
 

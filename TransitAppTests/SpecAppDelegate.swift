@@ -4,7 +4,7 @@ import SpecUIKitFringes
 
 class SpecAppDelegate: SpecApplicationDelegateProtocol {
 
-    private(set) var window: SpecWindow!
+    private(set) var window: UIWindow!
     private weak var dialogManager: SpecDialogManager!
     private weak var dateProvider: SpecDateProvider!
     private weak var urlSession: SpecURLSession!
@@ -21,7 +21,7 @@ class SpecAppDelegate: SpecApplicationDelegateProtocol {
     }
 
     func applicationDidLaunch() {
-        window = SpecWindow()
+        window = UIWindow()
         let timerFactory = SpecTimerFactory(dateProvider: dateProvider)
         let mapViewControllerFactory = SpecMapViewFactory()
         let appCoordinator = AppCoordinator(mapViewControllerFactory: mapViewControllerFactory,

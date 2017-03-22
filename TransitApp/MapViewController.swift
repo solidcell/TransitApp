@@ -2,19 +2,7 @@ import UIKit
 import UIKitFringes
 import MapKit
 
-protocol MapViewControlling: class, ViewControlling {
-    
-    var interactor: MapInteractor! { get set }
-    func setShowCurrentLocation(_ enabled: Bool)
-    func setUserTracking(mode: MKUserTrackingMode)
-    func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
-    func showAlert(_ alert: MapPresenter.Alert)
-    func add(annotations: [MKAnnotation])
-    func setOverlays(_ overlays: [MKOverlay])
-    func setRegion(_ region: MKCoordinateRegion)
-}
-
-class MapViewController: UIViewController, MapViewControlling {
+class MapViewController: UIViewController {
 
     var interactor: MapInteractor!
 

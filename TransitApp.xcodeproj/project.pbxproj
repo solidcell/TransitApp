@@ -28,6 +28,9 @@
 		880EB0911DC39FCB00C5830E /* SeedDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0901DC39FCB00C5830E /* SeedDataParser.swift */; };
 		880EB0931DC3A20200C5830E /* MapAnnotationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */; };
 		8814A8351E6B5D6700C9FFBD /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8814A8311E6B5D6700C9FFBD /* SwiftyJSON.framework */; };
+		8820040E1E831907005F43C9 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820040B1E831907005F43C9 /* UINavigationController.swift */; };
+		8820040F1E831907005F43C9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820040C1E831907005F43C9 /* UIViewController.swift */; };
+		882004101E831907005F43C9 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820040D1E831907005F43C9 /* UIWindow.swift */; };
 		8825321D1E152189007824BC /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825321C1E152189007824BC /* Equatable.swift */; };
 		8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1351DC0BD4300E06654 /* JSONParser.swift */; };
 		8827E14F1DC0FD1500E06654 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E14E1DC0FD1500E06654 /* main.swift */; };
@@ -97,6 +100,9 @@
 		880EB0901DC39FCB00C5830E /* SeedDataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedDataParser.swift; sourceTree = "<group>"; };
 		880EB0921DC3A20200C5830E /* MapAnnotationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapAnnotationProvider.swift; sourceTree = "<group>"; };
 		8814A8311E6B5D6700C9FFBD /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		8820040B1E831907005F43C9 /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		8820040C1E831907005F43C9 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		8820040D1E831907005F43C9 /* UIWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		8825321C1E152189007824BC /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransitAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		8827E1351DC0BD4300E06654 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
@@ -225,6 +231,9 @@
 				883BC3891E6C465C00B2D7DB /* MKMultiPoint.swift */,
 				883BC3C21E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift */,
 				883BC3C41E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift */,
+				8820040B1E831907005F43C9 /* UINavigationController.swift */,
+				8820040C1E831907005F43C9 /* UIViewController.swift */,
+				8820040D1E831907005F43C9 /* UIWindow.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -596,7 +605,10 @@
 				883BC3C31E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift in Sources */,
 				883BC38A1E6C465C00B2D7DB /* MKMultiPoint.swift in Sources */,
 				886475A41E198D7300A1F94F /* SpecMKMapView.swift in Sources */,
+				8820040F1E831907005F43C9 /* UIViewController.swift in Sources */,
+				882004101E831907005F43C9 /* UIWindow.swift in Sources */,
 				880A05B11E127B7B00CFAFF4 /* MapAnnotationFeature.swift in Sources */,
+				8820040E1E831907005F43C9 /* UINavigationController.swift in Sources */,
 				8825321D1E152189007824BC /* Equatable.swift in Sources */,
 				880A05AB1E127AE200CFAFF4 /* MapRegionFeature.swift in Sources */,
 				8864759D1E17DEEE00A1F94F /* CustomStringConvertible.swift in Sources */,

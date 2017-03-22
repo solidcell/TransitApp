@@ -17,7 +17,7 @@ class MapModuleFactory {
         self.locationManagerFactory = locationManagerFactory
     }
 
-    func create() -> MapViewControlling {
+    func create() -> MapViewController {
         let businessAreas = SeedDataParser().businessAreas
         let mapOverlayProvider = MapOverlayProvider(businessAreas: businessAreas)
         let mapRegionProvider = MapRegionProvider()
