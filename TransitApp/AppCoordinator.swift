@@ -9,12 +9,14 @@ class AppCoordinator {
     init(mapViewControllerFactory: MapViewControllerFactoryProtocol,
          urlSession: URLSessionProtocol,
          timerFactory: TimerFactoryProtocol,
-         locationManagerFactory: LocationManagingFactoryProtocol) {
+         locationManagerFactory: LocationManagingFactoryProtocol,
+         dispatchHandler: DispatchHandling) {
         let jsonFetcherFactory = JSONFetcherFactory(urlSession: urlSession)
         let mapModuleFactory = MapModuleFactory(viewFactory: mapViewControllerFactory,
                                                 jsonFetcherFactory: jsonFetcherFactory,
                                                 timerFactory: timerFactory,
-                                                locationManagerFactory: locationManagerFactory)
+                                                locationManagerFactory: locationManagerFactory,
+                                                dispatchHandler: dispatchHandler)
         self.mapRouterFactory = MapRouterFactory(mapModuleFactory: mapModuleFactory)
     }
 

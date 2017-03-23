@@ -24,10 +24,12 @@ class SpecAppDelegate: SpecApplicationDelegateProtocol {
         window = UIWindow()
         let timerFactory = SpecTimerFactory(dateProvider: dateProvider)
         let mapViewControllerFactory = SpecMapViewFactory()
+        let dispatchHandler = SpecDispatchHandler(dateProvider: dateProvider)
         let appCoordinator = AppCoordinator(mapViewControllerFactory: mapViewControllerFactory,
                                             urlSession: urlSession,
                                             timerFactory: timerFactory,
-                                            locationManagerFactory: locationManagerFactory)
+                                            locationManagerFactory: locationManagerFactory,
+                                            dispatchHandler: dispatchHandler)
         appCoordinator.didFinishLaunching(withWindow: window)
     }
 }

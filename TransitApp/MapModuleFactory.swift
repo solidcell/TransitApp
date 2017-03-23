@@ -6,15 +6,18 @@ class MapModuleFactory {
     private let jsonFetcherFactory: JSONFetcherFactory
     private let timerFactory: TimerFactoryProtocol
     private let locationManagerFactory: LocationManagingFactoryProtocol
+    private let dispatchHandler: DispatchHandling
     
     init(viewFactory: MapViewControllerFactoryProtocol,
          jsonFetcherFactory: JSONFetcherFactory,
          timerFactory: TimerFactoryProtocol,
-         locationManagerFactory: LocationManagingFactoryProtocol) {
+         locationManagerFactory: LocationManagingFactoryProtocol,
+         dispatchHandler: DispatchHandling) {
         self.viewFactory = viewFactory
         self.jsonFetcherFactory = jsonFetcherFactory
         self.timerFactory = timerFactory
         self.locationManagerFactory = locationManagerFactory
+        self.dispatchHandler = dispatchHandler
     }
 
     func create() -> MapViewController {
@@ -41,6 +44,7 @@ class MapModuleFactory {
         
         let viewController = viewFactory.create()
         viewController.interactor = interactor
+        viewController.dispatchHandler = dispatchHandler
         presenter.viewController = viewController
         
         return viewController

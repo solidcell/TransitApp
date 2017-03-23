@@ -5,9 +5,10 @@ import MapKit
 class MapViewController: UIViewController {
 
     var interactor: MapInteractor!
+    var dispatchHandler: DispatchHandling!
 
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var currentLocationButton: UIButton!
+    @IBOutlet private weak var currentLocationButton: UIButton!
     
     @IBAction func tapCurrentLocationButton() {
         interactor.tapCurrentLocationButton()
@@ -38,7 +39,7 @@ class MapViewController: UIViewController {
     }
 
     func setOverlays(_ overlays: [MKOverlay]) {
-        DispatchQueue.main.async {
+        dispatchHandler.async(on: .main) {
             self.mapView.addOverlays(overlays)
         }
     }

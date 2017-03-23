@@ -16,10 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let urlSession = URLSession(configuration: .default)
         let timerFactory = TimerFactory()
         let locationManagerFactory = CLLocationManagerFactory()
+        let dispatchHandler = DispatchHandler()
         let coordinator = AppCoordinator(mapViewControllerFactory: mapViewControllerFactory,
                                          urlSession: urlSession,
                                          timerFactory: timerFactory,
-                                         locationManagerFactory: locationManagerFactory)
+                                         locationManagerFactory: locationManagerFactory,
+                                         dispatchHandler: dispatchHandler)
         coordinator.didFinishLaunching(withWindow: window)
         
         window.makeKeyAndVisible()
