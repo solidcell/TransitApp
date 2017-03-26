@@ -45,7 +45,7 @@ class MapViewController: UIViewController {
     }
     
     func add(annotations: [MKAnnotation]) {
-        DispatchQueue.main.async {
+        dispatchHandler.async(on: .main) {
             self.mapView.addAnnotations(annotations)
         }
     }

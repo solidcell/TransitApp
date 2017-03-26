@@ -30,12 +30,15 @@ class SpecMapViewController: MapViewController, SpecMapViewInterating {
     private(set) var showCurrentLocation: Bool!
     private(set) var userTrackingMode: MKUserTrackingMode!
     private(set) var mapRegion: MKCoordinateRegion?
-    private(set) var mapAnnotations = [MKAnnotation]()
     private(set) var currentLocationButtonState: CurrentLocationViewModel.ButtonState!
     private(set) var shownAlert: MapPresenter.Alert!
     
     var mapOverlays: [MKOverlay] {
         return mapView.overlays
+    }
+    
+    var mapAnnotations: [MKAnnotation] {
+        return mapView.annotations
     }
 
     private let specMapView = SpecMKMapView()
@@ -74,10 +77,6 @@ class SpecMapViewController: MapViewController, SpecMapViewInterating {
 
     override func setRegion(_ region: MKCoordinateRegion) {
         mapRegion = region
-    }
-
-    override func add(annotations: [MKAnnotation]) {
-        mapAnnotations = annotations
     }
 
     override func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
