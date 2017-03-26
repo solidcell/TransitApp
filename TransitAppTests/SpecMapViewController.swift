@@ -12,7 +12,7 @@ protocol SpecMapViewInterating {
 
     // MARK: Output
 
-    var showCurrentLocation: Bool! { get }
+    var showCurrentLocation: Bool { get }
     var userTrackingMode: MKUserTrackingMode! { get }
     var mapRegion: MKCoordinateRegion? { get }
     var mapOverlays: [MKOverlay] { get }
@@ -27,7 +27,6 @@ protocol SpecMapViewInterating {
 
 class SpecMapViewController: MapViewController, SpecMapViewInterating {
 
-    private(set) var showCurrentLocation: Bool!
     private(set) var userTrackingMode: MKUserTrackingMode!
     private(set) var mapRegion: MKCoordinateRegion?
     private(set) var currentLocationButtonState: CurrentLocationViewModel.ButtonState!
@@ -39,6 +38,10 @@ class SpecMapViewController: MapViewController, SpecMapViewInterating {
     
     var mapAnnotations: [MKAnnotation] {
         return mapView.annotations
+    }
+
+    var showCurrentLocation: Bool {
+        return mapView.showsUserLocation
     }
 
     private let specMapView = SpecMKMapView()
@@ -65,10 +68,6 @@ class SpecMapViewController: MapViewController, SpecMapViewInterating {
     
     var businessAreaOverlays: [MKPolygon] {
         return mapOverlays.flatMap { $0 as? MKPolygon }
-    }
-
-    override func setShowCurrentLocation(_ enabled: Bool) {
-        showCurrentLocation = enabled
     }
 
     override func setUserTracking(mode: MKUserTrackingMode) {

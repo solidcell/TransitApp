@@ -8,14 +8,14 @@ class CurrentLocationFeature: TransitAppFeature {
     func testInitialState() {
         tapAppIcon()
         XCTAssertEqual(mapViewController.currentLocationButtonState, .nonHighlighted)
-        XCTAssertNil(mapViewController.showCurrentLocation)
+        XCTAssertFalse(mapViewController.showCurrentLocation)
     }
 
     func testTappingOnTheArrow() {
         tapAppIcon()
         mapViewController.tapCurrentLocationButton()
         XCTAssertEqual(mapViewController.currentLocationButtonState, .highlighted)
-        XCTAssertNil(mapViewController.showCurrentLocation)
+        XCTAssertFalse(mapViewController.showCurrentLocation)
         XCTAssertEqual(dialogManager.visibleDialog, .locationManager(.requestAccessWhileInUse))
     }
 
