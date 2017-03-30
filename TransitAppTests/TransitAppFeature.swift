@@ -20,6 +20,6 @@ class TransitAppFeature: XCTestCase {
     var location: SpecSystem.Location { return system.location }
     
     private var window: UIWindow { return system.appDelegate.window! }
-    var mapViewController: SpecMapViewController! { return window.topmostViewController as? SpecMapViewController }
-    var alertController: UIAlertController! { return window.topmostViewController as? UIAlertController }
+    var mapUI: MapUI! { return window.topmostViewController as? MapUI }
+    var alertUI: UIAlertController! { return window.topmostViewController as? UIAlertController }
 }

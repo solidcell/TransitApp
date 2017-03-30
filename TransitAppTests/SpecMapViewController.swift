@@ -3,7 +3,7 @@ import SpecUIKitFringes
 import MapKit
 @testable import TransitApp
 
-protocol SpecMapViewInterating {
+protocol MapUI {
     
     // MARK: Input
 
@@ -24,7 +24,7 @@ protocol SpecMapViewInterating {
     func polygonRenderer(for overlay: MKOverlay) -> MKPolygonRenderer?
 }
 
-class SpecMapViewController: MapViewController, SpecMapViewInterating {
+class SpecMapViewController: MapViewController, MapUI {
 
     private(set) var userTrackingMode: MKUserTrackingMode!
     private(set) var mapRegion: MKCoordinateRegion?
