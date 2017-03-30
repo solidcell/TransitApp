@@ -4,7 +4,7 @@ import CoreLocation
 
 class AppCoordinator {
     
-    private let mapRouterFactory: MapRouterFactory
+    private let rootRouterFactory: RootRouterFactory
 
     init(mapViewControllerFactory: MapViewControllerFactoryProtocol,
          urlSession: URLSessionProtocol,
@@ -19,11 +19,12 @@ class AppCoordinator {
                                                 locationManagerFactory: locationManagerFactory,
                                                 dispatchHandler: dispatchHandler,
                                                 sharedApplication: sharedApplication)
-        self.mapRouterFactory = MapRouterFactory(mapModuleFactory: mapModuleFactory)
+        let mapRouterFactory = MapRouterFactory(mapModuleFactory: mapModuleFactory)
+        self.rootRouterFactory = RootRouterFactory(mapRouterFactory: mapRouterFactory)
     }
 
     func didFinishLaunching(withWindow window: UIWindow) {
-        let mapRouter = mapRouterFactory.create()
-        mapRouter.start(window: window)
+        let rootRouter = rootRouterFactory.create()
+        rootRouter.start(window: window)
     }
 }
