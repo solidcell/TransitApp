@@ -7,17 +7,20 @@ class MapModuleFactory {
     private let timerFactory: TimerFactoryProtocol
     private let locationManagerFactory: LocationManagingFactoryProtocol
     private let dispatchHandler: DispatchHandling
+    private let sharedApplication: ApplicationProtocol
     
     init(viewFactory: MapViewControllerFactoryProtocol,
          jsonFetcherFactory: JSONFetcherFactory,
          timerFactory: TimerFactoryProtocol,
          locationManagerFactory: LocationManagingFactoryProtocol,
-         dispatchHandler: DispatchHandling) {
+         dispatchHandler: DispatchHandling,
+         sharedApplication: ApplicationProtocol) {
         self.viewFactory = viewFactory
         self.jsonFetcherFactory = jsonFetcherFactory
         self.timerFactory = timerFactory
         self.locationManagerFactory = locationManagerFactory
         self.dispatchHandler = dispatchHandler
+        self.sharedApplication = sharedApplication
     }
 
     func create() -> MapViewController {
@@ -32,7 +35,8 @@ class MapModuleFactory {
         let mapAnnotationProvider = MapAnnotationProvider(scooterUpdater: scooterUpdater)
         let presenter = MapPresenter(initialCoordinateRegion: region,
                                      mapOverlayProvider: mapOverlayProvider,
-                                     mapAnnotationProvider: mapAnnotationProvider)
+                                     mapAnnotationProvider: mapAnnotationProvider,
+                                     sharedApplication: sharedApplication)
         
         let locationManager = locationManagerFactory.create()
         let currentLocationProvider = CurrentLocationProvider(locationManager: locationManager)

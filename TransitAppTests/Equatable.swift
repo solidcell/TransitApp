@@ -14,5 +14,4 @@ extension Handler : Equatable {
             return false
         }
     }
-    
 }

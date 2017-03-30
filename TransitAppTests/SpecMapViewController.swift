@@ -20,7 +20,6 @@ protocol SpecMapViewInterating {
     var mapAnnotations: [MKAnnotation] { get }
     var scooterAnnotations: [CoupMapAnnotation] { get }
     var currentLocationButtonState: CurrentLocationViewModel.ButtonState! { get }
-    var shownAlert: MapPresenter.Alert! { get }
     func scooterAnnotationView(for: MKAnnotation) -> CoupMapAnnotationView?
     func polygonRenderer(for overlay: MKOverlay) -> MKPolygonRenderer?
 }
@@ -30,8 +29,7 @@ class SpecMapViewController: MapViewController, SpecMapViewInterating {
     private(set) var userTrackingMode: MKUserTrackingMode!
     private(set) var mapRegion: MKCoordinateRegion?
     private(set) var currentLocationButtonState: CurrentLocationViewModel.ButtonState!
-    private(set) var shownAlert: MapPresenter.Alert!
-    
+
     var mapOverlays: [MKOverlay] {
         return mapView.overlays
     }
@@ -80,10 +78,6 @@ class SpecMapViewController: MapViewController, SpecMapViewInterating {
 
     override func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState) {
         currentLocationButtonState = state
-    }
-    
-    override func showAlert(_ alert: MapPresenter.Alert) {
-        shownAlert = alert
     }
 }
 

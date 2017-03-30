@@ -25,11 +25,13 @@ class TransitAppSpecSystem: SpecSystem {
                                                                 userLocation: userLocation,
                                                                 locationServices: locationServices,
                                                                 locationAuthorizationStatus: locationAuthorizationStatus)
+        let sharedApplication = SpecSharedApplication(system: self)
         let appDelegate = SpecAppDelegate(dialogManager: dialogManager,
                                           dateProvider: dateProvider,
                                           urlSession: urlSession,
-                                          locationManagerFactory: locationManagerFactory)
+                                          locationManagerFactory: locationManagerFactory,
+                                          sharedApplication: sharedApplication)
         return AppDelegateBundle(appDelegate: appDelegate,
-                                 temporarilyStrong: [dialogManager, urlSession, locationManagerFactory])
+                                 temporarilyStrong: [dialogManager, urlSession, locationManagerFactory, sharedApplication])
     }
 }

@@ -17,7 +17,9 @@ class TransitAppFeature: XCTestCase {
     var dateProvider: SpecDateProvider { return system.dateProvider }
     var dialogManager: SpecDialogManager { return system.dialogManager }
     var settingsApp: SpecSettingsApp { return system.settingsApp }
+    var location: SpecSystem.Location { return system.location }
     
     private var window: UIWindow { return system.appDelegate.window! }
-    var mapViewController: SpecMapViewController { return window.topmostViewController as! SpecMapViewController }
+    var mapViewController: SpecMapViewController! { return window.topmostViewController as? SpecMapViewController }
+    var alertController: UIAlertController! { return window.topmostViewController as? UIAlertController }
 }

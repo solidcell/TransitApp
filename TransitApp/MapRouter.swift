@@ -1,6 +1,4 @@
 import UIKit
-import CoreLocation
-import UIKitFringes
 
 class MapRouter {
     

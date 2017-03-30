@@ -9,15 +9,18 @@ class SpecAppDelegate: SpecApplicationDelegateProtocol {
     private weak var dateProvider: SpecDateProvider!
     private weak var urlSession: SpecURLSession!
     private weak var locationManagerFactory: SpecLocationManagerFactory!
+    private weak var sharedApplication: SpecSharedApplication!
     
     init(dialogManager: SpecDialogManager,
          dateProvider: SpecDateProvider,
          urlSession: SpecURLSession,
-         locationManagerFactory: SpecLocationManagerFactory) {
+         locationManagerFactory: SpecLocationManagerFactory,
+         sharedApplication: SpecSharedApplication) {
         self.dialogManager = dialogManager
         self.dateProvider = dateProvider
         self.urlSession = urlSession
         self.locationManagerFactory = locationManagerFactory
+        self.sharedApplication = sharedApplication
     }
 
     func applicationDidLaunch() {
@@ -29,7 +32,8 @@ class SpecAppDelegate: SpecApplicationDelegateProtocol {
                                             urlSession: urlSession,
                                             timerFactory: timerFactory,
                                             locationManagerFactory: locationManagerFactory,
-                                            dispatchHandler: dispatchHandler)
+                                            dispatchHandler: dispatchHandler,
+                                            sharedApplication: sharedApplication)
         appCoordinator.didFinishLaunching(withWindow: window)
     }
 }

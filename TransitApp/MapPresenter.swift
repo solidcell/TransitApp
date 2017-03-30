@@ -1,3 +1,4 @@
+import UIKitFringes
 import CoreLocation
 import MapKit
 
@@ -6,14 +7,17 @@ class MapPresenter {
     private let initialCoordinateRegion: MKCoordinateRegion
     private let mapOverlayProvider: MapOverlayProvider
     private let mapAnnotationProvider: MapAnnotationProvider
+    fileprivate let sharedApplication: ApplicationProtocol
     weak var viewController: MapViewController?
 
     init(initialCoordinateRegion: MKCoordinateRegion,
          mapOverlayProvider: MapOverlayProvider,
-         mapAnnotationProvider: MapAnnotationProvider) {
+         mapAnnotationProvider: MapAnnotationProvider,
+         sharedApplication: ApplicationProtocol) {
         self.initialCoordinateRegion = initialCoordinateRegion
         self.mapOverlayProvider = mapOverlayProvider
         self.mapAnnotationProvider = mapAnnotationProvider
+        self.sharedApplication = sharedApplication
         mapAnnotationProvider.delegate = self
     }
 
@@ -56,7 +60,23 @@ extension MapPresenter: CurrentLocationViewModelDelegate {
     }
 
     func showAlert(_ alert: MapPresenter.Alert) {
-        viewController?.showAlert(alert)
+        let alertController = UIAlertController(title: alert.title,
+                                                message: alert.message,
+                                                preferredStyle: .alert)
+        alert.actions.forEach { action in
+            let handler: ((UIAlertAction) -> Void)?
+            switch action.handler {
+            case .noop:
+                handler = nil
+            case .url(let url):
+                handler = { _ in _ = self.sharedApplication.openURL(url) }
+            }
+            let action = UIAlertAction(title: action.title,
+                                       style: action.style,
+                                       handler: handler)
+            alertController.addAction(action)
+        }
+        viewController?.present(alertController, animated: true, completion: nil)
     }
 }
 

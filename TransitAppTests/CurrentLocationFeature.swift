@@ -53,27 +53,38 @@ class CurrentLocationFeature: TransitAppFeature {
         tapAppIcon()
         mapViewController.tapCurrentLocationButton()
         dialogManager.tap(.dontAllow)
+        let mapVC = mapViewController!
         mapViewController.tapCurrentLocationButton()
 
-        XCTAssertEqual(mapViewController.currentLocationButtonState, .nonHighlighted)
+        XCTAssertEqual(mapVC.currentLocationButtonState, .nonHighlighted)
 
-        let alert = mapViewController.shownAlert!
-        XCTAssertEqual(alert.title, "Please give permission")
-        XCTAssertEqual(alert.message, "You have previously declined permission to use your location.")
+        XCTAssertEqual(alertController.title, "Please give permission")
+        XCTAssertEqual(alertController.message, "You have previously declined permission to use your location.")
 
-        XCTAssertEqual(alert.actions.count, 2)
-
-        let firstAction = alert.actions[0]
-        XCTAssertEqual(firstAction.title, "OK")
-        XCTAssertEqual(firstAction.style, UIAlertActionStyle.default)
-        let settingsURL = URL(string:UIApplicationOpenSettingsURLString)!
-        XCTAssertEqual(firstAction.handler, MapPresenter.Alert.Action.Handler.url(settingsURL))
-
-        let secondAction = alert.actions[1]
-        XCTAssertEqual(secondAction.title, "Cancel")
-        XCTAssertEqual(secondAction.style, UIAlertActionStyle.cancel)
-        XCTAssertEqual(secondAction.handler, MapPresenter.Alert.Action.Handler.noop)
+        XCTAssertEqual(alertController.actions.count, 2)
     }
+
+    func testTappingOnTheArrowWhenPermissionWasAlreadyDeniedAndTappingOK() {
+        testTappingOnTheArrowWhenPermissionWasAlreadyDenied()
+
+        let firstAction = alertController.actions[0]
+        XCTAssertEqual(firstAction.title, "OK")
+        XCTAssertEqual(firstAction.style, .default)
+        alertController.tapAction(at: 0)
+        XCTAssertEqual(location, .settings)
+        XCTAssertNotNil(mapViewController)
+    }
+    
+    func testTappingOnTheArrowWhenPermissionWasAlreadyDeniedAndTappingCancel() {
+        testTappingOnTheArrowWhenPermissionWasAlreadyDenied()
+
+        let secondAction = alertController.actions[1]
+        XCTAssertEqual(secondAction.title, "Cancel")
+        XCTAssertEqual(secondAction.style, .cancel)
+        alertController.tapAction(at: 1)
+        XCTAssertNotNil(mapViewController)
+    }
+
 
     func testTappingOnTheArrowWhenFollowingCurrentLocation() {
         tapAppIcon()
