@@ -8,9 +8,9 @@ class RootRouter {
         self.mapRouterFactory = mapRouterFactory
     }
 
-    func start(window: UIWindow) {
+    var viewController: UIViewController {
         let mapRouter = mapRouterFactory.create()
-        mapRouter.start(window: window)
+        return mapRouter.viewController
     }
 }
 

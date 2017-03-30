@@ -8,9 +8,8 @@ class MapRouter {
         self.mapModuleFactory = mapModuleFactory
     }
 
-    func start(window: UIWindow) {
-        let viewController = mapModuleFactory.create()
-        window.rootViewController = viewController
+    var viewController: UIViewController {
+        return mapModuleFactory.create()
     }
 }
 

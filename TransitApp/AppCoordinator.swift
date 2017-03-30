@@ -25,6 +25,6 @@ class AppCoordinator {
 
     func didFinishLaunching(withWindow window: UIWindow) {
         let rootRouter = rootRouterFactory.create()
-        rootRouter.start(window: window)
+        window.rootViewController = rootRouter.viewController
     }
 }
