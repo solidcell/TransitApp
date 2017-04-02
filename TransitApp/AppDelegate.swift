@@ -19,13 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let locationManagerFactory = CLLocationManagerFactory()
         let dispatchHandler = DispatchHandler()
         let sharedApplication = UIApplication.shared
+        let userDefaults = UserDefaults.standard
         let coordinator = AppCoordinator(mapViewControllerFactory: mapViewControllerFactory,
                                          onboardingViewControllerFactory: onboardingViewControllerFactory,
                                          urlSession: urlSession,
                                          timerFactory: timerFactory,
                                          locationManagerFactory: locationManagerFactory,
                                          dispatchHandler: dispatchHandler,
-                                         sharedApplication: sharedApplication)
+                                         sharedApplication: sharedApplication,
+                                         userDefaults: userDefaults)
         coordinator.didFinishLaunching(withWindow: window)
         
         window.makeKeyAndVisible()

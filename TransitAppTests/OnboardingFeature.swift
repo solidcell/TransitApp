@@ -12,4 +12,11 @@ class OnboardingFeature: TransitAppFeature {
         onboardingUI.tapSkip()
         XCTAssertNotNil(mapUI)
     }
+
+    func testSecondLaunch() {
+        tapAppIcon()
+        forceKillApp()
+        tapAppIcon()
+        XCTAssertNotNil(mapUI)
+    }
 }

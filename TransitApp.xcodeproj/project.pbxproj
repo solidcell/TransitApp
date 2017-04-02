@@ -43,6 +43,7 @@
 		882D6E7D1E9101E100A12BB7 /* OnboardingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882D6E7C1E9101E100A12BB7 /* OnboardingViewController.storyboard */; };
 		882D6E811E91027600A12BB7 /* OnboardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D6E801E91027600A12BB7 /* OnboardingInteractor.swift */; };
 		882D6E841E9103B500A12BB7 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D6E831E9103B500A12BB7 /* OnboardingPresenter.swift */; };
+		882D6E8C1E9120CF00A12BB7 /* OnboardingExperience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D6E8B1E9120CF00A12BB7 /* OnboardingExperience.swift */; };
 		883BC38A1E6C465C00B2D7DB /* MKMultiPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3891E6C465C00B2D7DB /* MKMultiPoint.swift */; };
 		883BC3C31E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C21E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift */; };
 		883BC3C51E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C41E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift */; };
@@ -125,6 +126,7 @@
 		882D6E7C1E9101E100A12BB7 /* OnboardingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnboardingViewController.storyboard; sourceTree = "<group>"; };
 		882D6E801E91027600A12BB7 /* OnboardingInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInteractor.swift; sourceTree = "<group>"; };
 		882D6E831E9103B500A12BB7 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		882D6E8B1E9120CF00A12BB7 /* OnboardingExperience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingExperience.swift; sourceTree = "<group>"; };
 		883BC3891E6C465C00B2D7DB /* MKMultiPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMultiPoint.swift; sourceTree = "<group>"; };
 		883BC3C21E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateSpan+Equatable.swift"; sourceTree = "<group>"; };
 		883BC3C41E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 			children = (
 				882D6E761E90FDCD00A12BB7 /* OnboardingRouter.swift */,
 				882D6E781E90FE3B00A12BB7 /* OnboardingModuleFactory.swift */,
+				882D6E8B1E9120CF00A12BB7 /* OnboardingExperience.swift */,
 				882D6E7F1E91026900A12BB7 /* Interactor */,
 				882D6E821E9103A800A12BB7 /* Presenter */,
 				882D6E7E1E91025A00A12BB7 /* ViewController */,
@@ -664,6 +667,7 @@
 				8807409D1E1E6A1200CECDDF /* RoundButtonStyler.swift in Sources */,
 				880A05831E10353700CFAFF4 /* MapViewControllerFactory.swift in Sources */,
 				882D6E811E91027600A12BB7 /* OnboardingInteractor.swift in Sources */,
+				882D6E8C1E9120CF00A12BB7 /* OnboardingExperience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

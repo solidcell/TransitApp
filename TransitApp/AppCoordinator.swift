@@ -12,7 +12,8 @@ class AppCoordinator {
          timerFactory: TimerFactoryProtocol,
          locationManagerFactory: LocationManagingFactoryProtocol,
          dispatchHandler: DispatchHandling,
-         sharedApplication: ApplicationProtocol) {
+         sharedApplication: ApplicationProtocol,
+         userDefaults: UserDefaulting) {
         let jsonFetcherFactory = JSONFetcherFactory(urlSession: urlSession)
         let mapModuleFactory = MapModuleFactory(viewFactory: mapViewControllerFactory,
                                                 jsonFetcherFactory: jsonFetcherFactory,
@@ -24,7 +25,8 @@ class AppCoordinator {
         let onboardingModuleFactory = OnboardingModuleFactory(viewControllerFactory: onboardingViewControllerFactory)
         let onboardingRouterFactory = OnboardingRouterFactory(onboardingModuleFactory: onboardingModuleFactory)
         self.rootRouterFactory = RootRouterFactory(mapRouterFactory: mapRouterFactory,
-                                                   onboardingRouterFactory: onboardingRouterFactory)
+                                                   onboardingRouterFactory: onboardingRouterFactory,
+                                                   userDefaults: userDefaults)
     }
 
     func didFinishLaunching(withWindow window: UIWindow) {

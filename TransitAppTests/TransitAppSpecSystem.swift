@@ -7,6 +7,7 @@ class TransitAppSpecSystem: SpecSystem {
     let dateProvider = SpecDateProvider()
     let userLocation = SpecUserLocation()
     let locationAuthorizationStatus = SpecLocationAuthorizationStatus()
+    let userDefaults = SpecUserDefaults()
     
     weak var urlSession: SpecURLSession!
     weak var dialogManager: SpecDialogManager!
@@ -30,7 +31,8 @@ class TransitAppSpecSystem: SpecSystem {
                                           dateProvider: dateProvider,
                                           urlSession: urlSession,
                                           locationManagerFactory: locationManagerFactory,
-                                          sharedApplication: sharedApplication)
+                                          sharedApplication: sharedApplication,
+                                          userDefaults: userDefaults)
         return AppDelegateBundle(appDelegate: appDelegate,
                                  temporarilyStrong: [dialogManager, urlSession, locationManagerFactory, sharedApplication])
     }

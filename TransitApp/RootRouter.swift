@@ -1,19 +1,28 @@
 import UIKit
+import UIKitFringes
 
 class RootRouter {
 
     private let mapRouterFactory: MapRouterFactory
     private let onboardingRouterFactory: OnboardingRouterFactory
+    private let onboardingExperience: OnboardingExperience
 
     init(mapRouterFactory: MapRouterFactory,
-         onboardingRouterFactory: OnboardingRouterFactory) {
+         onboardingRouterFactory: OnboardingRouterFactory,
+         onboardingExperience: OnboardingExperience) {
         self.mapRouterFactory = mapRouterFactory
         self.onboardingRouterFactory = onboardingRouterFactory
+        self.onboardingExperience = onboardingExperience
     }
 
     var viewController: UIViewController {
-        let onboardingRouter = onboardingRouterFactory.create(rootRouter: self)
-        return onboardingRouter.viewController
+        if onboardingExperience.experience {
+            let onboardingRouter = onboardingRouterFactory.create(rootRouter: self)
+            return onboardingRouter.viewController
+        } else {
+            let mapRouter = mapRouterFactory.create()
+            return mapRouter.viewController
+        }
     }
 
     func presentMap(on presenter: UIViewController) {
@@ -27,15 +36,20 @@ class RootRouterFactory {
     
     private let mapRouterFactory: MapRouterFactory
     private let onboardingRouterFactory: OnboardingRouterFactory
+    private let userDefaults: UserDefaulting
     
     init(mapRouterFactory: MapRouterFactory,
-         onboardingRouterFactory: OnboardingRouterFactory) {
+         onboardingRouterFactory: OnboardingRouterFactory,
+         userDefaults: UserDefaulting) {
         self.mapRouterFactory = mapRouterFactory
         self.onboardingRouterFactory = onboardingRouterFactory
+        self.userDefaults = userDefaults
     }
 
     func create() -> RootRouter {
+        let onboardingExperience = OnboardingExperience(userDefaults: userDefaults)
         return RootRouter(mapRouterFactory: mapRouterFactory,
-                          onboardingRouterFactory: onboardingRouterFactory)
+                          onboardingRouterFactory: onboardingRouterFactory,
+                          onboardingExperience: onboardingExperience)
     }
 }
