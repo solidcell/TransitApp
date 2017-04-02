@@ -22,10 +22,6 @@ class CurrentLocationViewModel {
         self.provider.delegate = self
     }
 
-    func tapCurrentLocationButton() {
-        toggleUserTrackingMode()
-    }
-
     private func notifyDelegateOfUserTrackingMode() {
         delegate.setUserTracking(mode: userTrackingMode)
     }
@@ -34,27 +30,36 @@ class CurrentLocationViewModel {
         delegate.setCurrentLocationButtonState(buttonState)
     }
 
-    fileprivate var wantingToTurnTrackingOn = false
+    enum TrackingState {
+        case off
+        case wantingOn
+        case on
+    }
 
-    private func toggleUserTrackingMode() {
+    fileprivate var trackingState = TrackingState.off {
+        didSet {
+            userTrackingMode = trackingState == .on ? .follow : .none
+            buttonState = [.wantingOn, .on].contains(trackingState) ? .highlighted : .nonHighlighted
+        }
+    }
+
+    func tapCurrentLocationButton() {
         switch userTrackingMode {
         case .none:
             if !provider.locationServicesEnabled {
+                trackingState = .wantingOn
                 provider.authorize()
-                return
-            }
-            else if provider.authorizationDenied {
+            } else if provider.authorizationDenied {
+                trackingState = .wantingOn
                 showPreviouslyDeniedAlert()
             } else if provider.authorized {
-                userTrackingMode = .follow
+                trackingState = .on
             } else {
-                wantingToTurnTrackingOn = true
+                trackingState = .wantingOn
                 provider.authorize()
             }
-            buttonState = .highlighted
         default:
-            userTrackingMode = .none
-            buttonState = .nonHighlighted
+            trackingState = .off
         }
     }
 
@@ -94,9 +99,8 @@ protocol CurrentLocationProviderDelegate: class {
 extension CurrentLocationViewModel: CurrentLocationProviderDelegate {
 
     func authorizationTurnedOn() {
-        if wantingToTurnTrackingOn {
-            userTrackingMode = .follow
-            buttonState = .highlighted
+        if trackingState == .wantingOn {
+            trackingState = .on
         }
         delegate?.setShowCurrentLocation(true)
     }

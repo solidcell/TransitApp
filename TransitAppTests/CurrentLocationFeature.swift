@@ -93,6 +93,7 @@ class CurrentLocationFeature: TransitAppFeature {
         switchBackToApp()
         XCTAssertEqual(mapUI.currentLocationButtonState, .highlighted)
         XCTAssertEqual(mapUI.userTrackingMode, MKUserTrackingMode.follow)
+        XCTAssertTrue(mapUI.showCurrentLocation)
     }
     
     func testTappingOnTheArrowWhenPermissionWasAlreadyDeniedAndTappingCancel() {
