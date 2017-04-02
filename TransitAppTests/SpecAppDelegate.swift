@@ -27,8 +27,10 @@ class SpecAppDelegate: SpecApplicationDelegateProtocol {
         window = UIWindow()
         let timerFactory = SpecTimerFactory(dateProvider: dateProvider)
         let mapViewControllerFactory = SpecMapViewFactory()
+        let onboardingViewControllerFactory = SpecOnboardingViewControllerFactory()
         let dispatchHandler = SpecDispatchHandler(dateProvider: dateProvider)
         let appCoordinator = AppCoordinator(mapViewControllerFactory: mapViewControllerFactory,
+                                            onboardingViewControllerFactory: onboardingViewControllerFactory,
                                             urlSession: urlSession,
                                             timerFactory: timerFactory,
                                             locationManagerFactory: locationManagerFactory,

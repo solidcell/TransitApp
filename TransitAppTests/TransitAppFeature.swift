@@ -12,6 +12,11 @@ class TransitAppFeature: XCTestCase {
     }
     
     func tapAppIcon() { system.tapAppIcon() }
+    
+    func tapAppIconAndSkipToMap() {
+        tapAppIcon()
+        onboardingUI.tapSkip()
+    }
 
     var urlSession: SpecURLSession { return system.urlSession }
     var dateProvider: SpecDateProvider { return system.dateProvider }
@@ -20,6 +25,8 @@ class TransitAppFeature: XCTestCase {
     var location: SpecSystem.Location { return system.location }
     
     private var window: UIWindow { return system.appDelegate.window! }
-    var mapUI: MapUI! { return window.topmostViewController as? MapUI }
-    var alertUI: UIAlertController! { return window.topmostViewController as? UIAlertController }
+    private var topmostViewController: UIViewController? { return window.topmostViewController }
+    var onboardingUI: OnboardingUI! { return topmostViewController as? OnboardingUI }
+    var mapUI: MapUI! { return topmostViewController as? MapUI }
+    var alertUI: UIAlertController! { return topmostViewController as? UIAlertController }
 }

@@ -13,12 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         
         let mapViewControllerFactory = MapViewControllerFactory()
+        let onboardingViewControllerFactory = OnboardingViewControllerFactory()
         let urlSession = URLSession(configuration: .default)
         let timerFactory = TimerFactory()
         let locationManagerFactory = CLLocationManagerFactory()
         let dispatchHandler = DispatchHandler()
         let sharedApplication = UIApplication.shared
         let coordinator = AppCoordinator(mapViewControllerFactory: mapViewControllerFactory,
+                                         onboardingViewControllerFactory: onboardingViewControllerFactory,
                                          urlSession: urlSession,
                                          timerFactory: timerFactory,
                                          locationManagerFactory: locationManagerFactory,

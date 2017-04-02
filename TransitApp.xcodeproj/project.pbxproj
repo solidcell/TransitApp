@@ -32,9 +32,17 @@
 		8820040F1E831907005F43C9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820040C1E831907005F43C9 /* UIViewController.swift */; };
 		882004101E831907005F43C9 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820040D1E831907005F43C9 /* UIWindow.swift */; };
 		882004281E8D826E005F43C9 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882004271E8D826E005F43C9 /* RootRouter.swift */; };
+		8820042A1E8D8908005F43C9 /* OnboardingFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882004291E8D8908005F43C9 /* OnboardingFeature.swift */; };
+		8820042C1E8D8BFC005F43C9 /* SpecOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820042B1E8D8BFC005F43C9 /* SpecOnboardingViewController.swift */; };
 		8825321D1E152189007824BC /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8825321C1E152189007824BC /* Equatable.swift */; };
 		8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E1351DC0BD4300E06654 /* JSONParser.swift */; };
 		8827E14F1DC0FD1500E06654 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8827E14E1DC0FD1500E06654 /* main.swift */; };
+		882D6E771E90FDCD00A12BB7 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D6E761E90FDCD00A12BB7 /* OnboardingRouter.swift */; };
+		882D6E791E90FE3B00A12BB7 /* OnboardingModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D6E781E90FE3B00A12BB7 /* OnboardingModuleFactory.swift */; };
+		882D6E7B1E90FFCB00A12BB7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D6E7A1E90FFCB00A12BB7 /* OnboardingViewController.swift */; };
+		882D6E7D1E9101E100A12BB7 /* OnboardingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 882D6E7C1E9101E100A12BB7 /* OnboardingViewController.storyboard */; };
+		882D6E811E91027600A12BB7 /* OnboardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D6E801E91027600A12BB7 /* OnboardingInteractor.swift */; };
+		882D6E841E9103B500A12BB7 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D6E831E9103B500A12BB7 /* OnboardingPresenter.swift */; };
 		883BC38A1E6C465C00B2D7DB /* MKMultiPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3891E6C465C00B2D7DB /* MKMultiPoint.swift */; };
 		883BC3C31E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C21E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift */; };
 		883BC3C51E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883BC3C41E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift */; };
@@ -105,10 +113,18 @@
 		8820040C1E831907005F43C9 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		8820040D1E831907005F43C9 /* UIWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		882004271E8D826E005F43C9 /* RootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		882004291E8D8908005F43C9 /* OnboardingFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFeature.swift; sourceTree = "<group>"; };
+		8820042B1E8D8BFC005F43C9 /* SpecOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecOnboardingViewController.swift; sourceTree = "<group>"; };
 		8825321C1E152189007824BC /* Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		8827E1321DC0BC9900E06654 /* TransitAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransitAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		8827E1351DC0BD4300E06654 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		8827E14E1DC0FD1500E06654 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		882D6E761E90FDCD00A12BB7 /* OnboardingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
+		882D6E781E90FE3B00A12BB7 /* OnboardingModuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingModuleFactory.swift; sourceTree = "<group>"; };
+		882D6E7A1E90FFCB00A12BB7 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		882D6E7C1E9101E100A12BB7 /* OnboardingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnboardingViewController.storyboard; sourceTree = "<group>"; };
+		882D6E801E91027600A12BB7 /* OnboardingInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingInteractor.swift; sourceTree = "<group>"; };
+		882D6E831E9103B500A12BB7 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		883BC3891E6C465C00B2D7DB /* MKMultiPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMultiPoint.swift; sourceTree = "<group>"; };
 		883BC3C21E740B6C00B2D7DB /* MKCoordinateSpan+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateSpan+Equatable.swift"; sourceTree = "<group>"; };
 		883BC3C41E740D6400B2D7DB /* MKCoordinateRegion+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Equatable.swift"; sourceTree = "<group>"; };
@@ -181,6 +197,7 @@
 		880A05761E0FF1DA00CFAFF4 /* Integration */ = {
 			isa = PBXGroup;
 			children = (
+				882004291E8D8908005F43C9 /* OnboardingFeature.swift */,
 				880A05AE1E127B4D00CFAFF4 /* CurrentLocationFeature.swift */,
 				880A05B01E127B7B00CFAFF4 /* MapAnnotationFeature.swift */,
 				880A05AA1E127AE200CFAFF4 /* MapRegionFeature.swift */,
@@ -193,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				880A05801E10330A00CFAFF4 /* SpecMapViewController.swift */,
+				8820042B1E8D8BFC005F43C9 /* SpecOnboardingViewController.swift */,
 				886475A31E198D7300A1F94F /* SpecMKMapView.swift */,
 			);
 			name = Fakes;
@@ -280,6 +298,52 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		882D6E731E90FDA800A12BB7 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				882D6E761E90FDCD00A12BB7 /* OnboardingRouter.swift */,
+				882D6E781E90FE3B00A12BB7 /* OnboardingModuleFactory.swift */,
+				882D6E7F1E91026900A12BB7 /* Interactor */,
+				882D6E821E9103A800A12BB7 /* Presenter */,
+				882D6E7E1E91025A00A12BB7 /* ViewController */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		882D6E751E90FDBE00A12BB7 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				882D6E731E90FDA800A12BB7 /* Onboarding */,
+				887DBEDA1DC75AA500D92E19 /* Map */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		882D6E7E1E91025A00A12BB7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				882D6E7A1E90FFCB00A12BB7 /* OnboardingViewController.swift */,
+				882D6E7C1E9101E100A12BB7 /* OnboardingViewController.storyboard */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		882D6E7F1E91026900A12BB7 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				882D6E801E91027600A12BB7 /* OnboardingInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		882D6E821E9103A800A12BB7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				882D6E831E9103B500A12BB7 /* OnboardingPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
 		883BC3C81E74A05300B2D7DB /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,7 +373,7 @@
 			name = Presenter;
 			sourceTree = "<group>";
 		};
-		887DBEDA1DC75AA500D92E19 /* Map Module */ = {
+		887DBEDA1DC75AA500D92E19 /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				887DBEDB1DC75AD300D92E19 /* MapRouter.swift */,
@@ -324,7 +388,7 @@
 				8884CE2B1DC53817004365B3 /* MapAnnotationViews */,
 				8884CE451DC619B6004365B3 /* MapOverlays */,
 			);
-			name = "Map Module";
+			name = Map;
 			sourceTree = "<group>";
 		};
 		887DBEEE1DC8B83700D92E19 /* JSONFetching */ = {
@@ -386,8 +450,8 @@
 			isa = PBXGroup;
 			children = (
 				880EB0621DC338BC00C5830E /* Main */,
+				882D6E751E90FDBE00A12BB7 /* Modules */,
 				8827E13D1DC0CC1E00E06654 /* Models */,
-				887DBEDA1DC75AA500D92E19 /* Map Module */,
 				887DBEEE1DC8B83700D92E19 /* JSONFetching */,
 				8827E13A1DC0CBDA00E06654 /* JSONParsing */,
 				8827E12B1DC0B77F00E06654 /* SeedData */,
@@ -507,6 +571,7 @@
 				88DF69431DBF905F00FE11F0 /* LaunchScreen.storyboard in Resources */,
 				88DF69401DBF905F00FE11F0 /* Assets.xcassets in Resources */,
 				880EB0751DC37E6A00C5830E /* CoupBusinessAreasData.json in Resources */,
+				882D6E7D1E9101E100A12BB7 /* OnboardingViewController.storyboard in Resources */,
 				887DBEE01DC75CED00D92E19 /* MapViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,11 +625,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				88A303031DD082310054A1CE /* Equatable.swift in Sources */,
+				882D6E771E90FDCD00A12BB7 /* OnboardingRouter.swift in Sources */,
 				8884CE281DC52F63004365B3 /* CoupMapAnnotation.swift in Sources */,
 				8884CE441DC6167A004365B3 /* MapOverlayProvider.swift in Sources */,
 				880EB08C1DC3994E00C5830E /* ScooterParser.swift in Sources */,
 				880EB0931DC3A20200C5830E /* MapAnnotationProvider.swift in Sources */,
 				8884CE2E1DC5386E004365B3 /* CoupMapAnnotationViewCreator.swift in Sources */,
+				882D6E841E9103B500A12BB7 /* OnboardingPresenter.swift in Sources */,
 				887DBEDE1DC75B3E00D92E19 /* MapViewController.swift in Sources */,
 				8884CE301DC5EF52004365B3 /* CoupMapAnnotationView.swift in Sources */,
 				887DBEF91DC8D9BA00D92E19 /* ScooterUpdater.swift in Sources */,
@@ -581,12 +648,14 @@
 				887DBED41DC62A8500D92E19 /* UIColor.swift in Sources */,
 				880A05741E0FEEE600CFAFF4 /* AppCoordinator.swift in Sources */,
 				887DBEDC1DC75AD300D92E19 /* MapRouter.swift in Sources */,
+				882D6E7B1E90FFCB00A12BB7 /* OnboardingViewController.swift in Sources */,
 				8827E14F1DC0FD1500E06654 /* main.swift in Sources */,
 				887DBEED1DC8B82D00D92E19 /* JSONFetcher.swift in Sources */,
 				883BC3CA1E74A06A00B2D7DB /* MapInteractor.swift in Sources */,
 				880EB06F1DC36E1A00C5830E /* MapRegionProvider.swift in Sources */,
 				889705B11DCC9F7300D8D8DF /* CurrentLocationProvider.swift in Sources */,
 				8827E1361DC0BD4300E06654 /* JSONParser.swift in Sources */,
+				882D6E791E90FE3B00A12BB7 /* OnboardingModuleFactory.swift in Sources */,
 				8884CE3A1DC60CC7004365B3 /* BusinessArea.swift in Sources */,
 				880EB06C1DC363D700C5830E /* CLLocationCoordinate2D.swift in Sources */,
 				88DF69391DBF905F00FE11F0 /* AppDelegate.swift in Sources */,
@@ -594,6 +663,7 @@
 				887DBEF51DC8CDC700D92E19 /* ScooterFetcher.swift in Sources */,
 				8807409D1E1E6A1200CECDDF /* RoundButtonStyler.swift in Sources */,
 				880A05831E10353700CFAFF4 /* MapViewControllerFactory.swift in Sources */,
+				882D6E811E91027600A12BB7 /* OnboardingInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +673,7 @@
 			files = (
 				880A05811E10330A00CFAFF4 /* SpecMapViewController.swift in Sources */,
 				880A05AD1E127B2300CFAFF4 /* MapOverlayFeature.swift in Sources */,
+				8820042C1E8D8BFC005F43C9 /* SpecOnboardingViewController.swift in Sources */,
 				883BC3CE1E754ADD00B2D7DB /* SpecAppDelegate.swift in Sources */,
 				880A05A91E1278DE00CFAFF4 /* TransitAppFeature.swift in Sources */,
 				880A05AF1E127B4D00CFAFF4 /* CurrentLocationFeature.swift in Sources */,
@@ -613,6 +684,7 @@
 				882004101E831907005F43C9 /* UIWindow.swift in Sources */,
 				880A05B11E127B7B00CFAFF4 /* MapAnnotationFeature.swift in Sources */,
 				8820040E1E831907005F43C9 /* UINavigationController.swift in Sources */,
+				8820042A1E8D8908005F43C9 /* OnboardingFeature.swift in Sources */,
 				8825321D1E152189007824BC /* Equatable.swift in Sources */,
 				880A05AB1E127AE200CFAFF4 /* MapRegionFeature.swift in Sources */,
 				8864759D1E17DEEE00A1F94F /* CustomStringConvertible.swift in Sources */,

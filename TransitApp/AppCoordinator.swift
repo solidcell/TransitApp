@@ -7,6 +7,7 @@ class AppCoordinator {
     private let rootRouterFactory: RootRouterFactory
 
     init(mapViewControllerFactory: MapViewControllerFactoryProtocol,
+         onboardingViewControllerFactory: OnboardingViewControllerFactoryProtocol,
          urlSession: URLSessionProtocol,
          timerFactory: TimerFactoryProtocol,
          locationManagerFactory: LocationManagingFactoryProtocol,
@@ -20,7 +21,10 @@ class AppCoordinator {
                                                 dispatchHandler: dispatchHandler,
                                                 sharedApplication: sharedApplication)
         let mapRouterFactory = MapRouterFactory(mapModuleFactory: mapModuleFactory)
-        self.rootRouterFactory = RootRouterFactory(mapRouterFactory: mapRouterFactory)
+        let onboardingModuleFactory = OnboardingModuleFactory(viewControllerFactory: onboardingViewControllerFactory)
+        let onboardingRouterFactory = OnboardingRouterFactory(onboardingModuleFactory: onboardingModuleFactory)
+        self.rootRouterFactory = RootRouterFactory(mapRouterFactory: mapRouterFactory,
+                                                   onboardingRouterFactory: onboardingRouterFactory)
     }
 
     func didFinishLaunching(withWindow window: UIWindow) {

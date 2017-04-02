@@ -5,7 +5,7 @@ import CoreLocation
 class MapOverlayFeature: TransitAppFeature {
 
     func testIsSeeded() {
-        tapAppIcon()
+        tapAppIconAndSkipToMap()
         XCTAssertEqual(mapUI.businessAreaOverlays.count, 3)
         let first = mapUI.businessAreaOverlays.first!
         let coordinates = first.coordinates
