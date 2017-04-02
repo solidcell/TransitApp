@@ -40,6 +40,7 @@ class MapPresenter {
             enum Handler {
                 case noop
                 case url(URL)
+                case custom(() -> Void)
             }
         }
     }
@@ -68,6 +69,8 @@ extension MapPresenter: CurrentLocationViewModelDelegate {
             switch action.handler {
             case .noop:
                 handler = nil
+            case .custom(let block):
+                handler = { _ in block() }
             case .url(let url):
                 handler = { _ in _ = self.sharedApplication.openURL(url) }
             }

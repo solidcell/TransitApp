@@ -13,12 +13,17 @@ class TransitAppFeature: XCTestCase {
     
     func tapAppIcon() { system.tapAppIcon() }
     func doubleTapHomeButton() { system.doubleTapHomeButton() }
+    func tapAppScreenshot() { system.tapAppScreenshot() }
     func swipeUpAppScreenshot() { system.swipeUpAppScreenshot() }
     func tapHomeButton() { system.tapHomeButton() }
     func forceKillApp() {
         doubleTapHomeButton()
         swipeUpAppScreenshot()
         tapHomeButton()
+    }
+    func switchBackToApp() {
+        doubleTapHomeButton()
+        tapAppScreenshot()
     }
     
     func tapAppIconAndSkipToMap() {

@@ -45,9 +45,7 @@ class CurrentLocationViewModel {
             }
             else if provider.authorizationDenied {
                 showPreviouslyDeniedAlert()
-                return
-            }
-            if provider.authorized {
+            } else if provider.authorized {
                 userTrackingMode = .follow
             } else {
                 wantingToTurnTrackingOn = true
@@ -71,7 +69,9 @@ class CurrentLocationViewModel {
                                           handler: .url(url)),
                 MapPresenter.Alert.Action(title: "Cancel",
                                           style: .cancel,
-                                          handler: .noop)
+                                          handler: .custom({ [weak self] in
+                                            self?.buttonState = .nonHighlighted
+                                          }))
             ])
         delegate.showAlert(alert)
     }

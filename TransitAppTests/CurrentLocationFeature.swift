@@ -56,12 +56,20 @@ class CurrentLocationFeature: TransitAppFeature {
         let mapVC = mapUI!
         mapUI.tapCurrentLocationButton()
 
-        XCTAssertEqual(mapVC.currentLocationButtonState, .nonHighlighted)
+        XCTAssertEqual(mapVC.currentLocationButtonState, .highlighted)
 
         XCTAssertEqual(alertUI.title, "Please give permission")
         XCTAssertEqual(alertUI.message, "You have previously declined permission to use your location.")
 
         XCTAssertEqual(alertUI.actions.count, 2)
+
+        let firstAction = alertUI.actions[0]
+        XCTAssertEqual(firstAction.title, "OK")
+        XCTAssertEqual(firstAction.style, .default)
+
+        let secondAction = alertUI.actions[1]
+        XCTAssertEqual(secondAction.title, "Cancel")
+        XCTAssertEqual(secondAction.style, .cancel)
     }
 
     func testTappingOnTheArrowWhenPermissionWasAlreadyDeniedAndTappingOK() {
@@ -69,10 +77,22 @@ class CurrentLocationFeature: TransitAppFeature {
 
         let firstAction = alertUI.actions[0]
         XCTAssertEqual(firstAction.title, "OK")
-        XCTAssertEqual(firstAction.style, .default)
+        // TODO remove the above checks and allow a tap to be specified by action title instead of index
+        // do the same for the other test below
         alertUI.tapAction(at: 0)
+        XCTAssertEqual(mapUI.currentLocationButtonState, .highlighted)
         XCTAssertEqual(location, .settings)
         XCTAssertNotNil(mapUI)
+    }
+
+    func testTappingOnTheArrowWhenPermissionWasAlreadyDeniedAndReenablingPermission() {
+        testTappingOnTheArrowWhenPermissionWasAlreadyDeniedAndTappingOK()
+
+        // TODO checks to holistikit to ensure user is in settingsApp if trying to interact with it
+        settingsApp.set(authorizationStatus: .authorizedWhenInUse)
+        switchBackToApp()
+        XCTAssertEqual(mapUI.currentLocationButtonState, .highlighted)
+        XCTAssertEqual(mapUI.userTrackingMode, MKUserTrackingMode.follow)
     }
     
     func testTappingOnTheArrowWhenPermissionWasAlreadyDeniedAndTappingCancel() {
@@ -80,9 +100,9 @@ class CurrentLocationFeature: TransitAppFeature {
 
         let secondAction = alertUI.actions[1]
         XCTAssertEqual(secondAction.title, "Cancel")
-        XCTAssertEqual(secondAction.style, .cancel)
         alertUI.tapAction(at: 1)
-        XCTAssertNotNil(mapUI)
+        XCTAssertEqual(mapUI.currentLocationButtonState, .nonHighlighted)
+        XCTAssertEqual(mapUI.userTrackingMode, MKUserTrackingMode.none)
     }
 
     func testTappingOnTheArrowWhenFollowingCurrentLocation() {
