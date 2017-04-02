@@ -9,12 +9,6 @@ class CurrentLocationViewModel {
             notifyDelegateOfButtonState()
         }
     }
-    fileprivate var userTrackingMode: MKUserTrackingMode = .none {
-        didSet { notifyDelegateOfUserTrackingMode() }
-    }
-    fileprivate var buttonState: ButtonState = .nonHighlighted {
-        didSet { notifyDelegateOfButtonState() }
-    }
     private let provider: CurrentLocationProvider
 
     init(provider: CurrentLocationProvider) {
@@ -30,10 +24,18 @@ class CurrentLocationViewModel {
         delegate.setCurrentLocationButtonState(buttonState)
     }
 
-    enum TrackingState {
+    fileprivate enum TrackingState {
         case off
         case wantingOn
         case on
+    }
+    
+    fileprivate var userTrackingMode: MKUserTrackingMode = .none {
+        didSet { notifyDelegateOfUserTrackingMode() }
+    }
+    
+    fileprivate var buttonState: ButtonState = .nonHighlighted {
+        didSet { notifyDelegateOfButtonState() }
     }
 
     fileprivate var trackingState = TrackingState.off {
@@ -118,12 +120,4 @@ extension CurrentLocationViewModel: UserTrackingModeDelegate {
         userTrackingMode = mode
         buttonState = mode == .none ? .nonHighlighted : .highlighted
     }
-}
-
-protocol CurrentLocationViewModelDelegate: class {
-    
-    func setUserTracking(mode: MKUserTrackingMode)
-    func setShowCurrentLocation(_ enabled: Bool)
-    func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
-    func showAlert(_ alert: MapPresenter.Alert)
 }

@@ -94,3 +94,11 @@ extension MapPresenter : MapAnnotationReceiving {
         viewController?.add(annotations: annotations)
     }
 }
+
+protocol CurrentLocationViewModelDelegate: class {
+    
+    func setUserTracking(mode: MKUserTrackingMode)
+    func setShowCurrentLocation(_ enabled: Bool)
+    func setCurrentLocationButtonState(_ state: CurrentLocationViewModel.ButtonState)
+    func showAlert(_ alert: MapPresenter.Alert)
+}
