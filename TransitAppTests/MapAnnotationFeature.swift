@@ -1,5 +1,6 @@
 import XCTest
 import CoreLocation
+import SpecUIKitFringes
 
 class MapAnnotationFeature: TransitAppFeature {
 
@@ -10,7 +11,8 @@ class MapAnnotationFeature: TransitAppFeature {
                                       mimeType: "application/json",
                                       expectedContentLength: data.count,
                                       textEncodingName: nil)
-        urlSession.respond(to: urlString, with: .success(data, urlResponse))
+        urlSession.respond(to: SpecURLRequestIdentifier(url: urlString, method: .get),
+                           with: (data, urlResponse, nil))
     }
 
     func testWhenScootersAreAddedOverTheNetwork() {

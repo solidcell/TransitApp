@@ -24,7 +24,8 @@ class JSONFetcher {
 
     func fetch(url urlString: String, completion: @escaping (Any) -> Void) {
         let url = URL(string: urlString)!
-        let task = urlSession.urlDataTask(with: url) { (data, urlResponse, error) in
+        let urlRequest = URLRequest(url: url)
+        let task = urlSession.dataTask(with: urlRequest) { (data, urlResponse, error) in
             let json = try! JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [String : Any]
             completion(json)
         }
